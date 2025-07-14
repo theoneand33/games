@@ -1,6 +1,7 @@
 ---
 const pageTitle = "Unblocked games";
 ---
+import SearchBox from "../components/SearchBox.astro";
 
 <html lang="en">
     <head>
@@ -9,6 +10,7 @@ const pageTitle = "Unblocked games";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <SearchBox />
         <style>
             .games-grid {
                 display: grid;
