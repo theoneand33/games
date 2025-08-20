@@ -15,6 +15,7 @@
     pkgs.nodejs_latest
     pkgs.astro-language-server
     pkgs.pnpm
+    pkgs.graphite-cli
   ];
 
   # Sets environment variables in the workspace
