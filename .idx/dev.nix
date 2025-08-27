@@ -25,6 +25,10 @@
     extensions = [
       # "vscodevim.vim"
       "astro-build.astro-vscode"
+      "bradlc.vscode-tailwindcss"
+      "eamodio.gitlens"
+      "Google.validation-agent-extension"
+      "Graphite.gti-vscode"
     ];
 
     # Enable previews
