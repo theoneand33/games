@@ -13,7 +13,3 @@ export default defineConfig({
     plugins: [tailwindcss()]
   }
 });
-vite: {
-    build: {
-}
-}
