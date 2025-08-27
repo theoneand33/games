@@ -10,6 +10,20 @@ const pageTitle = "Unblocked games";
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <style>
+            @import "tailwindcss";
+
+            .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .game-tile {
+            text-align: center;
+            text-decoration: none;
+        }
+        </style>
     </head>
     <body>
         <img
