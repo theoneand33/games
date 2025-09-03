@@ -28,7 +28,6 @@
       "bradlc.vscode-tailwindcss"
       "eamodio.gitlens"
       "Google.validation-agent-extension"
-      "Graphite.gti-vscode"
     ];
 
     # Enable previews
