@@ -4,14 +4,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      margin: {
+      marginLeft: {
         '10': '10px',
-      },
-      width: {
-        '300': '300px',
-      },
-      height: {
-        '200': '200px',
       },
     },
   },
