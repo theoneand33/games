@@ -4,9 +4,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      marginLeft: {
-        '10': '10px',
-      },
     },
   },
   plugins: [],
