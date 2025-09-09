@@ -1,7 +1,17 @@
 ---
 // src/components/posthog.astro
+const apiKey = import.meta.env.PUBLIC_POSTHOG_API_KEY;
+const apiHost = import.meta.env.PUBLIC_POSTHOG_API_HOST || 'https://us.i.posthog.com';
+const isDev = import.meta.env.DEV;
+
+// Only load PostHog if API key is configured and not a placeholder
+const shouldLoadPostHog = apiKey &&
+  apiKey !== 'your_posthog_api_key_here' &&
+  apiKey.startsWith('phc_');
 ---
-<script is:inline type="text/javascript" id="posthog-js">
+
+{shouldLoadPostHog && (
+<script is:inline type="text/javascript" id="posthog-js" define:vars={{apiKey, apiHost}}>
   !(function(t, e) {
     var o, n, p, r;
     e.__SV ||
@@ -39,5 +49,47 @@
       }),
       (e.__SV = 1));
   })(document, window.posthog || []);
-  posthog.init('phc_Y5hIZxA3459QAK896PZAwGVRrKAEv22WI89XEq6M73z', { api_host: 'https://us.i.posthog.com', defaults: '2025-05-24' });
+
+  // Initialize PostHog with proper configuration
+  try {
+    posthog.init(apiKey, {
+      api_host: apiHost,
+      // Proper configuration options
+      loaded: function(posthog) {
+        if (isDev) {
+          console.log('PostHog loaded successfully');
+        }
+      },
+      // Enable session recording only in production
+      session_recording: {
+        enabled: !isDev
+      },
+      // Privacy settings
+      respect_dnt: true,
+      // Capture page views automatically
+      capture_pageview: true,
+      // Disable in development for cleaner logs
+      debug: isDev,
+      // Reduce noise in development
+      opt_out_capturing_by_default: isDev
+    });
+  } catch (error) {
+    console.error('Failed to initialize PostHog:', error);
+  }
 </script>
+)}
+
+{!shouldLoadPostHog && (
+<!-- PostHog not loaded: API key not configured -->
+<script is:inline type="text/javascript" define:vars={{isDev, apiKey}}>
+  if (isDev) {
+    if (!apiKey) {
+      console.log('PostHog not initialized: API key not configured. Set PUBLIC_POSTHOG_API_KEY in your .env file.');
+    } else if (apiKey === 'your_posthog_api_key_here') {
+      console.log('PostHog not initialized: Please replace placeholder API key with your actual PostHog API key.');
+    } else if (!apiKey.startsWith('phc_')) {
+      console.log('PostHog not initialized: Invalid API key format. PostHog API keys should start with "phc_".');
+    }
+  }
+</script>
+)}
