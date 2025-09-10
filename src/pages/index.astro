@@ -1,10 +1,9 @@
 ---
-import PostHog from '../components/posthog.astro';
 const pageTitle = "Unblocked games";
+import Analytics from '@vercel/analytics/astro'
 ---
 <html lang="en">
     <head>
-        <PostHog />
         <meta charset="utf-8" />
         <link rel="stylesheet" href="src/styles/global.css" />
         <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
@@ -32,6 +31,7 @@ const pageTitle = "Unblocked games";
             display: inline-block;
         }
         </style>
+        <Analytics />
     </head>
     <body>
         <img

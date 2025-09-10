@@ -1,9 +1,8 @@
 ---
-import PostHog from '../components/posthog.astro';
+import Analytics from '@vercel/analytics/astro'
 ---
 <html lang="en">
     <head>
-        <PostHog />
         <meta charset="UTF-8" />
         <title>DMCA</title>
         <style>
@@ -11,6 +10,7 @@ import PostHog from '../components/posthog.astro';
                 font-size: 18px;
             }
         </style>
+        <Analytics />
     </head>
     <body>
         <header>
