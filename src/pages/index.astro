@@ -1,4 +1,5 @@
 ---
+import  SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics';
 const pageTitle = "Unblocked games";
 ---
@@ -36,6 +37,7 @@ const pageTitle = "Unblocked games";
             display: inline-block;
         }
         </style>
+        <SpeedInsights />
         <Analytics />
         <meta name="google-site-verification" content="NBlOMVSv6plhaf7kQsHx4aXHHlFlw1q8N0s44BOlVyk" />
     </head>
