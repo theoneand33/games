@@ -3,7 +3,7 @@
 version: 2
 updates:
   # Enable pnpm for the root directory
-  - package-ecosystem: "pnpm"
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       # Check for updates weekly on Tuesdays at 9 AM UTC
