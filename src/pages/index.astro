@@ -1,6 +1,6 @@
 ---
-import SpeedInsights from '@vercel/speed-insights';
-import Analytics from '@vercel/analytics';
+// import SpeedInsights from '@vercel/speed-insights';
+// import Analytics from '@vercel/analytics';
 const pageTitle = "Unblocked games";
 ---
 <html lang="en">
@@ -15,8 +15,16 @@ const pageTitle = "Unblocked games";
         <meta name="keywords" content="unblocked games, free games, online games, action games, puzzle games, strategy games" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4683698794241784"
              crossorigin="anonymous"></script>
-        <SpeedInsights />
-        <Analytics />
+        <!-- <SpeedInsights />
+        <Analytics /> -->
+        <script>
+          window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+        </script>
+        <script defer src="/_vercel/speed-insights/script.js"></script>
+        <script>
+          window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        </script>
+        <script defer src="/_vercel/insights/script.js"></script>
         <style>
             @import "tailwindcss";
 
