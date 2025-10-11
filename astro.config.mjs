@@ -1,19 +1,17 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import react from '@astrojs/react';
-
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  // Add your site URL here - replace with your actual domain
+  site: "https://unblocked-games.vercel.app/",
+
+  integrations: [sitemap()],
 
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
-vite: {
-    build: {
-}
-}
