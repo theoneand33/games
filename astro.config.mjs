@@ -10,7 +10,6 @@ export default defineConfig({
   site: "https://unblocked-games.vercel.app/",
 
   integrations: [sitemap()],
-
   vite: {
     plugins: [tailwindcss()],
   },
