@@ -16,7 +16,13 @@ jobs:
 
       - name: Build project
         run: bun run build
-
+      - name: Archive artifact
+        run: |
+          if [ -d dist ]; then
+            tar -cvf dist.tar dist
+          else
+            echo "dist directory not found. Skipping artifact archiving."
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
