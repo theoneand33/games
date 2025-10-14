@@ -8,7 +8,7 @@ updates:
     schedule:
       # Check for updates weekly on Tuesdays at 9 AM UTC
       interval: "weekly"
-      day: "tuesday"
+      day: "wednesday"
       time: "09:00"
       timezone: "UTC"
 
