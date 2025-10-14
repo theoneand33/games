@@ -4,7 +4,7 @@ permissions:
   id-token: write
 jobs:
   build:
-    name: build with bun
+    name: Build with bun and publish to github pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,10 +18,7 @@ jobs:
 
       - name: Build project
         run: bun run build
-  publish:
-    name: Publish to github pages
-    runs-on: ubuntu-latest
-    steps:
+        
       - name: Ensure dist directory exists
         run: |
           if [ ! -d dist ]; then
