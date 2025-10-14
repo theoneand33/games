@@ -1,6 +1,7 @@
 ---
-import Analytics from '@vercel/analytics/astro';
+import { inject } from '@vercel/analytics';
 const pageTitle = "Unblocked games";
+inject();
 ---
 <html lang="en">
     <head>
@@ -15,7 +16,6 @@ const pageTitle = "Unblocked games";
         <!-- Single AdSense library load at the top of the page -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4683698794241784"
              crossorigin="anonymous"></script>
-        <Analytics />
         <style>
             @import "tailwindcss";
 
@@ -76,7 +76,7 @@ const pageTitle = "Unblocked games";
                          data-ad-slot="2342476002"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
-                    <script nonce="YOUR_NONCE">
+                    <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
@@ -141,7 +141,7 @@ const pageTitle = "Unblocked games";
                          data-ad-slot="2342476002"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
-                    <script nonce="YOUR_NONCE">
+                    <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
@@ -198,7 +198,7 @@ const pageTitle = "Unblocked games";
                          data-ad-slot="2342476002"
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
-                    <script nonce="YOUR_NONCE">
+                    <script>
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
