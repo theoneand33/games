@@ -2,6 +2,7 @@ name: bun
 on: push
 permissions:
   id-token: write
+  pages: write
 jobs:
   build:
     name: Build with bun and publish to github pages
