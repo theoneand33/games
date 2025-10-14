@@ -1,5 +1,5 @@
 ---
-import Analytics from '@vercel/analytics';
+import Analytics from '@vercel/analytics/astro';
 const pageTitle = "Unblocked games";
 ---
 <html lang="en">
@@ -15,7 +15,7 @@ const pageTitle = "Unblocked games";
         <!-- Single AdSense library load at the top of the page -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4683698794241784"
              crossorigin="anonymous"></script>
-        <analytics />
+        <Analytics />
         <style>
             @import "tailwindcss";
 
