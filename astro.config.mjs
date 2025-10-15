@@ -10,7 +10,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   // Add your site URL here - replace with your actual domain
   site: "https://unblocked-games.vercel.app/",
-
   integrations: [sitemap(), react()],
   vite: {
     plugins: [tailwindcss()],

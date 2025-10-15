@@ -1,6 +1,6 @@
 ---
-import Analytics from '@vercel/analytics';
 const pageTitle = "Unblocked games";
+import Analytics from '@vercel/analytics/astro';
 ---
 <html lang="en">
     <head>
@@ -8,13 +8,14 @@ const pageTitle = "Unblocked games";
         <link rel="stylesheet" href="src/styles/global.css" />
         <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content="Astro" />
+        <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
         <meta name="description" content="Play the best free unblocked games online. Enjoy a wide variety of games including action, puzzle, strategy, and more - all unblocked and ready to play!" />
         <meta name="keywords" content="unblocked games, free games, online games, action games, puzzle games, strategy games" />
+        <!-- Single AdSense library load at the top of the page -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4683698794241784"
              crossorigin="anonymous"></script>
-        <analytics />
+             <Analytics />
         <style>
             @import "tailwindcss";
 
@@ -65,6 +66,23 @@ const pageTitle = "Unblocked games";
                 />
                 <p class="hover:underline decoration-sky-500 decoration-2">Hobo 2</p>
             </a>
+
+            <!-- Unblocked games ad -->
+            <aside class="game-tile" aria-label="Advertisement">
+                <div class="cover-img rounded-xl flex items-center justify-center bg-gray-100">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4683698794241784"
+                         data-ad-slot="2342476002"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <p class="hover:underline decoration-sky-500 decoration-2">Advertisement</p>
+            </aside>
+
             <a href="/games/riddle-school2" class="game-tile">
                 <img
                     src="/images/Riddle-School-2_logo.png"
@@ -113,6 +131,23 @@ const pageTitle = "Unblocked games";
                 />
                 <p class="hover:underline decoration-sky-500 decoration-2">Minesweeper</p>
             </a>
+
+            <!-- Unblocked games ad -->
+            <aside class="game-tile" aria-label="Advertisement">
+                <div class="cover-img rounded-xl flex items-center justify-center bg-gray-100">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4683698794241784"
+                         data-ad-slot="2342476002"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <p class="hover:underline decoration-sky-500 decoration-2">Advertisement</p>
+            </aside>
+
             <a href="/games/bloonstd5" class="game-tile">
                 <img
                     src="/images/bloonstd5cover.png"
@@ -153,6 +188,23 @@ const pageTitle = "Unblocked games";
                 />
                 <p class="hover:underline decoration-sky-500 decoration-2">Geometry Dash</p>
             </a>
+
+            <!-- Unblocked games ad -->
+            <aside class="game-tile" aria-label="Advertisement">
+                <div class="cover-img rounded-xl flex items-center justify-center bg-gray-100">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-4683698794241784"
+                         data-ad-slot="2342476002"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <p class="hover:underline decoration-sky-500 decoration-2">Advertisement</p>
+            </aside>
+
             <a href="/games/madness-project-nexus" class="game-tile">
                 <img
                     src="/images/madness-cover.png"
@@ -183,7 +235,8 @@ const pageTitle = "Unblocked games";
                     alt="Riddle School 5 cover image"
                     class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
                 />
-                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 5</p>
+                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 5
+</p>
             </a>
             <a href="/games/plants-vs-zombies" class="game-tile">
                 <img
