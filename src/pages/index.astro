@@ -1,7 +1,9 @@
 ---
+import PostHogLayout from '../layouts/PostHogLayout.astro';
 const pageTitle = "Unblocked games";
 import Analytics from '@vercel/analytics/astro';
 ---
+<PostHogLayout>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -236,8 +238,7 @@ import Analytics from '@vercel/analytics/astro';
                     alt="Riddle School 5 cover image"
                     class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
                 />
-                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 5
-</p>
+                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 5</p>
             </a>
             <a href="/games/plants-vs-zombies" class="game-tile">
                 <img
@@ -263,3 +264,4 @@ import Analytics from '@vercel/analytics/astro';
         </div>
     </body>
 </html>
+</PostHogLayout>
