@@ -1,211 +1,257 @@
 ---
 const pageTitle = "Unblocked games";
-import Analytics from '@vercel/analytics/astro';
+import Analytics from "@vercel/analytics/astro";
 ---
+
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="src/styles/global.css" />
-        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <meta name="description" content="Play the best free unblocked games online. Enjoy a wide variety of games including action, puzzle, strategy, and more - all unblocked and ready to play!" />
-        <meta name="keywords" content="unblocked games, free games, online games, action games, puzzle games, strategy games, vercel unblocked games, unblocked games vercel, unblocked games vercel app, video games, online video games, free video games, unblocked video games, action video games, puzzle video games, strategy video games, action video games online, puzzle video games online, strategy video games online, action games online, puzzle games online, strategy games online" />
-        <Analytics />
-        <style>
-            @import "tailwindcss";
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta
+      name="description"
+      content="Play the best free unblocked games online. Enjoy a wide variety of games including action, puzzle, strategy, and more - all unblocked and ready to play!"
+    />
+    <meta
+      name="keywords"
+      content="unblocked games, free games, online games, action games, puzzle games, strategy games, vercel unblocked games, unblocked games vercel, unblocked games vercel app, video games, online video games, free video games, unblocked video games, action video games, puzzle video games, strategy video games, action video games online, puzzle video games online, strategy video games online, action games online, puzzle games online, strategy games online"
+    />
+    <Analytics />
+    <style>
+      @import "tailwindcss";
 
-            .cover-img {
-                width: 300px;
-                height: 200px;
-            }
+      .cover-img {
+        width: 300px;
+        height: 200px;
+      }
 
-            .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 10px;
-        }
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
+      }
 
-        .game-tile {
-            text-align: center;
-            text-decoration: none;
-            margin: 20px;
-            display: inline-block;
-        }
-        </style>
-        <meta name="google-site-verification" content="NBlOMVSv6plhaf7kQsHx4aXHHlFlw1q8N0s44BOlVyk" />
-    </head>
+      .game-tile {
+        text-align: center;
+        text-decoration: none;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+    <meta
+      name="google-site-verification"
+      content="NBlOMVSv6plhaf7kQsHx4aXHHlFlw1q8N0s44BOlVyk"
+    />
+  </head>
 
-    <body>
+  <body>
+    <img
+      src="/images/games_logo_light.svg"
+      alt="light mode version of the GAMEhub logo"
+      width="300"
+      class="m-5"
+    />
+    <h1 class="text-xl font-bold mb-4 m-5">
+      Welcome to the best free Unblocked Games website
+    </h1>
+    <div class="games-grid">
+      <a href="/games/gun-mayhem2" class="game-tile">
         <img
-            src="/images/games_logo_light.svg"
-            alt="light mode version of the GAMEhub logo"
-            width="300"
-            class="m-5"
+          src="/images/gm2cover.png"
+          alt="Gun mayhem 2 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
         />
-        <h1 class="text-xl font-bold mb-4 m-5">Welcome to the best free Unblocked Games website</h1>
-        <div class="games-grid">
-            <a href="/games/gun-mayhem2" class="game-tile">
-                <img
-                    src="/images/gm2cover.png"
-                    alt="Gun mayhem 2 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2" >Gun Mayhem 2</p>
-            </a>
-            <a href="/games/madness-project-nexus" class="game-tile">
-                <img
-                    src="/images/madness-cover.png"
-                    alt="Madness: Project Nexus cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Madness: Project Nexus</p>
-            </a>
-            <a href="/games/hobo2" class="game-tile">
-                <img
-                    src="/images/hobo2cover.jpg"
-                    alt="Hobo 2 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Hobo 2</p>
-            </a>
-            <a href="/games/riddle-school2" class="game-tile">
-                <img
-                    src="/images/Riddle-School-2_logo.png"
-                    alt="Riddle School 2 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 2</p>
-            </a>
-            <a href="/games/vex3" class="game-tile">
-                <img
-                    src="/images/vex-3cover.jpg"
-                    alt="Vex 3 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Vex 3</p>
-            </a>
-            <a href="/games/tetris" class="game-tile">
-                <img
-                    src="/images/tetriscover.avif"
-                    alt="Tetris cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Tetris</p>
-            </a>
-            <a href="/games/theimpossiblequiz2" class="game-tile">
-                <img
-                    src="/images/impossiblequiz2cover.jpg"
-                    alt="The Impossible Quiz 2 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">The Impossible Quiz 2</p>
-            </a>
-            <a href="/games/supermarioflash" class="game-tile">
-                <img
-                    src="/images/supermarioflashcover.png"
-                    alt="Super Mario Flash cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Super Mario Flash</p>
-            </a>
-            <a href="/games/minesweeper" class="game-tile">
-                <img
-                    src="/images/minesweepercover.jpg"
-                    alt="Minesweeper cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Minesweeper</p>
-            </a>
-            <a href="/games/bloonstd5" class="game-tile">
-                <img
-                    src="/images/bloonstd5cover.png"
-                    alt="Bloons TD 5 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Bloons TD 5</p>
-            </a>
-            <a href="/games/hobo7" class="game-tile">
-                <img
-                    src="/images/hobo7cover.webp"
-                    alt="Hobo 7 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Hobo 7</p>
-            </a>
-            <a href="/games/doom" class="game-tile">
-                <img
-                    src="/images/doomcover.jpg"
-                    alt="Doom cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Doom</p>
-            </a>
-            <a href="/games/happywheels" class="game-tile">
-                <img
-                    src="/images/happywheelscover.jpeg"
-                    alt="Happy Wheels cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Happy Wheels</p>
-            </a>
-            <a href="/games/geometry-dash" class="game-tile">
-                <img
-                    src="/images/geometrydashcover.png"
-                    alt="Geometry Dash cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Geometry Dash</p>
-            </a>
-            <a href="/games/riddle-school3" class="game-tile">
-                <img
-                    src="/images/riddle-school-3-cover.jpg"
-                    alt="Riddle School 3 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 3</p>
-            </a>
-            <a href="/games/riddle-school4" class="game-tile">
-                <img
-                    src="/images/riddle-school-4-cover.jpg"
-                    alt="Riddle School 4 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 4</p>
-            </a>
-            <a href="/games/riddle-school5" class="game-tile">
-                <img
-                    src="/images/riddleschool5-cover.jpg"
-                    alt="Riddle School 5 cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Riddle School 5
-</p>
-            </a>
-            <a href="/games/plants-vs-zombies" class="game-tile">
-                <img
-                    src="/images/plants-vs-zombies-cover.gif"
-                    alt="Plants vs Zombies cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Plants vs Zombies</p>
-            </a>
-            <a href="/games/geography-game" class="game-tile">
-                <img
-                    src="/images/geography_game_cover.jpg"
-                    alt="Geography Game cover image"
-                    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-                />
-                <p class="hover:underline decoration-sky-500 decoration-2">Geography Game USA</p>
-            </a>
-        </div>
-        <div
-            style="position: fixed; bottom: 10px; left: 10px; font-size: 13px;"
-        >
-            <a href="/dmca">DMCA</a>
-        </div>
-        <script src="https://cdn.apitiny.net/scripts/v2.0/main.js" data-site-id="69150b80281a473fdd733e7a" data-test-mode="false" async></script>
-        <p>All games sourced from <a class="hover:underline underline-offset-2" href="https://archive.org">Internet Archive</a> </p>
-    </body>
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Gun Mayhem 2
+        </p>
+      </a>
+      <a href="/games/madness-project-nexus" class="game-tile">
+        <img
+          src="/images/madness-cover.png"
+          alt="Madness: Project Nexus cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Madness: Project Nexus
+        </p>
+      </a>
+      <a href="/games/hobo2" class="game-tile">
+        <img
+          src="/images/hobo2cover.jpg"
+          alt="Hobo 2 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">Hobo 2</p>
+      </a>
+      <a href="/games/riddle-school2" class="game-tile">
+        <img
+          src="/images/Riddle-School-2_logo.png"
+          alt="Riddle School 2 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Riddle School 2
+        </p>
+      </a>
+      <a href="/games/vex3" class="game-tile">
+        <img
+          src="/images/vex-3cover.jpg"
+          alt="Vex 3 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">Vex 3</p>
+      </a>
+      <a href="/games/tetris" class="game-tile">
+        <img
+          src="/images/tetriscover.avif"
+          alt="Tetris cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">Tetris</p>
+      </a>
+      <a href="/games/theimpossiblequiz2" class="game-tile">
+        <img
+          src="/images/impossiblequiz2cover.jpg"
+          alt="The Impossible Quiz 2 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          The Impossible Quiz 2
+        </p>
+      </a>
+      <a href="/games/supermarioflash" class="game-tile">
+        <img
+          src="/images/supermarioflashcover.png"
+          alt="Super Mario Flash cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Super Mario Flash
+        </p>
+      </a>
+      <a href="/games/minesweeper" class="game-tile">
+        <img
+          src="/images/minesweepercover.jpg"
+          alt="Minesweeper cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Minesweeper
+        </p>
+      </a>
+      <a href="/games/bloonstd5" class="game-tile">
+        <img
+          src="/images/bloonstd5cover.png"
+          alt="Bloons TD 5 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Bloons TD 5
+        </p>
+      </a>
+      <a href="/games/hobo7" class="game-tile">
+        <img
+          src="/images/hobo7cover.webp"
+          alt="Hobo 7 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">Hobo 7</p>
+      </a>
+      <a href="/games/doom" class="game-tile">
+        <img
+          src="/images/doomcover.jpg"
+          alt="Doom cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">Doom</p>
+      </a>
+      <a href="/games/happywheels" class="game-tile">
+        <img
+          src="/images/happywheelscover.jpeg"
+          alt="Happy Wheels cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Happy Wheels
+        </p>
+      </a>
+      <a href="/games/geometry-dash" class="game-tile">
+        <img
+          src="/images/geometrydashcover.png"
+          alt="Geometry Dash cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Geometry Dash
+        </p>
+      </a>
+      <a href="/games/riddle-school3" class="game-tile">
+        <img
+          src="/images/riddle-school-3-cover.jpg"
+          alt="Riddle School 3 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Riddle School 3
+        </p>
+      </a>
+      <a href="/games/riddle-school4" class="game-tile">
+        <img
+          src="/images/riddle-school-4-cover.jpg"
+          alt="Riddle School 4 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Riddle School 4
+        </p>
+      </a>
+      <a href="/games/riddle-school5" class="game-tile">
+        <img
+          src="/images/riddleschool5-cover.jpg"
+          alt="Riddle School 5 cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Riddle School 5
+        </p>
+      </a>
+      <a href="/games/plants-vs-zombies" class="game-tile">
+        <img
+          src="/images/plants-vs-zombies-cover.gif"
+          alt="Plants vs Zombies cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Plants vs Zombies
+        </p>
+      </a>
+      <a href="/games/geography-game" class="game-tile">
+        <img
+          src="/images/geography_game_cover.jpg"
+          alt="Geography Game cover image"
+          class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+        />
+        <p class="hover:underline decoration-sky-500 decoration-2">
+          Geography Game USA
+        </p>
+      </a>
+    </div>
+    <div style="position: fixed; bottom: 10px; left: 10px; font-size: 13px;">
+      <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
+    </div>
+    <script
+      src="https://cdn.apitiny.net/scripts/v2.0/main.js"
+      data-site-id="69150b80281a473fdd733e7a"
+      data-test-mode="false"
+      async></script>
+    <p>
+      All games sourced from <a
+        class="hover:underline underline-offset-2"
+        href="https://archive.org">Internet Archive</a
+      >
+    </p>
+  </body>
 </html>
