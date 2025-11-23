@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 interface Props {
   Game: string; // Define that Layout expects a 'Game' prop, which is a string
 }
@@ -12,7 +13,7 @@ const { Game } = Astro.props; // Destructure Game from Astro.props
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={`Play ${Game} unblocked online.`} />
     <title>{Game}</title>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <Analytics />
   </head>
   <body>
     <nav>
