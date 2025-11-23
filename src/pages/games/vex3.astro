@@ -1,22 +1,27 @@
+---
+const Game = "Vex 3";
+import Layout from "../../layout/layout.astro";
+---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Play Tetris unblocked online. - unblocked and ready to play!"
+      content="Play Vex 3 unblocked online. - unblocked and ready to play!"
     />
-    <title>Tetris</title>
-        <script defer src="/_vercel/insights/script.js"></script>
+    <title>{Game}</title>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
-  <a href="/" style="font-size: 24px">Home</a>
-  <body>
+  <Layout Game={Game}>
     <div style="text-align: center">
       <div
         id="container"
         style="border: #ccc 0px solid; height: 100%; width: 100%"
-      ></div>
-      <script src="/ruffle/ruffle.js"></script>
+      >
+      </div>
+      <script src="/ruffle/ruffle.js" is:inline></script>
       <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.addEventListener("load", (event) => {
@@ -26,20 +31,23 @@
           container.appendChild(player);
           player.style.height = "96vh";
           player.style.width = "98vw";
-          player.load("/flash/tetris.swf");
+          player.load("/flash/vex3.swf");
         });
       </script>
     </div>
-  
-<script type="text/javascript">
-	atOptions = {
-		'key' : '1cc5f63f55fc28b4c469b5e4e2f1a79d',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/1cc5f63f55fc28b4c469b5e4e2f1a79d/invoke.js"></script>
-</body>
+
+    <script type="text/javascript">
+      atOptions = {
+        key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
+        format: "iframe",
+        height: 250,
+        width: 300,
+        params: {},
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="//www.highperformanceformat.com/1cc5f63f55fc28b4c469b5e4e2f1a79d/invoke.js"
+    ></script>
+  </Layout>
 </html>
