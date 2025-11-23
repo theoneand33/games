@@ -1,26 +1,78 @@
-<body>
-  <nav>
-    <a href="/">
-      <img
-        src="/images/games_logo_light.svg"
-        alt="light mode version of the GAMEhub logo"
-        width="300"
-        class="m-5"
-      />
-    </a>
-  </nav>
-  <nav>
-    <slot />
-  </nav>
-  <footer>
-    <p>
-      All games sourced from <a
-        class="hover:underline underline-offset-2"
-        href="https://archive.org">Internet Archive</a
-      >
-    </p>
-    <div style="font-size: 13px;">
-      <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
-    </div>
-  </footer>
-</body>
+---
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <Analytics />
+    <meta
+      name="description"
+      content="Play the best free unblocked games online. Enjoy a wide variety of games including action, puzzle, strategy, and more - all unblocked and ready to play!"
+    />
+    <meta
+      name="keywords"
+      content="unblocked games, free games, online games, action games, puzzle games, strategy games, vercel unblocked games, unblocked games vercel, unblocked games vercel app, video games, online video games, free video games, unblocked video games, action video games, puzzle video games, strategy video games, action video games online, puzzle video games online, strategy video games online, action games online, puzzle games online, strategy games online"
+    />
+    <meta
+      name="google-site-verification"
+      content="NBlOMVSv6plhaf7kQsHx4aXHHlFlw1q8N0s44BOlVyk"
+    />
+    <style>
+      @import "tailwindcss";
+
+      .cover-img {
+        width: 300px;
+        height: 200px;
+      }
+
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
+      }
+
+      .game-tile {
+        text-align: center;
+        text-decoration: none;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">
+        <img
+          src="/images/games_logo_light.svg"
+          alt="light mode version of the GAMEhub logo"
+          width="300"
+          class="m-5"
+        />
+      </a>
+    </nav>
+    <nav>
+      <slot />
+    </nav>
+    <footer>
+      <p>
+        All games sourced from <a
+          class="hover:underline underline-offset-2"
+          href="https://archive.org">Internet Archive</a
+        >
+      </p>
+      <div style="font-size: 13px;">
+        <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
+      </div>
+    </footer>
+  </body>
+</html>
