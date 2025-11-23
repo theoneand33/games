@@ -1,40 +1,41 @@
 ---
 const Game = "Bloons TD 5";
 import Layout from "../../layout/layout.astro";
+---
 
-  <Layout>
-    <div style="text-align: center">
-      <div
-        id="container"
-        style="border: #ccc 0px solid; height: 100%; width: 100%"
-      >
-      </div>
-      <script src="/ruffle/ruffle.js" is:inline></script>
-      <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        window.addEventListener("load", (event) => {
-          const ruffle = window.RufflePlayer.newest();
-          const player = ruffle.createPlayer();
-          const container = document.getElementById("container");
-          container.appendChild(player);
-          player.style.height = "96vh";
-          player.style.width = "98vw";
-          player.load("/flash/bloonstd5.swf");
-        });
-      </script>
+<Layout>
+  <div style="text-align: center">
+    <div
+      id="container"
+      style="border: #ccc 0px solid; height: 100%; width: 100%"
+    >
     </div>
-
-    <script type="text/javascript">
-      atOptions = {
-        key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
-        format: "iframe",
-        height: 250,
-        width: 300,
-        params: {},
-      };
+    <script src="/ruffle/ruffle.js" is:inline></script>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("container");
+        container.appendChild(player);
+        player.style.height = "96vh";
+        player.style.width = "98vw";
+        player.load("/flash/bloonstd5.swf");
+      });
     </script>
-    <script
-      type="text/javascript"
-      src="//www.highperformanceformat.com/1cc5f63f55fc28b4c469b5e4e2f1a79d/invoke.js"
-    ></script>
-  </Layout>
+  </div>
+
+  <script type="text/javascript">
+    atOptions = {
+      key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
+      format: "iframe",
+      height: 250,
+      width: 300,
+      params: {},
+    };
+  </script>
+  <script
+    type="text/javascript"
+    src="//www.highperformanceformat.com/1cc5f63f55fc28b4c469b5e4e2f1a79d/invoke.js"
+  ></script>
+</Layout>
