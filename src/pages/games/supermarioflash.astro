@@ -1,3 +1,10 @@
+---
+export const prerender = false;
+
+const Game = "Super Mario Flash";
+import Layout from "../../layout/layout.astro";
+---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,17 +13,17 @@
       name="description"
       content="Play Super Mario Flash unblocked online. - unblocked and ready to play!"
     />
-    <title>Super Mario Flash</title>
-        <script defer src="/_vercel/insights/script.js"></script>
+    <title>{Game}</title>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
-  <a href="/" style="font-size: 24px">Home</a>
-  <body>
+  <Layout>
     <div style="text-align: center">
       <div
         id="container"
         style="border: #ccc 0px solid; height: 100%; width: 100%"
-      ></div>
-      <script src="/ruffle/ruffle.js"></script>
+      >
+      </div>
+      <script src="/ruffle/ruffle.js" is:inline></script>
       <script>
         window.RufflePlayer = window.RufflePlayer || {};
         window.addEventListener("load", (event) => {
@@ -30,16 +37,21 @@
         });
       </script>
     </div>
-  
-<script type="text/javascript">
-	atOptions = {
-		'key' : '1cc5f63f55fc28b4c469b5e4e2f1a79d',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/1cc5f63f55fc28b4c469b5e4e2f1a79d/invoke.js"></script>
-</body>
+
+    <script type="text/javascript">
+      atOptions = {
+        key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
+        format: "iframe",
+        height: 250,
+        width: 300,
+        params: {},
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="//www.highperformanceformat.com/1cc5f63f55fc28b4c469b5e4e2f1a79d/invoke.js"
+    ></script>
+  </Layout>
+
+
 </html>
