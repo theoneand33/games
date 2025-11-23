@@ -1,3 +1,11 @@
+---
+interface Props {
+  Game: string; // Define that Layout expects a 'Game' prop, which is a string
+}
+
+const { Game } = Astro.props; // Destructure Game from Astro.props
+---
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
