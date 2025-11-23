@@ -1,10 +1,5 @@
 ---
 import Analytics from "@vercel/analytics/astro";
-interface Props {
-  pageTitle: string;
-}
-
-const { pageTitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -14,7 +9,7 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>Unblocked games</title>
     <Analytics />
     <meta
       name="description"
