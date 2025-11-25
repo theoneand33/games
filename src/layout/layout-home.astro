@@ -1,4 +1,5 @@
 ---
+import "../styles/styles.css";
 import Analytics from "@vercel/analytics/astro";
 interface Props {
   pageTitle: string;
@@ -13,7 +14,6 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="./src/styles/styles.css" />
     <title>{pageTitle}</title>
   </head>
   <Analytics />
