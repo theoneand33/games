@@ -7,6 +7,7 @@
       "dependencies": {
         "@astrojs/react": "^4.4.2",
         "@astrojs/sitemap": "^3.6.0",
+        "@openpanel/astro": "^1.0.5",
         "@tailwindcss/vite": "^4.1.17",
         "@vercel/analytics": "^1.5.0",
         "@vercel/speed-insights": "^1.2.0",
@@ -250,6 +251,12 @@
     "@nodelib/fs.stat": ["@nodelib/fs.stat@2.0.5", "", {}, "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="],
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
+
+    "@openpanel/astro": ["@openpanel/astro@1.0.5", "", { "dependencies": { "@openpanel/web": "1.0.5" }, "peerDependencies": { "astro": "^4.0.0 || ^5.0.0" } }, "sha512-6kgxf4HiI1qOtJUZYjrnSmEUjL/ZKKMolfZb3WmCD1aAISXMBHDO9KKL/IHIHfU38uO0hLxTO+SFytzZ7JrWCw=="],
+
+    "@openpanel/sdk": ["@openpanel/sdk@1.0.2", "", {}, "sha512-WvVWCBcJvJhM5MYKO5Hxjo4G/E0tnK5XK2UC+hKDHtoF+iKvtUWa5bz18pFAPQprq0u/Ev2YqirPsrMQJy5g2g=="],
+
+    "@openpanel/web": ["@openpanel/web@1.0.5", "", { "dependencies": { "@openpanel/sdk": "1.0.2" } }, "sha512-n/A9fKiHWcDTH2N6N8MM214ET7aoNJjgpLux0GRW+CD0KDEwI8UosQvvz3UOGHZ3jWqMMsUNdU2B7eYk2W87mg=="],
 
     "@oslojs/encoding": ["@oslojs/encoding@1.1.0", "", {}, "sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ=="],
 

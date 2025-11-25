@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { pageTitle } = Astro.props;
+import { OpenPanelComponent } from "@openpanel/astro";
 ---
 
 <html lang="en">
@@ -43,6 +44,12 @@ const { pageTitle } = Astro.props;
     </nav>
     <main>
       <slot />
+      <OpenPanelComponent
+        clientId="a680ca86-3d81-4e1b-a83d-96f72967c2d1"
+        trackScreenViews={true}
+        trackAttributes={true}
+        trackOutgoingLinks={true}
+      />
     </main>
     <footer>
       <p>

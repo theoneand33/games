@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { Game } = Astro.props;
+import { OpenPanelComponent } from "@openpanel/astro";
 ---
 
 <html lang="en">
@@ -26,7 +27,15 @@ const { Game } = Astro.props;
         />
       </a>
     </nav>
-    <main><slot /></main>
+    <main>
+      <slot />
+      <OpenPanelComponent
+        clientId="a680ca86-3d81-4e1b-a83d-96f72967c2d1"
+        trackScreenViews={true}
+        trackAttributes={true}
+        trackOutgoingLinks={true}
+      />
+    </main>
     <footer>
       <p>
         All games sourced from <a
