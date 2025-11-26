@@ -1,0 +1,18 @@
+---
+interface Props {
+  Game: string;
+  Path: string;
+  Image: string;
+}
+const { Game, Path, Image } = Astro.props;
+const altText = `${Game} cover image`;
+---
+
+<a href={Path} class="game-tile">
+  <img
+    src={Image}
+    alt={altText}
+    class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
+  />
+  <p class="hover:underline decoration-sky-500 decoration-2">{Game}</p>
+</a>

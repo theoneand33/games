@@ -1,188 +1,93 @@
 ---
 import Layout from "../layout/layout-home.astro";
+import Gametile from "../components/gametile.astro";
 const pageTitle = "Home - Unblocked Games";
+
+const games = [
+  {
+    Game: "Gun Mayhem 2",
+    Path: "/games/gun-mayhem2",
+    Image: "/images/gm2cover.png",
+  },
+  {
+    Game: "Madness: Project Nexus",
+    Path: "/games/madness-project-nexus",
+    Image: "/images/madness-cover.png",
+  },
+  { Game: "Hobo 2", Path: "/games/hobo2", Image: "/images/hobo2cover.jpg" },
+  {
+    Game: "Riddle School 2",
+    Path: "/games/riddle-school2",
+    Image: "/images/Riddle-School-2_logo.png",
+  },
+  { Game: "Vex 3", Path: "/games/vex3", Image: "/images/vex-3cover.jpg" },
+  { Game: "Tetris", Path: "/games/tetris", Image: "/images/tetriscover.avif" },
+  {
+    Game: "The Impossible Quiz 2",
+    Path: "/games/theimpossiblequiz2",
+    Image: "/images/impossiblequiz2cover.jpg",
+  },
+  {
+    Game: "Super Mario Flash",
+    Path: "/games/supermarioflash",
+    Image: "/images/supermarioflashcover.png",
+  },
+  {
+    Game: "Minesweeper",
+    Path: "/games/minesweeper",
+    Image: "/images/minesweepercover.jpg",
+  },
+  {
+    Game: "Bloons TD 5",
+    Path: "/games/bloonstd5",
+    Image: "/images/bloonstd5cover.png",
+  },
+  { Game: "Hobo 7", Path: "/games/hobo7", Image: "/images/hobo7cover.webp" },
+  { Game: "Doom", Path: "/games/doom", Image: "/images/doomcover.jpg" },
+  {
+    Game: "Happy Wheels",
+    Path: "/games/happywheels",
+    Image: "/images/happywheelscover.jpeg",
+  },
+  {
+    Game: "Geometry Dash",
+    Path: "/games/geometry-dash",
+    Image: "/images/geometrydashcover.png",
+  },
+  {
+    Game: "Riddle School 3",
+    Path: "/games/riddle-school3",
+    Image: "/images/riddle-school-3-cover.jpg",
+  },
+  {
+    Game: "Riddle School 4",
+    Path: "/games/riddle-school4",
+    Image: "/images/riddle-school-4-cover.jpg",
+  },
+  {
+    Game: "Riddle School 5",
+    Path: "/games/riddle-school5",
+    Image: "/images/riddleschool5-cover.jpg",
+  },
+  {
+    Game: "Plants vs Zombies",
+    Path: "/games/plants-vs-zombies",
+    Image: "/images/plants-vs-zombies-cover.gif",
+  },
+  {
+    Game: "Geography Game USA",
+    Path: "/games/geography-game",
+    Image: "/images/geography_game_cover.jpg",
+  },
+];
 ---
 
 <Layout pageTitle={pageTitle}>
   <h1 class="text-xl font-bold mb-4 m-5">
     Welcome to the best free Unblocked Games website
   </h1>
+
   <div class="games-grid">
-    <a href="/games/gun-mayhem2" class="game-tile">
-      <img
-        src="/images/gm2cover.png"
-        alt="Gun mayhem 2 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Gun Mayhem 2
-      </p>
-    </a>
-    <a href="/games/madness-project-nexus" class="game-tile">
-      <img
-        src="/images/madness-cover.png"
-        alt="Madness: Project Nexus cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Madness: Project Nexus
-      </p>
-    </a>
-    <a href="/games/hobo2" class="game-tile">
-      <img
-        src="/images/hobo2cover.jpg"
-        alt="Hobo 2 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Hobo 2</p>
-    </a>
-    <a href="/games/riddle-school2" class="game-tile">
-      <img
-        src="/images/Riddle-School-2_logo.png"
-        alt="Riddle School 2 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Riddle School 2
-      </p>
-    </a>
-    <a href="/games/vex3" class="game-tile">
-      <img
-        src="/images/vex-3cover.jpg"
-        alt="Vex 3 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Vex 3</p>
-    </a>
-    <a href="/games/tetris" class="game-tile">
-      <img
-        src="/images/tetriscover.avif"
-        alt="Tetris cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Tetris</p>
-    </a>
-    <a href="/games/theimpossiblequiz2" class="game-tile">
-      <img
-        src="/images/impossiblequiz2cover.jpg"
-        alt="The Impossible Quiz 2 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        The Impossible Quiz 2
-      </p>
-    </a>
-    <a href="/games/supermarioflash" class="game-tile">
-      <img
-        src="/images/supermarioflashcover.png"
-        alt="Super Mario Flash cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Super Mario Flash
-      </p>
-    </a>
-    <a href="/games/minesweeper" class="game-tile">
-      <img
-        src="/images/minesweepercover.jpg"
-        alt="Minesweeper cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Minesweeper</p>
-    </a>
-    <a href="/games/bloonstd5" class="game-tile">
-      <img
-        src="/images/bloonstd5cover.png"
-        alt="Bloons TD 5 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Bloons TD 5</p>
-    </a>
-    <a href="/games/hobo7" class="game-tile">
-      <img
-        src="/images/hobo7cover.webp"
-        alt="Hobo 7 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Hobo 7</p>
-    </a>
-    <a href="/games/doom" class="game-tile">
-      <img
-        src="/images/doomcover.jpg"
-        alt="Doom cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">Doom</p>
-    </a>
-    <a href="/games/happywheels" class="game-tile">
-      <img
-        src="/images/happywheelscover.jpeg"
-        alt="Happy Wheels cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Happy Wheels
-      </p>
-    </a>
-    <a href="/games/geometry-dash" class="game-tile">
-      <img
-        src="/images/geometrydashcover.png"
-        alt="Geometry Dash cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Geometry Dash
-      </p>
-    </a>
-    <a href="/games/riddle-school3" class="game-tile">
-      <img
-        src="/images/riddle-school-3-cover.jpg"
-        alt="Riddle School 3 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Riddle School 3
-      </p>
-    </a>
-    <a href="/games/riddle-school4" class="game-tile">
-      <img
-        src="/images/riddle-school-4-cover.jpg"
-        alt="Riddle School 4 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Riddle School 4
-      </p>
-    </a>
-    <a href="/games/riddle-school5" class="game-tile">
-      <img
-        src="/images/riddleschool5-cover.jpg"
-        alt="Riddle School 5 cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Riddle School 5
-      </p>
-    </a>
-    <a href="/games/plants-vs-zombies" class="game-tile">
-      <img
-        src="/images/plants-vs-zombies-cover.gif"
-        alt="Plants vs Zombies cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Plants vs Zombies
-      </p>
-    </a>
-    <a href="/games/geography-game" class="game-tile">
-      <img
-        src="/images/geography_game_cover.jpg"
-        alt="Geography Game cover image"
-        class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
-      />
-      <p class="hover:underline decoration-sky-500 decoration-2">
-        Geography Game USA
-      </p>
-    </a>
+    {games.map((g) => <Gametile Game={g.Game} Path={g.Path} Image={g.Image} />)}
   </div>
 </Layout>
