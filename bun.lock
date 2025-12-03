@@ -1,6 +1,5 @@
 {
   "lockfileVersion": 1,
-  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "unblocked-games",
@@ -24,7 +23,7 @@
         "autoprefixer": "^10.4.22",
         "jsdom": "^27.2.0",
         "postcss": "^8.5.6",
-        "prettier": "^3.6.2",
+        "prettier": "^3.7.4",
         "prettier-plugin-tailwindcss": "^0.7.1",
       },
     },
@@ -1142,7 +1141,7 @@
 
     "postcss-value-parser": ["postcss-value-parser@4.2.0", "", {}, "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="],
 
-    "prettier": ["prettier@3.6.2", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ=="],
+    "prettier": ["prettier@3.7.4", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA=="],
 
     "prettier-plugin-astro": ["prettier-plugin-astro@0.14.1", "", { "dependencies": { "@astrojs/compiler": "^2.9.1", "prettier": "^3.0.0", "sass-formatter": "^0.7.6" } }, "sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw=="],
 
@@ -1611,6 +1610,8 @@
     "node-fetch/whatwg-url": ["whatwg-url@5.0.0", "", { "dependencies": { "tr46": "~0.0.3", "webidl-conversions": "^3.0.0" } }, "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw=="],
 
     "path-match/path-to-regexp": ["path-to-regexp@1.9.0", "", { "dependencies": { "isarray": "0.0.1" } }, "sha512-xIp7/apCFJuUHdDLWe8O1HIkb0kQrOMb/0u6FXQjemHn/ii5LrIzU6bdECnsiTF/GjZkMEKg1xdiZwNqDYlZ6g=="],
+
+    "prettier-plugin-astro/prettier": ["prettier@3.6.2", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ=="],
 
     "raw-body/http-errors": ["http-errors@1.7.3", "", { "dependencies": { "depd": "~1.1.2", "inherits": "2.0.4", "setprototypeof": "1.1.1", "statuses": ">= 1.5.0 < 2", "toidentifier": "1.0.0" } }, "sha512-ZTTX0MWrsQ2ZAhA1cejAwDLycFsd7I7nVtnkT3Ol0aqodaKW+0CTZDQ1uBv5whptCnc8e8HeRRJxRs0kmm/Qfw=="],
 
