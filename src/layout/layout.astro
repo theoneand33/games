@@ -6,6 +6,7 @@ interface Props {
 
 const { Game } = Astro.props;
 import { OpenPanelComponent } from "@openpanel/astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -15,6 +16,7 @@ import { OpenPanelComponent } from "@openpanel/astro";
     <meta name="description" content={`Play ${Game} unblocked online.`} />
     <title>{Game}</title>
     <Analytics />
+    <ClientRouter />
   </head>
   <body>
     <nav>

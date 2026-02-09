@@ -7,6 +7,7 @@ interface Props {
 
 const { pageTitle } = Astro.props;
 import { OpenPanelComponent } from "@openpanel/astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -16,6 +17,7 @@ import { OpenPanelComponent } from "@openpanel/astro";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <ClientRouter />
   </head>
   <Analytics />
   <meta
@@ -63,6 +65,4 @@ import { OpenPanelComponent } from "@openpanel/astro";
       </div>
     </footer>
   </body>
-
-
 </html>
