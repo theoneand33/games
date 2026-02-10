@@ -8,7 +8,7 @@ const { Game, Path, Image } = Astro.props;
 const altText = `${Game} cover image`;
 ---
 
-<a href={Path} class="game-tile">
+<a href={Path} data-astro-prefetch class="game-tile">
   <img
     src={Image}
     alt={altText}
