@@ -20,7 +20,7 @@
     "glob": "^13.0.0",
     "prettier-plugin-astro": "^0.14.1",
     "react-dom": "19.2.0",
-    "tailwindcss": "^4.1.17",
+    "tailwindcss": "^4.2.1",
     "vercel": "^48.12.1"
   },
   "packageManager": "bun@1.3.2",
