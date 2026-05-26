@@ -11,18 +11,21 @@ import Layout from "../../layout/layout.astro";
     >
     </div>
     <script src="/ruffle/ruffle.js" is:inline></script>
-    <script>
-      window.RufflePlayer = window.RufflePlayer || {};
-      window.addEventListener("load", (event) => {
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        const container = document.getElementById("container");
-        container.appendChild(player);
-        player.style.height = "96vh";
-        player.style.width = "98vw";
-        player.load("/flash/bloonstd5.swf");
-      });
-    </script>
+      <script data-astro-rerun is:inline>
+        window.RufflePlayer = window.RufflePlayer || {};
+        (function() {
+          var container = document.getElementById("container");
+          if (!container) return;
+          var ruffle = window.RufflePlayer.newest();
+          if (!ruffle) return;
+          container.innerHTML = '';
+          var player = ruffle.createPlayer();
+          container.appendChild(player);
+          player.style.height = "96vh";
+          player.style.width = "98vw";
+          player.load("/flash/bloonstd5.swf");
+        })();
+      </script>
   </div>
 
   <script type="text/javascript">
