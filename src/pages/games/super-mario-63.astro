@@ -3,48 +3,36 @@ const Game = "Super Mario 63";
 import Layout from "../../layout/layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Play Super Mario 63 superfun online. - superfun and ready to play!"
-    />
-    <title>{Game}</title>
-    <script defer src="/_vercel/insights/script.js"></script>
-  </head>
-  <Layout Game={Game}>
-    <div style="text-align: center">
-      <div
-        id="container"
-        style="border: #ccc 0px solid; height: 100%; width: 100%"
-      >
-      </div>
-      <script src="/ruffle/ruffle.js" is:inline></script>
-      <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        window.addEventListener("load", (event) => {
-          const ruffle = window.RufflePlayer.newest();
-          const player = ruffle.createPlayer();
-          const container = document.getElementById("container");
-          container.appendChild(player);
-          player.style.height = "96vh";
-          player.style.width = "98vw";
-          player.load("/flash/super-mario-63.swf");
-        });
-      </script>
+<Layout Game={Game}>
+  <div style="text-align: center">
+    <div
+      id="container"
+      style="border: #ccc 0px solid; height: 100%; width: 100%"
+    >
     </div>
-
-    <script type="text/javascript">
-      atOptions = {
-        key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
-        format: "iframe",
-        height: 250,
-        width: 300,
-        params: {},
-      };
+    <script src="/ruffle/ruffle.js" is:inline></script>
+    <script>
+      window.RufflePlayer = window.RufflePlayer || {};
+      window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("container");
+        container.appendChild(player);
+        player.style.height = "96vh";
+        player.style.width = "98vw";
+        player.load("/flash/super-mario-63.swf");
+      });
     </script>
-    
-  </Layout>
-</html>
+  </div>
+
+  <script type="text/javascript">
+    atOptions = {
+      key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
+      format: "iframe",
+      height: 250,
+      width: 300,
+      params: {},
+    };
+  </script>
+  
+</Layout>
