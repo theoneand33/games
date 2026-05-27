@@ -1,1 +1,26 @@
-<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="b" x1="0" y1="74.103" x2="443.596" y2="517.699" gradientTransform="scale(1.15503 .86578)" gradientUnits="userSpaceOnUse"><stop offset="0%" style="stop-color:#6366f1;stop-opacity:1"/><stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1"/><stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1"/></linearGradient><filter id="a" x="-.002" y="-.003" width="1.005" height="1.006"><feGaussianBlur stdDeviation=".5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="matrix(.05436 0 0 .05185 2.448 3.048)" filter="url(#a)"><path d="M447.303 128.681c-.427-1.259-.875-3.264-1.408-5.525-3.52-14.315-6.827-27.84-19.904-32.832l-62.08-23.616a38.942 38.942 0 0 0-36.139 4.48l-3.84 3.435c-3.115 3.563-7.339 8.021-10.347 10.88H199.197c-2.539-2.667-5.931-6.592-8.768-10.112l-4.437-4.16c-10.624-7.424-24.149-9.131-36.117-4.523L87.73 90.324c-13.013 4.949-16.277 18.325-19.755 32.512-.533 2.155-.981 4.117-.811 4.117 0 0 .021 0 .043-.021C46.045 168.66-54.606 379.902 39.623 442.26c13.483 8.917 31.424 7.509 43.691-3.456l73.856-66.219c6.507-5.845 14.784-9.067 23.275-9.067h152.853c8.491 0 16.747 3.221 23.275 9.067l73.856 66.219c6.955 6.229 15.616 9.408 24.277 9.408a34.389 34.389 0 0 0 19.883-6.293c83.157-58.347 8.234-239.425-27.286-313.238z" fill="url(#b)" style="fill:url(#b)"/><rect x="107" y="200" width="106" height="36" fill="#fff" rx="20"/><rect x="143" y="164" width="36" height="106" fill="#fff" rx="20"/><circle cx="341.469" cy="170.835" r="21.333" fill="#fff"/><circle cx="298.802" cy="213.503" r="21.333" fill="#fff"/><circle cx="341.469" cy="256.169" r="21.333" fill="#fff"/><circle cx="384.135" cy="213.503" r="21.333" fill="#fff"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="b" x2="443.6" y1="74.103" y2="517.7" gradientTransform="scale(1.155 .86578)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#6366f1" offset="0"/>
+   <stop stop-color="#7c3aed" offset=".5"/>
+   <stop stop-color="#8b5cf6" offset="1"/>
+  </linearGradient>
+  <filter id="a" x="-.002" y="-.003" width="1.005" height="1.006">
+   <feGaussianBlur result="coloredBlur" stdDeviation=".5"/>
+   <feMerge>
+    <feMergeNode in="coloredBlur"/>
+    <feMergeNode in="SourceGraphic"/>
+   </feMerge>
+  </filter>
+ </defs>
+ <g transform="matrix(.05436 0 0 .05185 2.448 3.048)" filter="url(#a)">
+  <path d="M447.303 128.681c-.427-1.259-.875-3.264-1.408-5.525-3.52-14.315-6.827-27.84-19.904-32.832l-62.08-23.616a38.942 38.942 0 0 0-36.139 4.48l-3.84 3.435c-3.115 3.563-7.339 8.021-10.347 10.88H199.197c-2.539-2.667-5.931-6.592-8.768-10.112l-4.437-4.16c-10.624-7.424-24.149-9.131-36.117-4.523L87.73 90.324c-13.013 4.949-16.277 18.325-19.755 32.512-.533 2.155-.981 4.117-.811 4.117 0 0 .021 0 .043-.021C46.045 168.66-54.606 379.902 39.623 442.26c13.483 8.917 31.424 7.509 43.691-3.456l73.856-66.219c6.507-5.845 14.784-9.067 23.275-9.067h152.853c8.491 0 16.747 3.221 23.275 9.067l73.856 66.219c6.955 6.229 15.616 9.408 24.277 9.408a34.389 34.389 0 0 0 19.883-6.293c83.157-58.347 8.234-239.425-27.286-313.238z" fill="url(#b)"/>
+  <rect x="107" y="200" width="106" height="36" rx="20" fill="#fff"/>
+  <rect x="143" y="164" width="36" height="106" rx="20" fill="#fff"/>
+  <circle cx="341.47" cy="170.84" r="21.333" fill="#fff"/>
+  <circle cx="298.8" cy="213.5" r="21.333" fill="#fff"/>
+  <circle cx="341.47" cy="256.17" r="21.333" fill="#fff"/>
+  <circle cx="384.14" cy="213.5" r="21.333" fill="#fff"/>
+ </g>
+</svg>

@@ -6,7 +6,6 @@ interface Props {
 }
 
 const { pageTitle } = Astro.props;
-import { OpenPanelComponent } from "@openpanel/astro";
 import { ClientRouter } from "astro:transitions";
 import SpeedInsights from "@vercel/speed-insights/astro";
 ---
@@ -55,12 +54,6 @@ import SpeedInsights from "@vercel/speed-insights/astro";
     </nav>
     <main>
       <slot />
-      <OpenPanelComponent
-        clientId="a680ca86-3d81-4e1b-a83d-96f72967c2d1"
-        trackScreenViews={true}
-        trackAttributes={true}
-        trackOutgoingLinks={true}
-      />
     </main>
     <footer>
       <p>
