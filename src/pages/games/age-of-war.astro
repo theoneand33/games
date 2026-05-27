@@ -2,14 +2,6 @@
 const Game = "Age of War";
 import Layout from "../../layout/layout.astro";
 ---
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Play Age of War superfun online. - superfun and ready to play!" />
-    <title>{Game}</title>
-    <script defer src="/_vercel/insights/script.js"></script>
-  </head>
   <Layout Game={Game}>
     <div style="text-align: center">
       <div id="container" style="border: #ccc 0px solid; height: 100%; width: 100%"></div>
@@ -40,4 +32,3 @@ import Layout from "../../layout/layout.astro";
       };
     </script>
   </Layout>
-</html>
