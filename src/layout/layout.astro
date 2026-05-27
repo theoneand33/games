@@ -20,7 +20,7 @@ import { ClientRouter } from "astro:transitions";
     <ClientRouter />
   </head>
   <body>
-    <nav>
+    <nav class="flex items-center justify-between">
       <a href="/" data-astro-prefetch>
         <img
           src="/images/games_logo_light.svg"
@@ -29,6 +29,11 @@ import { ClientRouter } from "astro:transitions";
           class="m-5"
         />
       </a>
+      <div class="mr-5 flex gap-4 text-sm">
+        <a href="/" class="hover:underline underline-offset-2">Home</a>
+        <a href="/request-games" class="hover:underline underline-offset-2">Request Games</a>
+        <a href="/dmca" class="hover:underline underline-offset-2">DMCA</a>
+      </div>
     </nav>
     <main>
       <slot />
@@ -47,7 +52,8 @@ import { ClientRouter } from "astro:transitions";
           href="https://archive.org">Internet Archive</a
         >
       </p>
-      <div style="font-size: 13px;">
+      <div style="font-size: 13px;" class="flex gap-3">
+        <a class="hover:underline underline-offset-2" href="/request-games">Request Games</a>
         <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
       </div>
     </footer>

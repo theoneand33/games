@@ -1,0 +1,85 @@
+---
+import Layout from "../layout/layout-home.astro";
+const pageTitle = "Request Games - Superfun Games";
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="max-w-2xl mx-auto p-5">
+    <h1 class="text-3xl font-bold mb-4">Request a Game</h1>
+    <p class="mb-6 text-gray-400">
+      Want to play a specific flash game? Let us know and we'll try to add it!
+    </p>
+
+    <div class="bg-gray-800 rounded-lg p-6 mb-8">
+      <h2 class="text-xl font-bold mb-4">Popular Requests</h2>
+      <p class="mb-4 text-gray-400">
+        Click to vote for games you'd like to see added:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="popular-requests">
+        <div class="request-item bg-gray-700 rounded p-3 flex justify-between items-center cursor-pointer hover:bg-gray-600" data-game="Papa's Pizzeria">
+          <span>Papa's Pizzeria</span>
+          <span class="vote-count bg-blue-600 text-white text-xs rounded px-2 py-1" data-count="0">0</span>
+        </div>
+        <div class="request-item bg-gray-700 rounded p-3 flex justify-between items-center cursor-pointer hover:bg-gray-600" data-game="Fireboy and Watergirl 2">
+          <span>Fireboy and Watergirl 2</span>
+          <span class="vote-count bg-blue-600 text-white text-xs rounded px-2 py-1" data-count="0">0</span>
+        </div>
+        <div class="request-item bg-gray-700 rounded p-3 flex justify-between items-center cursor-pointer hover:bg-gray-600" data-game="Sonny">
+          <span>Sonny</span>
+          <span class="vote-count bg-blue-600 text-white text-xs rounded px-2 py-1" data-count="0">0</span>
+        </div>
+        <div class="request-item bg-gray-700 rounded p-3 flex justify-between items-center cursor-pointer hover:bg-gray-600" data-game="Epic Battle Fantasy">
+          <span>Epic Battle Fantasy</span>
+          <span class="vote-count bg-blue-600 text-white text-xs rounded px-2 py-1" data-count="0">0</span>
+        </div>
+        <div class="request-item bg-gray-700 rounded p-3 flex justify-between items-center cursor-pointer hover:bg-gray-600" data-game="Jacksmith">
+          <span>Jacksmith</span>
+          <span class="vote-count bg-blue-600 text-white text-xs rounded px-2 py-1" data-count="0">0</span>
+        </div>
+        <div class="request-item bg-gray-700 rounded p-3 flex justify-between items-center cursor-pointer hover:bg-gray-600" data-game="Electro Man">
+          <span>Electro Man</span>
+          <span class="vote-count bg-blue-600 text-white text-xs rounded px-2 py-1" data-count="0">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6">
+      <h2 class="text-xl font-bold mb-4">Submit a Request</h2>
+      <p class="mb-4 text-gray-400">
+        Send us an email with your game request. Include the game name and
+        a link to the Internet Archive page if possible.
+      </p>
+      <a
+        href="mailto:scnew8013@gmail.com?subject=Game%20Request&body=I%27d%20like%20to%20request%20a%20new%20game%3A%0A%0AGame%20Name%3A%0AInternet%20Archive%20Link%20(optional)%3A"
+        class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+      >
+        Send Request via Email
+      </a>
+    </div>
+  </div>
+
+  <script is:inline>
+    const items = document.querySelectorAll('.request-item');
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        const countEl = this.querySelector('.vote-count');
+        let count = parseInt(countEl.dataset.count) || 0;
+        count++;
+        countEl.dataset.count = count;
+        countEl.textContent = count;
+        countEl.classList.add('bg-green-600');
+        countEl.classList.remove('bg-blue-600');
+      });
+    });
+  </script>
+
+  <style is:inline>
+    .request-item {
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .request-item:active {
+      transform: scale(0.97);
+    }
+  </style>
+</Layout>
