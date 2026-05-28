@@ -1,0 +1,42 @@
+---
+
+const Game = "Hobo 3: Wanted";
+import Layout from "../../layout/layout.astro";
+---
+
+  <Layout Game={Game}>
+    <div style="text-align: center">
+      <div
+        id="container"
+        style="border: #ccc 0px solid; height: 100%; width: 100%"
+      >
+      </div>
+      <script src="/ruffle/ruffle.js" is:inline></script>
+      <script data-astro-rerun is:inline>
+        window.RufflePlayer = window.RufflePlayer || {};
+        (function() {
+          var container = document.getElementById("container");
+          if (!container) return;
+          var ruffle = window.RufflePlayer.newest();
+          if (!ruffle) return;
+          container.innerHTML = '';
+          var player = ruffle.createPlayer();
+          container.appendChild(player);
+          player.style.height = "96vh";
+          player.style.width = "98vw";
+          player.load("/flash/hobo3.swf");
+        })();
+      </script>
+    </div>
+
+    <script type="text/javascript">
+      atOptions = {
+        key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
+        format: "iframe",
+        height: 250,
+        width: 300,
+        params: {},
+      };
+    </script>
+    
+  </Layout>
