@@ -1,6 +1,8 @@
 ---
 const Game = "Fleeing the Complex";
 import Layout from "../../layout/layout.astro";
+import Flash from "../../components/flash.astro";
+const gamePath = "/flash/fleeingcomplex.swf";
 ---
 
   <Layout Game={Game}>
@@ -10,22 +12,7 @@ import Layout from "../../layout/layout.astro";
         style="border: #ccc 0px solid; height: 100%; width: 100%"
       >
       </div>
-      <script src="/ruffle/ruffle.js" is:inline></script>
-      <script data-astro-rerun is:inline>
-        window.RufflePlayer = window.RufflePlayer || {};
-        (function() {
-          var container = document.getElementById("container");
-          if (!container) return;
-          var ruffle = window.RufflePlayer.newest();
-          if (!ruffle) return;
-          container.innerHTML = '';
-          var player = ruffle.createPlayer();
-          container.appendChild(player);
-          player.style.height = "96vh";
-          player.style.width = "98vw";
-          player.load("/flash/fleeingcomplex.swf");
-        })();
-      </script>
+      <Flash gamePath={gamePath} />
     </div>
 
     

@@ -1,0 +1,24 @@
+---
+interface Props {
+  gamePath?: string;
+}
+
+const { gamePath } = Astro.props;
+---
+
+<script src="/ruffle/ruffle.js" is:inline></script>
+<script data-astro-rerun is:inline>
+  window.RufflePlayer = window.RufflePlayer || {};
+  (function () {
+    var container = document.getElementById("container");
+    if (!container) return;
+    var ruffle = window.RufflePlayer.newest();
+    if (!ruffle) return;
+    container.innerHTML = "";
+    var player = ruffle.createPlayer();
+    container.appendChild(player);
+    player.style.height = "96vh";
+    player.style.width = "98vw";
+    player.load(gamePath);
+  })();
+</script>
