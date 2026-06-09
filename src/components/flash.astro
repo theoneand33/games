@@ -6,6 +6,7 @@ interface Props {
 const { gamePath } = Astro.props;
 ---
 
+<span id="flash-config" data-path={gamePath} style="display:none"></span>
 <script src="/ruffle/ruffle.js" is:inline></script>
 <script data-astro-rerun is:inline>
   window.RufflePlayer = window.RufflePlayer || {};
@@ -19,6 +20,7 @@ const { gamePath } = Astro.props;
     container.appendChild(player);
     player.style.height = "96vh";
     player.style.width = "98vw";
-    player.load(gamePath);
+    var path = document.getElementById("flash-config").getAttribute("data-path");
+    player.load(path);
   })();
 </script>

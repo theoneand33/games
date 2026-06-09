@@ -1,6 +1,7 @@
 ---
 import "../styles/styles.css";
 import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { getGameSEO } from "../data/game-seo";
 import { ClientRouter } from "astro:transitions";
 
@@ -17,13 +18,19 @@ const { Game } = Astro.props;
 const seo = getGameSEO(Game);
 
 const gameTitle = `Play ${Game} Unblocked on Chromebook - No Flash Required (2026)`;
-const gameDescription = Astro.props.description || seo?.description || `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`;
-const gameImage = Astro.props.image || seo?.image || "/images/games_logo_light.svg";
+const gameDescription =
+  Astro.props.description ||
+  seo?.description ||
+  `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`;
+const gameImage =
+  Astro.props.image || seo?.image || "/images/games_logo_light.svg";
 const gameGenre = Astro.props.genre || seo?.genre || "Game";
 const gameYear = Astro.props.year || seo?.year || "";
 const gameKeywords = `${Astro.props.keywords || seo?.keywords || `${Game.toLowerCase()} unblocked, ${Game.toLowerCase()} online, ${Game.toLowerCase()} working, play ${Game.toLowerCase()}`}, ${Game.toLowerCase()} chromebook, ${Game.toLowerCase()} school, unblocked games chromebook`;
 const siteUrl = "https://unblocked-games.vercel.app";
-const pageSlug = Game.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+const pageSlug = Game.toLowerCase()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "");
 const pageUrl = `${siteUrl}/games/${pageSlug}`;
 const isFlash = seo?.isFlash ?? false;
 const todayDate = "2026-06-10"; // site-wide last updated date
@@ -59,46 +66,56 @@ const todayDate = "2026-06-10"; // site-wide last updated date
     <meta name="twitter:image" content={`${siteUrl}${gameImage}`} />
 
     <!-- JSON-LD Structured Data (BreadcrumbList) -->
-    <script type="application/ld+json" data-seo set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
-        { "@type": "ListItem", "position": 2, "name": "Games", "item": siteUrl },
-        { "@type": "ListItem", "position": 3, "name": Game, "item": pageUrl }
-      ]
-    }).replace(/</g, "\\u003c")} />
-
-    <!-- JSON-LD Structured Data (VideoGame Schema) -->
-    <script type="application/ld+json" data-seo set:html={(() => {
-      const data = {
+    <script
+      type="application/ld+json"
+      data-seo
+      set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "VideoGame",
-        name: Game,
-        description: gameDescription,
-        image: `${siteUrl}${gameImage}`,
-        url: pageUrl,
-        genre: gameGenre,
-        gamePlatform: "Web Browser",
-        operatingSystem: "All (including Chrome OS / Chromebook)",
-        browserRequirements: "Works in all modern browsers including Chrome on Chromebook",
-        author: {
-          "@type": "Organization",
-          name: "Superfun Games"
-        },
-        offers: {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-          availability: "https://schema.org/InStock"
-        },
-        applicationCategory: "GameApplication",
-        dateModified: todayDate
-      };
-      if (gameYear) data.datePublished = gameYear;
-      if (isFlash) data.requirements = "No Flash plugin needed - runs via Ruffle emulator";
-      return JSON.stringify(data).replace(/</g, "\\u003c");
-    })()} />
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Games", item: siteUrl },
+          { "@type": "ListItem", position: 3, name: Game, item: pageUrl },
+        ],
+      }).replace(/</g, "\\u003c")}
+    />
+    <!-- JSON-LD Structured Data (VideoGame Schema) -->
+    <script
+      type="application/ld+json"
+      data-seo
+      set:html={(() => {
+        const data = {
+          "@context": "https://schema.org",
+          "@type": "VideoGame",
+          name: Game,
+          description: gameDescription,
+          image: `${siteUrl}${gameImage}`,
+          url: pageUrl,
+          genre: gameGenre,
+          gamePlatform: "Web Browser",
+          operatingSystem: "All (including Chrome OS / Chromebook)",
+          browserRequirements:
+            "Works in all modern browsers including Chrome on Chromebook",
+          author: {
+            "@type": "Organization",
+            name: "Superfun Games",
+          },
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+          },
+          applicationCategory: "GameApplication",
+          dateModified: todayDate,
+        };
+        if (gameYear) data.datePublished = gameYear;
+        if (isFlash)
+          data.requirements =
+            "No Flash plugin needed - runs via Ruffle emulator";
+        return JSON.stringify(data).replace(/</g, "\\u003c");
+      })()}
+    />
 
     <Analytics />
     <ClientRouter />
@@ -120,62 +137,90 @@ const todayDate = "2026-06-10"; // site-wide last updated date
       </div>
     </nav>
 
-    <!-- SEO-friendly visible content -->
-    <div class="game-seo-content" style="padding: 0.5rem 1.5rem; max-width: 1200px; margin: 0 auto;">
-      <h1 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+    <!-- SEO h1 (slim — keeps game visible without scrolling) -->
+    <div style="padding: 0.5rem 1.5rem 0; max-width: 1200px; margin: 0 auto;">
+      <h1 style="font-size: 1.25rem; font-weight: 700;">
         Play {Game} Unblocked on Chromebook
       </h1>
-      <p style="font-size: 0.875rem; color: #555; margin-bottom: 0.25rem;">
-        {gameDescription.substring(0, 200)}
-        {gameDescription.length > 200 ? "..." : ""}
-      </p>
-      {isFlash && (
-        <p style="font-size: 0.75rem; color: #888; font-weight: 500;">
-          ✓ No Flash plugin required — works on school Chromebooks via Ruffle emulator
-        </p>
-      )}
-      {!isFlash && (
-        <p style="font-size: 0.75rem; color: #888; font-weight: 500;">
-          ✓ Works on school Chromebooks — no downloads needed
-        </p>
-      )}
     </div>
 
     <main>
       <slot />
     </main>
 
+    <!-- SEO description + badges (below the game — still indexed by search engines) -->
+    <div
+      class="game-seo-content"
+      style="padding: 0.5rem 1.5rem; max-width: 1200px; margin: 0 auto;"
+    >
+      <p style="font-size: 0.875rem; color: #555; margin-bottom: 0.25rem;">
+        {gameDescription.substring(0, 200)}
+        {gameDescription.length > 200 ? "..." : ""}
+      </p>
+      {
+        isFlash && (
+          <p style="font-size: 0.75rem; color: #888; font-weight: 500;">
+            ✓ No Flash plugin required — works on school Chromebooks via Ruffle
+            emulator
+          </p>
+        )
+      }
+      {
+        !isFlash && (
+          <p style="font-size: 0.75rem; color: #888; font-weight: 500;">
+            ✓ Works on school Chromebooks — no downloads needed
+          </p>
+        )
+      }
+    </div>
+
     <!-- Internal cross-linking: More Games -->
-    <nav class="more-games" style="padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; margin-top: 1rem;">
-      <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: #374151;">More Unblocked Games</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem;">
-        <a href="/games/happywheels" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Happy Wheels</a>
-        <a href="/games/geometry-dash" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Geometry Dash</a>
-        <a href="/games/gun-mayhem2" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Gun Mayhem 2</a>
-        <a href="/games/madness-project-nexus" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Madness Project Nexus</a>
-        <a href="/games/vex3" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Vex 3</a>
-        <a href="/games/plants-vs-zombies" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Plants vs Zombies</a>
-        <a href="/games/strike-force-heroes" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Strike Force Heroes</a>
-        <a href="/games/super-mario-63" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Super Mario 63</a>
-        <a href="/games/fireboy-and-watergirl" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Fireboy and Watergirl</a>
-        <a href="/games/bloonstd5" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Bloons TD 5</a>
-        <a href="/games/tetris" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Tetris</a>
-        <a href="/games/stick-war" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Stick War</a>
-        <a href="/games/age-of-war" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Age of War</a>
-        <a href="/games/pacman" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Pac-Man</a>
-        <a href="/games/run3" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Run 3</a>
-        <a href="/games/boxhead-2play" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Boxhead 2Play</a>
-        <a href="/games/interactive-buddy" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Interactive Buddy</a>
-        <a href="/games/qwop" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>QWOP</a>
-        <a href="/games/bubble-trouble" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Bubble Trouble</a>
-        <a href="/games/doom" class="hover:underline underline-offset-2 text-blue-700" data-astro-prefetch>Doom</a>
+    <nav
+      class="more-games"
+      style="padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; margin-top: 1rem;"
+    >
+      <p
+        style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: #374151;"
+      >
+        More Unblocked Games
+      </p>
+      <div
+        style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem;"
+      >
+        <a href="/games/happywheels" class="text-blue-600 hover:underline"
+          >Happy Wheels</a
+        >
+        <a href="/games/geometry-dash" class="text-blue-600 hover:underline"
+          >Geometry Dash</a
+        >
+        <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline"
+          >Gun Mayhem 2</a
+        >
+        <a
+          href="/games/madness-project-nexus"
+          class="text-blue-600 hover:underline">Madness Project Nexus</a
+        >
+        <a href="/games/hobo2" class="text-blue-600 hover:underline">Hobo 2</a>
+        <a href="/games/vex3" class="text-blue-600 hover:underline">Vex 3</a>
+        <a
+          href="/games/fireboy-and-watergirl"
+          class="text-blue-600 hover:underline">Fireboy and Watergirl</a
+        >
+        <a
+          href="/games/strike-force-heroes"
+          class="text-blue-600 hover:underline">Strike Force Heroes</a
+        >
+        <a href="/games/super-mario-63" class="text-blue-600 hover:underline"
+          >Super Mario 63</a
+        >
+        <a href="/games/bloonstd5" class="text-blue-600 hover:underline"
+          >Bloons TD 5</a
+        >
       </div>
     </nav>
 
     <footer>
-      {Game && (
-        <p>If this page is blank try reloading it</p>
-      )}
+      {Game && <p>If this page is blank try reloading it</p>}
       <p>
         All games sourced from <a
           class="hover:underline underline-offset-2 text-blue-700"
