@@ -1,17 +1,45 @@
 ---
+import { getGameSEO } from "../data/game-seo";
+
 interface Props {
-  Game: string; // Define that Layout expects a 'Game' prop, which is a string
+  Game: string;
 }
 
-const { Game } = Astro.props; // Destructure Game from Astro.props
+const { Game } = Astro.props;
+const seo = getGameSEO(Game);
+
+const gameDescription = seo?.description || `Play ${Game} unblocked on your school Chromebook. No Flash or download needed.`;
+const siteUrl = "https://unblocked-games.vercel.app";
+const pageUrl = `${siteUrl}/games/${Game.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}`;
+const gameImage = seo?.image || "/images/games_logo_light.svg";
+const gameTitle = `Play ${Game} Unblocked on Chromebook - No Flash Required (2026)`;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={`Play ${Game} unblocked free.`} />
-    <title>{Game}</title>
+    
+    <!-- Primary SEO -->
+    <title>{gameTitle}</title>
+    <meta name="description" content={gameDescription} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={pageUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={gameTitle} />
+    <meta property="og:description" content={gameDescription} />
+    <meta property="og:image" content={`${siteUrl}${gameImage}`} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content="Superfun Games" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={gameTitle} />
+    <meta name="twitter:description" content={gameDescription} />
+    <meta name="twitter:image" content={`${siteUrl}${gameImage}`} />
+
     <script defer src="/_vercel/insights/script.js"></script>
     <style>
       body {
@@ -30,7 +58,7 @@ const { Game } = Astro.props; // Destructure Game from Astro.props
       <a href="/">
         <img
           src="/images/games_logo_light.svg"
-          alt="light mode version of the GAMEhub logo"
+          alt="Superfun Games - Unblocked Games Home"
           width="300"
           class="m-5"
         />

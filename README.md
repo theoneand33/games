@@ -1,1 +1,1 @@
-# cool unblocked games site
+# Cool unblocked games site

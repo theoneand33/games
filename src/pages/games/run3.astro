@@ -12,6 +12,11 @@ const gamePath = "/flash/run3.swf";
       style="border: #ccc 0px solid; height: 100%; width: 100%"
     >
     </div>
-    <Flash gamePath={gamePath} />
+    <script data-astro-rerun is:inline>
+      var s = document.createElement("script");
+      s.src = "https://archive.org/download/run-3-archive/Run%203%20Archive/HTML5%20Versions/26088.js";
+      s.onerror = function() { console.error("Run3 load failed"); };
+      document.body.appendChild(s);
+    </script>
   </div>
 </Layout>

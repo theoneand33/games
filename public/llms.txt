@@ -1,0 +1,74 @@
+# Superfun Games - Unblocked Games for School Chromebook
+> A curated collection of classic Flash games and browser games that work without Flash Player, updated for 2026. All games run directly in your browser using modern emulation (Ruffle for Flash content). Optimized for school Chromebooks.
+
+## Site info
+- Homepage: https://unblocked-games.vercel.app
+- Language: English
+- Last updated: 2026-06-10
+- Platforms: Works on all devices including Chrome OS / Chromebook
+
+## Popular games
+- Happy Wheels: https://unblocked-games.vercel.app/games/happywheels
+- Geometry Dash: https://unblocked-games.vercel.app/games/geometry-dash
+- Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
+- Strike Force Heroes: https://unblocked-games.vercel.app/games/strike-force-heroes
+- Fireboy and Watergirl: https://unblocked-games.vercel.app/games/fireboy-and-watergirl
+- Bloons TD 5: https://unblocked-games.vercel.app/games/bloonstd5
+- Gun Mayhem 2: https://unblocked-games.vercel.app/games/gun-mayhem2
+- Madness Project Nexus: https://unblocked-games.vercel.app/games/madness-project-nexus
+- Vex 3: https://unblocked-games.vercel.app/games/vex3
+- Super Mario 63: https://unblocked-games.vercel.app/games/super-mario-63
+
+## All game pages
+- Age of War: https://unblocked-games.vercel.app/games/age-of-war
+- Boxhead 2Play: https://unblocked-games.vercel.app/games/boxhead-2play
+- Bubble Trouble: https://unblocked-games.vercel.app/games/bubble-trouble
+- Burrito Bison: https://unblocked-games.vercel.app/games/burrito-bison
+- Crush the Castle: https://unblocked-games.vercel.app/games/crush-the-castle
+- Doom: https://unblocked-games.vercel.app/games/doom
+- Duck Life: https://unblocked-games.vercel.app/games/duck-life
+- Fancy Pants Adventure: https://unblocked-games.vercel.app/games/fancy-pants-adventure
+- Geography Game USA: https://unblocked-games.vercel.app/games/geography-game-usa
+- Henry Stickmin: Breaking the Bank: https://unblocked-games.vercel.app/games/henry-stickmin-breaking-the-bank
+- Henry Stickmin: Escaping the Prison: https://unblocked-games.vercel.app/games/henry-stickmin-escaping-the-prison
+- Henry Stickmin: Stealing the Diamond: https://unblocked-games.vercel.app/games/henry-stickmin-stealing-the-diamond
+- Henry Stickmin: Infiltrating the Airship: https://unblocked-games.vercel.app/games/henry-stickmin-infiltrating-the-airship
+- Henry Stickmin: Fleeing the Complex: https://unblocked-games.vercel.app/games/henry-stickmin-fleeing-the-complex
+- Hobo 1 Brawl: https://unblocked-games.vercel.app/games/hobo-1-brawl
+- Hobo 2: https://unblocked-games.vercel.app/games/hobo-2
+- Hobo 3 Wanted: https://unblocked-games.vercel.app/games/hobo-3-wanted
+- Hobo 4 Total War: https://unblocked-games.vercel.app/games/hobo-4-total-war
+- Hobo 5 Space Brawls: https://unblocked-games.vercel.app/games/hobo-5-space-brawls
+- Hobo 6 Hell: https://unblocked-games.vercel.app/games/hobo-6-hell
+- Hobo 7: https://unblocked-games.vercel.app/games/hobo-7
+- Hobo vs Zombies: https://unblocked-games.vercel.app/games/hobo-vs-zombies
+- Interactive Buddy: https://unblocked-games.vercel.app/games/interactive-buddy
+- Learn to Fly 2: https://unblocked-games.vercel.app/games/learn-to-fly-2
+- Learn to Fly 3: https://unblocked-games.vercel.app/games/learn-to-fly-3
+- Minesweeper: https://unblocked-games.vercel.app/games/minesweeper
+- Pac-Man: https://unblocked-games.vercel.app/games/pacman
+- QWOP: https://unblocked-games.vercel.app/games/qwop
+- Riddle School 2: https://unblocked-games.vercel.app/games/riddle-school-2
+- Riddle School 3: https://unblocked-games.vercel.app/games/riddle-school-3
+- Riddle School 4: https://unblocked-games.vercel.app/games/riddle-school-4
+- Riddle School 5: https://unblocked-games.vercel.app/games/riddle-school-5
+- Run 2: https://unblocked-games.vercel.app/games/run-2
+- Run 3: https://unblocked-games.vercel.app/games/run-3
+- Stick War: https://unblocked-games.vercel.app/games/stick-war
+- Super Mario Flash: https://unblocked-games.vercel.app/games/super-mario-flash
+- Super Mario Flash 2: https://unblocked-games.vercel.app/games/super-mario-flash-2
+- Tetris: https://unblocked-games.vercel.app/games/tetris
+- Achievement Unlocked: https://unblocked-games.vercel.app/games/achievement-unlocked
+- The Impossible Quiz 2: https://unblocked-games.vercel.app/games/the-impossible-quiz-2
+- The World's Hardest Game: https://unblocked-games.vercel.app/games/the-worlds-hardest-game
+- Ultimate Flash Sonic: https://unblocked-games.vercel.app/games/ultimate-flash-sonic
+- Vex 3: https://unblocked-games.vercel.app/games/vex3
+
+## About
+Superfun Games provides free unblocked access to classic Flash games and browser games that are no longer playable through normal means since Adobe Flash was discontinued in 2020. All Flash games run through the Ruffle emulator, which is a WebAssembly-based Flash Player replacement that works in modern browsers without any plugins or downloads.
+
+## Target audience
+Students at school who want to play games on their school-issued Chromebooks. All games are carefully selected to work within school network restrictions and require no installations or special permissions.
+
+## DMCA
+https://unblocked-games.vercel.app/dmca

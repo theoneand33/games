@@ -3,9 +3,13 @@ import "../styles/styles.css";
 import Analytics from "@vercel/analytics/astro";
 interface Props {
   pageTitle: string;
+  description?: string;
 }
 
 const { pageTitle } = Astro.props;
+const pageDescription = Astro.props.description || "Play the best free unblocked games online at school on your Chromebook - Happy Wheels, Geometry Dash, Gun Mayhem 2, Plants vs Zombies, Strike Force Heroes, and more classic Flash games. No Flash plugin or download required, all games work directly in your browser. Updated and working in 2026.";
+const siteUrl = "https://unblocked-games.vercel.app";
+
 import { ClientRouter } from "astro:transitions";
 import SpeedInsights from "@vercel/speed-insights/astro";
 ---
@@ -16,30 +20,83 @@ import SpeedInsights from "@vercel/speed-insights/astro";
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO -->
     <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content="unblocked games, unblocked games for school chromebook, school chromebook games, chromebook games unblocked, free online games, flash games working 2026, no flash required games, happy wheels unblocked, plants vs zombies unblocked, geometry dash unblocked, strike force heroes unblocked, classic flash games, online games school, unblocked games online, retro games, browser games, free browser games, action games, puzzle games, strategy games, arcade games, unblocked games vercel" />
+    <meta name="google-site-verification" content="NBlOMVSv6plhaf7kQsHx4aXHHlFlw1q8N0s44BOlVyk" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={`${siteUrl}/images/games_logo_light.svg`} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="Superfun Games" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`${siteUrl}/images/games_logo_light.svg`} />
+
+    <!-- JSON-LD Structured Data (WebSite) -->
+    <script type="application/ld+json" data-seo set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Superfun Games",
+      "url": siteUrl,
+      "description": pageDescription,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${siteUrl}/?search={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }).replace(/</g, "\\u003c")} />
+
+    <!-- JSON-LD Structured Data (Collection of Games) -->
+    <script type="application/ld+json" data-seo set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Unblocked Games Collection",
+      "description": "A curated collection of classic Flash games and browser games that work without Flash Player. All games run directly in your browser using modern emulation.",
+      "url": siteUrl,
+      "about": {
+        "@type": "Thing",
+        "name": "Classic Browser Games"
+      }
+    }).replace(/</g, "\\u003c")} />
+
+    <!-- JSON-LD Structured Data (Organization) -->
+    <script type="application/ld+json" data-seo set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Superfun Games",
+      "url": siteUrl,
+      "description": pageDescription,
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/noahgsolomon/unblocked-games"
+      ]
+    }).replace(/</g, "\\u003c")} />
+
     <ClientRouter />
     <SpeedInsights />
   </head>
   <Analytics />
-  <meta
-    name="description"
-    content="Play the best free games online. Enjoy a wide variety of games including action, puzzle, strategy, and more!"
-  />
-  <meta
-    name="keywords"
-    content="unblocked games, free games, online games, action games, puzzle games, strategy games, vercel unblocked games, unblocked games vercel, unblocked games vercel app, video games, online video games, free video games, unblocked video games, action video games, puzzle video games, strategy video games, action video games online, puzzle video games online, strategy video games online, action games online, puzzle games online, strategy games online"
-  />
-  <meta
-    name="google-site-verification"
-    content="NBlOMVSv6plhaf7kQsHx4aXHHlFlw1q8N0s44BOlVyk"
-  />
-
   <body>
     <nav class="flex items-center justify-between">
       <a href="/">
         <img
           src="/images/games_logo_light.svg"
-          alt="light mode version of the GAMEhub logo"
+          alt="Superfun Games - Unblocked Games Home"
           width="300"
           class="m-5"
         />
