@@ -49,6 +49,11 @@ const todayDate = "2026-06-10"; // site-wide last updated date
     <meta name="keywords" content={gameKeywords} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href={pageUrl} />
+    {
+      isFlash && (
+        <link rel="preload" href="/ruffle/ruffle.js" as="script" crossorigin="anonymous" />
+      )
+    }
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -118,7 +123,6 @@ const todayDate = "2026-06-10"; // site-wide last updated date
     />
 
     <Analytics />
-    <ClientRouter />
     <SpeedInsights />
   </head>
   <body>
@@ -217,7 +221,6 @@ const todayDate = "2026-06-10"; // site-wide last updated date
     </nav>
 
     <footer>
-      {Game && <p>If this page is blank try reloading it</p>}
       <p>
         All games sourced from <a
           class="hover:underline underline-offset-2 text-blue-600"
@@ -228,5 +231,6 @@ const todayDate = "2026-06-10"; // site-wide last updated date
         <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
       </div>
     </footer>
+    <ClientRouter />
   </body>
 </html>

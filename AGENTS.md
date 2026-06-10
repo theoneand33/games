@@ -25,7 +25,6 @@ This project uses **bun** as its package manager. Always use `bun` instead of `n
 │   ├── flash/            .swf files for Flash games
 │   ├── images/           Cover art and logo assets
 │   └── ruffle/           Ruffle WebAssembly Flash emulator
-├── scripts/              Build helper scripts (fix-viewtransitions)
 ├── astro.config.mjs      Astro config (prefetch, sitemap, React, Tailwind)
 ├── tailwind.config.cjs   Tailwind v3 config
 ├── postcss.config.cjs    PostCSS config for Tailwind

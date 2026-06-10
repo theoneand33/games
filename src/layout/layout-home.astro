@@ -18,7 +18,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary SEO -->
@@ -87,10 +87,9 @@ import SpeedInsights from "@vercel/speed-insights/astro";
       ]
     }).replace(/</g, "\\u003c")} />
 
-    <ClientRouter />
+    <Analytics />
     <SpeedInsights />
   </head>
-  <Analytics />
   <body>
     <nav class="flex items-center justify-between">
       <a href="/">
@@ -120,5 +119,6 @@ import SpeedInsights from "@vercel/speed-insights/astro";
         <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
       </div>
     </footer>
+    <ClientRouter />
   </body>
 </html>

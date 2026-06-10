@@ -586,5 +586,14 @@ export const gamesMap: Record<string, GameSEO> = {
 };
 
 export function getGameSEO(gameName: string): GameSEO | undefined {
-  return gamesMap[gameName];
+  // Direct match first
+  if (gamesMap[gameName]) return gamesMap[gameName];
+  // Fallback: find by partial match (handles abbreviated titles like "Breaking the Bank" vs "Henry Stickmin: Breaking the Bank")
+  const lower = gameName.toLowerCase();
+  for (const key of Object.keys(gamesMap)) {
+    if (key.toLowerCase().includes(lower) || lower.includes(key.toLowerCase())) {
+      return gamesMap[key];
+    }
+  }
+  return undefined;
 }

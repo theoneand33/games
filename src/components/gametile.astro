@@ -12,6 +12,10 @@ const altText = `${Game} cover image`;
   <img
     src={Image}
     alt={altText}
+    width="300"
+    height="200"
+    loading="lazy"
+    decoding="async"
     class="cover-img rounded-xl hover:scale-105 transition-transform duration-300 hover:shadow-lg active:scale-95 transform"
   />
   <p class="hover:underline decoration-sky-500 decoration-2">{Game}</p>

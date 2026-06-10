@@ -9,18 +9,31 @@ const { gamePath } = Astro.props;
 <span id="flash-config" data-path={gamePath} style="display:none"></span>
 <script src="/ruffle/ruffle.js" is:inline></script>
 <script data-astro-rerun is:inline>
-  window.RufflePlayer = window.RufflePlayer || {};
+  // Show loading indicator, then poll for Ruffle readiness.
+  // Works on both full page load and Astro View Transitions
+  // (data-astro-rerun ensures re-execution on client-side nav).
   (function () {
-    var container = document.getElementById("container");
+    var container = document.getElementById('container');
     if (!container) return;
-    var ruffle = window.RufflePlayer.newest();
-    if (!ruffle) return;
-    container.innerHTML = "";
-    var player = ruffle.createPlayer();
-    container.appendChild(player);
-    player.style.height = "96vh";
-    player.style.width = "98vw";
-    var path = document.getElementById("flash-config").getAttribute("data-path");
-    player.load(path);
+
+    // Add loading state inside container
+    container.innerHTML =
+      '<div style="display:flex;align-items:center;justify-content:center;height:96vh;background:#f0f0f0;border-radius:8px;color:#666;font-size:1.1rem;">Loading game...</div>';
+
+    var ready = function () {
+      var ruffle = window.RufflePlayer && window.RufflePlayer.newest();
+      if (!ruffle) {
+        setTimeout(ready, 200);
+        return;
+      }
+      container.innerHTML = '';
+      var player = ruffle.createPlayer();
+      container.appendChild(player);
+      player.style.height = '96vh';
+      player.style.width = '98vw';
+      var path = document.getElementById('flash-config').getAttribute('data-path');
+      player.load(path);
+    };
+    ready();
   })();
 </script>

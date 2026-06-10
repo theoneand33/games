@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "postinstall": "bash scripts/fix-viewtransitions.sh",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.9",
     "@astrojs/react": "5.0.5",
     "@astrojs/sitemap": "3.7.3",
     "@tailwindcss/vite": "^4.3.0",
@@ -21,6 +21,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "react-dom": "19.2.0",
     "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3",
     "vercel": "^48.12.1"
   },
   "packageManager": "bun@1.3.2",
