@@ -40,3 +40,7 @@ This project uses **bun** as its package manager. Always use `bun` instead of `n
 - **Ruffle** — Flash emulator running in-browser via WebAssembly (serves `.swf` files)
 - **Vercel Analytics & Speed Insights** — tracking and performance monitoring
 - **Cloudflare Workers** — deployment target (via `wrangler.jsonc`)
+
+## Git commits
+
+When committing, always load and follow the **git-commit** skill from `~/.agents/skills/git-commit/SKILL.md`. It handles conventional commit messages, intelligent staging, and message generation from the diff.
