@@ -1,22 +1,53 @@
 ---
 const Game = "Run 3";
 import Layout from "../../layout/layout.astro";
-import Flash from "../../components/flash.astro";
-const gamePath = "/flash/run3.swf";
 ---
 
 <Layout Game={Game}>
-  <div style="text-align: center">
+  <base href="/games/run3/" />
+  <div id="run3-wrapper" style="text-align: center; height: 96vh; width: 100%;">
     <div
-      id="container"
-      style="border: #ccc 0px solid; height: 100%; width: 100%"
-    >
-    </div>
-    <script data-astro-rerun is:inline>
-      var s = document.createElement("script");
-      s.src = "https://archive.org/download/run-3-archive/Run%203%20Archive/HTML5%20Versions/26088.js";
-      s.onerror = function() { console.error("Run3 load failed"); };
-      document.body.appendChild(s);
-    </script>
+      id="openfl-content"
+      style="background: #000; width: 100%; height: 100%;"
+    ></div>
   </div>
+
+  <script src="/games/run3/Run3.js" is:inline></script>
+  <script data-astro-rerun is:inline>
+    (function () {
+      // Lime/OpenFL touch & viewport setup
+      window.addEventListener("touchmove", function (event) {
+        event.preventDefault();
+      }, { capture: false, passive: false });
+
+      if (typeof window.devicePixelRatio !== 'undefined' && window.devicePixelRatio > 2) {
+        var meta = document.getElementById("viewport");
+        if (meta) {
+          meta.setAttribute("content",
+            "width=device-width, initial-scale=" + (2 / window.devicePixelRatio) + ", user-scalable=no"
+          );
+        }
+      }
+
+      // Embed the game once the DOM is ready
+      var ready = function () {
+        var el = document.getElementById("openfl-content");
+        if (el && typeof lime !== "undefined" && lime.embed) {
+          try {
+            lime.embed("Run3", "openfl-content", 800, 600, { parameters: {} });
+          } catch (e) {
+            console.error("Run3 embed failed:", e);
+          }
+        } else {
+          setTimeout(ready, 200);
+        }
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", ready);
+      } else {
+        ready();
+      }
+    })();
+  </script>
 </Layout>
