@@ -1,5 +1,5 @@
 ---
-import Layout from "../layout/layout-home.astro";
+import Layout from "../layout/layout.astro";
 import Gametile from "../components/gametile.astro";
 const pageTitle =
   "Superfun Games - Unblocked Games for School Chromebook | No Flash Required (2026)";
@@ -262,7 +262,7 @@ const games = [
 ];
 ---
 
-<Layout pageTitle={pageTitle}>
+<Layout pageTitle={pageTitle} isHome={true}>
   <h1 class="text-2xl font-bold mb-2 m-5">
     Play Unblocked Games on Your School Chromebook - Working 2026
   </h1>
