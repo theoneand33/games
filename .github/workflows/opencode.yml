@@ -33,4 +33,4 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         with:
-          model: openrouter/stepfun/step-3.5-flash:free
+          model: openrouter/poolside/laguna-m.1:free
