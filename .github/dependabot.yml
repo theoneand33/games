@@ -2,40 +2,18 @@
 
 version: 2
 updates:
-  # Enable pnpm for the root directory
   - package-ecosystem: "bun"
     directory: "/"
     schedule:
-      # Check for updates weekly on Tuesdays at 9 AM UTC
       interval: "weekly"
-      day: "wednesday"
+      day: "tuesday"
       time: "09:00"
       timezone: "UTC"
 
     # Assign reviewers to pull requests
     reviewers:
-      - "theoneand33" # Replace with your GitHub username or a team
-      # - "your-team-name" # Uncomment and replace if you have a GitHub team
+      - "theoneand33"
 
     # Add labels to pull requests for better organization
     labels:
       - "dependencies"
-
-    # Ignore specific dependencies if needed (e.g., if you manage them manually)
-    # You can add more entries to the ignore list
-    # ignore:
-    #   - dependency-name: "eslint"
-    #     versions: ["5.x", "6.x"] # Ignore specific major versions
-
-    # If your project uses multiple pnpm workspaces, you might have multiple
-    # package.json files in different subdirectories. In such cases,
-    # you would add additional entries like this:
-  # - package-ecosystem: "pnpm"
-  #   directory: "packages/frontend" # Example: for a frontend workspace
-  #   schedule:
-  #     interval: "weekly"
-  #   labels:
-  #     - "dependencies"
-  #     - "pnpm"
-  #     - "frontend"
-  #   # You can configure groups, reviewers, etc., per workspace if desired
