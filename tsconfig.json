@@ -1,4 +1,11 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": [
+    "public/ruffle/",
+    "public/flash/",
+    "public/games/run3/",
+    "dist/",
+    ".astro/"
+  ]
 }

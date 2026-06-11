@@ -1,0 +1,6 @@
+public/games/run3/
+public/ruffle/
+public/flash/
+dist/
+.astro/
+node_modules/

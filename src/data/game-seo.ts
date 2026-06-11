@@ -8,8 +8,6 @@ export interface GameSEO {
   isFlash: boolean;
 }
 
-const SITE = "https://unblocked-games.vercel.app";
-
 export const gamesMap: Record<string, GameSEO> = {
   "Happy Wheels": {
     title: "Happy Wheels",
@@ -196,6 +194,50 @@ export const gamesMap: Record<string, GameSEO> = {
     year: "2008",
     keywords:
       "duck life unblocked, duck life no flash, duck life working, duck life online, duck training game, duck racing game, duck life browser",
+    isFlash: true,
+  },
+  "Duck Life 2": {
+    title: "Duck Life 2",
+    description:
+      "Play Duck Life 2 unblocked online - the sequel to the hit duck training game. Compete in world championships, train new skills including climbing, and customize your duck with hats and accessories. No Flash required, working 2026 version.",
+    image: "/images/ducklife2-cover.png",
+    genre: "Simulation / Racing",
+    year: "2010",
+    keywords:
+      "duck life 2 unblocked, duck life 2 no flash, duck life 2 working, duck life 2 online, duck life 2 world champion, duck training game, duck racing game",
+    isFlash: true,
+  },
+  "Duck Life 3": {
+    title: "Duck Life 3",
+    description:
+      "Play Duck Life 3 Evolution unblocked online - the third installment where you can evolve your duck with unique abilities. Choose from different duck breeds and master new training mini-games. No Flash required, working 2026 version.",
+    image: "/images/ducklife3-cover.png",
+    genre: "Simulation / Racing",
+    year: "2011",
+    keywords:
+      "duck life 3 unblocked, duck life 3 no flash, duck life 3 evolution, duck life 3 working, duck life 3 online, duck evolution game, duck training game",
+    isFlash: true,
+  },
+  "Duck Life 4": {
+    title: "Duck Life 4",
+    description:
+      "Play Duck Life 4 unblocked online - the biggest Duck Life adventure yet with an open world to explore. Travel through Grassland, Swamp, Mountains, Glacier, City, and Volcano while training your duck to beat the fire duck champion. No Flash required, working 2026 version.",
+    image: "/images/ducklife4-cover.png",
+    genre: "Simulation / Racing",
+    year: "2012",
+    keywords:
+      "duck life 4 unblocked, duck life 4 no flash, duck life 4 working, duck life 4 online, duck life 4 game, duck training game, duck racing champion",
+    isFlash: true,
+  },
+  "Duck Life 5": {
+    title: "Duck Life 5",
+    description:
+      "Play Duck Life 5 Treasure Hunt unblocked online - explore ancient caves and hunt for treasure in this action-packed Duck Life adventure. Avoid obstacles, collect coins, and customize your duck with over 200 costumes. No Flash required, working 2026 version.",
+    image: "/images/ducklife5-cover.png",
+    genre: "Adventure / Simulation",
+    year: "2013",
+    keywords:
+      "duck life 5 unblocked, duck life treasure hunt unblocked, duck life 5 no flash, duck life 5 working, duck life 5 online, treasure hunt game, duck adventure game",
     isFlash: true,
   },
   "Run 2": {
@@ -591,7 +633,10 @@ export function getGameSEO(gameName: string): GameSEO | undefined {
   // Fallback: find by partial match (handles abbreviated titles like "Breaking the Bank" vs "Henry Stickmin: Breaking the Bank")
   const lower = gameName.toLowerCase();
   for (const key of Object.keys(gamesMap)) {
-    if (key.toLowerCase().includes(lower) || lower.includes(key.toLowerCase())) {
+    if (
+      key.toLowerCase().includes(lower) ||
+      lower.includes(key.toLowerCase())
+    ) {
       return gamesMap[key];
     }
   }

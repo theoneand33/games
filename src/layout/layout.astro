@@ -105,7 +105,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
       Game && !isHome ? (
         <>
           <!-- JSON-LD BreadcrumbList -->
-          <script
+          <script is:inline
             type="application/ld+json"
             data-seo
             set:html={JSON.stringify({
@@ -119,7 +119,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
             }).replace(/</g, "\\u003c")}
           />
           <!-- JSON-LD VideoGame -->
-          <script
+          <script is:inline
             type="application/ld+json"
             data-seo
             set:html={(() => {
@@ -144,10 +144,11 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
                 },
                 applicationCategory: "GameApplication",
                 dateModified: todayDate,
+                ...(gameYear ? { datePublished: gameYear } : {}),
+                ...(isFlash
+                  ? { requirements: "No Flash plugin needed - runs via Ruffle emulator" }
+                  : {}),
               };
-              if (gameYear) data.datePublished = gameYear;
-              if (isFlash)
-                data.requirements = "No Flash plugin needed - runs via Ruffle emulator";
               return JSON.stringify(data).replace(/</g, "\\u003c");
             })()}
           />
@@ -159,7 +160,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
       isHome ? (
         <>
           <!-- JSON-LD WebSite -->
-          <script type="application/ld+json" data-seo set:html={JSON.stringify({
+          <script is:inline type="application/ld+json" data-seo set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Superfun Games",
@@ -172,7 +173,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
             }
           }).replace(/</g, "\\u003c")} />
           <!-- JSON-LD CollectionPage -->
-          <script type="application/ld+json" data-seo set:html={JSON.stringify({
+          <script is:inline type="application/ld+json" data-seo set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Unblocked Games Collection",
@@ -181,7 +182,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
             "about": { "@type": "Thing", "name": "Classic Browser Games" }
           }).replace(/</g, "\\u003c")} />
           <!-- JSON-LD Organization -->
-          <script type="application/ld+json" data-seo set:html={JSON.stringify({
+          <script is:inline type="application/ld+json" data-seo set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Superfun Games",

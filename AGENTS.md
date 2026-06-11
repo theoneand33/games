@@ -12,6 +12,15 @@ This project uses **bun** as its package manager. Always use `bun` instead of `n
 - `bun update` — update dependencies
 - `bun <script>` — shorthand for running scripts
 
+## Post-change verification
+
+After making any code changes, always run both of these commands to verify correctness and consistency:
+
+1. **`bun run check`** — runs `astro check` (TypeScript/type checking) followed by `astro build`. Ensures the project type-checks and builds successfully.
+2. **`bun run lint`** — runs `prettier --check .` to verify all files are properly formatted.
+
+Run these **before** committing. If either fails, fix the issues before proceeding.
+
 ## Project structure — detailed
 
 ```
@@ -26,11 +35,11 @@ This project uses **bun** as its package manager. Always use `bun` instead of `n
 │   ├── pages/
 │   │   ├── index.astro        Home page — lists all games via <Gametile> components
 │   │   ├── dmca.astro         DMCA takedown notice page
-│   │   └── games/             One .astro file per game (50+ game pages)
+│   │   └── games/             One .astro file per game
 │   └── styles/
 │       └── styles.css         Global CSS + Tailwind v4 import + .games-grid/.game-tile
 ├── public/
-│   ├── flash/                 All .swf files for Flash games (51 files)
+│   ├── flash/                 All .swf files for Flash games
 │   ├── games/run3/            HTML5 game bundle for Run 3 (index.html, JS, assets)
 │   ├── images/                Cover art (JPEG/PNG/AVIF/WEBP), logos, favicon
 │   ├── ruffle/                Ruffle WebAssembly Flash emulator (ruffle.js + .wasm)
@@ -39,9 +48,10 @@ This project uses **bun** as its package manager. Always use `bun` instead of `n
 │   └── *.txt                  Domain verification file for search consoles
 ├── astro.config.mjs           Astro v6 config (prefetch, sitemap, Tailwind v4 via Vite)
 ├── tsconfig.json              TypeScript strict mode (extends astro/tsconfigs/strict)
-├── wrangler.jsonc             Cloudflare Workers config (serves dist/ as static assets)
 └── package.json               Dependencies: astro, tailwindcss v4, vercel analytics, etc.
 ```
+
+> **Tailwind v4 note:** This project uses Tailwind CSS v4, which moves configuration from `tailwind.config.js` to CSS `@theme` directives. Any theme extensions (colors, fonts, spacing, etc.) must be defined as CSS variables inside an `@theme` block in `src/styles/styles.css`. Do **not** create or edit a `tailwind.config.js` file — it will be ignored.
 
 ## Where to look / what matters
 
@@ -96,6 +106,8 @@ These directly load their own JS. No `Flash` component. No `.swf` file needed.
 5. **Add to homepage** — add entry to the `games` array in `src/pages/index.astro`
 6. **Update `public/llms.txt`** — add the game URL to the list
 
+> **Important:** All asset paths (`.swf` files, cover images, scripts) must use **absolute paths** relative to the `public/` directory — e.g., `/flash/gamename.swf`, `/images/cover.png`. Never use relative paths like `images/cover.png` or `../images/cover.png`, as they will break on nested game page routes (`/games/game-slug`).
+
 ### The SEO system (how layout.astro + game-seo.ts work together)
 
 - `game-seo.ts` exports `gamesMap: Record<string, GameSEO>` — one entry per game keyed by full display name (e.g., `"Happy Wheels"`).
@@ -140,7 +152,6 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 | `node_modules/`      | Dependencies — never relevant                                            |
 | `public/ruffle/`     | Vendored WASM binary — never modify don't read, read ruffle docs instead |
 | `public/games/run3/` | Vendored HTML5 game bundle — never modify (unless updating Run 3 itself) |
-| `wrangler.jsonc`     | Static config (Cloudflare Workers) — rarely changes                      |
 | `astro.config.mjs`   | Static Astro config — rarely changes                                     |
 | `tsconfig.json`      | Standard strict TS config — rarely changes                               |
 | `.gitignore`         | Standard ignores — rarely changes                                        |
@@ -156,7 +167,7 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 | Change game tile appearance | `src/components/gametile.astro`                                                                      |
 | Change Flash/Ruffle loading | `src/components/flash.astro`                                                                         |
 | Change global styles        | `src/styles/styles.css`                                                                              |
-| Change deployment           | `wrangler.jsonc` or `package.json` scripts                                                           |
+| Change deployment           | `package.json` scripts                                                                               |
 | Add/edit dependency         | `bun add <package>` (not npm)                                                                        |
 
 ## Technology stack
@@ -165,7 +176,6 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 - **Tailwind CSS v4** — utility-first CSS (via `@tailwindcss/vite` plugin in `astro.config.mjs`)
 - **Ruffle** — Flash emulator running in-browser via WebAssembly (ships `ruffle.js` + `.wasm` under `public/ruffle/`)
 - **Vercel Analytics & Speed Insights** — tracking and performance monitoring (injected in layout)
-- **Cloudflare Workers** — deployment target (serves `dist/` as static assets via `wrangler.jsonc`) - not really being used
 - **No React** — `@astrojs/react` was removed; zero React components exist
 - **Astro prefetch** — enabled globally for faster page transitions (uses `data-astro-prefetch` on links)
-- **Vercel** — also configured in `package.json` - being used
+- **Vercel** — static site deployment host (via `package.json` scripts)
