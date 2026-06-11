@@ -59,7 +59,7 @@ Run these **before** committing. If either fails, fix the issues before proceedi
 
 Every game has an `.astro` page under `src/pages/games/`. There are **two patterns**:
 
-**Pattern A — Flash games (90% of games):**
+**Pattern A — Flash games (most games):**
 
 ```astro
 ---

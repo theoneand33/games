@@ -1,27 +1,15 @@
 ---
-
 const Game = "Hobo vs Zombies";
 import Layout from "../../layout/layout.astro";
 import Flash from "../../components/flash.astro";
 const gamePath = "/flash/hobovszombies.swf";
-
 ---
 
-  <Layout Game={Game}>
-    <div style="text-align: center">
-      <div id="container" style="border: #ccc 0px solid; height: 100%; width: 100%; min-height: 96vh;">
-      </div>
-      <Flash gamePath={gamePath} />
+<Layout Game={Game}>
+  <div style="text-align: center">
+    <div id="container" style="border: #ccc 0px solid; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 100px);">
     </div>
+    <Flash gamePath={gamePath} />
+  </div>
+</Layout>
 
-    <script is:inline type="text/javascript">
-      atOptions = {
-        key: "1cc5f63f55fc28b4c469b5e4e2f1a79d",
-        format: "iframe",
-        height: 250,
-        width: 300,
-        params: {},
-      };
-    </script>
-    
-  </Layout>

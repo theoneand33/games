@@ -31,17 +31,6 @@ export const gamesMap: Record<string, GameSEO> = {
       "plants vs zombies unblocked, plants vs zombies working, plants vs zombies no flash, plants vs zombies online, plants vs zombies free, pvz, tower defense game, plants vs zombies browser",
     isFlash: true,
   },
-  "Geometry Dash": {
-    title: "Geometry Dash",
-    description:
-      "Play Geometry Dash unblocked online - the rhythm-based platformer where timing is everything. Jump and fly through geometric obstacles in this addictive scratch-based version. No downloads needed, works instantly in your browser.",
-    image: "/images/geometrydashcover.png",
-    genre: "Rhythm / Platformer",
-    year: "2013",
-    keywords:
-      "geometry dash unblocked, geometry dash online, geometry dash free, geometry dash scratch, rhythm game, geometry dash browser",
-    isFlash: false,
-  },
   "Fireboy and Watergirl": {
     title: "Fireboy and Watergirl",
     description:

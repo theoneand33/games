@@ -1,19 +1,15 @@
 ---
-
 const Game = "Riddle School 5";
 import Layout from "../../layout/layout.astro";
 import Flash from "../../components/flash.astro";
 const gamePath = "/flash/RiddleSchool5.swf";
 ---
 
-  <Layout Game={Game}>
-    <div style="text-align: center">
-      <div id="container" style="border: #ccc 0px solid; height: 100%; width: 100%; min-height: 96vh;">
-      </div>
-      <Flash gamePath={gamePath} />
+<Layout Game={Game}>
+  <div style="text-align: center">
+    <div id="container" style="border: #ccc 0px solid; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 100px);">
     </div>
-
-    
-  </Layout>
-
+    <Flash gamePath={gamePath} />
+  </div>
+</Layout>
 

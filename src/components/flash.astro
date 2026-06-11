@@ -9,16 +9,19 @@ const { gamePath } = Astro.props;
 <span id="flash-config" data-path={gamePath} style="display:none"></span>
 <script src="/ruffle/ruffle.js" is:inline></script>
 <script data-astro-rerun is:inline>
-  // Show loading indicator, then poll for Ruffle readiness.
-  // Works on both full page load and Astro View Transitions
-  // (data-astro-rerun ensures re-execution on client-side nav).
   (function () {
     var container = document.getElementById('container');
     if (!container) return;
 
-    // Add loading state inside container
+    container.style.display = 'flex';
+    container.style.alignItems = 'center';
+    container.style.justifyContent = 'center';
+    container.style.padding = '24px 16px';
+    container.style.minHeight = 'calc(100vh - 100px)';
+    container.style.boxSizing = 'border-box';
+
     container.innerHTML =
-      '<div style="display:flex;align-items:center;justify-content:center;height:96vh;background:#f0f0f0;border-radius:8px;color:#666;font-size:1.1rem;">Loading game...</div>';
+      '<div style="background:#f0f0f0;border-radius:8px;color:#666;font-size:1.1rem;padding:40px;">Loading game...</div>';
 
     var ready = function () {
       var ruffle = window.RufflePlayer && window.RufflePlayer.newest();
@@ -29,8 +32,28 @@ const { gamePath } = Astro.props;
       container.innerHTML = '';
       var player = ruffle.createPlayer();
       container.appendChild(player);
-      player.style.height = '96vh';
-      player.style.width = '98vw';
+
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      var pad = 32;
+      var tabBar = 120;
+      var targetRatio = 4 / 3;
+
+      var maxW = Math.min(vw - pad * 2, 1040);
+      var maxH = vh - tabBar - pad * 2;
+
+      var w = maxW;
+      var h = w / targetRatio;
+      if (h > maxH) {
+        h = maxH;
+        w = h * targetRatio;
+      }
+
+      player.style.width = Math.round(w) + 'px';
+      player.style.height = Math.round(h) + 'px';
+      player.style.maxWidth = '100%';
+      player.style.margin = '0 auto';
+
       var path = document.getElementById('flash-config').getAttribute('data-path');
       player.load(path);
     };
