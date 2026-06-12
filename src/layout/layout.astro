@@ -3,7 +3,6 @@ import "../styles/styles.css";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { getGameSEO } from "../data/game-seo";
-import { ClientRouter } from "astro:transitions";
 
 interface Props {
   Game?: string;
@@ -288,6 +287,5 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
         <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
       </div>
     </footer>
-    <ClientRouter />
   </body>
 </html>
