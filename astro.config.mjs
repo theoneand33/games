@@ -9,6 +9,9 @@ export default defineConfig({
   prefetch: true,
   site: "https://unblocked-games.vercel.app/",
   integrations: [sitemap()],
+  build: {
+    inlineStylesheets: "always",
+  },
   vite: {
     plugins: [tailwindcss()],
   },

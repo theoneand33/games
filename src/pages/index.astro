@@ -329,6 +329,6 @@ const games = [
   </div>
 
   <div class="games-grid">
-    {games.map((g) => <Gametile Game={g.Game} Path={g.Path} Image={g.Image} />)}
+    {games.map((g, i) => <Gametile Game={g.Game} Path={g.Path} Image={g.Image} priority={i === 0} />)}
   </div>
 </Layout>
