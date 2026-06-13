@@ -6,4 +6,4 @@ Disallow: /flash/
 # https://llmstxt.org/
 # See https://unblocked-games.vercel.app/llms.txt for AI-friendly site summary
 
-Sitemap: https://unblocked-games.vercel.app/sitemap-index.xml
+Sitemap: https://unblocked-games.vercel.app/sitemap.xml
