@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   prefetch: true,
-  site: "https://unblocked-games.vercel.app/",
+  site: "https://unblocked-games.vercel.app",
   integrations: [sitemap()],
   build: {
     inlineStylesheets: "always",
