@@ -8,29 +8,25 @@ const { gamePath, aspectRatio = 4 / 3 } = Astro.props;
 ---
 
 <div class="text-center">
-    <div id="flash-player-wrap" data-path={gamePath} data-ratio={aspectRatio} class="flex items-center justify-center p-6 min-h-[calc(100vh-100px)] box-border">
+    <div id="flash-player-wrap" data-path={gamePath} data-ratio={String(aspectRatio)} class="flex items-center justify-center p-6 min-h-[calc(100vh-100px)] box-border">
     <div class="flash-loading">Loading game...</div>
   </div>
 </div>
 
 <script src="/ruffle/ruffle.js" is:inline></script>
-<script data-astro-rerun is:inline>
+<script is:inline>
   (function () {
     var wrap = document.getElementById("flash-player-wrap");
     if (!wrap) return;
 
-    // Cleanup previous instance from view transitions
-    if (window.__flashCleanup) {
-      window.__flashCleanup();
-    }
-
+    // ── state ──
     var currentPlayer = null;
     var resizeHandler = null;
-    var maxAttempts = 50;
-    var attempts = 0;
+    var destroyed = false;
     var GAME_PATH = wrap.getAttribute("data-path") || "";
     var ASPECT_RATIO = parseFloat(wrap.getAttribute("data-ratio")) || 4 / 3;
 
+    // ── helpers ──
     function showError(msg) {
       wrap.innerHTML =
         '<div class="flash-error">' +
@@ -38,7 +34,21 @@ const { gamePath, aspectRatio = 4 / 3 } = Astro.props;
         "</div>";
     }
 
+    function cleanup() {
+      if (destroyed) return;
+      destroyed = true;
+      if (resizeHandler) {
+        window.removeEventListener("resize", resizeHandler);
+        resizeHandler = null;
+      }
+      if (currentPlayer) {
+        try { currentPlayer.remove(); } catch (_e) { /* ignore */ }
+        currentPlayer = null;
+      }
+    }
+
     function initPlayer(ruffle) {
+      if (destroyed) return;
       wrap.innerHTML = "";
       currentPlayer = ruffle.createPlayer();
       wrap.appendChild(currentPlayer);
@@ -65,17 +75,28 @@ const { gamePath, aspectRatio = 4 / 3 } = Astro.props;
       resize();
       resizeHandler = resize;
       window.addEventListener("resize", resize);
-      currentPlayer.load(GAME_PATH);
+
+      // load the SWF with error handling
+      currentPlayer.load(GAME_PATH).catch(function (err) {
+        if (!destroyed) {
+          showError("Failed to load game: " + (err.message || "unknown error"));
+        }
+      });
     }
 
+    // ── Ruffle readiness (polling fallback) ──
+    var maxAttempts = 50;
+    var attempts = 0;
+
     function ready() {
+      if (destroyed) return;
       try {
         var ruffle =
           typeof window.RufflePlayer !== "undefined" &&
           typeof window.RufflePlayer.newest === "function"
             ? window.RufflePlayer.newest()
             : null;
-        if (ruffle) {
+        if (ruffle && typeof ruffle.createPlayer === "function") {
           initPlayer(ruffle);
           return;
         }
@@ -84,29 +105,15 @@ const { gamePath, aspectRatio = 4 / 3 } = Astro.props;
       }
       attempts++;
       if (attempts > maxAttempts) {
-        showError(
-          "Failed to load Flash player. Please refresh the page.",
-        );
+        showError("Failed to load Flash player. Please refresh the page.");
         return;
       }
       setTimeout(ready, 200);
     }
 
-    window.__flashCleanup = function () {
-      if (resizeHandler) {
-        window.removeEventListener("resize", resizeHandler);
-        resizeHandler = null;
-      }
-      if (currentPlayer) {
-        try {
-          currentPlayer.remove();
-        } catch (_e) {
-          // ignore
-        }
-        currentPlayer = null;
-      }
-    };
-
     ready();
+
+    // ── lifecycle: clean up on view-transition navigation ──
+    document.addEventListener("astro:before-swap", cleanup, { once: true });
   })();
 </script>

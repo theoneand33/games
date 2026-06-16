@@ -3,12 +3,12 @@ import Layout from "../layout/layout.astro";
 import Gametile from "../components/gametile.astro";
 const pageTitle =
   "Superfun Games - Unblocked Games for School Chromebook | No Flash Required (2026)";
-// Games ordered by estimated popularity — most popular first
+// Games ordered by popularity — series grouped contiguously, numbered in sequence
 const games = [
-  // ── Tier 1: All-time greatest hits ──
+  // ── Standalone games (most popular first) ──
   {
     Game: "Happy Wheels",
-    Path: "/games/happywheels",
+    Path: "/games/happy-wheels",
     Image: "/images/happywheelscover.webp",
   },
   {
@@ -18,7 +18,7 @@ const games = [
   },
   {
     Game: "Run 3",
-    Path: "/games/run3",
+    Path: "/games/run-3",
     Image: "/images/run3-cover.webp",
   },
   {
@@ -28,7 +28,7 @@ const games = [
   },
   {
     Game: "Bloons TD 5",
-    Path: "/games/bloonstd5",
+    Path: "/games/bloons-td-5",
     Image: "/images/bloonstd5cover.webp",
   },
   {
@@ -43,16 +43,14 @@ const games = [
   },
   {
     Game: "Pac-Man",
-    Path: "/games/pacman",
+    Path: "/games/pac-man",
     Image: "/images/pacman-cover.webp",
   },
   {
     Game: "Run 2",
-    Path: "/games/run2",
+    Path: "/games/run-2",
     Image: "/images/run2-cover.webp",
   },
-
-  // ── Tier 2: Beloved classics ──
   {
     Game: "Fancy Pants Adventure",
     Path: "/games/fancy-pants-adventure",
@@ -80,17 +78,17 @@ const games = [
   },
   {
     Game: "The World's Hardest Game",
-    Path: "/games/worlds-hardest-game",
+    Path: "/games/the-worlds-hardest-game",
     Image: "/images/worldshardestgame-cover.webp",
   },
   {
     Game: "Vex 3",
-    Path: "/games/vex3",
+    Path: "/games/vex-3",
     Image: "/images/vex-3cover.webp",
   },
   {
     Game: "Gun Mayhem 2",
-    Path: "/games/gun-mayhem2",
+    Path: "/games/gun-mayhem-2",
     Image: "/images/gm2cover.webp",
   },
   {
@@ -113,8 +111,6 @@ const games = [
     Path: "/games/burrito-bison",
     Image: "/images/burritobison-cover.webp",
   },
-
-  // ── Tier 3: Well-loved franchises ──
   {
     Game: "Boxhead 2Play",
     Path: "/games/boxhead-2play",
@@ -122,7 +118,7 @@ const games = [
   },
   {
     Game: "The Impossible Quiz 2",
-    Path: "/games/theimpossiblequiz2",
+    Path: "/games/the-impossible-quiz-2",
     Image: "/images/impossiblequiz2cover.webp",
   },
   {
@@ -131,32 +127,61 @@ const games = [
     Image: "/images/interactivebuddy-cover.webp",
   },
   {
-    Game: "Henry Stickmin: Breaking the Bank",
+    Game: "Achievement Unlocked",
+    Path: "/games/achievement-unlocked",
+    Image: "/images/achievementunlocked-cover.webp",
+  },
+  {
+    Game: "Ultimate Flash Sonic",
+    Path: "/games/ultimate-flash-sonic",
+    Image: "/images/sonic-cover.webp",
+  },
+  {
+    Game: "Doom",
+    Path: "/games/doom",
+    Image: "/images/doomcover.webp",
+  },
+  {
+    Game: "Minesweeper",
+    Path: "/games/minesweeper",
+    Image: "/images/minesweepercover.webp",
+  },
+  {
+    Game: "Geography Game USA",
+    Path: "/games/geography-game-usa",
+    Image: "/images/geography-game-cover.webp",
+  },
+
+  // ── Henry Stickmin series ──
+  {
+    Game: "Henry Stickmin 1: Breaking the Bank",
     Path: "/games/breaking-the-bank",
     Image: "/images/breakingthebank-cover.webp",
   },
   {
-    Game: "Henry Stickmin: Escaping the Prison",
+    Game: "Henry Stickmin 2: Escaping the Prison",
     Path: "/games/escaping-the-prison",
     Image: "/images/escapingtheprison-cover.webp",
   },
   {
-    Game: "Henry Stickmin: Stealing the Diamond",
+    Game: "Henry Stickmin 3: Stealing the Diamond",
     Path: "/games/stealing-the-diamond",
     Image: "/images/stealingthediamond-cover.webp",
   },
   {
-    Game: "Henry Stickmin: Infiltrating the Airship",
+    Game: "Henry Stickmin 4: Infiltrating the Airship",
     Path: "/games/infiltrating-the-airship",
     Image: "/images/infiltratingairship-cover.webp",
   },
   {
-    Game: "Henry Stickmin: Fleeing the Complex",
+    Game: "Henry Stickmin 5: Fleeing the Complex",
     Path: "/games/fleeing-the-complex",
     Image: "/images/fleeingcomplex-cover.webp",
   },
+
+  // ── Duck Life series ──
   {
-    Game: "Duck Life",
+    Game: "Duck Life 1",
     Path: "/games/duck-life",
     Image: "/images/ducklife-cover.webp",
   },
@@ -180,6 +205,8 @@ const games = [
     Path: "/games/duck-life-5",
     Image: "/images/ducklife5-cover.webp",
   },
+
+  // ── Learn to Fly series ──
   {
     Game: "Learn to Fly 2",
     Path: "/games/learn-to-fly-2",
@@ -191,15 +218,10 @@ const games = [
     Image: "/images/learntofly3-cover.webp",
   },
 
-  // ── Tier 4: Established games ──
+  // ── Super Mario Flash series ──
   {
-    Game: "Achievement Unlocked",
-    Path: "/games/achievement-unlocked",
-    Image: "/images/achievementunlocked-cover.webp",
-  },
-  {
-    Game: "Super Mario Flash",
-    Path: "/games/supermarioflash",
+    Game: "Super Mario Flash 1",
+    Path: "/games/super-mario-flash",
     Image: "/images/supermarioflashcover.webp",
   },
   {
@@ -207,13 +229,10 @@ const games = [
     Path: "/games/super-mario-flash-2",
     Image: "/images/supermarioflash2cover.webp",
   },
+
+  // ── Swords and Sandals series ──
   {
-    Game: "Ultimate Flash Sonic",
-    Path: "/games/ultimate-flash-sonic",
-    Image: "/images/sonic-cover.webp",
-  },
-  {
-    Game: "Swords and Sandals",
+    Game: "Swords and Sandals 1",
     Path: "/games/swords-and-sandals",
     Image: "/images/swords-and-sandals-cover.webp",
   },
@@ -223,80 +242,67 @@ const games = [
     Image: "/images/swords-and-sandals-2-cover.webp",
   },
 
-  // ── Tier 5: Niche / cult following ──
-  {
-    Game: "Doom",
-    Path: "/games/doom",
-    Image: "/images/doomcover.webp",
-  },
-  {
-    Game: "Minesweeper",
-    Path: "/games/minesweeper",
-    Image: "/images/minesweepercover.webp",
-  },
-  {
-    Game: "Geography Game USA",
-    Path: "/games/geography-game",
-    Image: "/images/geography-game-cover.webp",
-  },
+  // ── Riddle School series ──
   {
     Game: "Riddle School 2",
-    Path: "/games/riddle-school2",
+    Path: "/games/riddle-school-2",
     Image: "/images/Riddle-School-2_logo.webp",
   },
   {
     Game: "Riddle School 3",
-    Path: "/games/riddle-school3",
+    Path: "/games/riddle-school-3",
     Image: "/images/riddle-school-3-cover.webp",
   },
   {
     Game: "Riddle School 4",
-    Path: "/games/riddle-school4",
+    Path: "/games/riddle-school-4",
     Image: "/images/riddle-school-4-cover.webp",
   },
   {
     Game: "Riddle School 5",
-    Path: "/games/riddle-school5",
+    Path: "/games/riddle-school-5",
     Image: "/images/riddleschool5-cover.webp",
   },
+
+  // ── Hobo series ──
   {
     Game: "Hobo 1: Brawl",
-    Path: "/games/hobo1",
+    Path: "/games/hobo-1-brawl",
     Image: "/images/hobo1cover.webp",
   },
   {
     Game: "Hobo 2",
-    Path: "/games/hobo2",
+    Path: "/games/hobo-2",
     Image: "/images/hobo2cover.webp",
   },
   {
     Game: "Hobo 3: Wanted",
-    Path: "/games/hobo3",
+    Path: "/games/hobo-3-wanted",
     Image: "/images/hobo3cover.webp",
   },
   {
     Game: "Hobo 4: Total War",
-    Path: "/games/hobo4",
+    Path: "/games/hobo-4-total-war",
     Image: "/images/hobo4cover.webp",
   },
   {
     Game: "Hobo 5: Space Brawls",
-    Path: "/games/hobo5",
+    Path: "/games/hobo-5-space-brawls",
     Image: "/images/hobo5cover.webp",
   },
   {
     Game: "Hobo 6: Hell",
-    Path: "/games/hobo6",
+    Path: "/games/hobo-6-hell",
     Image: "/images/hobo6cover.webp",
   },
   {
     Game: "Hobo 7",
-    Path: "/games/hobo7",
+    Path: "/games/hobo-7",
     Image: "/images/hobo7cover.webp",
   },
   {
     Game: "Hobo vs Zombies",
-    Path: "/games/hobovszombies",
+    Path: "/games/hobo-vs-zombies",
     Image: "/images/hobovszombiescover.webp",
   },
 ];
@@ -311,7 +317,7 @@ const games = [
     needing any plugins or downloads. All games run directly in your Chrome
     browser via Ruffle emulation - no Flash Player required. Relive your
     favorite nostalgic games like <a
-      href="/games/happywheels"
+      href="/games/happy-wheels"
       class="text-blue-600 hover:underline">Happy Wheels</a
     >, <a href="/games/plants-vs-zombies" class="text-blue-600 hover:underline"
       >Plants vs Zombies</a
@@ -323,17 +329,17 @@ const games = [
 
   <div class="flex flex-wrap gap-2 m-5 mb-4 text-sm">
     <span class="font-semibold text-gray-700">Popular:</span>
-    <a href="/games/happywheels" class="text-blue-600 hover:underline"
+    <a href="/games/happy-wheels" class="text-blue-600 hover:underline"
       >Happy Wheels</a
     >
     <a href="/games/plants-vs-zombies" class="text-blue-600 hover:underline"
       >Plants vs Zombies</a
     >
-    <a href="/games/run3" class="text-blue-600 hover:underline">Run 3</a>
+    <a href="/games/run-3" class="text-blue-600 hover:underline">Run 3</a>
     <a href="/games/fireboy-and-watergirl" class="text-blue-600 hover:underline"
       >Fireboy and Watergirl</a
     >
-    <a href="/games/bloonstd5" class="text-blue-600 hover:underline"
+    <a href="/games/bloons-td-5" class="text-blue-600 hover:underline"
       >Bloons TD 5</a
     >
     <a href="/games/super-mario-63" class="text-blue-600 hover:underline"
@@ -345,7 +351,7 @@ const games = [
     <a href="/games/madness-project-nexus" class="text-blue-600 hover:underline"
       >Madness: Project Nexus</a
     >
-    <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline"
+    <a href="/games/gun-mayhem-2" class="text-blue-600 hover:underline"
       >Gun Mayhem 2</a
     >
   </div>

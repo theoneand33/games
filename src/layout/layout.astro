@@ -2,7 +2,7 @@
 import "../styles/styles.css";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
-import { getGameSEO } from "../data/game-seo";
+import { getGameSEO, slugify } from "../data/game-seo";
 
 interface Props {
   Game?: string;
@@ -35,9 +35,7 @@ const gameDescription = isHome
   ? homeDescription
   : Astro.props.description
     || seo?.description
-    || (Game
-      ? `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`
-      : homeDescription);
+    || `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`;
 
 // Image & other SEO fields
 const gameImage = isHome
@@ -54,11 +52,22 @@ const gameKeywords = isHome
   ? homeKeywords
   : `${Game?.toLowerCase()} unblocked, ${Game?.toLowerCase()} online, unblocked games chromebook`;
 
-// URL
-const pageSlug = Game
-  ? Game.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
-  : "";
+// URL — use slugify for consistent slug generation
+const pageSlug = Game ? slugify(Game) : "";
 const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
+
+// More Games cross-linking — curated list of popular games
+const moreGames = [
+  "Happy Wheels",
+  "Gun Mayhem 2",
+  "Madness: Project Nexus",
+  "Hobo 2",
+  "Vex 3",
+  "Fireboy and Watergirl",
+  "Strike Force Heroes",
+  "Super Mario 63",
+  "Bloons TD 5",
+].filter(name => name !== Game); // exclude current game
 ---
 
 <html lang="en">
@@ -106,7 +115,6 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
           <!-- JSON-LD BreadcrumbList -->
           <script is:inline
             type="application/ld+json"
-            data-seo
             set:html={JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BreadcrumbList",
@@ -120,7 +128,6 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
           <!-- JSON-LD VideoGame -->
           <script is:inline
             type="application/ld+json"
-            data-seo
             set:html={(() => {
               const data = {
                 "@context": "https://schema.org",
@@ -159,7 +166,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
       isHome ? (
         <>
           <!-- JSON-LD WebSite -->
-          <script is:inline type="application/ld+json" data-seo set:html={JSON.stringify({
+          <script is:inline type="application/ld+json" set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Superfun Games",
@@ -172,7 +179,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
             }
           }).replace(/</g, "\\u003c")} />
           <!-- JSON-LD CollectionPage -->
-          <script is:inline type="application/ld+json" data-seo set:html={JSON.stringify({
+          <script is:inline type="application/ld+json" set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": "Unblocked Games Collection",
@@ -181,7 +188,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
             "about": { "@type": "Thing", "name": "Classic Browser Games" }
           }).replace(/</g, "\\u003c")} />
           <!-- JSON-LD Organization -->
-          <script is:inline type="application/ld+json" data-seo set:html={JSON.stringify({
+          <script is:inline type="application/ld+json" set:html={JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Superfun Games",
@@ -197,6 +204,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
     <Analytics />
     <SpeedInsights />
     <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+    <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
   </head>
   <body>
     <nav class="flex items-center justify-between">
@@ -225,11 +233,10 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
           Play {Game} Unblocked on Chromebook
         </h1>
 
-        <!-- SEO description + badges -->
+        <!-- SEO description + badges (line-clamp for clean truncation) -->
         <div class="py-2">
-          <p class="text-sm text-gray-500 mb-1">
-            {gameDescription.substring(0, 200)}
-            {gameDescription.length > 200 ? "..." : ""}
+          <p class="text-sm text-gray-500 mb-1 line-clamp-3">
+            {gameDescription}
           </p>
           <p class="text-xs text-gray-400 font-medium">
             ✓ {isFlash
@@ -238,25 +245,17 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
           </p>
         </div>
 
-        <!-- More Games cross-linking -->
+        <!-- More Games cross-linking (dynamically generated) -->
         <nav class="border-t border-gray-200 mt-4 py-4">
           <p class="text-sm font-semibold mb-2 text-gray-700">More Unblocked Games</p>
           <div class="flex flex-wrap gap-2 text-xs">
-            <a href="/games/happywheels" class="text-blue-600 hover:underline">Happy Wheels</a>
-            <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline">Gun Mayhem 2</a>
-            <a href="/games/madness-project-nexus" class="text-blue-600 hover:underline">Madness: Project Nexus</a>
-            <a href="/games/hobo2" class="text-blue-600 hover:underline">Hobo 2</a>
-            <a href="/games/vex3" class="text-blue-600 hover:underline">Vex 3</a>
-            <a href="/games/fireboy-and-watergirl" class="text-blue-600 hover:underline">Fireboy and Watergirl</a>
-            <a href="/games/strike-force-heroes" class="text-blue-600 hover:underline">Strike Force Heroes</a>
-            <a href="/games/super-mario-63" class="text-blue-600 hover:underline">Super Mario 63</a>
-            <a href="/games/bloonstd5" class="text-blue-600 hover:underline">Bloons TD 5</a>
+            {moreGames.map(otherGame => (
+              <a href={`/games/${slugify(otherGame)}`} class="text-blue-600 hover:underline">{otherGame}</a>
+            ))}
           </div>
         </nav>
       </div>
     )}
-
-    <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
 
     <footer>
       <p>
