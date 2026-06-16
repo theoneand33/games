@@ -17,3 +17,21 @@
   margin: 20px;
   display: inline-block;
 }
+
+/* flash.astro — dynamic states injected by JS */
+.flash-loading {
+  background: #f0f0f0;
+  border-radius: 8px;
+  color: #666;
+  font-size: 1.1rem;
+  padding: 40px;
+}
+
+.flash-error {
+  background: #fff3f3;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  color: #cc0000;
+  font-size: 1rem;
+  padding: 40px 24px;
+}
