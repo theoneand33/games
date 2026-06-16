@@ -196,6 +196,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
 
     <Analytics />
     <SpeedInsights />
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="flex items-center justify-between">
@@ -207,16 +208,17 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
           class="m-5"
         />
       </a>
-      <div class="mr-5 flex gap-4 text-sm">
+      <div class="mr-5 flex gap-4 text-sm items-center">
         <a href="/" class="hover:underline underline-offset-2">Home</a>
         <a href="/dmca" class="hover:underline underline-offset-2">DMCA</a>
+        <pagefind-searchbox></pagefind-searchbox>
       </div>
     </nav>
 
     {
       Game && !isHome ? (
         <div style="padding: 0.5rem 1.5rem 0; max-width: 1200px; margin: 0 auto;">
-          <h1 style="font-size: 1.25rem; font-weight: 700;">
+          <h1 data-pagefind-body style="font-size: 1.25rem; font-weight: 700;">
             Play {Game} Unblocked on Chromebook
           </h1>
         </div>
@@ -275,6 +277,8 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
         </>
       ) : null
     }
+
+    <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
 
     <footer>
       <p>
