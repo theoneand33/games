@@ -3,7 +3,9 @@ import Layout from "../layout/layout.astro";
 import Gametile from "../components/gametile.astro";
 const pageTitle =
   "Superfun Games - Unblocked Games for School Chromebook | No Flash Required (2026)";
+// Games ordered by estimated popularity — most popular first
 const games = [
+  // ── Tier 1: All-time greatest hits ──
   {
     Game: "Happy Wheels",
     Path: "/games/happywheels",
@@ -13,6 +15,11 @@ const games = [
     Game: "Plants vs Zombies",
     Path: "/games/plants-vs-zombies",
     Image: "/images/plants-vs-zombies-cover.webp",
+  },
+  {
+    Game: "Run 3",
+    Path: "/games/run3",
+    Image: "/images/run3-cover.webp",
   },
   {
     Game: "Fireboy and Watergirl",
@@ -25,14 +32,103 @@ const games = [
     Image: "/images/bloonstd5cover.webp",
   },
   {
-    Game: "Pac-Man",
-    Path: "/games/pacman",
-    Image: "/images/pacman-cover.webp",
+    Game: "Super Mario 63",
+    Path: "/games/super-mario-63",
+    Image: "/images/sm63-cover.webp",
   },
   {
     Game: "Tetris",
     Path: "/games/tetris",
     Image: "/images/tetriscover.webp",
+  },
+  {
+    Game: "Pac-Man",
+    Path: "/games/pacman",
+    Image: "/images/pacman-cover.webp",
+  },
+  {
+    Game: "Run 2",
+    Path: "/games/run2",
+    Image: "/images/run2-cover.webp",
+  },
+
+  // ── Tier 2: Beloved classics ──
+  {
+    Game: "Fancy Pants Adventure",
+    Path: "/games/fancy-pants-adventure",
+    Image: "/images/fancypants-cover.webp",
+  },
+  {
+    Game: "Stick War",
+    Path: "/games/stick-war",
+    Image: "/images/stickwarcover.webp",
+  },
+  {
+    Game: "Age of War",
+    Path: "/games/age-of-war",
+    Image: "/images/ageofwar-cover.webp",
+  },
+  {
+    Game: "Madness: Project Nexus",
+    Path: "/games/madness-project-nexus",
+    Image: "/images/madness-cover.webp",
+  },
+  {
+    Game: "Strike Force Heroes",
+    Path: "/games/strike-force-heroes",
+    Image: "/images/strikeforceheroes-cover.webp",
+  },
+  {
+    Game: "The World's Hardest Game",
+    Path: "/games/worlds-hardest-game",
+    Image: "/images/worldshardestgame-cover.webp",
+  },
+  {
+    Game: "Vex 3",
+    Path: "/games/vex3",
+    Image: "/images/vex-3cover.webp",
+  },
+  {
+    Game: "Gun Mayhem 2",
+    Path: "/games/gun-mayhem2",
+    Image: "/images/gm2cover.webp",
+  },
+  {
+    Game: "Bubble Trouble",
+    Path: "/games/bubble-trouble",
+    Image: "/images/bubbletrouble-cover.webp",
+  },
+  {
+    Game: "QWOP",
+    Path: "/games/qwop",
+    Image: "/images/qwop-cover.webp",
+  },
+  {
+    Game: "Crush the Castle",
+    Path: "/games/crush-the-castle",
+    Image: "/images/crushthecastle-cover.webp",
+  },
+  {
+    Game: "Burrito Bison",
+    Path: "/games/burrito-bison",
+    Image: "/images/burritobison-cover.webp",
+  },
+
+  // ── Tier 3: Well-loved franchises ──
+  {
+    Game: "Boxhead 2Play",
+    Path: "/games/boxhead-2play",
+    Image: "/images/boxhead-cover.webp",
+  },
+  {
+    Game: "The Impossible Quiz 2",
+    Path: "/games/theimpossiblequiz2",
+    Image: "/images/impossiblequiz2cover.webp",
+  },
+  {
+    Game: "Interactive Buddy",
+    Path: "/games/interactive-buddy",
+    Image: "/images/interactivebuddy-cover.webp",
   },
   {
     Game: "Henry Stickmin: Breaking the Bank",
@@ -60,26 +156,6 @@ const games = [
     Image: "/images/fleeingcomplex-cover.webp",
   },
   {
-    Game: "Super Mario 63",
-    Path: "/games/super-mario-63",
-    Image: "/images/sm63-cover.webp",
-  },
-  {
-    Game: "The World's Hardest Game",
-    Path: "/games/worlds-hardest-game",
-    Image: "/images/worldshardestgame-cover.webp",
-  },
-  {
-    Game: "Stick War",
-    Path: "/games/stick-war",
-    Image: "/images/stickwarcover.webp",
-  },
-  {
-    Game: "Age of War",
-    Path: "/games/age-of-war",
-    Image: "/images/ageofwar-cover.webp",
-  },
-  {
     Game: "Duck Life",
     Path: "/games/duck-life",
     Image: "/images/ducklife-cover.webp",
@@ -105,14 +181,63 @@ const games = [
     Image: "/images/ducklife5-cover.webp",
   },
   {
-    Game: "Run 2",
-    Path: "/games/run2",
-    Image: "/images/run2-cover.webp",
+    Game: "Learn to Fly 2",
+    Path: "/games/learn-to-fly-2",
+    Image: "/images/learntofly2-cover.webp",
   },
   {
-    Game: "Run 3",
-    Path: "/games/run3",
-    Image: "/images/run3-cover.webp",
+    Game: "Learn to Fly 3",
+    Path: "/games/learn-to-fly-3",
+    Image: "/images/learntofly3-cover.webp",
+  },
+
+  // ── Tier 4: Established games ──
+  {
+    Game: "Achievement Unlocked",
+    Path: "/games/achievement-unlocked",
+    Image: "/images/achievementunlocked-cover.webp",
+  },
+  {
+    Game: "Super Mario Flash",
+    Path: "/games/supermarioflash",
+    Image: "/images/supermarioflashcover.webp",
+  },
+  {
+    Game: "Super Mario Flash 2",
+    Path: "/games/super-mario-flash-2",
+    Image: "/images/supermarioflash2cover.webp",
+  },
+  {
+    Game: "Ultimate Flash Sonic",
+    Path: "/games/ultimate-flash-sonic",
+    Image: "/images/sonic-cover.webp",
+  },
+  {
+    Game: "Swords and Sandals",
+    Path: "/games/swords-and-sandals",
+    Image: "/images/swords-and-sandals-cover.webp",
+  },
+  {
+    Game: "Swords and Sandals 2",
+    Path: "/games/swords-and-sandals-2",
+    Image: "/images/swords-and-sandals-2-cover.webp",
+  },
+
+  // ── Tier 5: Niche / cult following ──
+  {
+    Game: "Doom",
+    Path: "/games/doom",
+    Image: "/images/doomcover.webp",
+  },
+  {
+    Game: "Minesweeper",
+    Path: "/games/minesweeper",
+    Image: "/images/minesweepercover.webp",
+  },
+  {
+    Game: "Geography Game USA",
+    Path: "/games/geography-game",
+    Image: "/images/geography-game-cover.webp",
   },
   {
     Game: "Riddle School 2",
@@ -133,86 +258,6 @@ const games = [
     Game: "Riddle School 5",
     Path: "/games/riddle-school5",
     Image: "/images/riddleschool5-cover.webp",
-  },
-  {
-    Game: "Learn to Fly 2",
-    Path: "/games/learn-to-fly-2",
-    Image: "/images/learntofly2-cover.webp",
-  },
-  {
-    Game: "Learn to Fly 3",
-    Path: "/games/learn-to-fly-3",
-    Image: "/images/learntofly3-cover.webp",
-  },
-  {
-    Game: "Gun Mayhem 2",
-    Path: "/games/gun-mayhem2",
-    Image: "/images/gm2cover.webp",
-  },
-  {
-    Game: "Madness: Project Nexus",
-    Path: "/games/madness-project-nexus",
-    Image: "/images/madness-cover.webp",
-  },
-  {
-    Game: "Strike Force Heroes",
-    Path: "/games/strike-force-heroes",
-    Image: "/images/strikeforceheroes-cover.webp",
-  },
-  {
-    Game: "Crush the Castle",
-    Path: "/games/crush-the-castle",
-    Image: "/images/crushthecastle-cover.webp",
-  },
-  {
-    Game: "Burrito Bison",
-    Path: "/games/burrito-bison",
-    Image: "/images/burritobison-cover.webp",
-  },
-  {
-    Game: "Bubble Trouble",
-    Path: "/games/bubble-trouble",
-    Image: "/images/bubbletrouble-cover.webp",
-  },
-  {
-    Game: "Achievement Unlocked",
-    Path: "/games/achievement-unlocked",
-    Image: "/images/achievementunlocked-cover.webp",
-  },
-  {
-    Game: "Interactive Buddy",
-    Path: "/games/interactive-buddy",
-    Image: "/images/interactivebuddy-cover.webp",
-  },
-  {
-    Game: "Fancy Pants Adventure",
-    Path: "/games/fancy-pants-adventure",
-    Image: "/images/fancypants-cover.webp",
-  },
-  {
-    Game: "Boxhead 2Play",
-    Path: "/games/boxhead-2play",
-    Image: "/images/boxhead-cover.webp",
-  },
-  {
-    Game: "The Impossible Quiz 2",
-    Path: "/games/theimpossiblequiz2",
-    Image: "/images/impossiblequiz2cover.webp",
-  },
-  {
-    Game: "QWOP",
-    Path: "/games/qwop",
-    Image: "/images/qwop-cover.webp",
-  },
-  {
-    Game: "Super Mario Flash",
-    Path: "/games/supermarioflash",
-    Image: "/images/supermarioflashcover.webp",
-  },
-  {
-    Game: "Super Mario Flash 2",
-    Path: "/games/super-mario-flash-2",
-    Image: "/images/supermarioflash2cover.webp",
   },
   {
     Game: "Hobo 1: Brawl",
@@ -254,41 +299,6 @@ const games = [
     Path: "/games/hobovszombies",
     Image: "/images/hobovszombiescover.webp",
   },
-  {
-    Game: "Vex 3",
-    Path: "/games/vex3",
-    Image: "/images/vex-3cover.webp",
-  },
-  {
-    Game: "Ultimate Flash Sonic",
-    Path: "/games/ultimate-flash-sonic",
-    Image: "/images/sonic-cover.webp",
-  },
-  {
-    Game: "Doom",
-    Path: "/games/doom",
-    Image: "/images/doomcover.webp",
-  },
-  {
-    Game: "Minesweeper",
-    Path: "/games/minesweeper",
-    Image: "/images/minesweepercover.webp",
-  },
-  {
-    Game: "Geography Game USA",
-    Path: "/games/geography-game",
-    Image: "/images/geography-game-cover.webp",
-  },
-  {
-    Game: "Swords and Sandals",
-    Path: "/games/swords-and-sandals",
-    Image: "/images/swords-and-sandals-cover.webp",
-  },
-  {
-    Game: "Swords and Sandals 2",
-    Path: "/games/swords-and-sandals-2",
-    Image: "/images/swords-and-sandals-2-cover.webp",
-  },
 ];
 ---
 
@@ -316,25 +326,27 @@ const games = [
     <a href="/games/happywheels" class="text-blue-600 hover:underline"
       >Happy Wheels</a
     >
-    <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline"
-      >Gun Mayhem 2</a
+    <a href="/games/plants-vs-zombies" class="text-blue-600 hover:underline"
+      >Plants vs Zombies</a
     >
-    <a href="/games/madness-project-nexus" class="text-blue-600 hover:underline"
-      >Madness: Project Nexus</a
-    >
-    <a href="/games/hobo2" class="text-blue-600 hover:underline">Hobo 2</a>
-    <a href="/games/vex3" class="text-blue-600 hover:underline">Vex 3</a>
+    <a href="/games/run3" class="text-blue-600 hover:underline">Run 3</a>
     <a href="/games/fireboy-and-watergirl" class="text-blue-600 hover:underline"
       >Fireboy and Watergirl</a
     >
-    <a href="/games/strike-force-heroes" class="text-blue-600 hover:underline"
-      >Strike Force Heroes</a
+    <a href="/games/bloonstd5" class="text-blue-600 hover:underline"
+      >Bloons TD 5</a
     >
     <a href="/games/super-mario-63" class="text-blue-600 hover:underline"
       >Super Mario 63</a
     >
-    <a href="/games/bloonstd5" class="text-blue-600 hover:underline"
-      >Bloons TD 5</a
+    <a href="/games/strike-force-heroes" class="text-blue-600 hover:underline"
+      >Strike Force Heroes</a
+    >
+    <a href="/games/madness-project-nexus" class="text-blue-600 hover:underline"
+      >Madness: Project Nexus</a
+    >
+    <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline"
+      >Gun Mayhem 2</a
     >
   </div>
 

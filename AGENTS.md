@@ -123,7 +123,24 @@ These directly load their own JS. No `Flash` component. No `.swf` file needed.
 - Iterates over a `games` array and renders `<Gametile>` for each.
 - Each `Gametile` takes `Game` (display name), `Path` (slug), `Image` (cover path).
 - The `games` array order determines display order on the page.
-- Has inline "Popular" links hardcoded. If you add a game, add it to the array here.
+- Has inline "Popular" links hardcoded — keep these in sync with the top of the games array.
+- If you add a game, add it to the array here.
+
+### Popularity ordering (home page)
+
+The `games` array in `src/pages/index.astro` is ordered by estimated popularity (most popular first). When adding a new game, place it at the appropriate position rather than appending to the end. This keeps the most-played games at the top for a better browsing experience.
+
+Guidelines for placement:
+
+- **Tier 1 (top):** All-time greats that every visitor looks for (Happy Wheels, Plants vs Zombies, Run 3, Fireboy and Watergirl, Bloons TD 5, Super Mario 63, Tetris, Pac-Man)
+- **Tier 2:** Beloved classics with broad appeal (Fancy Pants Adventure, Stick War, Age of War, Madness: Project Nexus, Strike Force Heroes, The World's Hardest Game, Vex 3, Gun Mayhem 2, Bubble Trouble, QWOP, Crush the Castle, Burrito Bison)
+- **Tier 3:** Well-loved franchises and series (Boxhead, The Impossible Quiz, Henry Stickmin series, Duck Life series, Learn to Fly series)
+- **Tier 4:** Established games with dedicated audiences (Achievement Unlocked, Super Mario Flash series, Ultimate Flash Sonic, Swords and Sandals series)
+- **Tier 5 (bottom):** Niche or cult-following games (Doom, Minesweeper, Geography Game USA, Riddle School series, Hobo series)
+
+Series entries (e.g., all Henry Stickmin games, all Duck Life games) should be grouped together and placed as a block. The "Popular" links row at the top of the page should reflect the current top ~9 games.
+
+When in doubt about where a new game fits, assess its name recognition and likely school audience appeal, then place it conservatively (it can always be moved up later).
 
 ### File naming conventions
 
