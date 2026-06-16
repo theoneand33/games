@@ -8,648 +8,549 @@ export interface GameSEO {
   isFlash: boolean;
 }
 
+function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
+
+function seo(
+  title: string,
+  genre: string,
+  year: string,
+  image: string,
+  keywords: string,
+  isFlash: boolean,
+  hook: string,
+): GameSEO {
+  return {
+    title,
+    description: `Play ${title} unblocked online. ${hook}`,
+    image,
+    genre,
+    year,
+    keywords,
+    isFlash,
+  };
+}
+
 export const gamesMap: Record<string, GameSEO> = {
-  "Happy Wheels": {
-    title: "Happy Wheels",
-    description:
-      "Play Happy Wheels unblocked online - the hilarious physics-based ragdoll obstacle course game. No Flash plugin required, works directly in your browser. Navigate dangerous levels with unique characters and experience the iconic physics mayhem that made this game a classic. Fully working 2026 version.",
-    image: "/images/happywheelscover.webp",
-    genre: "Physics / Racing",
-    year: "2010",
-    keywords:
-      "happy wheels unblocked, happy wheels working, happy wheels no flash, happy wheels online, happy wheels free, happy wheels game, ragdoll physics game, happy wheels browser",
-    isFlash: true,
-  },
-  "Plants vs Zombies": {
-    title: "Plants vs Zombies",
-    description:
-      "Play Plants vs Zombies unblocked online - the legendary tower defense game. No Flash required, works in your browser. Defend your garden from hordes of zombies using peashooters, sunflower, cherry bombs, and more. The original classic version fully working in 2026.",
-    image: "/images/plants-vs-zombies-cover.webp",
-    genre: "Tower Defense",
-    year: "2009",
-    keywords:
-      "plants vs zombies unblocked, plants vs zombies working, plants vs zombies no flash, plants vs zombies online, plants vs zombies free, pvz, tower defense game, plants vs zombies browser",
-    isFlash: true,
-  },
-  "Fireboy and Watergirl": {
-    title: "Fireboy and Watergirl",
-    description:
-      "Play Fireboy and Watergirl unblocked - the beloved co-op puzzle platformer. Guide both characters through the Forest Temple, avoid lava and water hazards, and reach the exit. Play solo or 2 player. No Flash required. Working 2026 version updated for your browser.",
-    image: "/images/fireboy-watergirl-cover.webp",
-    genre: "Puzzle / Platformer",
-    year: "2009",
-    keywords:
-      "fireboy and watergirl unblocked, fireboy watergirl no flash, fireboy watergirl working, fireboy watergirl 2 player, fireboy and watergirl forest temple, co-op platformer",
-    isFlash: true,
-  },
-  "Bloons TD 5": {
-    title: "Bloons TD 5",
-    description:
-      "Play Bloons TD 5 unblocked online - the ultimate tower defense game featuring monkey towers popping colorful balloons. No Flash required, works in your browser. Upgrade your monkeys, place towers strategically, and pop every bloon in this classic 2026 working version.",
-    image: "/images/bloonstd5cover.webp",
-    genre: "Tower Defense",
-    year: "2011",
-    keywords:
-      "bloons td 5 unblocked, bloons td 5 no flash, bloons td 5 working, bloons td 5 online, btd5, monkey tower defense, balloon popping game",
-    isFlash: true,
-  },
-  "Pac-Man": {
-    title: "Pac-Man",
-    description:
-      "Play Pac-Man unblocked - the original 1980 arcade classic. Navigate the maze, eat all pellets, avoid Blinky Pinky Inky and Clyde, and chase the high score. No Flash plugin needed. Fully working in your browser in 2026. The maze game that started it all.",
-    image: "/images/pacman-cover.webp",
-    genre: "Arcade",
-    year: "1980",
-    keywords:
-      "pac-man unblocked, pacman no flash, pacman online working, pac man 1980, classic arcade game browser, pac-man pellet maze, pacman unblocked free",
-    isFlash: true,
-  },
-  Tetris: {
-    title: "Tetris",
-    description:
-      "Play Tetris unblocked online - the legendary block-stacking puzzle game. Arrange falling tetrominoes to clear lines and achieve high scores. No Flash required, works directly in your browser. The timeless classic puzzle game fully working in 2026.",
-    image: "/images/tetriscover.webp",
-    genre: "Puzzle",
-    year: "1984",
-    keywords:
-      "tetris unblocked, tetris no flash, tetris online, tetris free, tetris working, classic puzzle game, block game, tetris browser",
-    isFlash: true,
-  },
-  "Henry Stickmin: Breaking the Bank": {
-    title: "Henry Stickmin: Breaking the Bank",
-    description:
-      "Play Henry Stickmin Breaking the Bank unblocked online - the first chapter of the hilarious choose-your-own-adventure heist series. Help Henry break into a bank with multiple paths and endings. No Flash needed, fully working 2026 version.",
-    image: "/images/breakingthebank-cover.webp",
-    genre: "Adventure / Comedy",
-    year: "2008",
-    keywords:
-      "henry stickmin unblocked, breaking the bank no flash, henry stickmin working, stickmin game, choose your own adventure, heist game, stick figure game",
-    isFlash: true,
-  },
-  "Henry Stickmin: Escaping the Prison": {
-    title: "Henry Stickmin: Escaping the Prison",
-    description:
-      "Play Henry Stickmin Escaping the Prison unblocked online - escape from a maximum security prison using creative and hilarious methods. Multiple paths and endings in this classic stick figure adventure. No Flash required, working in 2026.",
-    image: "/images/escapingtheprison-cover.webp",
-    genre: "Adventure / Comedy",
-    year: "2009",
-    keywords:
-      "henry stickmin escaping the prison unblocked, henry stickmin no flash, escapng the prison working, stickmin game, prison escape game",
-    isFlash: true,
-  },
-  "Henry Stickmin: Stealing the Diamond": {
-    title: "Henry Stickmin: Stealing the Diamond",
-    description:
-      "Play Henry Stickmin Stealing the Diamond unblocked online - infiltrate a museum to steal a priceless diamond in this hilarious choose-your-own-path adventure. No Flash required, fully working 2026 version.",
-    image: "/images/stealingthediamond-cover.webp",
-    genre: "Adventure / Comedy",
-    year: "2010",
-    keywords:
-      "henry stickmin stealing the diamond unblocked, henry stickmin no flash, stealing the diamond working, stickmin game, museum heist game",
-    isFlash: true,
-  },
-  "Henry Stickmin: Infiltrating the Airship": {
-    title: "Henry Stickmin: Infiltrating the Airship",
-    description:
-      "Play Henry Stickmin Infiltrating the Airship unblocked online - board and take over a massive airship in this epic stick figure adventure. Multiple hilarious paths and endings. No Flash required, working in 2026.",
-    image: "/images/infiltratingairship-cover.webp",
-    genre: "Adventure / Comedy",
-    year: "2011",
-    keywords:
-      "henry stickmin infiltrating the airship unblocked, henry stickmin no flash, infiltrating the airship working, stickmin game, airship game",
-    isFlash: true,
-  },
-  "Henry Stickmin: Fleeing the Complex": {
-    title: "Henry Stickmin: Fleeing the Complex",
-    description:
-      "Play Henry Stickmin Fleeing the Complex unblocked online - the epic conclusion to the Henry Stickmin series. Escape from a towering prison complex with the most elaborate schemes yet. No Flash required, fully working 2026 version.",
-    image: "/images/fleeingcomplex-cover.webp",
-    genre: "Adventure / Comedy",
-    year: "2012",
-    keywords:
-      "henry stickmin fleeing the complex unblocked, henry stickmin no flash, fleeing the complex working, stickmin game, prison break game",
-    isFlash: true,
-  },
-  "Super Mario 63": {
-    title: "Super Mario 63",
-    description:
-      "Play Super Mario 63 unblocked - the legendary fan-made Mario platformer combining Super Mario 64 and Sunshine elements. Explore Delfino Plaza, collect 30+ stars, wall-jump, and defeat Bowser in this epic adventure. No Flash plugin needed. Working 2026 browser version.",
-    image: "/images/sm63-cover.webp",
-    genre: "Platformer / Adventure",
-    year: "2009",
-    keywords:
-      "super mario 63 unblocked, super mario 63 no flash, sm63 online, mario fan game browser, super mario 63 working, mario 63 delfino plaza",
-    isFlash: true,
-  },
-  "The World's Hardest Game": {
-    title: "The World's Hardest Game",
-    description:
-      "Play The World's Hardest Game unblocked online - the notoriously difficult precision puzzle game. Guide a red square through maze-like levels while avoiding blue enemies. No Flash required, fully working 2026 version. How many tries will it take you?",
-    image: "/images/worldshardestgame-cover.webp",
-    genre: "Puzzle / Precision",
-    year: "2008",
-    keywords:
-      "world's hardest game unblocked, worlds hardest game no flash, hardest game online, twhg, precision puzzle game, hard game",
-    isFlash: true,
-  },
-  "Stick War": {
-    title: "Stick War",
-    description:
-      "Play Stick War unblocked online - the classic strategy game where you command stick figure armies. Train units, manage economy, and conquer enemy territories. No Flash required, working 2026 version. The original strategy classic.",
-    image: "/images/stickwarcover.webp",
-    genre: "Strategy",
-    year: "2008",
-    keywords:
-      "stick war unblocked, stick war no flash, stick war working, stick war online, stick figure strategy game, stick war game",
-    isFlash: true,
-  },
-  "Age of War": {
-    title: "Age of War",
-    description:
-      "Play Age of War unblocked online - the epic tower defense strategy game spanning multiple historical ages. Evolve from cavemen to modern warfare while defending your base. No Flash required, fully working 2026 version.",
-    image: "/images/ageofwar-cover.webp",
-    genre: "Strategy / Tower Defense",
-    year: "2008",
-    keywords:
-      "age of war unblocked, age of war no flash, age of war working, age of war online, tower defense strategy, evolution game",
-    isFlash: true,
-  },
-  "Duck Life": {
-    title: "Duck Life",
-    description:
-      "Play Duck Life unblocked online - train your duck to become the ultimate racing champion. Improve running, flying, swimming, and climbing skills through mini-games. No Flash required, working 2026 version.",
-    image: "/images/ducklife-cover.webp",
-    genre: "Simulation / Racing",
-    year: "2008",
-    keywords:
-      "duck life unblocked, duck life no flash, duck life working, duck life online, duck training game, duck racing game, duck life browser",
-    isFlash: true,
-  },
-  "Duck Life 2": {
-    title: "Duck Life 2",
-    description:
-      "Play Duck Life 2 unblocked online - the sequel to the hit duck training game. Compete in world championships, train new skills including climbing, and customize your duck with hats and accessories. No Flash required, working 2026 version.",
-    image: "/images/ducklife2-cover.webp",
-    genre: "Simulation / Racing",
-    year: "2010",
-    keywords:
-      "duck life 2 unblocked, duck life 2 no flash, duck life 2 working, duck life 2 online, duck life 2 world champion, duck training game, duck racing game",
-    isFlash: true,
-  },
-  "Duck Life 3": {
-    title: "Duck Life 3",
-    description:
-      "Play Duck Life 3 Evolution unblocked online - the third installment where you can evolve your duck with unique abilities. Choose from different duck breeds and master new training mini-games. No Flash required, working 2026 version.",
-    image: "/images/ducklife3-cover.webp",
-    genre: "Simulation / Racing",
-    year: "2011",
-    keywords:
-      "duck life 3 unblocked, duck life 3 no flash, duck life 3 evolution, duck life 3 working, duck life 3 online, duck evolution game, duck training game",
-    isFlash: true,
-  },
-  "Duck Life 4": {
-    title: "Duck Life 4",
-    description:
-      "Play Duck Life 4 unblocked online - the biggest Duck Life adventure yet with an open world to explore. Travel through Grassland, Swamp, Mountains, Glacier, City, and Volcano while training your duck to beat the fire duck champion. No Flash required, working 2026 version.",
-    image: "/images/ducklife4-cover.webp",
-    genre: "Simulation / Racing",
-    year: "2012",
-    keywords:
-      "duck life 4 unblocked, duck life 4 no flash, duck life 4 working, duck life 4 online, duck life 4 game, duck training game, duck racing champion",
-    isFlash: true,
-  },
-  "Duck Life 5": {
-    title: "Duck Life 5",
-    description:
-      "Play Duck Life 5 Treasure Hunt unblocked online - explore ancient caves and hunt for treasure in this action-packed Duck Life adventure. Avoid obstacles, collect coins, and customize your duck with over 200 costumes. No Flash required, working 2026 version.",
-    image: "/images/ducklife5-cover.webp",
-    genre: "Adventure / Simulation",
-    year: "2013",
-    keywords:
-      "duck life 5 unblocked, duck life treasure hunt unblocked, duck life 5 no flash, duck life 5 working, duck life 5 online, treasure hunt game, duck adventure game",
-    isFlash: true,
-  },
-  "Run 2": {
-    title: "Run 2",
-    description:
-      "Play Run 2 unblocked online - the addictive running platformer in a surreal 3D space. Run, jump, and flip through challenging obstacles in this iconic game. No Flash required, fully working 2026 version.",
-    image: "/images/run2-cover.webp",
-    genre: "Endless Runner / Platformer",
-    year: "2012",
-    keywords:
-      "run 2 unblocked, run 2 no flash, run 2 working, run 2 online, run game, runner game, space runner, run 2 free",
-    isFlash: false,
-  },
-  "Run 3": {
-    title: "Run 3",
-    description:
-      "Play Run 3 unblocked online - the thrilling sequel in the Run series. Navigate a winding path through space with increasingly challenging levels. HTML5 version works directly in your browser. Fully working 2026 version.",
-    image: "/images/run3-cover.webp",
-    genre: "Endless Runner / Platformer",
-    year: "2014",
-    keywords:
-      "run 3 unblocked, run 3 no flash, run 3 working, run 3 online, run 3 html5, run 3 free, run game, space runner",
-    isFlash: false,
-  },
-  "Riddle School 2": {
-    title: "Riddle School 2",
-    description:
-      "Play Riddle School 2 unblocked online - escape from school in this classic point-and-click puzzle adventure. Solve clever riddles and find items to make your great escape. No Flash required, fully working 2026 version.",
-    image: "/images/Riddle-School-2_logo.webp",
-    genre: "Point-and-Click / Puzzle",
-    year: "2008",
-    keywords:
-      "riddle school 2 unblocked, riddle school 2 no flash, riddle school working, riddle school online, escape game, point and click puzzle",
-    isFlash: true,
-  },
-  "Riddle School 3": {
-    title: "Riddle School 3",
-    description:
-      "Play Riddle School 3 unblocked online - the third installment of the iconic school escape series. More puzzles, more rooms, and more clever ways to break free. No Flash required, working 2026 version.",
-    image: "/images/riddle-school-3-cover.webp",
-    genre: "Point-and-Click / Puzzle",
-    year: "2009",
-    keywords:
-      "riddle school 3 unblocked, riddle school 3 no flash, riddle school 3 working, riddle school online, escape game, puzzle adventure",
-    isFlash: true,
-  },
-  "Riddle School 4": {
-    title: "Riddle School 4",
-    description:
-      "Play Riddle School 4 unblocked online - the fourth chapter of the beloved escape game series. Even trickier puzzles and new areas to explore. No Flash required, fully working 2026 version.",
-    image: "/images/riddle-school-4-cover.webp",
-    genre: "Point-and-Click / Puzzle",
-    year: "2010",
-    keywords:
-      "riddle school 4 unblocked, riddle school 4 no flash, riddle school 4 working, riddle school game, escape puzzle, point and click",
-    isFlash: true,
-  },
-  "Riddle School 5": {
-    title: "Riddle School 5",
-    description:
-      "Play Riddle School 5 unblocked online - the epic conclusion to the Riddle School series. Bigger puzzles, a larger school to explore, and more characters to interact with. No Flash required, working 2026 version.",
-    image: "/images/riddleschool5-cover.webp",
-    genre: "Point-and-Click / Puzzle",
-    year: "2011",
-    keywords:
-      "riddle school 5 unblocked, riddle school 5 no flash, riddle school 5 working, riddle school final, escape game, point and click adventure",
-    isFlash: true,
-  },
-  "Learn to Fly 2": {
-    title: "Learn to Fly 2",
-    description:
-      "Play Learn to Fly 2 unblocked online - help a determined penguin achieve flight using rockets and upgrades. Upgrade your equipment, break through slopes, and reach new heights. No Flash required, fully working 2026 version.",
-    image: "/images/learntofly2-cover.webp",
-    genre: "Physics / Upgrade",
-    year: "2010",
-    keywords:
-      "learn to fly 2 unblocked, learn to fly 2 no flash, learn to fly 2 working, learn to fly 2 online, penguin game, rocket game, upgrade game",
-    isFlash: true,
-  },
-  "Learn to Fly 3": {
-    title: "Learn to Fly 3",
-    description:
-      "Play Learn to Fly 3 unblocked online - the sequel with even more rocket-powered penguin action. New upgrades, new modes, and intergalactic travel await. No Flash required, working 2026 version.",
-    image: "/images/learntofly3-cover.webp",
-    genre: "Physics / Upgrade",
-    year: "2012",
-    keywords:
-      "learn to fly 3 unblocked, learn to fly 3 no flash, learn to fly 3 working, learn to fly 3 online, penguin game, rocket game, space game",
-    isFlash: true,
-  },
-  "Gun Mayhem 2": {
-    title: "Gun Mayhem 2",
-    description:
-      "Play Gun Mayhem 2 unblocked online - the chaotic 2D multiplayer shooter featuring tons of weapons and power-ups. Battle AI opponents or play with friends in explosive arena combat. No Flash required, fully working 2026 version.",
-    image: "/images/gm2cover.webp",
-    genre: "Action / Shooter",
-    year: "2011",
-    keywords:
-      "gun mayhem 2 unblocked, gun mayhem 2 no flash, gun mayhem 2 working, gun mayhem online, shooter game, multiplayer shooter, arena shooter",
-    isFlash: true,
-  },
-  "Madness: Project Nexus": {
-    title: "Madness: Project Nexus",
-    description:
-      "Play Madness Project Nexus unblocked online - the iconic stick figure action game set in the Madness universe. Fast-paced combat with multiple weapons and enemy types. No Flash required, fully working 2026 version.",
-    image: "/images/madness-cover.webp",
-    genre: "Action / Beat-em-up",
-    year: "2011",
-    keywords:
-      "madness project nexus unblocked, madness no flash, project nexus working, madness online, stick figure shooter, madness combat, action game",
-    isFlash: true,
-  },
-  "Strike Force Heroes": {
-    title: "Strike Force Heroes",
-    description:
-      "Play Strike Force Heroes unblocked - the classic 2D army shooter with 15 missions, 4 character classes, and tons of weapons. Battle through enemy forces in this iconic flash game. No Flash plugin needed - works in your browser. Fully working 2026 version.",
-    image: "/images/strikeforceheroes-cover.webp",
-    genre: "Action / Shooter",
-    year: "2012",
-    keywords:
-      "strike force heroes unblocked, strike force heroes no flash, strike force heroes working, strike force heroes online, strike force heroes game, 2d army shooter",
-    isFlash: true,
-  },
-  "Crush the Castle": {
-    title: "Crush the Castle",
-    description:
-      "Play Crush the Castle unblocked online - the physics destruction game that inspired Angry Birds. Use your trebuchet to destroy castles and eliminate the kingdom's enemies. No Flash required, fully working 2026 version.",
-    image: "/images/crushthecastle-cover.webp",
-    genre: "Physics / Destruction",
-    year: "2009",
-    keywords:
-      "crush the castle unblocked, crush the castle no flash, crush the castle working, crush the castle online, physics game, trebuchet game, destruction game",
-    isFlash: true,
-  },
-  "Burrito Bison": {
-    title: "Burrito Bison",
-    description:
-      "Play Burrito Bison unblocked online - launch a wrestler through a candy-filled world using a giant slingshot. Bounce, collect coins, and upgrade your gear. No Flash required, fully working 2026 version.",
-    image: "/images/burritobison-cover.webp",
-    genre: "Physics / Launching",
-    year: "2010",
-    keywords:
-      "burrito bison unblocked, burrito bison no flash, burrito bison working, burrito bison online, launching game, physics game, slingshot game",
-    isFlash: true,
-  },
-  "Bubble Trouble": {
-    title: "Bubble Trouble",
-    description:
-      "Play Bubble Trouble unblocked online - the classic bubble-shooting arcade game. Pop bouncing bubbles before they multiply and overrun you. No Flash required, fully working 2026 version.",
-    image: "/images/bubbletrouble-cover.webp",
-    genre: "Arcade / Action",
-    year: "2005",
-    keywords:
-      "bubble trouble unblocked, bubble trouble no flash, bubble trouble working, bubble trouble online, bubble popping game, arcade game, bubble shooter",
-    isFlash: true,
-  },
-  "Achievement Unlocked": {
-    title: "Achievement Unlocked",
-    description:
-      "Play Achievement Unlocked unblocked online - the hilarious meta-game where everything you do earns an achievement. Move, jump, and interact with the world to unlock hundreds of achievements. No Flash required, working 2026 version.",
-    image: "/images/achievementunlocked-cover.webp",
-    genre: "Comedy / Simulation",
-    year: "2009",
-    keywords:
-      "achievement unlocked unblocked, achievement unlocked no flash, achievement unlocked working, achievement game, meta game, funny game, parody game",
-    isFlash: true,
-  },
-  "Interactive Buddy": {
-    title: "Interactive Buddy",
-    description:
-      "Play Interactive Buddy unblocked online - the classic virtual sandbox where you can interact with a ragdoll buddy. Punch, kick, use weapons, and trigger hilarious reactions. No Flash required, fully working 2026 version.",
-    image: "/images/interactivebuddy-cover.webp",
-    genre: "Sandbox / Simulation",
-    year: "2006",
-    keywords:
-      "interactive buddy unblocked, interactive buddy no flash, interactive buddy working, interactive buddy online, ragdoll sandbox, virtual buddy, funny game",
-    isFlash: true,
-  },
-  "Fancy Pants Adventure": {
-    title: "Fancy Pants Adventure",
-    description:
-      "Play Fancy Pants Adventure unblocked online - the stylish fluid-animated platformer starring Fancy Pants Man. Run, jump, spin, and slide through beautifully drawn levels. No Flash required, fully working 2026 version.",
-    image: "/images/fancypants-cover.webp",
-    genre: "Platformer",
-    year: "2008",
-    keywords:
-      "fancy pants adventure unblocked, fancy pants no flash, fancy pants working, fancy pants online, platformer game, stylish platformer, animated game",
-    isFlash: true,
-  },
-  "Boxhead 2Play": {
-    title: "Boxhead 2Play",
-    description:
-      "Play Boxhead 2Play unblocked - the classic top-down zombie survival shooter. Fight endless waves of zombies alone or with 2 players. Collect weapons, ammo, and power-ups to survive. No Flash plugin needed. Working 2026 browser version of the iconic zombie game.",
-    image: "/images/boxhead-cover.webp",
-    genre: "Action / Survival",
-    year: "2008",
-    keywords:
-      "boxhead 2play unblocked, boxhead no flash, boxhead 2 player zombie, boxhead online working, boxhead game browser, top down zombie shooter",
-    isFlash: true,
-  },
-  "The Impossible Quiz 2": {
-    title: "The Impossible Quiz 2",
-    description:
-      "Play The Impossible Quiz 2 unblocked online - the famously frustrating trivia game with trick questions and mind-bending puzzles. Can you beat all 120 impossible questions? No Flash required, fully working 2026 version.",
-    image: "/images/impossiblequiz2cover.webp",
-    genre: "Trivia / Puzzle",
-    year: "2009",
-    keywords:
-      "impossible quiz 2 unblocked, impossible quiz no flash, impossible quiz 2 working, the impossible quiz online, trivia game, tricky questions, puzzle game",
-    isFlash: true,
-  },
-  QWOP: {
-    title: "QWOP",
-    description:
-      "Play QWOP unblocked online - the hilariously difficult physics running game. Control each leg independently using Q, W, O, and P keys to make your athlete run 100 meters. No Flash required, fully working 2026 version.",
-    image: "/images/qwop-cover.webp",
-    genre: "Physics / Sports",
-    year: "2008",
-    keywords:
-      "qwop unblocked, qwop no flash, qwop working, qwop online, qwop game, physics runner, funny game, olympic game, ragdoll physics",
-    isFlash: true,
-  },
-  "Super Mario Flash": {
-    title: "Super Mario Flash",
-    description:
-      "Play Super Mario Flash unblocked online - the fan-made Mario platformer with classic side-scrolling action. Run, jump, and stomp enemies across iconic levels. No Flash required, fully working 2026 version.",
-    image: "/images/supermarioflashcover.webp",
-    genre: "Platformer",
-    year: "2007",
-    keywords:
-      "super mario flash unblocked, super mario flash no flash, super mario flash working, mario browser game, mario fan game, platformer game",
-    isFlash: true,
-  },
-  "Super Mario Flash 2": {
-    title: "Super Mario Flash 2",
-    description:
-      "Play Super Mario Flash 2 unblocked online - the enhanced sequel to the fan-made Mario game. New levels, power-ups, and challenges await. No Flash required, fully working 2026 version.",
-    image: "/images/supermarioflash2cover.webp",
-    genre: "Platformer",
-    year: "2009",
-    keywords:
-      "super mario flash 2 unblocked, super mario flash 2 no flash, mario flash 2 working, mario fan game, super mario browser, platformer",
-    isFlash: true,
-  },
-  "Hobo 1: Brawl": {
-    title: "Hobo 1: Brawl",
-    description:
-      "Play Hobo 1 Brawl unblocked online - the first game in the hilarious hobo fighting series. Battle in the streets using punches, kicks, and improvised weapons. No Flash required, fully working 2026 version.",
-    image: "/images/hobo1cover.webp",
-    genre: "Fighting",
-    year: "2009",
-    keywords:
-      "hobo 1 unblocked, hobo brawl no flash, hobo fighting game, hobo 1 working, hobo game online, fighting game, brawl game",
-    isFlash: true,
-  },
-  "Hobo 2": {
-    title: "Hobo 2",
-    description:
-      "Play Hobo 2 unblocked online - the second chapter of the epic hobo fighting saga. New moves, new enemies, and more street-brawling action. No Flash required, fully working 2026 version.",
-    image: "/images/hobo2cover.webp",
-    genre: "Fighting",
-    year: "2010",
-    keywords:
-      "hobo 2 unblocked, hobo 2 no flash, hobo 2 working, hobo 2 online, hobo fighting game, street brawl, fighting game",
-    isFlash: true,
-  },
-  "Hobo 3: Wanted": {
-    title: "Hobo 3: Wanted",
-    description:
-      "Play Hobo 3 Wanted unblocked online - the third installment where our hobo hero is on the run. More weapons, more enemies, and more chaotic street fighting. No Flash required, working 2026 version.",
-    image: "/images/hobo3cover.webp",
-    genre: "Fighting",
-    year: "2011",
-    keywords:
-      "hobo 3 unblocked, hobo 3 wanted no flash, hobo 3 working, hobo 3 online, hobo wanted game, street fighting, brawl game",
-    isFlash: true,
-  },
-  "Hobo 4: Total War": {
-    title: "Hobo 4: Total War",
-    description:
-      "Play Hobo 4 Total War unblocked online - the fourth chapter escalating the hobo conflict to total war. Bigger fights, better weapons, and more enemies. No Flash required, fully working 2026 version.",
-    image: "/images/hobo4cover.webp",
-    genre: "Fighting",
-    year: "2012",
-    keywords:
-      "hobo 4 unblocked, hobo 4 total war no flash, hobo 4 working, hobo 4 online, total war game, fighting game, street brawl",
-    isFlash: true,
-  },
-  "Hobo 5: Space Brawls": {
-    title: "Hobo 5: Space Brawls",
-    description:
-      "Play Hobo 5 Space Brawls unblocked online - the fifth game takes the fight to space! Battle aliens and enemies in zero-gravity brawls. No Flash required, fully working 2026 version.",
-    image: "/images/hobo5cover.webp",
-    genre: "Fighting",
-    year: "2013",
-    keywords:
-      "hobo 5 unblocked, hobo 5 space brawls no flash, hobo 5 working, hobo 5 online, space brawl, fighting game, hobo fighting",
-    isFlash: true,
-  },
-  "Hobo 6: Hell": {
-    title: "Hobo 6: Hell",
-    description:
-      "Play Hobo 6 Hell unblocked online - the sixth chapter descends into hell itself. Fight demonic enemies through fiery levels in this epic brawler. No Flash required, fully working 2026 version.",
-    image: "/images/hobo6cover.webp",
-    genre: "Fighting",
-    year: "2014",
-    keywords:
-      "hobo 6 unblocked, hobo 6 hell no flash, hobo 6 working, hobo 6 online, hobo hell game, fighting game, demon brawl",
-    isFlash: true,
-  },
-  "Hobo 7": {
-    title: "Hobo 7",
-    description:
-      "Play Hobo 7 unblocked online - the seventh epic chapter in the hobo fighting series. New environments, new enemies, and even more brutal combat. No Flash required, fully working 2026 version.",
-    image: "/images/hobo7cover.webp",
-    genre: "Fighting",
-    year: "2015",
-    keywords:
-      "hobo 7 unblocked, hobo 7 no flash, hobo 7 working, hobo 7 online, hobo fighting, brawl game, fighting game",
-    isFlash: true,
-  },
-  "Hobo vs Zombies": {
-    title: "Hobo vs Zombies",
-    description:
-      "Play Hobo vs Zombies unblocked online - the hobo takes on the undead in this action-packed spin-off. Fight through endless zombie hordes with your trusty weapons. No Flash required, fully working 2026 version.",
-    image: "/images/hobovszombiescover.webp",
-    genre: "Action / Survival",
-    year: "2013",
-    keywords:
-      "hobo vs zombies unblocked, hobo vs zombies no flash, hobo vs zombies working, hobo zombie game, zombie fighter, hobo fighting",
-    isFlash: true,
-  },
-  "Vex 3": {
-    title: "Vex 3",
-    description:
-      "Play Vex 3 unblocked online - the intense stickman platformer with challenging obstacle courses. Run, jump, climb, and die repeatedly as you navigate deadly traps. No Flash required, fully working 2026 version.",
-    image: "/images/vex-3cover.webp",
-    genre: "Platformer / Precision",
-    year: "2014",
-    keywords:
-      "vex 3 unblocked, vex 3 no flash, vex 3 working, vex 3 online, stickman platformer, obstacle course, hard platformer, vex game",
-    isFlash: true,
-  },
-  "Ultimate Flash Sonic": {
-    title: "Ultimate Flash Sonic",
-    description:
-      "Play Ultimate Flash Sonic unblocked online - the fan-made Sonic the Hedgehog adventure. Race through levels at high speed, collect rings, and defeat Dr. Eggman. No Flash required, fully working 2026 version.",
-    image: "/images/sonic-cover.webp",
-    genre: "Platformer",
-    year: "2008",
-    keywords:
-      "ultimate flash sonic unblocked, sonic no flash, ultimate flash sonic working, sonic game online, sonic fan game, platformer, speed game",
-    isFlash: true,
-  },
-  Doom: {
-    title: "Doom",
-    description:
-      "Play Doom unblocked online - the legendary first-person shooter that defined the FPS genre. Fight demons, collect weapons, and survive the onslaught. No Flash required, fully working 2026 version.",
-    image: "/images/doomcover.webp",
-    genre: "Action / FPS",
-    year: "1993",
-    keywords:
-      "doom unblocked, doom no flash, doom online, doom working, doom game, classic fps, first person shooter, doom browser",
-    isFlash: true,
-  },
-  Minesweeper: {
-    title: "Minesweeper",
-    description:
-      "Play Minesweeper unblocked online - the classic logic puzzle game. Clear the minefield without detonating any mines. Test your deduction skills with this timeless puzzle. No Flash required, fully working 2026 version.",
-    image: "/images/minesweepercover.webp",
-    genre: "Puzzle / Logic",
-    year: "1990",
-    keywords:
-      "minesweeper unblocked, minesweeper no flash, minesweeper online, minesweeper free, minesweeper game, logic puzzle game, classic puzzle",
-    isFlash: true,
-  },
-  "Geography Game USA": {
-    title: "Geography Game USA",
-    description:
-      "Play Geography Game USA unblocked online - test your knowledge of US geography. Identify states, capitals, and landmarks in this educational puzzle game. No Flash required, fully working 2026 version.",
-    image: "/images/geography-game-cover.webp",
-    genre: "Educational / Puzzle",
-    year: "2010",
-    keywords:
-      "geography game unblocked, geography game usa no flash, geography game working, us geography game, educational game, states game, geography quiz",
-    isFlash: true,
-  },
-  "Swords and Sandals": {
-    title: "Swords and Sandals",
-    description:
-      "Play Swords and Sandals unblocked online - the legendary gladiator RPG where you create a warrior and fight for glory in the arena. Buy weapons and armor, level up your stats, and defeat champion after champion. No Flash required, fully working 2026 version.",
-    image: "/images/swords-and-sandals-cover.webp",
-    genre: "RPG / Fighting",
-    year: "2006",
-    keywords:
-      "swords and sandals unblocked, swords and sandals no flash, swords and sandals working, swords and sandals online, gladiator game, rpg fighting game, arena combat, fizzy game",
-    isFlash: true,
-  },
-  "Swords and Sandals 2": {
-    title: "Swords and Sandals 2",
-    description:
-      "Play Swords and Sandals 2 unblocked online - the epic sequel gladiator RPG with new weapons, armor, magic upgrades, and even fiercer opponents. Rise through the ranks and conquer the empire. No Flash required, fully working 2026 version.",
-    image: "/images/swords-and-sandals-2-cover.webp",
-    genre: "RPG / Fighting",
-    year: "2007",
-    keywords:
-      "swords and sandals 2 unblocked, swords and sandals 2 no flash, swords and sandals 2 working, swords and sandals 2 online, swords and sandals emperor, gladiator game 2, arena rpg",
-    isFlash: true,
-  },
+  "happy-wheels": seo(
+    "Happy Wheels",
+    "Physics / Racing",
+    "2010",
+    "/images/happywheelscover.webp",
+    "happy wheels unblocked, ragdoll physics, happy wheels no flash",
+    true,
+    "Navigate dangerous obstacle courses with hilarious physics-based ragdoll characters.",
+  ),
+  "plants-vs-zombies": seo(
+    "Plants vs Zombies",
+    "Tower Defense",
+    "2009",
+    "/images/plants-vs-zombies-cover.webp",
+    "plants vs zombies unblocked, tower defense, pvz no flash",
+    true,
+    "Defend your garden from zombie hordes using peashooters, cherry bombs, and more.",
+  ),
+  "fireboy-and-watergirl": seo(
+    "Fireboy and Watergirl",
+    "Puzzle / Platformer",
+    "2009",
+    "/images/fireboy-watergirl-cover.webp",
+    "fireboy and watergirl unblocked, co-op platformer, 2 player game",
+    true,
+    "Guide both characters through the Forest Temple avoiding lava and water hazards.",
+  ),
+  "bloons-td-5": seo(
+    "Bloons TD 5",
+    "Tower Defense",
+    "2011",
+    "/images/bloonstd5cover.webp",
+    "bloons td 5 unblocked, monkey tower defense, btd5",
+    true,
+    "Pop colorful balloons with monkey towers in the ultimate tower defense game.",
+  ),
+  "pac-man": seo(
+    "Pac-Man",
+    "Arcade",
+    "1980",
+    "/images/pacman-cover.webp",
+    "pac-man unblocked, classic arcade, pac-man online",
+    true,
+    "Navigate mazes, eat pellets, and avoid ghosts in the 1980 arcade legend.",
+  ),
+  tetris: seo(
+    "Tetris",
+    "Puzzle",
+    "1984",
+    "/images/tetriscover.webp",
+    "tetris unblocked, classic puzzle, tetris online",
+    true,
+    "Arrange falling tetrominoes to clear lines in the timeless block-stacking puzzle.",
+  ),
+  "henry-stickmin-breaking-the-bank": seo(
+    "Henry Stickmin: Breaking the Bank",
+    "Adventure / Comedy",
+    "2008",
+    "/images/breakingthebank-cover.webp",
+    "henry stickmin unblocked, breaking the bank, choose your own adventure",
+    true,
+    "Help Henry break into a bank with multiple paths and hilarious endings.",
+  ),
+  "henry-stickmin-escaping-the-prison": seo(
+    "Henry Stickmin: Escaping the Prison",
+    "Adventure / Comedy",
+    "2009",
+    "/images/escapingtheprison-cover.webp",
+    "henry stickmin escaping the prison, stickmin game, prison escape",
+    true,
+    "Escape from maximum security prison using creative and hilarious methods.",
+  ),
+  "henry-stickmin-stealing-the-diamond": seo(
+    "Henry Stickmin: Stealing the Diamond",
+    "Adventure / Comedy",
+    "2010",
+    "/images/stealingthediamond-cover.webp",
+    "henry stickmin stealing the diamond, museum heist, stickmin game",
+    true,
+    "Infiltrate a museum to steal a priceless diamond in this choose-your-own-path adventure.",
+  ),
+  "henry-stickmin-infiltrating-the-airship": seo(
+    "Henry Stickmin: Infiltrating the Airship",
+    "Adventure / Comedy",
+    "2011",
+    "/images/infiltratingairship-cover.webp",
+    "henry stickmin infiltrating the airship, stickmin game, airship adventure",
+    true,
+    "Board and take over a massive airship in this epic stick figure adventure.",
+  ),
+  "henry-stickmin-fleeing-the-complex": seo(
+    "Henry Stickmin: Fleeing the Complex",
+    "Adventure / Comedy",
+    "2012",
+    "/images/fleeingcomplex-cover.webp",
+    "henry stickmin fleeing the complex, prison break, stickmin game",
+    true,
+    "Escape from a towering prison complex with the most elaborate schemes yet.",
+  ),
+  "super-mario-63": seo(
+    "Super Mario 63",
+    "Platformer / Adventure",
+    "2009",
+    "/images/sm63-cover.webp",
+    "super mario 63 unblocked, sm63, mario fan game",
+    true,
+    "Explore Delfino Plaza and collect stars in this legendary fan-made Mario platformer.",
+  ),
+  "the-worlds-hardest-game": seo(
+    "The World's Hardest Game",
+    "Puzzle / Precision",
+    "2008",
+    "/images/worldshardestgame-cover.webp",
+    "worlds hardest game unblocked, precision puzzle, twhg",
+    true,
+    "Guide a red square through maze-like levels while avoiding blue enemies.",
+  ),
+  "stick-war": seo(
+    "Stick War",
+    "Strategy",
+    "2008",
+    "/images/stickwarcover.webp",
+    "stick war unblocked, stick figure strategy, army game",
+    true,
+    "Command stick figure armies, manage economy, and conquer enemy territories.",
+  ),
+  "age-of-war": seo(
+    "Age of War",
+    "Strategy / Tower Defense",
+    "2008",
+    "/images/ageofwar-cover.webp",
+    "age of war unblocked, tower defense, evolution game",
+    true,
+    "Evolve from cavemen to modern warfare while defending your base.",
+  ),
+  "duck-life": seo(
+    "Duck Life",
+    "Simulation / Racing",
+    "2008",
+    "/images/ducklife-cover.webp",
+    "duck life unblocked, duck training, duck racing",
+    true,
+    "Train your duck in running, flying, swimming, and climbing to become champion.",
+  ),
+  "duck-life-2": seo(
+    "Duck Life 2",
+    "Simulation / Racing",
+    "2010",
+    "/images/ducklife2-cover.webp",
+    "duck life 2 unblocked, duck life world champion, duck training",
+    true,
+    "Compete in world championships and customize your duck with hats and accessories.",
+  ),
+  "duck-life-3": seo(
+    "Duck Life 3",
+    "Simulation / Racing",
+    "2011",
+    "/images/ducklife3-cover.webp",
+    "duck life 3 unblocked, duck evolution, duck training",
+    true,
+    "Evolve your duck with unique abilities through new training mini-games.",
+  ),
+  "duck-life-4": seo(
+    "Duck Life 4",
+    "Simulation / Racing",
+    "2012",
+    "/images/ducklife4-cover.webp",
+    "duck life 4 unblocked, open world duck, duck adventure",
+    true,
+    "Explore an open world across diverse biomes to train your duck and beat the fire duck champion.",
+  ),
+  "duck-life-5": seo(
+    "Duck Life 5",
+    "Adventure / Simulation",
+    "2013",
+    "/images/ducklife5-cover.webp",
+    "duck life 5 unblocked, treasure hunt, duck adventure",
+    true,
+    "Explore ancient caves and hunt for treasure with over 200 costumes to unlock.",
+  ),
+  "run-2": seo(
+    "Run 2",
+    "Endless Runner / Platformer",
+    "2012",
+    "/images/run2-cover.webp",
+    "run 2 unblocked, space runner, run game",
+    false,
+    "Run, jump, and flip through challenging obstacles in surreal 3D space.",
+  ),
+  "run-3": seo(
+    "Run 3",
+    "Endless Runner / Platformer",
+    "2014",
+    "/images/run3-cover.webp",
+    "run 3 unblocked, run 3 html5, space runner",
+    false,
+    "Navigate a winding path through space in this thrilling sequel with increasingly challenging levels.",
+  ),
+  "riddle-school-2": seo(
+    "Riddle School 2",
+    "Point-and-Click / Puzzle",
+    "2008",
+    "/images/Riddle-School-2_logo.webp",
+    "riddle school 2 unblocked, escape game, point and click puzzle",
+    true,
+    "Escape from school in this classic point-and-click puzzle adventure.",
+  ),
+  "riddle-school-3": seo(
+    "Riddle School 3",
+    "Point-and-Click / Puzzle",
+    "2009",
+    "/images/riddle-school-3-cover.webp",
+    "riddle school 3 unblocked, escape game, puzzle adventure",
+    true,
+    "More puzzles, more rooms, and more clever ways to break free from school.",
+  ),
+  "riddle-school-4": seo(
+    "Riddle School 4",
+    "Point-and-Click / Puzzle",
+    "2010",
+    "/images/riddle-school-4-cover.webp",
+    "riddle school 4 unblocked, escape puzzle, riddle school game",
+    true,
+    "Even trickier puzzles and new areas to explore in the fourth chapter.",
+  ),
+  "riddle-school-5": seo(
+    "Riddle School 5",
+    "Point-and-Click / Puzzle",
+    "2011",
+    "/images/riddleschool5-cover.webp",
+    "riddle school 5 unblocked, riddle school final, escape adventure",
+    true,
+    "A larger school to explore, more characters, and the epic series conclusion.",
+  ),
+  "learn-to-fly-2": seo(
+    "Learn to Fly 2",
+    "Physics / Upgrade",
+    "2010",
+    "/images/learntofly2-cover.webp",
+    "learn to fly 2 unblocked, penguin game, rocket game",
+    true,
+    "Help a determined penguin achieve flight using rockets and upgrades.",
+  ),
+  "learn-to-fly-3": seo(
+    "Learn to Fly 3",
+    "Physics / Upgrade",
+    "2012",
+    "/images/learntofly3-cover.webp",
+    "learn to fly 3 unblocked, penguin rocket, space game",
+    true,
+    "More rocket-powered penguin action with new upgrades and intergalactic travel.",
+  ),
+  "gun-mayhem-2": seo(
+    "Gun Mayhem 2",
+    "Action / Shooter",
+    "2011",
+    "/images/gm2cover.webp",
+    "gun mayhem 2 unblocked, multiplayer shooter, arena shooter",
+    true,
+    "Battle AI or friends in explosive 2D arena combat with tons of weapons.",
+  ),
+  "madness-project-nexus": seo(
+    "Madness: Project Nexus",
+    "Action / Beat-em-up",
+    "2011",
+    "/images/madness-cover.webp",
+    "madness project nexus unblocked, stick figure shooter, madness combat",
+    true,
+    "Fast-paced stick figure combat with multiple weapons in the Madness universe.",
+  ),
+  "strike-force-heroes": seo(
+    "Strike Force Heroes",
+    "Action / Shooter",
+    "2012",
+    "/images/strikeforceheroes-cover.webp",
+    "strike force heroes unblocked, 2d army shooter, strike force game",
+    true,
+    "Battle through 15 missions with 4 character classes and tons of weapons.",
+  ),
+  "crush-the-castle": seo(
+    "Crush the Castle",
+    "Physics / Destruction",
+    "2009",
+    "/images/crushthecastle-cover.webp",
+    "crush the castle unblocked, physics game, trebuchet",
+    true,
+    "Use your trebuchet to destroy castles in the physics game that inspired Angry Birds.",
+  ),
+  "burrito-bison": seo(
+    "Burrito Bison",
+    "Physics / Launching",
+    "2010",
+    "/images/burritobison-cover.webp",
+    "burrito bison unblocked, launching game, slingshot game",
+    true,
+    "Launch a wrestler through a candy-filled world using a giant slingshot.",
+  ),
+  "bubble-trouble": seo(
+    "Bubble Trouble",
+    "Arcade / Action",
+    "2005",
+    "/images/bubbletrouble-cover.webp",
+    "bubble trouble unblocked, bubble popping, arcade game",
+    true,
+    "Pop bouncing bubbles before they multiply and overrun you.",
+  ),
+  "achievement-unlocked": seo(
+    "Achievement Unlocked",
+    "Comedy / Simulation",
+    "2009",
+    "/images/achievementunlocked-cover.webp",
+    "achievement unlocked unblocked, meta game, funny game",
+    true,
+    "Earn hundreds of achievements for everything you do — move, jump, and interact.",
+  ),
+  "interactive-buddy": seo(
+    "Interactive Buddy",
+    "Sandbox / Simulation",
+    "2006",
+    "/images/interactivebuddy-cover.webp",
+    "interactive buddy unblocked, ragdoll sandbox, virtual buddy",
+    true,
+    "Punch, kick, and weaponize a ragdoll buddy in this classic virtual sandbox.",
+  ),
+  "fancy-pants-adventure": seo(
+    "Fancy Pants Adventure",
+    "Platformer",
+    "2008",
+    "/images/fancypants-cover.webp",
+    "fancy pants adventure unblocked, platformer game, stylish platformer",
+    true,
+    "Run, jump, spin, and slide through beautifully drawn levels as Fancy Pants Man.",
+  ),
+  "boxhead-2play": seo(
+    "Boxhead 2Play",
+    "Action / Survival",
+    "2008",
+    "/images/boxhead-cover.webp",
+    "boxhead 2play unblocked, zombie shooter, 2 player zombie",
+    true,
+    "Fight endless waves of zombies alone or with 2 players in top-down survival action.",
+  ),
+  "the-impossible-quiz-2": seo(
+    "The Impossible Quiz 2",
+    "Trivia / Puzzle",
+    "2009",
+    "/images/impossiblequiz2cover.webp",
+    "impossible quiz 2 unblocked, tricky questions, trivia game",
+    true,
+    "120 mind-bending trick questions that will frustrate and delight you.",
+  ),
+  qwop: seo(
+    "QWOP",
+    "Physics / Sports",
+    "2008",
+    "/images/qwop-cover.webp",
+    "qwop unblocked, physics runner, ragdoll game",
+    true,
+    "Control each leg independently to make your athlete run 100 meters in hilariously difficult fashion.",
+  ),
+  "super-mario-flash": seo(
+    "Super Mario Flash",
+    "Platformer",
+    "2007",
+    "/images/supermarioflashcover.webp",
+    "super mario flash unblocked, mario fan game, platformer",
+    true,
+    "Classic side-scrolling Mario action in this fan-made platformer.",
+  ),
+  "super-mario-flash-2": seo(
+    "Super Mario Flash 2",
+    "Platformer",
+    "2009",
+    "/images/supermarioflash2cover.webp",
+    "super mario flash 2 unblocked, mario fan game, mario browser",
+    true,
+    "Enhanced sequel with new levels, power-ups, and challenges.",
+  ),
+  "hobo-1-brawl": seo(
+    "Hobo 1: Brawl",
+    "Fighting",
+    "2009",
+    "/images/hobo1cover.webp",
+    "hobo 1 unblocked, hobo fighting, street brawl",
+    true,
+    "Battle in the streets using punches, kicks, and improvised weapons.",
+  ),
+  "hobo-2": seo(
+    "Hobo 2",
+    "Fighting",
+    "2010",
+    "/images/hobo2cover.webp",
+    "hobo 2 unblocked, hobo fighting, street brawl",
+    true,
+    "New moves, new enemies, and more street-brawling action in the second chapter.",
+  ),
+  "hobo-3-wanted": seo(
+    "Hobo 3: Wanted",
+    "Fighting",
+    "2011",
+    "/images/hobo3cover.webp",
+    "hobo 3 unblocked, hobo wanted, street fighting",
+    true,
+    "Our hobo hero is on the run with more weapons and chaotic street fights.",
+  ),
+  "hobo-4-total-war": seo(
+    "Hobo 4: Total War",
+    "Fighting",
+    "2012",
+    "/images/hobo4cover.webp",
+    "hobo 4 unblocked, hobo total war, fighting game",
+    true,
+    "The conflict escalates to total war with bigger fights and better weapons.",
+  ),
+  "hobo-5-space-brawls": seo(
+    "Hobo 5: Space Brawls",
+    "Fighting",
+    "2013",
+    "/images/hobo5cover.webp",
+    "hobo 5 unblocked, space brawl, hobo fighting",
+    true,
+    "The fight goes to space with zero-gravity brawls against alien enemies.",
+  ),
+  "hobo-6-hell": seo(
+    "Hobo 6: Hell",
+    "Fighting",
+    "2014",
+    "/images/hobo6cover.webp",
+    "hobo 6 unblocked, hobo hell, demon brawl",
+    true,
+    "Descend into hell itself to fight demonic enemies through fiery levels.",
+  ),
+  "hobo-7": seo(
+    "Hobo 7",
+    "Fighting",
+    "2015",
+    "/images/hobo7cover.webp",
+    "hobo 7 unblocked, hobo fighting, brawl game",
+    true,
+    "New environments, new enemies, and even more brutal combat in the seventh chapter.",
+  ),
+  "hobo-vs-zombies": seo(
+    "Hobo vs Zombies",
+    "Action / Survival",
+    "2013",
+    "/images/hobovszombiescover.webp",
+    "hobo vs zombies unblocked, zombie fighter, hobo fighting",
+    true,
+    "The hobo takes on endless zombie hordes with trusty weapons in this spin-off.",
+  ),
+  "vex-3": seo(
+    "Vex 3",
+    "Platformer / Precision",
+    "2014",
+    "/images/vex-3cover.webp",
+    "vex 3 unblocked, stickman platformer, obstacle course",
+    true,
+    "Run, jump, climb, and die repeatedly navigating deadly traps as a stickman.",
+  ),
+  "ultimate-flash-sonic": seo(
+    "Ultimate Flash Sonic",
+    "Platformer",
+    "2008",
+    "/images/sonic-cover.webp",
+    "ultimate flash sonic unblocked, sonic fan game, platformer",
+    true,
+    "Race through levels at high speed, collect rings, and defeat Dr. Eggman.",
+  ),
+  doom: seo(
+    "Doom",
+    "Action / FPS",
+    "1993",
+    "/images/doomcover.webp",
+    "doom unblocked, classic fps, doom online",
+    true,
+    "Fight demons, collect weapons, and survive the onslaught in the FPS that defined a genre.",
+  ),
+  minesweeper: seo(
+    "Minesweeper",
+    "Puzzle / Logic",
+    "1990",
+    "/images/minesweepercover.webp",
+    "minesweeper unblocked, logic puzzle, minesweeper online",
+    true,
+    "Clear the minefield without detonating any mines in this timeless logic puzzle.",
+  ),
+  "geography-game-usa": seo(
+    "Geography Game USA",
+    "Educational / Puzzle",
+    "2010",
+    "/images/geography-game-cover.webp",
+    "geography game usa unblocked, us geography, educational game",
+    true,
+    "Test your knowledge of US states, capitals, and landmarks.",
+  ),
+  "swords-and-sandals": seo(
+    "Swords and Sandals",
+    "RPG / Fighting",
+    "2006",
+    "/images/swords-and-sandals-cover.webp",
+    "swords and sandals unblocked, gladiator game, arena rpg",
+    true,
+    "Create a warrior, buy weapons and armor, and fight for glory in the arena.",
+  ),
+  "swords-and-sandals-2": seo(
+    "Swords and Sandals 2",
+    "RPG / Fighting",
+    "2007",
+    "/images/swords-and-sandals-2-cover.webp",
+    "swords and sandals 2 unblocked, gladiator game 2, arena rpg",
+    true,
+    "New weapons, armor, magic upgrades, and fiercer opponents in the gladiator sequel.",
+  ),
 };
 
 export function getGameSEO(gameName: string): GameSEO | undefined {
-  // Direct match first
-  if (gamesMap[gameName]) return gamesMap[gameName];
-  // Fallback: find by partial match (handles abbreviated titles like "Breaking the Bank" vs "Henry Stickmin: Breaking the Bank")
-  const lower = gameName.toLowerCase();
-  for (const key of Object.keys(gamesMap)) {
-    if (
-      key.toLowerCase().includes(lower) ||
-      lower.includes(key.toLowerCase())
-    ) {
-      return gamesMap[key];
-    }
-  }
-  return undefined;
+  return gamesMap[slugify(gameName)];
 }
