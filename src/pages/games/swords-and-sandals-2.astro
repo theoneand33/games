@@ -1,0 +1,14 @@
+---
+const Game = "Swords and Sandals 2";
+import Layout from "../../layout/layout.astro";
+import Flash from "../../components/flash.astro";
+const gamePath = "/flash/swords-and-sandals-2.swf";
+---
+
+<Layout Game={Game}>
+  <div style="text-align: center">
+    <div id="container" style="border: #ccc 0px solid; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 100px);">
+    </div>
+    <Flash gamePath={gamePath} />
+  </div>
+</Layout>

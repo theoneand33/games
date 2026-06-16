@@ -614,6 +614,28 @@ export const gamesMap: Record<string, GameSEO> = {
       "geography game unblocked, geography game usa no flash, geography game working, us geography game, educational game, states game, geography quiz",
     isFlash: true,
   },
+  "Swords and Sandals": {
+    title: "Swords and Sandals",
+    description:
+      "Play Swords and Sandals unblocked online - the legendary gladiator RPG where you create a warrior and fight for glory in the arena. Buy weapons and armor, level up your stats, and defeat champion after champion. No Flash required, fully working 2026 version.",
+    image: "/images/swords-and-sandals-cover.webp",
+    genre: "RPG / Fighting",
+    year: "2006",
+    keywords:
+      "swords and sandals unblocked, swords and sandals no flash, swords and sandals working, swords and sandals online, gladiator game, rpg fighting game, arena combat, fizzy game",
+    isFlash: true,
+  },
+  "Swords and Sandals 2": {
+    title: "Swords and Sandals 2",
+    description:
+      "Play Swords and Sandals 2 unblocked online - the epic sequel gladiator RPG with new weapons, armor, magic upgrades, and even fiercer opponents. Rise through the ranks and conquer the empire. No Flash required, fully working 2026 version.",
+    image: "/images/swords-and-sandals-2-cover.webp",
+    genre: "RPG / Fighting",
+    year: "2007",
+    keywords:
+      "swords and sandals 2 unblocked, swords and sandals 2 no flash, swords and sandals 2 working, swords and sandals 2 online, swords and sandals emperor, gladiator game 2, arena rpg",
+    isFlash: true,
+  },
 };
 
 export function getGameSEO(gameName: string): GameSEO | undefined {
