@@ -6,7 +6,7 @@ interface Props {
 const { gamePath } = Astro.props;
 ---
 
-<span id="flash-config" data-path={gamePath} style="display:none"></span>
+<span id="flash-config" data-path={gamePath} class="hidden"></span>
 <script src="/ruffle/ruffle.js" is:inline></script>
 <script data-astro-rerun is:inline>
   (function () {

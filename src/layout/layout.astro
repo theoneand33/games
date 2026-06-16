@@ -21,7 +21,7 @@ const siteUrl = "https://unblocked-games.vercel.app";
 // SEO data
 const seo = Game ? getGameSEO(Game) : undefined;
 const isFlash = seo?.isFlash ?? false;
-const todayDate = "2026-06-10";
+const todayDate = new Date().toISOString().split('T')[0];
 
 // Title
 const gameTitle = Game
@@ -48,11 +48,11 @@ const gameGenre = Astro.props.genre || seo?.genre || "Game";
 const gameYear = Astro.props.year || seo?.year || "";
 
 // Keywords
-const homeKeywords = "unblocked games, unblocked games for school chromebook, school chromebook games, chromebook games unblocked, free online games, flash games working 2026, no flash required games, happy wheels unblocked, plants vs zombies unblocked, strike force heroes unblocked, classic flash games, online games school, unblocked games online, retro games, browser games, free browser games, action games, puzzle games, strategy games, arcade games, unblocked games vercel";
+const homeKeywords = "unblocked games, unblocked games for school chromebook, classic flash games, browser games";
 
 const gameKeywords = isHome
   ? homeKeywords
-  : `${Astro.props.keywords || seo?.keywords || `${Game?.toLowerCase()} unblocked, ${Game?.toLowerCase()} online, ${Game?.toLowerCase()} working, play ${Game?.toLowerCase()}`}, ${Game?.toLowerCase()} chromebook, ${Game?.toLowerCase()} school, unblocked games chromebook`;
+  : `${Game?.toLowerCase()} unblocked, ${Game?.toLowerCase()} online, unblocked games chromebook`;
 
 // URL
 const pageSlug = Game
@@ -215,68 +215,46 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
       </div>
     </nav>
 
-    {
-      Game && !isHome ? (
-        <div style="padding: 0.5rem 1.5rem 0; max-width: 1200px; margin: 0 auto;">
-          <h1 data-pagefind-body style="font-size: 1.25rem; font-weight: 700;">
-            Play {Game} Unblocked on Chromebook
-          </h1>
-        </div>
-      ) : null
-    }
-
     <main>
       <slot />
     </main>
 
-    {
-      Game && !isHome ? (
-        <>
-          <!-- SEO description + badges -->
-          <div
-            class="game-seo-content"
-            style="padding: 0.5rem 1.5rem; max-width: 1200px; margin: 0 auto;"
-          >
-            <p style="font-size: 0.875rem; color: #555; margin-bottom: 0.25rem;">
-              {gameDescription.substring(0, 200)}
-              {gameDescription.length > 200 ? "..." : ""}
-            </p>
-            {
-              isFlash ? (
-                <p style="font-size: 0.75rem; color: #888; font-weight: 500;">
-                  ✓ No Flash plugin required — works on school Chromebooks via Ruffle emulator
-                </p>
-              ) : (
-                <p style="font-size: 0.75rem; color: #888; font-weight: 500;">
-                  ✓ Works on school Chromebooks — no downloads needed
-                </p>
-              )
-            }
-          </div>
+    {Game && !isHome && (
+      <div class="mx-auto max-w-[1200px] px-6 pt-2">
+        <h1 data-pagefind-body class="text-xl font-bold">
+          Play {Game} Unblocked on Chromebook
+        </h1>
 
-          <!-- More Games cross-linking -->
-          <nav
-            class="more-games"
-            style="padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; margin-top: 1rem;"
-          >
-            <p style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: #374151;">
-              More Unblocked Games
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem;">
-              <a href="/games/happywheels" class="text-blue-600 hover:underline">Happy Wheels</a>
-              <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline">Gun Mayhem 2</a>
-              <a href="/games/madness-project-nexus" class="text-blue-600 hover:underline">Madness: Project Nexus</a>
-              <a href="/games/hobo2" class="text-blue-600 hover:underline">Hobo 2</a>
-              <a href="/games/vex3" class="text-blue-600 hover:underline">Vex 3</a>
-              <a href="/games/fireboy-and-watergirl" class="text-blue-600 hover:underline">Fireboy and Watergirl</a>
-              <a href="/games/strike-force-heroes" class="text-blue-600 hover:underline">Strike Force Heroes</a>
-              <a href="/games/super-mario-63" class="text-blue-600 hover:underline">Super Mario 63</a>
-              <a href="/games/bloonstd5" class="text-blue-600 hover:underline">Bloons TD 5</a>
-            </div>
-          </nav>
-        </>
-      ) : null
-    }
+        <!-- SEO description + badges -->
+        <div class="py-2">
+          <p class="text-sm text-gray-500 mb-1">
+            {gameDescription.substring(0, 200)}
+            {gameDescription.length > 200 ? "..." : ""}
+          </p>
+          <p class="text-xs text-gray-400 font-medium">
+            ✓ {isFlash
+              ? "No Flash plugin required — works on school Chromebooks via Ruffle emulator"
+              : "Works on school Chromebooks — no downloads needed"}
+          </p>
+        </div>
+
+        <!-- More Games cross-linking -->
+        <nav class="border-t border-gray-200 mt-4 py-4">
+          <p class="text-sm font-semibold mb-2 text-gray-700">More Unblocked Games</p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <a href="/games/happywheels" class="text-blue-600 hover:underline">Happy Wheels</a>
+            <a href="/games/gun-mayhem2" class="text-blue-600 hover:underline">Gun Mayhem 2</a>
+            <a href="/games/madness-project-nexus" class="text-blue-600 hover:underline">Madness: Project Nexus</a>
+            <a href="/games/hobo2" class="text-blue-600 hover:underline">Hobo 2</a>
+            <a href="/games/vex3" class="text-blue-600 hover:underline">Vex 3</a>
+            <a href="/games/fireboy-and-watergirl" class="text-blue-600 hover:underline">Fireboy and Watergirl</a>
+            <a href="/games/strike-force-heroes" class="text-blue-600 hover:underline">Strike Force Heroes</a>
+            <a href="/games/super-mario-63" class="text-blue-600 hover:underline">Super Mario 63</a>
+            <a href="/games/bloonstd5" class="text-blue-600 hover:underline">Bloons TD 5</a>
+          </div>
+        </nav>
+      </div>
+    )}
 
     <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
 
@@ -287,7 +265,7 @@ const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
           href="https://archive.org">Internet Archive</a
         >
       </p>
-      <div style="font-size: 13px;" class="flex gap-3">
+      <div class="flex gap-3 text-xs">
         <a class="hover:underline underline-offset-2" href="/dmca">DMCA</a>
       </div>
     </footer>
