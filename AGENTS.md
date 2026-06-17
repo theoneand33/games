@@ -16,7 +16,7 @@ This project uses **bun** as its package manager. Always use `bun` instead of `n
 
 After making any code changes, always run both of these commands to verify correctness and consistency:
 
-1. **`bun run check`** — runs `astro check` (TypeScript/type checking) followed by `astro build`. Ensures the project type-checks and builds successfully.
+1. **`bun run check`** — runs `astro check` (TypeScript/type checking) followed by `astro build` + pagefind indexing. Ensures the project type-checks and builds successfully.
 2. **`bun run lint`** — runs `prettier --check .` to verify all files are properly formatted.
 
 Run these **before** committing. If either fails, fix the issues before proceeding.
@@ -29,14 +29,17 @@ Run these **before** committing. If either fails, fix the issues before proceedi
 │   │   ├── gametile.astro     Homepage game tile card (link + cover image + name)
 │   │   └── flash.astro        Ruffle Flash emulator embed (polling-based loader)
 │   ├── data/
-│   │   └── game-seo.ts        Central registry: all games with SEO metadata + lookup helper
-│   │                         (keys are slugified — must match slugify(gameName) output)
+│   │   ├── game-seo.ts        Central registry: all games with SEO metadata + lookup helper
+│   │   │                     (keys are slugify(gameName) — must match slugify output)
+│   │   └── game-slugs.ts      Maps page slugs → game names + controls display order
 │   ├── layout/
 │   │   └── layout.astro       Main layout — used by BOTH home page and game pages
 │   ├── pages/
 │   │   ├── index.astro        Home page — lists all games via <Gametile> components
 │   │   ├── dmca.astro         DMCA takedown notice page
-│   │   └── games/             One .astro file per game (56 are 11-line Flash boilerplate)
+│   │   └── games/
+│   │       ├── [slug].astro   Dynamic route for all Flash games (56 games)
+│   │       └── run-3.astro    HTML5 game page (Run 3 — unique template)
 │   └── styles/
 │       └── styles.css         Global CSS + Tailwind v4 @import + .games-grid/.game-tile
 ├── public/
@@ -47,6 +50,7 @@ Run these **before** committing. If either fails, fix the issues before proceedi
 │   ├── ruffle/                Ruffle WebAssembly Flash emulator (ruffle.js + .wasm)
 │   ├── robots.txt             Blocks /flash/ from crawlers, links to llms.txt + sitemap
 │   ├── llms.txt               AI-friendly site summary (llmstxt.org format)
+│   ├── _redirects             Vercel redirect rule (/sitemap.xml → /sitemap-index.xml)
 │   └── *.txt                  Domain verification file for search consoles
 ├── astro.config.mjs           Astro v6 config (prefetch, sitemap, Tailwind v4 via Vite)
 ├── tsconfig.json              TypeScript strict mode (extends astro/tsconfigs/strict)
@@ -57,108 +61,122 @@ Run these **before** committing. If either fails, fix the issues before proceedi
 
 > **Tailwind v4 note:** This project uses Tailwind CSS v4, which moves configuration from `tailwind.config.js` to CSS `@theme` directives. Any theme extensions (colors, fonts, spacing, etc.) must be defined as CSS variables inside an `@theme` block in `src/styles/styles.css`. Do **not** create or edit a `tailwind.config.js` file — it will be ignored.
 
-## Where to look / what matters
+## The data layer (how games are registered)
 
-### Game pages: the main pattern
+Three files work together:
 
-Every game has an `.astro` page under `src/pages/games/`. There are **two patterns**:
+### 1. `src/data/game-seo.ts`
 
-**Pattern A — Flash games (most games):**
+The source of truth for every game. Exports `gamesMap: Record<string, GameSEO>` keyed by `slugify(gameName)` (e.g. `"henry-stickmin-1-breaking-the-bank"`). Each entry includes:
+
+- `title`, `description`, `image`, `genre`, `year`, `keywords` — SEO metadata
+- `isFlash` — whether it needs Ruffle emulation
+- `gamePath` — absolute path to the `.swf` file (empty string for non-Flash games)
+
+Also exports `getGameSEO(gameName)` which looks up an entry by slugifying the display name. Entry keys must match `slugify(gameName)` exactly or lookups silently fail.
+
+### 2. `src/data/game-slugs.ts`
+
+Bridges the gap between URL slugs and game names. The URL for a game uses a short slug (`/games/breaking-the-bank`) that doesn't match `slugify(gameName)` (`henry-stickmin-1-breaking-the-bank`). This file exports:
+
+- `slugToGame: Record<string, string>` — maps every page slug → display name
+- `pageOrder: string[]` — (future) ordered slugs controlling homepage display order
+
+When adding a game, add entries to both `slugToGame` and `gamesMap`.
+
+### 3. `src/data/game-seo.ts` (lookup helper)
+
+`getGameSEO(gameName)` takes a display name (e.g. `"Happy Wheels"`), slugifies it, and looks it up in `gamesMap`. Used by `layout.astro` for SEO tags and by `[slug].astro` to get `gamePath`.
+
+### How to add a new game
+
+1. **Get the `.swf` file** — place it in `public/flash/` (lowercase, no spaces — convention is page-slug without hyphens, e.g. `bloonstd5.swf`)
+2. **Get a cover image** — place it in `public/images/` (~300x200, any format)
+3. **Register in `src/data/game-seo.ts`** — add entry to `gamesMap` with full SEO metadata, `isFlash: true/false`, and `gamePath: "/flash/..."` (omit or empty for non-Flash)
+4. **Register in `src/data/game-slugs.ts`** — add entry to `slugToGame` mapping the URL slug → the display name
+5. **Update `src/pages/index.astro`** — if still using hardcoded `games` array, add the entry; if using `pageOrder` from `game-slugs.ts`, add the slug there instead
+6. **Update `public/llms.txt`** — add the game URL to the list
+
+For **non-Flash HTML5 games** (like Run 3), also create a dedicated `.astro` page in `src/pages/games/` — the dynamic `[slug].astro` only handles Flash games.
+
+> **Important:** All asset paths (`.swf` files, cover images, scripts) must use **absolute paths** relative to the `public/` directory — e.g., `/flash/gamename.swf`, `/images/cover.png`. Never use relative paths like `images/cover.png` or `../images/cover.png`.
+
+### The game page: `[slug].astro`
+
+All Flash games (56 of 57) are served by a single dynamic route:
 
 ```astro
 ---
-const Game = "Happy Wheels";
-import Layout from "../../layout/layout.astro";
-import Flash from "../../components/flash.astro";
-const gamePath = "/flash/happywheels.swf";
+// [slug].astro — handles all Flash games
+export async function getStaticPaths() {
+  return Object.entries(slugToGame).map(([slug]) => ({ params: { slug } }));
+}
+const { slug } = Astro.params!;
+const gameName = slugToGame[slug];
+const gamePath = getGameSEO(gameName)?.gamePath || "";
 ---
-<Layout Game={Game}>
-  <div style="text-align: center">
-    <div id="container" style="border: #ccc 0px solid; height: 100%; width: 100%; min-height: 96vh;">
-    </div>
-    <Flash gamePath={gamePath} />
-  </div>
+<Layout Game={gameName}>
+  <Flash gamePath={gamePath} />
 </Layout>
 ```
 
-**Note:** 56 of 57 game pages are this exact 11-line template with only `Game` and `gamePath` swapped. If adding many games, consider a dynamic `[slug].astro` route instead of duplicating files.
-
 The `Flash` component handles Ruffle loading (polling loop). The layout auto-reads SEO from `game-seo.ts` via `Game` prop.
 
-**Pattern B — HTML5 games (Run 3 only currently):**
+### The exception: `run-3.astro`
+
+Run 3 is the only HTML5 game. It has its own `.astro` page because it needs a completely different template:
 
 ```astro
----
-const Game = "Run 3";
-import Layout from "../../layout/layout.astro";
----
-<Layout Game={Game}>
+<Layout Game="Run 3">
   <base href="/games/run3/" />
   <div id="run3-wrapper">...</div>
   <script src="/games/run3/Run3.js" is:inline></script>
 </Layout>
 ```
 
-These directly load their own JS. No `Flash` component. No `.swf` file needed.
-
-**The only non-Flash HTML5 game in the project is Run 3.** All others use the Flash pattern.
-
-### How to add a new game
-
-1. **Get the `.swf` file** — place it in `public/flash/` (named like `gamename.swf`)
-2. **Get a cover image** — place it in `public/images/` (ideally 300x200-ish, any format)
-3. **Register in `src/data/game-seo.ts`** — add entry to `gamesMap` with full SEO metadata, including `isFlash: true/false`
-4. **Create the game page** — `src/pages/games/game-slug.astro` using the Flash pattern above (or HTML5 pattern if applicable)
-5. **Add to homepage** — add entry to the `games` array in `src/pages/index.astro`
-6. **Update `public/llms.txt`** — add the game URL to the list
-
-> **Important:** All asset paths (`.swf` files, cover images, scripts) must use **absolute paths** relative to the `public/` directory — e.g., `/flash/gamename.swf`, `/images/cover.png`. Never use relative paths like `images/cover.png` or `../images/cover.png`, as they will break on nested game page routes (`/games/game-slug`).
+No `Flash` component, no `.swf`. Direct JS bundle.
 
 ### The SEO system (how layout.astro + game-seo.ts work together)
 
-- `game-seo.ts` exports `gamesMap: Record<string, GameSEO>` — one entry per game keyed by slugified name (e.g., `"happy-wheels"`). Must match `slugify(gameName)` output exactly.
+- `game-seo.ts` exports `gamesMap: Record<string, GameSEO>` — one entry per game keyed by `slugify(gameName)`.
 - `layout.astro` receives a `Game` prop (string), calls `getGameSEO(Game)` to look up SEO data.
 - The layout then generates: `<title>`, `<meta description/keywords>`, Open Graph tags, Twitter Card tags, JSON-LD structured data (BreadcrumbList + VideoGame for game pages, WebSite + CollectionPage + Organization for home).
-- There is also `layout-home.astro` which is a now-duplicate of parts of `layout.astro`. **Do NOT use `layout-home.astro` for anything new** — use `layout.astro` with `isHome={true}` instead. `layout-home.astro` exists only for legacy reasons and should eventually be removed.
+- Use `layout.astro` with `isHome={true}` for the homepage — there is no separate home layout.
 
-### Home page mechanics
-
-`src/pages/index.astro`:
+### Home page: `src/pages/index.astro`
 
 - Uses `Layout` with `isHome={true}` and `pageTitle`.
-- Iterates over a `games` array and renders `<Gametile>` for each.
-- Each `Gametile` takes `Game` (display name), `Path` (slug), `Image` (cover path).
-- The `games` array order determines display order on the page.
-- Has inline "Popular" links hardcoded — keep these in sync with the top of the games array.
-- If you add a game, add it to the array here.
+- Iterates over games and renders `<Gametile Game={name} Path={"/games/" + slug} Image={cover} />`.
+- The iteration order determines display order. Currently uses a hardcoded `games` array.
+- Has inline "Popular" links at the top — keep these in sync with the first ~9 games.
+- The **naming conventions doc below** still applies for index.astro Path values.
 
-### Popularity ordering (home page)
+### Popularity ordering
 
-The `games` array in `src/pages/index.astro` is ordered by estimated popularity (most popular first). When adding a new game, place it at the appropriate position rather than appending to the end. This keeps the most-played games at the top for a better browsing experience.
+The `games` array / `pageOrder` list is ordered by estimated popularity (most popular first). When adding a game, place it at the appropriate position rather than appending to the end.
 
 Guidelines for placement:
 
-- **Tier 1 (top):** All-time greats that every visitor looks for (Happy Wheels, Plants vs Zombies, Run 3, Fireboy and Watergirl, Bloons TD 5, Super Mario 63, Tetris, Pac-Man)
-- **Tier 2:** Beloved classics with broad appeal (Fancy Pants Adventure, Stick War, Age of War, Madness: Project Nexus, Strike Force Heroes, The World's Hardest Game, Vex 3, Gun Mayhem 2, Bubble Trouble, QWOP, Crush the Castle, Burrito Bison)
-- **Tier 3:** Well-loved franchises and series (Boxhead, The Impossible Quiz, Henry Stickmin series, Duck Life series, Learn to Fly series)
-- **Tier 4:** Established games with dedicated audiences (Achievement Unlocked, Super Mario Flash series, Ultimate Flash Sonic, Swords and Sandals series)
-- **Tier 5 (bottom):** Niche or cult-following games (Doom, Minesweeper, Geography Game USA, Riddle School series, Hobo series)
+- **Tier 1 (top):** All-time greats (Happy Wheels, Plants vs Zombies, Run 3, Fireboy and Watergirl, Bloons TD 5, Super Mario 63, Tetris, Pac-Man)
+- **Tier 2:** Beloved classics (Fancy Pants Adventure, Stick War, Age of War, Madness: Project Nexus, Strike Force Heroes, The World's Hardest Game, Vex 3, Gun Mayhem 2, Bubble Trouble, QWOP, Crush the Castle, Burrito Bison)
+- **Tier 3:** Well-loved franchises (Boxhead, The Impossible Quiz, Henry Stickmin series, Duck Life series, Learn to Fly series)
+- **Tier 4:** Established games (Achievement Unlocked, Super Mario Flash series, Ultimate Flash Sonic, Swords and Sandals series)
+- **Tier 5 (bottom):** Niche games (Doom, Minesweeper, Geography Game USA, Riddle School series, Hobo series)
 
-Series entries (e.g., all Henry Stickmin games, all Duck Life games) should be grouped together and placed as a block. The "Popular" links row at the top of the page should reflect the current top ~9 games.
-
-When in doubt about where a new game fits, assess its name recognition and likely school audience appeal, then place it conservatively (it can always be moved up later).
+Series entries should be grouped together and placed as a block. The "Popular" links row should reflect the current top ~9 games.
 
 ### File naming conventions
 
-| Artifact                 | Convention                                          | Example                                     |
-| ------------------------ | --------------------------------------------------- | ------------------------------------------- |
-| Game page .astro         | `kebab-case.astro`                                  | `happywheels.astro`, `super-mario-63.astro` |
-| .swf in public/flash/    | Lowercase, no spaces, match page slug               | `happywheels.swf`, `super-mario-63.swf`     |
-| Cover image              | Match game name, any format                         | `happywheelscover.jpeg`, `sm63-cover.png`   |
-| slug in index.astro Path | Must match actual .astro filename (minus extension) | `/games/happywheels`                        |
-| game-seo.ts key          | Slugified — must match slugify(gameName) output     | `"super-mario-63"`                          |
+| Artifact                  | Convention                                      | Example                                   |
+| ------------------------- | ----------------------------------------------- | ----------------------------------------- |
+| Page slug (URL)           | `kebab-case`                                    | `/games/breaking-the-bank`                |
+| `.swf` in `public/flash/` | Lowercase, no spaces (often slug minus hyphens) | `happywheels.swf`, `bloonstd5.swf`        |
+| Cover image               | Descriptive, any format                         | `happywheelscover.webp`, `sm63-cover.png` |
+| `game-seo.ts` key         | `slugify(gameName)` output                      | `"henry-stickmin-1-breaking-the-bank"`    |
+| `slugToGame` key          | Page slug (URL segment)                         | `"breaking-the-bank"`                     |
+| `index.astro` `Path`      | `"/games/" + slug`                              | `"/games/breaking-the-bank"`              |
 
-There are some historical inconsistencies in naming that should be fixed (e.g., `bloonstd5` instead of `bloons-td-5`). Follow existing patterns when adding new games.
+There are historical inconsistencies in `.swf` filenames (e.g. `bloonstd5.swf` for slug `bloons-td-5`). The `gamePath` field in `game-seo.ts` is the authoritative source; the `.swf` filename convention is descriptive, not enforced.
 
 ### Git commits
 
@@ -173,7 +191,7 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 | `dist/`              | Build output — never manually inspect or edit                            |
 | `.astro/`            | Generated TypeScript types — never edit                                  |
 | `node_modules/`      | Dependencies — never relevant                                            |
-| `public/ruffle/`     | Vendored WASM binary — never modify don't read, read ruffle docs instead |
+| `public/ruffle/`     | Vendored WASM binary — never modify                                      |
 | `public/games/run3/` | Vendored HTML5 game bundle — never modify (unless updating Run 3 itself) |
 | `astro.config.mjs`   | Static Astro config — rarely changes                                     |
 | `tsconfig.json`      | Standard strict TS config — rarely changes                               |
@@ -183,18 +201,19 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 
 ## Quick reference — key files by task
 
-| Task                        | File(s) to edit                                                                                      |
-| --------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Add a new game              | `src/data/game-seo.ts` + new `src/pages/games/*.astro` + `src/pages/index.astro` + `public/llms.txt` |
-| Fix SEO for a game          | `src/data/game-seo.ts`                                                                               |
-| Change homepage layout      | `src/pages/index.astro`                                                                              |
-| Change global layout/SEO    | `src/layout/layout.astro` (NOT layout-home.astro)                                                    |
-| Change game tile appearance | `src/components/gametile.astro`                                                                      |
-| Change Flash/Ruffle loading | `src/components/flash.astro`                                                                         |
-| Change global styles        | `src/styles/styles.css`                                                                              |
-| Change deployment           | `package.json` scripts                                                                               |
-| Add/edit dependency         | `bun add <package>` (not npm)                                                                        |
-| Remove dead config          | `postcss.config.cjs`, `wrangler.jsonc`                                                               |
+| Task                        | File(s) to edit                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------- |
+| Add a new game              | `src/data/game-seo.ts` + `src/data/game-slugs.ts` + `src/pages/index.astro` + `public/llms.txt` |
+| Fix SEO for a game          | `src/data/game-seo.ts`                                                                          |
+| Change homepage layout      | `src/pages/index.astro`                                                                         |
+| Change global layout/SEO    | `src/layout/layout.astro`                                                                       |
+| Change game tile appearance | `src/components/gametile.astro`                                                                 |
+| Change Flash/Ruffle loading | `src/components/flash.astro`                                                                    |
+| Change global styles        | `src/styles/styles.css`                                                                         |
+| Add/edit a page slug        | `src/data/game-slugs.ts` (and `game-seo.ts` if new game)                                        |
+| Change deployment           | `package.json` scripts                                                                          |
+| Add/edit dependency         | `bun add <package>` (not npm)                                                                   |
+| Remove dead config          | `postcss.config.cjs`, `wrangler.jsonc`                                                          |
 
 ## Technology stack
 

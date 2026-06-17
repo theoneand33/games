@@ -1,0 +1,21 @@
+---
+import Layout from "../../layout/layout.astro";
+import Flash from "../../components/flash.astro";
+import { getGameSEO } from "../../data/game-seo";
+import { slugToGame } from "../../data/game-slugs";
+
+export async function getStaticPaths() {
+  return Object.entries(slugToGame).map(([slug]) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params!;
+const gameName = slugToGame[slug];
+const seo = getGameSEO(gameName);
+const gamePath = seo?.gamePath || "";
+---
+
+<Layout Game={gameName}>
+  <Flash gamePath={gamePath} />
+</Layout>

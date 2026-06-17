@@ -6,6 +6,7 @@ export interface GameSEO {
   year?: string;
   keywords: string[];
   isFlash: boolean;
+  gamePath?: string;
 }
 
 export function slugify(name: string): string {
@@ -23,6 +24,7 @@ function seo(
   keywords: string[],
   isFlash: boolean,
   hook: string,
+  gamePath = "",
 ): GameSEO {
   return {
     title,
@@ -32,6 +34,7 @@ function seo(
     year,
     keywords,
     isFlash,
+    gamePath,
   };
 }
 
@@ -44,6 +47,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["happy wheels unblocked", "ragdoll physics", "happy wheels no flash"],
     true,
     "Navigate dangerous obstacle courses with hilarious physics-based ragdoll characters.",
+    "/flash/happywheels.swf",
   ),
   "plants-vs-zombies": seo(
     "Plants vs Zombies",
@@ -53,6 +57,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["plants vs zombies unblocked", "tower defense", "pvz no flash"],
     true,
     "Defend your garden from zombie hordes using peashooters, cherry bombs, and more.",
+    "/flash/plants-vs-zombies.swf",
   ),
   "fireboy-and-watergirl": seo(
     "Fireboy and Watergirl",
@@ -62,6 +67,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["fireboy and watergirl unblocked", "co-op platformer", "2 player game"],
     true,
     "Guide both characters through the Forest Temple avoiding lava and water hazards.",
+    "/flash/fireboy-watergirl.swf",
   ),
   "bloons-td-5": seo(
     "Bloons TD 5",
@@ -71,6 +77,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["bloons td 5 unblocked", "monkey tower defense", "btd5"],
     true,
     "Pop colorful balloons with monkey towers in the ultimate tower defense game.",
+    "/flash/bloonstd5.swf",
   ),
   "pac-man": seo(
     "Pac-Man",
@@ -80,6 +87,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["pac-man unblocked", "classic arcade", "pac-man online"],
     true,
     "Navigate mazes, eat pellets, and avoid ghosts in the 1980 arcade legend.",
+    "/flash/pacman.swf",
   ),
   tetris: seo(
     "Tetris",
@@ -89,6 +97,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["tetris unblocked", "classic puzzle", "tetris online"],
     true,
     "Arrange falling tetrominoes to clear lines in the timeless block-stacking puzzle.",
+    "/flash/tetris.swf",
   ),
   "henry-stickmin-1-breaking-the-bank": seo(
     "Henry Stickmin 1: Breaking the Bank",
@@ -102,6 +111,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ],
     true,
     "Help Henry break into a bank with multiple paths and hilarious endings.",
+    "/flash/breakingthebank.swf",
   ),
   "henry-stickmin-2-escaping-the-prison": seo(
     "Henry Stickmin 2: Escaping the Prison",
@@ -111,6 +121,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["henry stickmin escaping the prison", "stickmin game", "prison escape"],
     true,
     "Escape from maximum security prison using creative and hilarious methods.",
+    "/flash/escapingtheprison.swf",
   ),
   "henry-stickmin-3-stealing-the-diamond": seo(
     "Henry Stickmin 3: Stealing the Diamond",
@@ -120,6 +131,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["henry stickmin stealing the diamond", "museum heist", "stickmin game"],
     true,
     "Infiltrate a museum to steal a priceless diamond in this choose-your-own-path adventure.",
+    "/flash/stealingthediamond.swf",
   ),
   "henry-stickmin-4-infiltrating-the-airship": seo(
     "Henry Stickmin 4: Infiltrating the Airship",
@@ -133,6 +145,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ],
     true,
     "Board and take over a massive airship in this epic stick figure adventure.",
+    "/flash/infiltratingairship.swf",
   ),
   "henry-stickmin-5-fleeing-the-complex": seo(
     "Henry Stickmin 5: Fleeing the Complex",
@@ -142,6 +155,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["henry stickmin fleeing the complex", "prison break", "stickmin game"],
     true,
     "Escape from a towering prison complex with the most elaborate schemes yet.",
+    "/flash/fleeingcomplex.swf",
   ),
   "super-mario-63": seo(
     "Super Mario 63",
@@ -151,6 +165,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["super mario 63 unblocked", "sm63", "mario fan game"],
     true,
     "Explore Delfino Plaza and collect stars in this legendary fan-made Mario platformer.",
+    "/flash/super-mario-63.swf",
   ),
   "the-worlds-hardest-game": seo(
     "The World's Hardest Game",
@@ -160,6 +175,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["worlds hardest game unblocked", "precision puzzle", "twhg"],
     true,
     "Guide a red square through maze-like levels while avoiding blue enemies.",
+    "/flash/worldshardestgame.swf",
   ),
   "stick-war": seo(
     "Stick War",
@@ -169,6 +185,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["stick war unblocked", "stick figure strategy", "army game"],
     true,
     "Command stick figure armies, manage economy, and conquer enemy territories.",
+    "/flash/stickwar.swf",
   ),
   "age-of-war": seo(
     "Age of War",
@@ -178,6 +195,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["age of war unblocked", "tower defense", "evolution game"],
     true,
     "Evolve from cavemen to modern warfare while defending your base.",
+    "/flash/ageofwar.swf",
   ),
   "duck-life-1": seo(
     "Duck Life 1",
@@ -187,6 +205,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["duck life unblocked", "duck training", "duck racing"],
     true,
     "Train your duck in running, flying, swimming, and climbing to become champion.",
+    "/flash/ducklife.swf",
   ),
   "duck-life-2": seo(
     "Duck Life 2",
@@ -196,6 +215,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["duck life 2 unblocked", "duck life world champion", "duck training"],
     true,
     "Compete in world championships and customize your duck with hats and accessories.",
+    "/flash/ducklife2.swf",
   ),
   "duck-life-3": seo(
     "Duck Life 3",
@@ -205,6 +225,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["duck life 3 unblocked", "duck evolution", "duck training"],
     true,
     "Evolve your duck with unique abilities through new training mini-games.",
+    "/flash/ducklife3.swf",
   ),
   "duck-life-4": seo(
     "Duck Life 4",
@@ -214,6 +235,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["duck life 4 unblocked", "open world duck", "duck adventure"],
     true,
     "Explore an open world across diverse biomes to train your duck and beat the fire duck champion.",
+    "/flash/ducklife4.swf",
   ),
   "duck-life-5": seo(
     "Duck Life 5",
@@ -223,6 +245,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["duck life 5 unblocked", "treasure hunt", "duck adventure"],
     true,
     "Explore ancient caves and hunt for treasure with over 200 costumes to unlock.",
+    "/flash/ducklife5.swf",
   ),
   "run-2": seo(
     "Run 2",
@@ -232,6 +255,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["run 2 unblocked", "space runner", "run game"],
     false,
     "Run, jump, and flip through challenging obstacles in surreal 3D space.",
+    "/flash/run2.swf",
   ),
   "run-3": seo(
     "Run 3",
@@ -250,6 +274,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["riddle school 2 unblocked", "escape game", "point and click puzzle"],
     true,
     "Escape from school in this classic point-and-click puzzle adventure.",
+    "/flash/riddleschool2.swf",
   ),
   "riddle-school-3": seo(
     "Riddle School 3",
@@ -259,6 +284,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["riddle school 3 unblocked", "escape game", "puzzle adventure"],
     true,
     "More puzzles, more rooms, and more clever ways to break free from school.",
+    "/flash/Riddle_School_3.swf",
   ),
   "riddle-school-4": seo(
     "Riddle School 4",
@@ -268,6 +294,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["riddle school 4 unblocked", "escape puzzle", "riddle school game"],
     true,
     "Even trickier puzzles and new areas to explore in the fourth chapter.",
+    "/flash/Riddle_School_4.swf",
   ),
   "riddle-school-5": seo(
     "Riddle School 5",
@@ -277,6 +304,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["riddle school 5 unblocked", "riddle school final", "escape adventure"],
     true,
     "A larger school to explore, more characters, and the epic series conclusion.",
+    "/flash/RiddleSchool5.swf",
   ),
   "learn-to-fly-2": seo(
     "Learn to Fly 2",
@@ -286,6 +314,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["learn to fly 2 unblocked", "penguin game", "rocket game"],
     true,
     "Help a determined penguin achieve flight using rockets and upgrades.",
+    "/flash/learntofly2.swf",
   ),
   "learn-to-fly-3": seo(
     "Learn to Fly 3",
@@ -295,6 +324,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["learn to fly 3 unblocked", "penguin rocket", "space game"],
     true,
     "More rocket-powered penguin action with new upgrades and intergalactic travel.",
+    "/flash/learntofly3.swf",
   ),
   "gun-mayhem-2": seo(
     "Gun Mayhem 2",
@@ -304,6 +334,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["gun mayhem 2 unblocked", "multiplayer shooter", "arena shooter"],
     true,
     "Battle AI or friends in explosive 2D arena combat with tons of weapons.",
+    "/flash/Gun_Mayhem_2.swf",
   ),
   "madness-project-nexus": seo(
     "Madness: Project Nexus",
@@ -317,6 +348,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ],
     true,
     "Fast-paced stick figure combat with multiple weapons in the Madness universe.",
+    "/flash/MadnessGame_ULTIMATE.swf",
   ),
   "strike-force-heroes": seo(
     "Strike Force Heroes",
@@ -326,6 +358,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["strike force heroes unblocked", "2d army shooter", "strike force game"],
     true,
     "Battle through 15 missions with 4 character classes and tons of weapons.",
+    "/flash/strikeforceheroes.swf",
   ),
   "crush-the-castle": seo(
     "Crush the Castle",
@@ -335,6 +368,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["crush the castle unblocked", "physics game", "trebuchet"],
     true,
     "Use your trebuchet to destroy castles in the physics game that inspired Angry Birds.",
+    "/flash/crushthecastle.swf",
   ),
   "burrito-bison": seo(
     "Burrito Bison",
@@ -344,6 +378,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["burrito bison unblocked", "launching game", "slingshot game"],
     true,
     "Launch a wrestler through a candy-filled world using a giant slingshot.",
+    "/flash/burritobison.swf",
   ),
   "bubble-trouble": seo(
     "Bubble Trouble",
@@ -353,6 +388,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["bubble trouble unblocked", "bubble popping", "arcade game"],
     true,
     "Pop bouncing bubbles before they multiply and overrun you.",
+    "/flash/bubbletrouble.swf",
   ),
   "achievement-unlocked": seo(
     "Achievement Unlocked",
@@ -362,6 +398,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["achievement unlocked unblocked", "meta game", "funny game"],
     true,
     "Earn hundreds of achievements for everything you do — move, jump, and interact.",
+    "/flash/achievementunlocked.swf",
   ),
   "interactive-buddy": seo(
     "Interactive Buddy",
@@ -371,6 +408,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["interactive buddy unblocked", "ragdoll sandbox", "virtual buddy"],
     true,
     "Punch, kick, and weaponize a ragdoll buddy in this classic virtual sandbox.",
+    "/flash/interactivebuddy.swf",
   ),
   "fancy-pants-adventure": seo(
     "Fancy Pants Adventure",
@@ -384,6 +422,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ],
     true,
     "Run, jump, spin, and slide through beautifully drawn levels as Fancy Pants Man.",
+    "/flash/fancypants.swf",
   ),
   "boxhead-2play": seo(
     "Boxhead 2Play",
@@ -393,6 +432,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["boxhead 2play unblocked", "zombie shooter", "2 player zombie"],
     true,
     "Fight endless waves of zombies alone or with 2 players in top-down survival action.",
+    "/flash/boxhead2play.swf",
   ),
   "the-impossible-quiz-2": seo(
     "The Impossible Quiz 2",
@@ -402,6 +442,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["impossible quiz 2 unblocked", "tricky questions", "trivia game"],
     true,
     "120 mind-bending trick questions that will frustrate and delight you.",
+    "/flash/theimpossiblequiz2.swf",
   ),
   qwop: seo(
     "QWOP",
@@ -411,6 +452,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["qwop unblocked", "physics runner", "ragdoll game"],
     true,
     "Control each leg independently to make your athlete run 100 meters in hilariously difficult fashion.",
+    "/flash/qwop.swf",
   ),
   "super-mario-flash-1": seo(
     "Super Mario Flash 1",
@@ -420,6 +462,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["super mario flash unblocked", "mario fan game", "platformer"],
     true,
     "Classic side-scrolling Mario action in this fan-made platformer.",
+    "/flash/supermarioflash.swf",
   ),
   "super-mario-flash-2": seo(
     "Super Mario Flash 2",
@@ -429,6 +472,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["super mario flash 2 unblocked", "mario fan game", "mario browser"],
     true,
     "Enhanced sequel with new levels, power-ups, and challenges.",
+    "/flash/supermarioflash2.swf",
   ),
   "hobo-1-brawl": seo(
     "Hobo 1: Brawl",
@@ -438,6 +482,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 1 unblocked", "hobo fighting", "street brawl"],
     true,
     "Battle in the streets using punches, kicks, and improvised weapons.",
+    "/flash/hobo1.swf",
   ),
   "hobo-2": seo(
     "Hobo 2",
@@ -447,6 +492,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 2 unblocked", "hobo fighting", "street brawl"],
     true,
     "New moves, new enemies, and more street-brawling action in the second chapter.",
+    "/flash/hobo2.swf",
   ),
   "hobo-3-wanted": seo(
     "Hobo 3: Wanted",
@@ -456,6 +502,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 3 unblocked", "hobo wanted", "street fighting"],
     true,
     "Our hobo hero is on the run with more weapons and chaotic street fights.",
+    "/flash/hobo3.swf",
   ),
   "hobo-4-total-war": seo(
     "Hobo 4: Total War",
@@ -465,6 +512,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 4 unblocked", "hobo total war", "fighting game"],
     true,
     "The conflict escalates to total war with bigger fights and better weapons.",
+    "/flash/hobo4.swf",
   ),
   "hobo-5-space-brawls": seo(
     "Hobo 5: Space Brawls",
@@ -474,6 +522,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 5 unblocked", "space brawl", "hobo fighting"],
     true,
     "The fight goes to space with zero-gravity brawls against alien enemies.",
+    "/flash/hobo5.swf",
   ),
   "hobo-6-hell": seo(
     "Hobo 6: Hell",
@@ -483,6 +532,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 6 unblocked", "hobo hell", "demon brawl"],
     true,
     "Descend into hell itself to fight demonic enemies through fiery levels.",
+    "/flash/hobo6.swf",
   ),
   "hobo-7": seo(
     "Hobo 7",
@@ -492,6 +542,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo 7 unblocked", "hobo fighting", "brawl game"],
     true,
     "New environments, new enemies, and even more brutal combat in the seventh chapter.",
+    "/flash/hobo7.swf",
   ),
   "hobo-vs-zombies": seo(
     "Hobo vs Zombies",
@@ -501,6 +552,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["hobo vs zombies unblocked", "zombie fighter", "hobo fighting"],
     true,
     "The hobo takes on endless zombie hordes with trusty weapons in this spin-off.",
+    "/flash/hobovszombies.swf",
   ),
   "vex-3": seo(
     "Vex 3",
@@ -510,6 +562,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["vex 3 unblocked", "stickman platformer", "obstacle course"],
     true,
     "Run, jump, climb, and die repeatedly navigating deadly traps as a stickman.",
+    "/flash/vex3.swf",
   ),
   "ultimate-flash-sonic": seo(
     "Ultimate Flash Sonic",
@@ -519,6 +572,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["ultimate flash sonic unblocked", "sonic fan game", "platformer"],
     true,
     "Race through levels at high speed, collect rings, and defeat Dr. Eggman.",
+    "/flash/ultimate-flash-sonic.swf",
   ),
   doom: seo(
     "Doom",
@@ -528,6 +582,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["doom unblocked", "classic fps", "doom online"],
     true,
     "Fight demons, collect weapons, and survive the onslaught in the FPS that defined a genre.",
+    "/flash/doom.swf",
   ),
   minesweeper: seo(
     "Minesweeper",
@@ -537,6 +592,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["minesweeper unblocked", "logic puzzle", "minesweeper online"],
     true,
     "Clear the minefield without detonating any mines in this timeless logic puzzle.",
+    "/flash/minesweeper.swf",
   ),
   "geography-game-usa": seo(
     "Geography Game USA",
@@ -546,6 +602,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["geography game usa unblocked", "us geography", "educational game"],
     true,
     "Test your knowledge of US states, capitals, and landmarks.",
+    "/flash/geography_game.swf",
   ),
   "swords-and-sandals-1": seo(
     "Swords and Sandals 1",
@@ -555,6 +612,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["swords and sandals unblocked", "gladiator game", "arena rpg"],
     true,
     "Create a warrior, buy weapons and armor, and fight for glory in the arena.",
+    "/flash/swords-and-sandals.swf",
   ),
   "swords-and-sandals-2": seo(
     "Swords and Sandals 2",
@@ -564,6 +622,7 @@ export const gamesMap: Record<string, GameSEO> = {
     ["swords and sandals 2 unblocked", "gladiator game 2", "arena rpg"],
     true,
     "New weapons, armor, magic upgrades, and fiercer opponents in the gladiator sequel.",
+    "/flash/swords-and-sandals-2.swf",
   ),
 };
 
