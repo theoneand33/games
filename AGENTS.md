@@ -30,24 +30,28 @@ Run these **before** committing. If either fails, fix the issues before proceedi
 │   │   └── flash.astro        Ruffle Flash emulator embed (polling-based loader)
 │   ├── data/
 │   │   └── game-seo.ts        Central registry: all games with SEO metadata + lookup helper
+│   │                         (keys are slugified — must match slugify(gameName) output)
 │   ├── layout/
-│   │   └── layout.astro       Main layout — used by BOTH home page and game pages (behaves differently based on isHome / Game props)
+│   │   └── layout.astro       Main layout — used by BOTH home page and game pages
 │   ├── pages/
 │   │   ├── index.astro        Home page — lists all games via <Gametile> components
 │   │   ├── dmca.astro         DMCA takedown notice page
-│   │   └── games/             One .astro file per game
+│   │   └── games/             One .astro file per game (56 are 11-line Flash boilerplate)
 │   └── styles/
-│       └── styles.css         Global CSS + Tailwind v4 import + .games-grid/.game-tile
+│       └── styles.css         Global CSS + Tailwind v4 @import + .games-grid/.game-tile
 ├── public/
 │   ├── flash/                 All .swf files for Flash games
 │   ├── games/run3/            HTML5 game bundle for Run 3 (index.html, JS, assets)
 │   ├── images/                Cover art (JPEG/PNG/AVIF/WEBP), logos, favicon
+│   ├── pagefind/              Generated search index — build artifact, gitignored
 │   ├── ruffle/                Ruffle WebAssembly Flash emulator (ruffle.js + .wasm)
 │   ├── robots.txt             Blocks /flash/ from crawlers, links to llms.txt + sitemap
 │   ├── llms.txt               AI-friendly site summary (llmstxt.org format)
 │   └── *.txt                  Domain verification file for search consoles
 ├── astro.config.mjs           Astro v6 config (prefetch, sitemap, Tailwind v4 via Vite)
 ├── tsconfig.json              TypeScript strict mode (extends astro/tsconfigs/strict)
+├── postcss.config.cjs         DEAD — unused with Tailwind v4 + @tailwindcss/vite
+├── wrangler.jsonc             DEAD — Cloudflare config for a Vercel-deployed site
 └── package.json               Dependencies: astro, tailwindcss v4, vercel analytics, etc.
 ```
 
@@ -76,6 +80,8 @@ const gamePath = "/flash/happywheels.swf";
   </div>
 </Layout>
 ```
+
+**Note:** 56 of 57 game pages are this exact 11-line template with only `Game` and `gamePath` swapped. If adding many games, consider a dynamic `[slug].astro` route instead of duplicating files.
 
 The `Flash` component handles Ruffle loading (polling loop). The layout auto-reads SEO from `game-seo.ts` via `Game` prop.
 
@@ -110,7 +116,7 @@ These directly load their own JS. No `Flash` component. No `.swf` file needed.
 
 ### The SEO system (how layout.astro + game-seo.ts work together)
 
-- `game-seo.ts` exports `gamesMap: Record<string, GameSEO>` — one entry per game keyed by full display name (e.g., `"Happy Wheels"`).
+- `game-seo.ts` exports `gamesMap: Record<string, GameSEO>` — one entry per game keyed by slugified name (e.g., `"happy-wheels"`). Must match `slugify(gameName)` output exactly.
 - `layout.astro` receives a `Game` prop (string), calls `getGameSEO(Game)` to look up SEO data.
 - The layout then generates: `<title>`, `<meta description/keywords>`, Open Graph tags, Twitter Card tags, JSON-LD structured data (BreadcrumbList + VideoGame for game pages, WebSite + CollectionPage + Organization for home).
 - There is also `layout-home.astro` which is a now-duplicate of parts of `layout.astro`. **Do NOT use `layout-home.astro` for anything new** — use `layout.astro` with `isHome={true}` instead. `layout-home.astro` exists only for legacy reasons and should eventually be removed.
@@ -150,7 +156,7 @@ When in doubt about where a new game fits, assess its name recognition and likel
 | .swf in public/flash/    | Lowercase, no spaces, match page slug               | `happywheels.swf`, `super-mario-63.swf`     |
 | Cover image              | Match game name, any format                         | `happywheelscover.jpeg`, `sm63-cover.png`   |
 | slug in index.astro Path | Must match actual .astro filename (minus extension) | `/games/happywheels`                        |
-| game-seo.ts key          | Exact display name (title case)                     | `"Super Mario 63"`                          |
+| game-seo.ts key          | Slugified — must match slugify(gameName) output     | `"super-mario-63"`                          |
 
 There are some historical inconsistencies in naming that should be fixed (e.g., `bloonstd5` instead of `bloons-td-5`). Follow existing patterns when adding new games.
 
@@ -172,6 +178,8 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 | `astro.config.mjs`   | Static Astro config — rarely changes                                     |
 | `tsconfig.json`      | Standard strict TS config — rarely changes                               |
 | `.gitignore`         | Standard ignores — rarely changes                                        |
+| `postcss.config.cjs` | Dead — Tailwind v4 uses Vite plugin, not PostCSS                         |
+| `wrangler.jsonc`     | Dead — Cloudflare Workers config for a Vercel-deployed site              |
 
 ## Quick reference — key files by task
 
@@ -186,6 +194,7 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 | Change global styles        | `src/styles/styles.css`                                                                              |
 | Change deployment           | `package.json` scripts                                                                               |
 | Add/edit dependency         | `bun add <package>` (not npm)                                                                        |
+| Remove dead config          | `postcss.config.cjs`, `wrangler.jsonc`                                                               |
 
 ## Technology stack
 
@@ -195,4 +204,4 @@ These directories and files are **generated / boilerplate / irrelevant** for mos
 - **Vercel Analytics & Speed Insights** — tracking and performance monitoring (injected in layout)
 - **No React** — `@astrojs/react` was removed; zero React components exist
 - **Astro prefetch** — enabled globally for faster page transitions (uses `data-astro-prefetch` on links)
-- **Vercel** — static site deployment host (via `package.json` scripts)
+- **Vercel** — static site deployment host (via git integration, not CLI)
