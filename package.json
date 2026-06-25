@@ -17,6 +17,8 @@
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
     "astro": "6.3.8",
+    "baseline-browser-mapping": "^2.10.38",
+    "caniuse-lite": "^1.0.30001799",
     "prettier-plugin-astro": "^0.14.1",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3"
