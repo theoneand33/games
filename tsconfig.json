@@ -6,6 +6,7 @@
     "public/flash/",
     "public/games/run3/",
     "dist/",
-    ".astro/"
-  ]
+    ".astro/",
+    "node_modules/",
+  ],
 }
