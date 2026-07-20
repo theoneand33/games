@@ -7,6 +7,6 @@
     "public/games/run3/",
     "dist/",
     ".astro/",
-    "node_modules/",
-  ],
+    "node_modules/"
+  ]
 }

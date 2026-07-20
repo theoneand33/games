@@ -8,14 +8,14 @@
 - Platforms: Works on all devices including Chrome OS / Chromebook
 
 ## Popular games
-- Happy Wheels: https://unblocked-games.vercel.app/games/happywheels
+- Happy Wheels: https://unblocked-games.vercel.app/games/happy-wheels
 - Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
 - Strike Force Heroes: https://unblocked-games.vercel.app/games/strike-force-heroes
 - Fireboy and Watergirl: https://unblocked-games.vercel.app/games/fireboy-and-watergirl
-- Bloons TD 5: https://unblocked-games.vercel.app/games/bloonstd5
-- Gun Mayhem 2: https://unblocked-games.vercel.app/games/gun-mayhem2
+- Bloons TD 5: https://unblocked-games.vercel.app/games/bloons-td-5
+- Gun Mayhem 2: https://unblocked-games.vercel.app/games/gun-mayhem-2
 - Madness Project Nexus: https://unblocked-games.vercel.app/games/madness-project-nexus
-- Vex 3: https://unblocked-games.vercel.app/games/vex3
+- Vex 3: https://unblocked-games.vercel.app/games/vex-3
 - Super Mario 63: https://unblocked-games.vercel.app/games/super-mario-63
 
 ## All game pages
@@ -32,42 +32,42 @@
 - Duck Life 4: https://unblocked-games.vercel.app/games/duck-life-4
 - Duck Life 5: https://unblocked-games.vercel.app/games/duck-life-5
 - Fancy Pants Adventure: https://unblocked-games.vercel.app/games/fancy-pants-adventure
-- Geography Game USA: https://unblocked-games.vercel.app/games/geography-game
+- Geography Game USA: https://unblocked-games.vercel.app/games/geography-game-usa
 - Henry Stickmin 1: Breaking the Bank: https://unblocked-games.vercel.app/games/breaking-the-bank
 - Henry Stickmin 2: Escaping the Prison: https://unblocked-games.vercel.app/games/escaping-the-prison
 - Henry Stickmin 3: Stealing the Diamond: https://unblocked-games.vercel.app/games/stealing-the-diamond
 - Henry Stickmin 4: Infiltrating the Airship: https://unblocked-games.vercel.app/games/infiltrating-the-airship
 - Henry Stickmin 5: Fleeing the Complex: https://unblocked-games.vercel.app/games/fleeing-the-complex
-- Hobo 1: Brawl: https://unblocked-games.vercel.app/games/hobo1
-- Hobo 2: https://unblocked-games.vercel.app/games/hobo2
-- Hobo 3: Wanted: https://unblocked-games.vercel.app/games/hobo3
-- Hobo 4: Total War: https://unblocked-games.vercel.app/games/hobo4
-- Hobo 5: Space Brawls: https://unblocked-games.vercel.app/games/hobo5
-- Hobo 6: Hell: https://unblocked-games.vercel.app/games/hobo6
-- Hobo 7: https://unblocked-games.vercel.app/games/hobo7
-- Hobo vs Zombies: https://unblocked-games.vercel.app/games/hobovszombies
+- Hobo 1: Brawl: https://unblocked-games.vercel.app/games/hobo-1-brawl
+- Hobo 2: https://unblocked-games.vercel.app/games/hobo-2
+- Hobo 3: Wanted: https://unblocked-games.vercel.app/games/hobo-3-wanted
+- Hobo 4: Total War: https://unblocked-games.vercel.app/games/hobo-4-total-war
+- Hobo 5: Space Brawls: https://unblocked-games.vercel.app/games/hobo-5-space-brawls
+- Hobo 6: Hell: https://unblocked-games.vercel.app/games/hobo-6-hell
+- Hobo 7: https://unblocked-games.vercel.app/games/hobo-7
+- Hobo vs Zombies: https://unblocked-games.vercel.app/games/hobo-vs-zombies
 - Interactive Buddy: https://unblocked-games.vercel.app/games/interactive-buddy
 - Learn to Fly 2: https://unblocked-games.vercel.app/games/learn-to-fly-2
 - Learn to Fly 3: https://unblocked-games.vercel.app/games/learn-to-fly-3
 - Minesweeper: https://unblocked-games.vercel.app/games/minesweeper
-- Pac-Man: https://unblocked-games.vercel.app/games/pacman
+- Pac-Man: https://unblocked-games.vercel.app/games/pac-man
 - QWOP: https://unblocked-games.vercel.app/games/qwop
-- Riddle School 2: https://unblocked-games.vercel.app/games/riddle-school2
-- Riddle School 3: https://unblocked-games.vercel.app/games/riddle-school3
-- Riddle School 4: https://unblocked-games.vercel.app/games/riddle-school4
-- Riddle School 5: https://unblocked-games.vercel.app/games/riddle-school5
-- Run 2: https://unblocked-games.vercel.app/games/run2
-- Run 3: https://unblocked-games.vercel.app/games/run3
+- Riddle School 2: https://unblocked-games.vercel.app/games/riddle-school-2
+- Riddle School 3: https://unblocked-games.vercel.app/games/riddle-school-3
+- Riddle School 4: https://unblocked-games.vercel.app/games/riddle-school-4
+- Riddle School 5: https://unblocked-games.vercel.app/games/riddle-school-5
+- Run 2: https://unblocked-games.vercel.app/games/run-2
+- Run 3: https://unblocked-games.vercel.app/games/run-3
 - Stick War: https://unblocked-games.vercel.app/games/stick-war
 - Strike Force Heroes: https://unblocked-games.vercel.app/games/strike-force-heroes
 - Super Mario 63: https://unblocked-games.vercel.app/games/super-mario-63
 - Swords and Sandals 1: https://unblocked-games.vercel.app/games/swords-and-sandals
 - Swords and Sandals 2: https://unblocked-games.vercel.app/games/swords-and-sandals-2
-- Super Mario Flash 1: https://unblocked-games.vercel.app/games/supermarioflash
+- Super Mario Flash 1: https://unblocked-games.vercel.app/games/super-mario-flash
 - Super Mario Flash 2: https://unblocked-games.vercel.app/games/super-mario-flash-2
 - Tetris: https://unblocked-games.vercel.app/games/tetris
-- The Impossible Quiz 2: https://unblocked-games.vercel.app/games/theimpossiblequiz2
-- The World's Hardest Game: https://unblocked-games.vercel.app/games/worlds-hardest-game
+- The Impossible Quiz 2: https://unblocked-games.vercel.app/games/the-impossible-quiz-2
+- The World's Hardest Game: https://unblocked-games.vercel.app/games/the-worlds-hardest-game
 - Ultimate Flash Sonic: https://unblocked-games.vercel.app/games/ultimate-flash-sonic
 - Vex 3: https://unblocked-games.vercel.app/games/vex3
 

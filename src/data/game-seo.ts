@@ -253,7 +253,7 @@ export const gamesMap: Record<string, GameSEO> = {
     "2012",
     "/images/run2-cover.webp",
     ["run 2 unblocked", "space runner", "run game"],
-    false,
+    true,
     "Run, jump, and flip through challenging obstacles in surreal 3D space.",
     "/flash/run2.swf",
   ),

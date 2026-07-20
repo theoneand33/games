@@ -3,6 +3,13 @@ import "../styles/styles.css";
 import Analytics from "@vercel/analytics/astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import { getGameSEO, slugify } from "../data/game-seo";
+import { slugToGame } from "../data/game-slugs";
+
+// build reverse map: game name → actual page slug
+const gameToSlug: Record<string, string> = {};
+for (const [slug, name] of Object.entries(slugToGame)) {
+  gameToSlug[name] = slug;
+}
 
 interface Props {
   Game?: string;
@@ -52,8 +59,8 @@ const gameKeywords = isHome
   ? homeKeywords
   : `${Game?.toLowerCase()} unblocked, ${Game?.toLowerCase()} online, unblocked games chromebook`;
 
-// URL — use slugify for consistent slug generation
-const pageSlug = Game ? slugify(Game) : "";
+// URL — use actual page slug from slugToGame, fallback to slugify
+const pageSlug = Game ? (gameToSlug[Game] || slugify(Game)) : "";
 const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
 
 // More Games cross-linking — curated list of popular games
@@ -250,7 +257,7 @@ const moreGames = [
           <p class="text-sm font-semibold mb-2 text-gray-700">More Unblocked Games</p>
           <div class="flex flex-wrap gap-2 text-xs">
             {moreGames.map(otherGame => (
-              <a href={`/games/${slugify(otherGame)}`} class="text-blue-600 hover:underline">{otherGame}</a>
+              <a href={`/games/${gameToSlug[otherGame] || slugify(otherGame)}`} class="text-blue-600 hover:underline">{otherGame}</a>
             ))}
           </div>
         </nav>

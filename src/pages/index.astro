@@ -1,310 +1,78 @@
 ---
 import Layout from "../layout/layout.astro";
 import Gametile from "../components/gametile.astro";
+import { getGameSEO } from "../data/game-seo";
+import { slugToGame } from "../data/game-slugs";
+
 const pageTitle =
   "Superfun Games - Unblocked Games for School Chromebook | No Flash Required (2026)";
-// Games ordered by popularity — series grouped contiguously, numbered in sequence
+
+// ponytail: derive Path/Image from data layer instead of duplicating
+const gameToSlug: Record<string, string> = {};
+for (const [slug, name] of Object.entries(slugToGame)) {
+  gameToSlug[name] = slug;
+}
+gameToSlug["Run 3"] = "run-3";
+
+// ponytail: ordered by popularity — series grouped contiguously
 const games = [
-  // ── Standalone games (most popular first) ──
-  {
-    Game: "Happy Wheels",
-    Path: "/games/happy-wheels",
-    Image: "/images/happywheelscover.webp",
-  },
-  {
-    Game: "Plants vs Zombies",
-    Path: "/games/plants-vs-zombies",
-    Image: "/images/plants-vs-zombies-cover.webp",
-  },
-  {
-    Game: "Run 3",
-    Path: "/games/run-3",
-    Image: "/images/run3-cover.webp",
-  },
-  {
-    Game: "Fireboy and Watergirl",
-    Path: "/games/fireboy-and-watergirl",
-    Image: "/images/fireboy-watergirl-cover.webp",
-  },
-  {
-    Game: "Bloons TD 5",
-    Path: "/games/bloons-td-5",
-    Image: "/images/bloonstd5cover.webp",
-  },
-  {
-    Game: "Super Mario 63",
-    Path: "/games/super-mario-63",
-    Image: "/images/sm63-cover.webp",
-  },
-  {
-    Game: "Tetris",
-    Path: "/games/tetris",
-    Image: "/images/tetriscover.webp",
-  },
-  {
-    Game: "Pac-Man",
-    Path: "/games/pac-man",
-    Image: "/images/pacman-cover.webp",
-  },
-  {
-    Game: "Run 2",
-    Path: "/games/run-2",
-    Image: "/images/run2-cover.webp",
-  },
-  {
-    Game: "Fancy Pants Adventure",
-    Path: "/games/fancy-pants-adventure",
-    Image: "/images/fancypants-cover.webp",
-  },
-  {
-    Game: "Stick War",
-    Path: "/games/stick-war",
-    Image: "/images/stickwarcover.webp",
-  },
-  {
-    Game: "Age of War",
-    Path: "/games/age-of-war",
-    Image: "/images/ageofwar-cover.webp",
-  },
-  {
-    Game: "Madness: Project Nexus",
-    Path: "/games/madness-project-nexus",
-    Image: "/images/madness-cover.webp",
-  },
-  {
-    Game: "Strike Force Heroes",
-    Path: "/games/strike-force-heroes",
-    Image: "/images/strikeforceheroes-cover.webp",
-  },
-  {
-    Game: "The World's Hardest Game",
-    Path: "/games/the-worlds-hardest-game",
-    Image: "/images/worldshardestgame-cover.webp",
-  },
-  {
-    Game: "Vex 3",
-    Path: "/games/vex-3",
-    Image: "/images/vex-3cover.webp",
-  },
-  {
-    Game: "Gun Mayhem 2",
-    Path: "/games/gun-mayhem-2",
-    Image: "/images/gm2cover.webp",
-  },
-  {
-    Game: "Bubble Trouble",
-    Path: "/games/bubble-trouble",
-    Image: "/images/bubbletrouble-cover.webp",
-  },
-  {
-    Game: "QWOP",
-    Path: "/games/qwop",
-    Image: "/images/qwop-cover.webp",
-  },
-  {
-    Game: "Crush the Castle",
-    Path: "/games/crush-the-castle",
-    Image: "/images/crushthecastle-cover.webp",
-  },
-  {
-    Game: "Burrito Bison",
-    Path: "/games/burrito-bison",
-    Image: "/images/burritobison-cover.webp",
-  },
-  {
-    Game: "Boxhead 2Play",
-    Path: "/games/boxhead-2play",
-    Image: "/images/boxhead-cover.webp",
-  },
-  {
-    Game: "The Impossible Quiz 2",
-    Path: "/games/the-impossible-quiz-2",
-    Image: "/images/impossiblequiz2cover.webp",
-  },
-  {
-    Game: "Interactive Buddy",
-    Path: "/games/interactive-buddy",
-    Image: "/images/interactivebuddy-cover.webp",
-  },
-  {
-    Game: "Achievement Unlocked",
-    Path: "/games/achievement-unlocked",
-    Image: "/images/achievementunlocked-cover.webp",
-  },
-  {
-    Game: "Ultimate Flash Sonic",
-    Path: "/games/ultimate-flash-sonic",
-    Image: "/images/sonic-cover.webp",
-  },
-  {
-    Game: "Doom",
-    Path: "/games/doom",
-    Image: "/images/doomcover.webp",
-  },
-  {
-    Game: "Minesweeper",
-    Path: "/games/minesweeper",
-    Image: "/images/minesweepercover.webp",
-  },
-  {
-    Game: "Geography Game USA",
-    Path: "/games/geography-game-usa",
-    Image: "/images/geography-game-cover.webp",
-  },
-
-  // ── Henry Stickmin series ──
-  {
-    Game: "Henry Stickmin 1: Breaking the Bank",
-    Path: "/games/breaking-the-bank",
-    Image: "/images/breakingthebank-cover.webp",
-  },
-  {
-    Game: "Henry Stickmin 2: Escaping the Prison",
-    Path: "/games/escaping-the-prison",
-    Image: "/images/escapingtheprison-cover.webp",
-  },
-  {
-    Game: "Henry Stickmin 3: Stealing the Diamond",
-    Path: "/games/stealing-the-diamond",
-    Image: "/images/stealingthediamond-cover.webp",
-  },
-  {
-    Game: "Henry Stickmin 4: Infiltrating the Airship",
-    Path: "/games/infiltrating-the-airship",
-    Image: "/images/infiltratingairship-cover.webp",
-  },
-  {
-    Game: "Henry Stickmin 5: Fleeing the Complex",
-    Path: "/games/fleeing-the-complex",
-    Image: "/images/fleeingcomplex-cover.webp",
-  },
-
-  // ── Duck Life series ──
-  {
-    Game: "Duck Life 1",
-    Path: "/games/duck-life",
-    Image: "/images/ducklife-cover.webp",
-  },
-  {
-    Game: "Duck Life 2",
-    Path: "/games/duck-life-2",
-    Image: "/images/ducklife2-cover.webp",
-  },
-  {
-    Game: "Duck Life 3",
-    Path: "/games/duck-life-3",
-    Image: "/images/ducklife3-cover.webp",
-  },
-  {
-    Game: "Duck Life 4",
-    Path: "/games/duck-life-4",
-    Image: "/images/ducklife4-cover.webp",
-  },
-  {
-    Game: "Duck Life 5",
-    Path: "/games/duck-life-5",
-    Image: "/images/ducklife5-cover.webp",
-  },
-
-  // ── Learn to Fly series ──
-  {
-    Game: "Learn to Fly 2",
-    Path: "/games/learn-to-fly-2",
-    Image: "/images/learntofly2-cover.webp",
-  },
-  {
-    Game: "Learn to Fly 3",
-    Path: "/games/learn-to-fly-3",
-    Image: "/images/learntofly3-cover.webp",
-  },
-
-  // ── Super Mario Flash series ──
-  {
-    Game: "Super Mario Flash 1",
-    Path: "/games/super-mario-flash",
-    Image: "/images/supermarioflashcover.webp",
-  },
-  {
-    Game: "Super Mario Flash 2",
-    Path: "/games/super-mario-flash-2",
-    Image: "/images/supermarioflash2cover.webp",
-  },
-
-  // ── Swords and Sandals series ──
-  {
-    Game: "Swords and Sandals 1",
-    Path: "/games/swords-and-sandals",
-    Image: "/images/swords-and-sandals-cover.webp",
-  },
-  {
-    Game: "Swords and Sandals 2",
-    Path: "/games/swords-and-sandals-2",
-    Image: "/images/swords-and-sandals-2-cover.webp",
-  },
-
-  // ── Riddle School series ──
-  {
-    Game: "Riddle School 2",
-    Path: "/games/riddle-school-2",
-    Image: "/images/Riddle-School-2_logo.webp",
-  },
-  {
-    Game: "Riddle School 3",
-    Path: "/games/riddle-school-3",
-    Image: "/images/riddle-school-3-cover.webp",
-  },
-  {
-    Game: "Riddle School 4",
-    Path: "/games/riddle-school-4",
-    Image: "/images/riddle-school-4-cover.webp",
-  },
-  {
-    Game: "Riddle School 5",
-    Path: "/games/riddle-school-5",
-    Image: "/images/riddleschool5-cover.webp",
-  },
-
-  // ── Hobo series ──
-  {
-    Game: "Hobo 1: Brawl",
-    Path: "/games/hobo-1-brawl",
-    Image: "/images/hobo1cover.webp",
-  },
-  {
-    Game: "Hobo 2",
-    Path: "/games/hobo-2",
-    Image: "/images/hobo2cover.webp",
-  },
-  {
-    Game: "Hobo 3: Wanted",
-    Path: "/games/hobo-3-wanted",
-    Image: "/images/hobo3cover.webp",
-  },
-  {
-    Game: "Hobo 4: Total War",
-    Path: "/games/hobo-4-total-war",
-    Image: "/images/hobo4cover.webp",
-  },
-  {
-    Game: "Hobo 5: Space Brawls",
-    Path: "/games/hobo-5-space-brawls",
-    Image: "/images/hobo5cover.webp",
-  },
-  {
-    Game: "Hobo 6: Hell",
-    Path: "/games/hobo-6-hell",
-    Image: "/images/hobo6cover.webp",
-  },
-  {
-    Game: "Hobo 7",
-    Path: "/games/hobo-7",
-    Image: "/images/hobo7cover.webp",
-  },
-  {
-    Game: "Hobo vs Zombies",
-    Path: "/games/hobo-vs-zombies",
-    Image: "/images/hobovszombiescover.webp",
-  },
+  "Happy Wheels",
+  "Plants vs Zombies",
+  "Run 3",
+  "Fireboy and Watergirl",
+  "Bloons TD 5",
+  "Super Mario 63",
+  "Tetris",
+  "Pac-Man",
+  "Run 2",
+  "Fancy Pants Adventure",
+  "Stick War",
+  "Age of War",
+  "Madness: Project Nexus",
+  "Strike Force Heroes",
+  "The World's Hardest Game",
+  "Vex 3",
+  "Gun Mayhem 2",
+  "Bubble Trouble",
+  "QWOP",
+  "Crush the Castle",
+  "Burrito Bison",
+  "Boxhead 2Play",
+  "The Impossible Quiz 2",
+  "Interactive Buddy",
+  "Achievement Unlocked",
+  "Ultimate Flash Sonic",
+  "Doom",
+  "Minesweeper",
+  "Geography Game USA",
+  "Henry Stickmin 1: Breaking the Bank",
+  "Henry Stickmin 2: Escaping the Prison",
+  "Henry Stickmin 3: Stealing the Diamond",
+  "Henry Stickmin 4: Infiltrating the Airship",
+  "Henry Stickmin 5: Fleeing the Complex",
+  "Duck Life 1",
+  "Duck Life 2",
+  "Duck Life 3",
+  "Duck Life 4",
+  "Duck Life 5",
+  "Learn to Fly 2",
+  "Learn to Fly 3",
+  "Super Mario Flash 1",
+  "Super Mario Flash 2",
+  "Swords and Sandals 1",
+  "Swords and Sandals 2",
+  "Riddle School 2",
+  "Riddle School 3",
+  "Riddle School 4",
+  "Riddle School 5",
+  "Hobo 1: Brawl",
+  "Hobo 2",
+  "Hobo 3: Wanted",
+  "Hobo 4: Total War",
+  "Hobo 5: Space Brawls",
+  "Hobo 6: Hell",
+  "Hobo 7",
+  "Hobo vs Zombies",
 ];
 ---
 
@@ -357,6 +125,9 @@ const games = [
   </div>
 
   <div class="games-grid">
-    {games.map((g, i) => <Gametile Game={g.Game} Path={g.Path} Image={g.Image} priority={i === 0} />)}
+    {games.map((name, i) => {
+      const seo = getGameSEO(name);
+      return <Gametile Game={name} Path={"/games/" + gameToSlug[name]} Image={seo?.image || "/images/games_logo_light.svg"} priority={i === 0} />;
+    })}
   </div>
 </Layout>
