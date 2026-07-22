@@ -1,7 +1,6 @@
 public/games/run3/
 public/ruffle/
 public/flash/
+public/pagefind/
 dist/
 .astro/
-node_modules/
-

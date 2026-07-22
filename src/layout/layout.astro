@@ -1,32 +1,19 @@
 ---
 import "../styles/styles.css";
-import Analytics from "@vercel/analytics/astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
-import { getGameSEO, slugify } from "../data/game-seo";
-import { slugToGame } from "../data/game-slugs";
-
-// build reverse map: game name → actual page slug
-const gameToSlug: Record<string, string> = {};
-for (const [slug, name] of Object.entries(slugToGame)) {
-  gameToSlug[name] = slug;
-}
+import { gamesMap } from "../data/game-seo";
 
 interface Props {
-  Game?: string;
+  slug?: string;
   pageTitle?: string;
-  description?: string;
-  image?: string;
-  genre?: string;
-  year?: string;
-  keywords?: string;
   isHome?: boolean;
 }
 
-const { Game, pageTitle, isHome } = Astro.props;
+const { slug, pageTitle, isHome } = Astro.props;
 const siteUrl = "https://unblocked-games.vercel.app";
 
-// SEO data
-const seo = Game ? getGameSEO(Game) : undefined;
+// SEO data — `slug` is the page slug; display name comes from the registry
+const seo = slug ? gamesMap[slug] : undefined;
+const Game = seo?.title;
 const isFlash = seo?.isFlash ?? false;
 const todayDate = new Date().toISOString().split('T')[0];
 
@@ -40,17 +27,16 @@ const homeDescription = "Play the best free unblocked games online at school on 
 
 const gameDescription = isHome
   ? homeDescription
-  : Astro.props.description
-    || seo?.description
-    || `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`;
+  : seo?.description ||
+    `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`;
 
 // Image & other SEO fields
 const gameImage = isHome
   ? "/images/games_logo_light.svg"
-  : (Astro.props.image || seo?.image || "/images/games_logo_light.svg");
+  : seo?.image || "/images/games_logo_light.svg";
 
-const gameGenre = Astro.props.genre || seo?.genre || "Game";
-const gameYear = Astro.props.year || seo?.year || "";
+const gameGenre = seo?.genre || "Game";
+const gameYear = seo?.year || "";
 
 // Keywords
 const homeKeywords = "unblocked games, unblocked games for school chromebook, classic flash games, browser games";
@@ -59,22 +45,21 @@ const gameKeywords = isHome
   ? homeKeywords
   : `${Game?.toLowerCase()} unblocked, ${Game?.toLowerCase()} online, unblocked games chromebook`;
 
-// URL — use actual page slug from slugToGame, fallback to slugify
-const pageSlug = Game ? (gameToSlug[Game] || slugify(Game)) : "";
-const pageUrl = Game ? `${siteUrl}/games/${pageSlug}` : siteUrl;
+// URL
+const pageUrl = slug ? `${siteUrl}/games/${slug}` : siteUrl;
 
 // More Games cross-linking — curated list of popular games
 const moreGames = [
-  "Happy Wheels",
-  "Gun Mayhem 2",
-  "Madness: Project Nexus",
-  "Hobo 2",
-  "Vex 3",
-  "Fireboy and Watergirl",
-  "Strike Force Heroes",
-  "Super Mario 63",
-  "Bloons TD 5",
-].filter(name => name !== Game); // exclude current game
+  "happy-wheels",
+  "gun-mayhem-2",
+  "madness-project-nexus",
+  "hobo-2",
+  "vex-3",
+  "fireboy-and-watergirl",
+  "strike-force-heroes",
+  "super-mario-63",
+  "bloons-td-5",
+].filter((s) => s !== slug); // exclude current game
 ---
 
 <html lang="en">
@@ -208,8 +193,8 @@ const moreGames = [
       ) : null
     }
 
-    <Analytics />
-    <SpeedInsights />
+    <script is:inline defer src="/_vercel/insights/script.js"></script>
+    <script is:inline defer src="/_vercel/speed-insights/script.js"></script>
     <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
   </head>
@@ -256,8 +241,8 @@ const moreGames = [
         <nav class="border-t border-gray-200 mt-4 py-4">
           <p class="text-sm font-semibold mb-2 text-gray-700">More Unblocked Games</p>
           <div class="flex flex-wrap gap-2 text-xs">
-            {moreGames.map(otherGame => (
-              <a href={`/games/${gameToSlug[otherGame] || slugify(otherGame)}`} class="text-blue-600 hover:underline">{otherGame}</a>
+            {moreGames.map((s) => (
+              <a href={`/games/${s}`} class="text-blue-600 hover:underline">{gamesMap[s].title}</a>
             ))}
           </div>
         </nav>

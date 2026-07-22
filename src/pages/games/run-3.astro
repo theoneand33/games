@@ -1,9 +1,8 @@
 ---
-const Game = "Run 3";
 import Layout from "../../layout/layout.astro";
 ---
 
-<Layout Game={Game}>
+<Layout slug="run-3">
   <base href="/games/run3/" />
   <div id="run3-wrapper" class="text-center h-[96vh] w-full">
     <div
@@ -19,15 +18,6 @@ import Layout from "../../layout/layout.astro";
       window.addEventListener("touchmove", function (event) {
         event.preventDefault();
       }, { capture: false, passive: false });
-
-      if (typeof window.devicePixelRatio !== 'undefined' && window.devicePixelRatio > 2) {
-        var meta = document.getElementById("viewport");
-        if (meta) {
-          meta.setAttribute("content",
-            "width=device-width, initial-scale=" + (2 / window.devicePixelRatio) + ", user-scalable=no"
-          );
-        }
-      }
 
       // Embed the game once the DOM is ready
       var ready = function () {

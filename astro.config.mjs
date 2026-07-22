@@ -10,9 +10,6 @@ export default defineConfig({
   site: "https://unblocked-games.vercel.app",
   integrations: [
     sitemap({
-      lastmod: new Date(),
-      changefreq: "weekly",
-      priority: 0.7,
       namespaces: { news: false, xhtml: false, image: false, video: false },
     }),
   ],

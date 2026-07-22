@@ -1,78 +1,70 @@
 ---
 import Layout from "../layout/layout.astro";
 import Gametile from "../components/gametile.astro";
-import { getGameSEO } from "../data/game-seo";
-import { slugToGame } from "../data/game-slugs";
+import { gamesMap } from "../data/game-seo";
 
 const pageTitle =
   "Superfun Games - Unblocked Games for School Chromebook | No Flash Required (2026)";
 
-// ponytail: derive Path/Image from data layer instead of duplicating
-const gameToSlug: Record<string, string> = {};
-for (const [slug, name] of Object.entries(slugToGame)) {
-  gameToSlug[name] = slug;
-}
-gameToSlug["Run 3"] = "run-3";
-
 // ponytail: ordered by popularity — series grouped contiguously
 const games = [
-  "Happy Wheels",
-  "Plants vs Zombies",
-  "Run 3",
-  "Fireboy and Watergirl",
-  "Bloons TD 5",
-  "Super Mario 63",
-  "Tetris",
-  "Pac-Man",
-  "Run 2",
-  "Fancy Pants Adventure",
-  "Stick War",
-  "Age of War",
-  "Madness: Project Nexus",
-  "Strike Force Heroes",
-  "The World's Hardest Game",
-  "Vex 3",
-  "Gun Mayhem 2",
-  "Bubble Trouble",
-  "QWOP",
-  "Crush the Castle",
-  "Burrito Bison",
-  "Boxhead 2Play",
-  "The Impossible Quiz 2",
-  "Interactive Buddy",
-  "Achievement Unlocked",
-  "Ultimate Flash Sonic",
-  "Doom",
-  "Minesweeper",
-  "Geography Game USA",
-  "Henry Stickmin 1: Breaking the Bank",
-  "Henry Stickmin 2: Escaping the Prison",
-  "Henry Stickmin 3: Stealing the Diamond",
-  "Henry Stickmin 4: Infiltrating the Airship",
-  "Henry Stickmin 5: Fleeing the Complex",
-  "Duck Life 1",
-  "Duck Life 2",
-  "Duck Life 3",
-  "Duck Life 4",
-  "Duck Life 5",
-  "Learn to Fly 2",
-  "Learn to Fly 3",
-  "Super Mario Flash 1",
-  "Super Mario Flash 2",
-  "Swords and Sandals 1",
-  "Swords and Sandals 2",
-  "Riddle School 2",
-  "Riddle School 3",
-  "Riddle School 4",
-  "Riddle School 5",
-  "Hobo 1: Brawl",
-  "Hobo 2",
-  "Hobo 3: Wanted",
-  "Hobo 4: Total War",
-  "Hobo 5: Space Brawls",
-  "Hobo 6: Hell",
-  "Hobo 7",
-  "Hobo vs Zombies",
+  "happy-wheels",
+  "plants-vs-zombies",
+  "run-3",
+  "fireboy-and-watergirl",
+  "bloons-td-5",
+  "super-mario-63",
+  "tetris",
+  "pac-man",
+  "run-2",
+  "fancy-pants-adventure",
+  "stick-war",
+  "age-of-war",
+  "madness-project-nexus",
+  "strike-force-heroes",
+  "the-worlds-hardest-game",
+  "vex-3",
+  "gun-mayhem-2",
+  "bubble-trouble",
+  "qwop",
+  "crush-the-castle",
+  "burrito-bison",
+  "boxhead-2play",
+  "the-impossible-quiz-2",
+  "interactive-buddy",
+  "achievement-unlocked",
+  "ultimate-flash-sonic",
+  "doom",
+  "minesweeper",
+  "geography-game-usa",
+  "breaking-the-bank",
+  "escaping-the-prison",
+  "stealing-the-diamond",
+  "infiltrating-the-airship",
+  "fleeing-the-complex",
+  "duck-life",
+  "duck-life-2",
+  "duck-life-3",
+  "duck-life-4",
+  "duck-life-5",
+  "learn-to-fly-2",
+  "learn-to-fly-3",
+  "super-mario-flash",
+  "super-mario-flash-2",
+  "swords-and-sandals",
+  "swords-and-sandals-2",
+  "riddle-school-2",
+  "riddle-school-3",
+  "riddle-school-4",
+  "riddle-school-5",
+  "hobo-1-brawl",
+  "hobo-2",
+  "hobo-3-wanted",
+  "hobo-4-total-war",
+  "hobo-5-space-brawls",
+  "hobo-6-hell",
+  "hobo-7",
+  "hobo-vs-zombies",
 ];
 ---
 
@@ -125,9 +117,9 @@ const games = [
   </div>
 
   <div class="games-grid">
-    {games.map((name, i) => {
-      const seo = getGameSEO(name);
-      return <Gametile Game={name} Path={"/games/" + gameToSlug[name]} Image={seo?.image || "/images/games_logo_light.svg"} priority={i === 0} />;
+    {games.map((slug, i) => {
+      const seo = gamesMap[slug];
+      return <Gametile Game={seo.title} Path={"/games/" + slug} Image={seo.image} priority={i === 0} />;
     })}
   </div>
 </Layout>

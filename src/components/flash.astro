@@ -1,14 +1,13 @@
 ---
 interface Props {
   gamePath: string;
-  aspectRatio?: number;
 }
 
-const { gamePath, aspectRatio = 4 / 3 } = Astro.props;
+const { gamePath } = Astro.props;
 ---
 
 <div class="text-center">
-    <div id="flash-player-wrap" data-path={gamePath} data-ratio={String(aspectRatio)} class="flex items-center justify-center p-6 min-h-[calc(100vh-100px)] box-border">
+    <div id="flash-player-wrap" data-path={gamePath} class="flex items-center justify-center p-6 min-h-[calc(100vh-100px)] box-border">
     <div class="flash-loading">Loading game...</div>
   </div>
 </div>
@@ -24,7 +23,7 @@ const { gamePath, aspectRatio = 4 / 3 } = Astro.props;
     var resizeHandler = null;
     var destroyed = false;
     var GAME_PATH = wrap.getAttribute("data-path") || "";
-    var ASPECT_RATIO = parseFloat(wrap.getAttribute("data-ratio")) || 4 / 3;
+    var ASPECT_RATIO = 4 / 3;
 
     // ── helpers ──
     function showError(msg) {

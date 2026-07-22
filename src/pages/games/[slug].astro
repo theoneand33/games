@@ -1,21 +1,18 @@
 ---
 import Layout from "../../layout/layout.astro";
 import Flash from "../../components/flash.astro";
-import { getGameSEO } from "../../data/game-seo";
-import { slugToGame } from "../../data/game-slugs";
+import { gamesMap } from "../../data/game-seo";
 
 export async function getStaticPaths() {
-  return Object.entries(slugToGame).map(([slug]) => ({
-    params: { slug },
-  }));
+  return Object.keys(gamesMap)
+    .filter((slug) => gamesMap[slug].isFlash)
+    .map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params!;
-const gameName = slugToGame[slug];
-const seo = getGameSEO(gameName);
-const gamePath = seo?.gamePath || "";
+const seo = gamesMap[slug];
 ---
 
-<Layout Game={gameName}>
-  <Flash gamePath={gamePath} />
+<Layout slug={slug}>
+  <Flash gamePath={seo.gamePath || ""} />
 </Layout>
