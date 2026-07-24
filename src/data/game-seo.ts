@@ -542,4 +542,12 @@ export const gamesMap: Record<string, GameSEO> = {
     "New weapons, armor, magic upgrades, and fiercer opponents in the gladiator sequel.",
     "/flash/swords-and-sandals-2.swf",
   ),
+  webtris: seo(
+    "Webtris",
+    "Puzzle",
+    "2025",
+    "/images/tetriscover.webp",
+    false,
+    "A modern browser-based Tetris clone with smooth canvas rendering, keyboard controls, and local high scores.",
+  ),
 };

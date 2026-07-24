@@ -70,6 +70,7 @@
 - The World's Hardest Game: https://unblocked-games.vercel.app/games/the-worlds-hardest-game
 - Ultimate Flash Sonic: https://unblocked-games.vercel.app/games/ultimate-flash-sonic
 - Vex 3: https://unblocked-games.vercel.app/games/vex3
+- Webtris: https://unblocked-games.vercel.app/games/webtris
 
 ## About
 Superfun Games provides free unblocked access to classic Flash games and browser games that are no longer playable through normal means since Adobe Flash was discontinued in 2020. All Flash games run through the Ruffle emulator, which is a WebAssembly-based Flash Player replacement that works in modern browsers without any plugins or downloads.
