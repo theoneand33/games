@@ -59,7 +59,6 @@ const popularGames = defaultGames.slice(0, POPULAR_COUNT);
           if (!g || !g.s || !g.t || !g.i || valid.indexOf(g.s) < 0) return;
           var a = document.createElement("a");
           a.href = "/games/" + g.s;
-          a.setAttribute("data-astro-prefetch", "");
           a.className = "m-5 inline-block max-w-full text-center no-underline";
           var img = document.createElement("img");
           img.src = g.i;
@@ -69,7 +68,7 @@ const popularGames = defaultGames.slice(0, POPULAR_COUNT);
           img.loading = "lazy";
           img.decoding = "async";
           img.className =
-            "aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 hover:shadow-lg active:scale-95 transform";
+            "aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 hover:shadow-lg active:scale-95";
           var p = document.createElement("p");
           p.className = "text-gray-800 transition-colors hover:text-black";
           p.textContent = g.t;
