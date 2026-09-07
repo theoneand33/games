@@ -41,6 +41,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "Navigate dangerous obstacle courses with hilarious physics-based ragdoll characters.",
     "/flash/happywheels.swf",
+    "How to play: pick a character, roll with the arrow keys (up to push, down to brake), Space for the primary action, Shift/Ctrl for secondary moves. Finish deadly levels without losing all limbs — lean back on jumps and go slow on saws. On a Chromebook, use fullscreen; ignore lookalike download buttons, the game runs free in your browser.",
   ),
   "plants-vs-zombies": seo(
     "Plants vs Zombies",
@@ -383,6 +384,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "120 mind-bending trick questions that will frustrate and delight you.",
     "/flash/theimpossiblequiz2.swf",
+    "How to play: answer trick questions with the mouse before the timer runs out — wrong answers cost lives. Expect misdirection: read every question twice, watch for clickable objects outside the answer boxes, and memorize patterns per level. Tip: you have limited lives, so replay early questions to learn their tricks before pushing further.",
   ),
   qwop: seo(
     "QWOP",
@@ -609,6 +611,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "Slippery ice physics and frosty puzzles await in the Ice Temple.",
     "/flash/fireboy-watergirl-3.swf",
+    "How to play: move Fireboy with WASD and Watergirl with arrows across slippery ice. Momentum carries you further, so tap keys gently near edges. Fireboy avoids water, Watergirl avoids lava — use slopes and ice blocks to reach diamonds before the exit doors.",
   ),
   "fireboy-and-watergirl-4": seo(
     "Fireboy and Watergirl 4: Crystal Temple",
@@ -618,6 +621,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "Navigate the Crystal Temple with portals and new puzzle elements.",
     "/flash/fireboy-watergirl-4.swf",
+    "How to play: move Fireboy with WASD and Watergirl with arrows. Use portals to teleport across the Crystal Temple, keeping Fireboy out of water and Watergirl out of lava. Collect all diamonds before exiting — if stuck, send one character through the portal first to hold doors for the other.",
   ),
   sonny: seo(
     "Sonny",
@@ -708,6 +712,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "Place towers on a desktop-themed grid to stop enemies from crossing the screen.",
     "/flash/desktop-tower-defense.swf",
+    "How to play: buy towers with the mouse, place them to build a maze, and stop each wave before it crosses. Flying enemies ignore mazes, so mix in air towers. Tip: sell and reposition early towers instead of over-upgrading one spot.",
   ),
   "knightmare-tower": seo(
     "Knightmare Tower",
@@ -763,6 +768,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "100 mind-bending trick questions that started the legendary quiz series.",
     "/flash/the-impossible-quiz.swf",
+    "How to play: click answers with the mouse before time runs out. Every question is a trick — look for hidden click zones, spelling jokes, and memorization rounds. You get limited lives, so learn the first 20 questions by heart; they repeat every run.",
   ),
   "mutilate-a-doll-2": seo(
     "Mutilate a Doll 2",
@@ -809,6 +815,7 @@ export const gamesMap: Record<string, GameSEO> = {
     true,
     "New siege weapons, destructible structures, and more castle-crushing physics fun.",
     "/flash/crush-the-castle-2.swf",
+    "How to play: aim the trebuchet with the mouse, adjust power, and release to destroy the castle. Kill all inhabitants with limited shots — target support beams and explosives rather than walls. Tip: lighter projectiles fly further, heavier ones smash through stone.",
   ),
   infectonator: seo(
     "Infectonator",

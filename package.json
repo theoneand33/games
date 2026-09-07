@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "command -v git-lfs && git lfs pull; astro check && astro build && bunx pagefind --site dist && rm -rf public/pagefind && cp -r dist/pagefind public/pagefind",
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

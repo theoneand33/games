@@ -1,0 +1,21 @@
+---
+import Layout from "../layout/layout.astro";
+const pageTitle = "About - Superfun Games Unblocked Games";
+---
+
+<Layout pageTitle={pageTitle}>
+  <div class="mx-auto max-w-[800px] p-6">
+    <h1 data-pagefind-body class="text-2xl font-bold mb-4">About Superfun Games</h1>
+    <p data-pagefind-body class="mb-4 text-sm text-gray-700">
+      Superfun Games is a free collection of classic Flash games and browser
+      games that run without Flash Player. Flash games run through the Ruffle
+      emulator (WebAssembly) directly in modern browsers including Chrome on
+      school Chromebooks. No downloads or plugins needed.
+    </p>
+    <p class="mb-4 text-sm text-gray-700">
+      All games are sourced from the Internet Archive. The site is a static
+      Astro build maintained at
+      <a class="text-blue-600 hover:underline" href="https://github.com/noahgsolomon/unblocked-games">github.com/noahgsolomon/unblocked-games</a>.
+    </p>
+  </div>
+</Layout>

@@ -16,7 +16,7 @@ const seo = slug ? gamesMap[slug] : undefined;
 const Game = seo?.title;
 const isFlash = seo?.isFlash ?? false;
 // ponytail: static date keeps dateModified stable across builds
-const dateModified = "2026-06-10";
+const dateModified = "2026-09-07";
 const jsonLD = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 // Title
@@ -144,6 +144,31 @@ const moreGames = (() => {
               ...(isFlash ? { requirements: "No Flash plugin needed - runs via Ruffle emulator" } : {}),
             })}
           />
+          {seo?.guide && (
+            <script
+              is:inline
+              type="application/ld+json"
+              set:html={jsonLD({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: `How do you play ${Game}?`,
+                    acceptedAnswer: { "@type": "Answer", text: seo.guide },
+                  },
+                  {
+                    "@type": "Question",
+                    name: `Does ${Game} work on a school Chromebook?`,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: `Yes. ${Game} runs directly in your browser with no download${isFlash ? " via the Ruffle emulator" : ""} and works on school Chromebooks.`,
+                    },
+                  },
+                ],
+              })}
+            />
+          )}
         </>
       ) : null
     }
@@ -267,11 +292,11 @@ const moreGames = (() => {
     )}
 
     <footer>
-      <p class="ml-6 mb-4">
+      <p class="ml-6 mb-4 text-sm text-gray-600">
         All games sourced from <a
           class="hover:underline underline-offset-2 text-blue-600"
           href="https://archive.org">Internet Archive</a
-        >
+        > · <a class="hover:underline underline-offset-2 text-blue-600" href="/about">About</a>
       </p>
     </footer>
     {
