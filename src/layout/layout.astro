@@ -246,9 +246,20 @@ const moreGames = (() => {
         <!-- More Games cross-linking (dynamically generated) -->
         <nav aria-label="More unblocked games" class="border-t border-gray-200 mt-4 py-4">
           <h2 class="text-sm font-semibold mb-2 text-gray-700">More Unblocked Games</h2>
-          <div class="flex flex-wrap gap-2 text-xs">
+          <div class="grid grid-cols-3 gap-2">
             {moreGames.map((s) => (
-              <a href={`/games/${s}`} class="text-blue-600 hover:underline">{gamesMap[s].title}</a>
+              <a href={`/games/${s}`} class="text-center no-underline">
+                <img
+                  src={gamesMap[s].image}
+                  alt={`${gamesMap[s].title} unblocked - play online free`}
+                  width="300"
+                  height="200"
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-[3/2] h-auto w-full rounded-lg"
+                />
+                <span class="text-xs text-blue-600 hover:underline">{gamesMap[s].title}</span>
+              </a>
             ))}
           </div>
         </nav>

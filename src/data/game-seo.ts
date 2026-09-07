@@ -6,6 +6,7 @@ export interface GameSEO {
   year?: string;
   isFlash: boolean;
   gamePath?: string;
+  guide?: string;
 }
 
 function seo(
@@ -16,6 +17,7 @@ function seo(
   isFlash: boolean,
   hook: string,
   gamePath = "",
+  guide = "",
 ): GameSEO {
   return {
     title,
@@ -25,6 +27,7 @@ function seo(
     year,
     isFlash,
     gamePath,
+    ...(guide ? { guide } : {}),
   };
 }
 
@@ -287,8 +290,9 @@ export const gamesMap: Record<string, GameSEO> = {
     "2011",
     "/images/gm2cover.webp",
     true,
-    "Battle AI or friends in explosive 2D arena combat with tons of weapons.",
+    "2D arena shooter with 2-player mode and tons of guns. Battle AI or friends, no download.",
     "/flash/Gun_Mayhem_2.swf",
+    "How to play: Player 1 moves with WASD + T to shoot, Player 2 with arrows + numpad 0. Knock opponents off the platform instead of draining health — each hit builds momentum. Unlock bigger guns by winning rounds in campaign or custom games. On a Chromebook, keyboard works best; use fullscreen for 2-player.",
   ),
   "madness-project-nexus": seo(
     "Madness: Project Nexus",
@@ -539,8 +543,9 @@ export const gamesMap: Record<string, GameSEO> = {
     "2007",
     "/images/swords-and-sandals-2-cover.webp",
     true,
-    "New weapons, armor, magic upgrades, and fiercer opponents in the gladiator sequel.",
+    "Gladiator RPG sequel with new weapons, armor, and magic. Turn-based arena fights.",
     "/flash/swords-and-sandals-2.swf",
+    "How to play: create your gladiator, buy swords, armor, and magic between fights, then battle turn-based in the arena. Put early points into strength and vitality, save gold for ranged weapons against mages. Tip: taunt to restore mana, rest to heal — don't waste potions on easy fights.",
   ),
   webtris: seo(
     "Webtris",
@@ -592,8 +597,9 @@ export const gamesMap: Record<string, GameSEO> = {
     "2009",
     "/images/fireboy-watergirl-2-cover.webp",
     true,
-    "Navigate the Light Temple with new mechanics and tricky co-op puzzles.",
+    "Co-op puzzle platformer in the Light Temple. Play solo or 2-player, no download.",
     "/flash/fireboy-watergirl-2.swf",
+    "How to play: move Fireboy with WASD and Watergirl with arrows (or play 2-player together). Fireboy avoids water, Watergirl avoids lava. Use mirrors, light beams, and switches to open doors and collect diamonds. Stuck? Replay the level switching who leads — most Light Temple puzzles need one character holding a switch while the other passes.",
   ),
   "fireboy-and-watergirl-3": seo(
     "Fireboy and Watergirl 3: Ice Temple",
@@ -736,8 +742,9 @@ export const gamesMap: Record<string, GameSEO> = {
     "2010",
     "/images/raze-2-cover.webp",
     true,
-    "Fast-paced 2D shooter with 25 missions, 4 factions, and tons of weapons.",
+    "2D shooter campaign with 25 missions, 4 factions, and tons of weapons. No download.",
     "/flash/raze-2.swf",
+    "How to play: move with WASD, aim and shoot with the mouse, Q or E to switch weapons. Play humans, robots, or zombies across campaign, deathmatch, and capture modes. Tip: grab shields and heavy weapons early in each mission and keep moving — standing still gets you sniped. Runs best on desktop Chrome with fullscreen.",
   ),
   "swords-and-sandals-3": seo(
     "Swords and Sandals 3: Crusader",
@@ -781,8 +788,9 @@ export const gamesMap: Record<string, GameSEO> = {
     "2011",
     "/images/binding-of-isaac-cover.webp",
     true,
-    "Explore randomized basements, fight grotesque enemies in the original Flash roguelike by Edmund McMillen — playable free in your browser, no download.",
+    "The original Flash roguelike by Edmund McMillen. Explore randomized basements, no download, works on Chromebook.",
     "/flash/binding-of-isaac.swf",
+    "How to play: move with WASD, shoot tears with the arrow keys, bomb with E and use items with Q. Each run is randomized — clear rooms, beat bosses, grab upgrades like range, speed, and damage to survive deeper floors. Beginners: save bombs for tinted rocks and bosses, backtrack for hearts before descending, and learn enemy patterns one floor at a time. This is the free Flash original (not Rebirth), running via Ruffle with no download. If it lags on a school Chromebook, close other tabs and use fullscreen.",
   ),
   "meat-boy": seo(
     "Meat Boy",

@@ -70,6 +70,12 @@ const seo = gamesMap[slug];
       <p class="p-6 text-center text-gray-600">Game not available.</p>
     )
   }
+  {seo.guide && (
+    <section class="mx-auto max-w-[1200px] px-6 pb-6">
+      <h2 class="text-sm font-semibold mb-1 text-gray-700">How to play {seo.title}</h2>
+      <p data-pagefind-body class="text-sm text-gray-600">{seo.guide}</p>
+    </section>
+  )}
 </Layout>
 
 <style>

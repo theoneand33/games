@@ -8,6 +8,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   prefetch: true,
   site: "https://unblocked-games.vercel.app",
+  trailingSlash: "never",
   // Slug variants that Google still serves impressions for — consolidate to canonical slugs.
   redirects: {
     "/games/happywheels": "/games/happy-wheels",
