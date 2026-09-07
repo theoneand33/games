@@ -28,6 +28,10 @@ const { gamePath } = Astro.props;
     align-items: center;
     justify-content: center;
   }
+  :global(#flash-container:fullscreen #flash-player-wrap) {
+    padding: 0;
+    min-height: 0;
+  }
 </style>
 
 <script src="/ruffle/ruffle.js" is:inline></script>
@@ -73,10 +77,10 @@ const { gamePath } = Astro.props;
       function resize() {
         var vw = window.innerWidth;
         var vh = window.innerHeight;
-        // ponytail: in fullscreen drop the page chrome offsets and width cap so the game fills the screen
+        // ponytail: in fullscreen reserve ~56px for the exit button so the game never covers it
         var isFs = !!document.fullscreenElement && document.fullscreenElement.id === "flash-container";
         var pad = isFs ? 0 : 32;
-        var headerOffset = isFs ? 0 : 120;
+        var headerOffset = isFs ? 56 : 120;
         var maxW = isFs ? vw : Math.min(vw - pad * 2, 1040);
         var maxH = vh - headerOffset - pad * 2;
         var w = maxW;
