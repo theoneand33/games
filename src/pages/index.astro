@@ -13,26 +13,26 @@ const popularGames = defaultGames.slice(0, POPULAR_COUNT);
   <h1 data-pagefind-body class="text-2xl font-bold mb-2 m-5">
     Play Unblocked Games on Your School Chromebook - Working 2026
   </h1>
-  <p class="text-sm text-gray-600 mb-4 m-5">
+  <p class="text-sm text-gray-600 dark:text-neutral-400 mb-4 m-5">
     Play classic Flash games and browser games on your school Chromebook without
     needing any plugins or downloads. All games run directly in your Chrome
     browser via Ruffle emulation - no Flash Player required. Relive your
     favorite nostalgic games like <a
       href="/games/happy-wheels"
-      class="text-blue-600 hover:underline">Happy Wheels</a
-    >, <a href="/games/plants-vs-zombies" class="text-blue-600 hover:underline"
+      class="text-blue-600 dark:text-blue-400 hover:underline">Happy Wheels</a
+    >, <a href="/games/plants-vs-zombies" class="text-blue-600 dark:text-blue-400 hover:underline"
       >Plants vs Zombies</a
     >, <a
       href="/games/strike-force-heroes"
-      class="text-blue-600 hover:underline">Strike Force Heroes</a
+      class="text-blue-600 dark:text-blue-400 hover:underline">Strike Force Heroes</a
     >, and more. Updated and working in 2026.
   </p>
 
   <div class="flex flex-wrap gap-2 m-5 mb-4 text-sm">
-    <h2 class="font-semibold text-gray-700">Popular:</h2>
+    <h2 class="font-semibold text-gray-700 dark:text-neutral-300">Popular:</h2>
     {
       popularGames.map((slug) => (
-        <a href={"/games/" + slug} class="text-blue-600 hover:underline"
+        <a href={"/games/" + slug} class="text-blue-600 dark:text-blue-400 hover:underline"
           >{gamesMap[slug].title}</a
         >
       ))
@@ -46,7 +46,7 @@ const popularGames = defaultGames.slice(0, POPULAR_COUNT);
       class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px]"
     >
     </div>
-    <hr class="mx-5 my-4 border-gray-400" />
+    <hr class="mx-5 my-4 border-gray-400 dark:border-neutral-700" />
   </section>
   <script is:inline define:vars={{ valid: defaultGames }}>
     (function () {
@@ -70,7 +70,7 @@ const popularGames = defaultGames.slice(0, POPULAR_COUNT);
           img.className =
             "aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 hover:shadow-lg active:scale-95";
           var p = document.createElement("p");
-          p.className = "text-gray-800 transition-colors hover:text-black";
+          p.className = "text-gray-800 dark:text-neutral-200 transition-colors hover:text-black dark:hover:text-white";
           p.textContent = g.t;
           a.appendChild(img);
           a.appendChild(p);

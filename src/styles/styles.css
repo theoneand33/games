@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* flash.astro — dynamic states injected by JS */
 .flash-loading {
   background: #f0f0f0;
@@ -9,6 +11,11 @@
   padding: 40px;
 }
 
+.dark .flash-loading {
+  background: #1f2937;
+  color: #d1d5db;
+}
+
 .flash-error {
   background: #fff3f3;
   border: 1px solid #ffcccc;
@@ -16,4 +23,38 @@
   color: #cc0000;
   font-size: 1rem;
   padding: 40px 24px;
+}
+
+.dark .flash-error {
+  background: #450a0a;
+  border-color: #7f1d1d;
+  color: #fca5a5;
+}
+
+/* pagefind component UI has no dark theme — override its vars ourselves */
+/* ponytail: html.dark beats pagefind's :root regardless of stylesheet order */
+html.dark {
+  color-scheme: dark;
+  --pf-text: #f5f5f5;
+  --pf-text-secondary: #d4d4d4;
+  --pf-text-muted: #a3a3a3;
+  --pf-background: #171717;
+  --pf-border: #404040;
+  --pf-border-focus: #737373;
+  --pf-skeleton: #262626;
+  --pf-skeleton-shine: #404040;
+  --pf-hover: #262626;
+  --pf-mark: #f5f5f5;
+  --pf-scroll-shadow: rgba(0, 0, 0, 0.4);
+  --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --pf-error-bg: #450a0a;
+  --pf-error-border: #7f1d1d;
+  --pf-error-text: #fca5a5;
+  --pf-error-text-secondary: #f87171;
+  --pf-outline-focus: #60a5fa;
+  --pf-modal-backdrop: rgba(0, 0, 0, 0.7);
+  --pf-icon-search: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.7549 11.255H11.9649L11.6849 10.985C12.6649 9.845 13.2549 8.365 13.2549 6.755C13.2549 3.165 10.3449 0.255005 6.75488 0.255005C3.16488 0.255005 0.254883 3.165 0.254883 6.755C0.254883 10.345 3.16488 13.255 6.75488 13.255C8.36488 13.255 9.84488 12.665 10.9849 11.685L11.2549 11.965V12.755L16.2549 17.745L17.7449 16.255L12.7549 11.255ZM6.75488 11.255C4.26488 11.255 2.25488 9.245 2.25488 6.755C2.25488 4.26501 4.26488 2.255 6.75488 2.255C9.24488 2.255 11.2549 4.26501 11.2549 6.755C11.2549 9.245 9.24488 11.255 6.75488 11.255Z' fill='%23f5f5f5'/%3E%3C/svg%3E%0A");
+  --pf-icon-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23f5f5f5' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }

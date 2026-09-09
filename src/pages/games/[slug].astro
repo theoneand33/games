@@ -67,13 +67,13 @@ const seo = gamesMap[slug];
         </div>
       </div>
     ) : (
-      <p class="p-6 text-center text-gray-600">Game not available.</p>
+      <p class="p-6 text-center text-gray-600 dark:text-neutral-400">Game not available.</p>
     )
   }
   {seo.guide && (
     <section class="mx-auto max-w-[1200px] px-6 pb-6">
-      <h2 class="text-sm font-semibold mb-1 text-gray-700">How to play {seo.title}</h2>
-      <p data-pagefind-body class="text-sm text-gray-600">{seo.guide}</p>
+      <h2 class="text-sm font-semibold mb-1 text-gray-700 dark:text-neutral-300">How to play {seo.title}</h2>
+      <p data-pagefind-body class="text-sm text-gray-600 dark:text-neutral-400">{seo.guide}</p>
     </section>
   )}
 </Layout>
