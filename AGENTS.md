@@ -95,6 +95,7 @@ We saw these errors in past agent runs. Do not repeat them.
 - **Do not scope-creep a PR.** One task per PR. Do not mix a game addition with a layout refactor.
 - **Do not edit build output.** Never edit `dist/`, `.astro/`, `public/ruffle/`, or `public/games/run3/` unless the task is to update that vendored bundle.
 - **Do not use relative asset paths.** Always use `/flash/...` and `/images/...`.
+- **Do not use colored gradients.** The only exception is the site logo (`public/images/games_logo_light.svg` and logo concept files).
 
 ## 5. Skills — When to Load Them
 
