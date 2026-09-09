@@ -67,7 +67,8 @@ const moreGames = (() => {
     <title>{gameTitle}</title>
     <meta name="description" content={gameDescription} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href={pageUrl} />
 
     {
@@ -226,20 +227,44 @@ const moreGames = (() => {
     <script is:inline defer src="/_vercel/speed-insights/script.js"></script>
     <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
+    <script is:inline>
+      // ponytail: class toggle beats media query — persists user choice
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch {}
+    </script>
   </head>
-  <body>
+  <body class="bg-white text-gray-900 dark:bg-neutral-950 dark:text-neutral-100">
     <nav class="flex items-center justify-between">
       <a href="/">
         <img
           src="/images/games_logo_light.svg"
           alt="Superfun Games - Unblocked Games Home"
           width="300"
-          class="m-5"
+          class="m-5 block dark:hidden"
+        />
+        <img
+          src="/images/games_logo_dark.svg"
+          alt="Superfun Games - Unblocked Games Home"
+          width="300"
+          class="m-5 hidden dark:block"
         />
       </a>
       <div class="mr-5 flex gap-4 text-sm items-center">
-        <a href="/" class="hover:text-black text-gray-800 transition-colors">Home</a>
-        <a href="/dmca" class="hover:text-black text-gray-800 transition-colors">DMCA</a>
+        <a href="/" class="hover:text-black text-gray-800 dark:text-neutral-200 dark:hover:text-white transition-colors">Home</a>
+        <a href="/dmca" class="hover:text-black text-gray-800 dark:text-neutral-200 dark:hover:text-white transition-colors">DMCA</a>
+        <button
+          type="button"
+          id="theme-toggle"
+          aria-label="Toggle dark theme"
+          class="rounded-lg border border-gray-300 bg-white px-2 py-1 dark:border-neutral-700 dark:bg-neutral-900 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200 hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        </button>
         <pagefind-searchbox></pagefind-searchbox>
       </div>
     </nav>
@@ -251,10 +276,10 @@ const moreGames = (() => {
             Play {Game} Unblocked on Chromebook
           </h1>
           <div class="py-2">
-            <p class="text-sm text-gray-500 mb-1 line-clamp-3">
+            <p class="text-sm text-gray-500 dark:text-neutral-400 mb-1 line-clamp-3">
               {gameDescription}
             </p>
-            <p class="text-xs text-gray-400 font-medium">
+            <p class="text-xs text-gray-400 dark:text-neutral-500 font-medium">
               ✓ {isFlash
                 ? "No Flash plugin required — works on school Chromebooks via Ruffle emulator"
                 : "Works on school Chromebooks — no downloads needed"}
@@ -268,8 +293,8 @@ const moreGames = (() => {
     {Game && !isHome && (
       <div class="mx-auto max-w-[1200px] px-6 pt-2">
         <!-- More Games cross-linking (dynamically generated) -->
-        <nav aria-label="More unblocked games" class="border-t border-gray-200 mt-4 py-4">
-          <h2 class="text-sm font-semibold mb-2 text-gray-700">More Unblocked Games</h2>
+        <nav aria-label="More unblocked games" class="border-t border-gray-200 dark:border-neutral-800 mt-4 py-4">
+          <h2 class="text-sm font-semibold mb-2 text-gray-700 dark:text-neutral-300">More Unblocked Games</h2>
           <div class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px]">
             {moreGames.map((s) => (
               <Gametile Game={gamesMap[s].title} Path={`/games/${s}`} Image={gamesMap[s].image} />
@@ -280,13 +305,22 @@ const moreGames = (() => {
     )}
 
     <footer>
-      <p class="ml-6 mb-4 text-sm text-gray-600">
+      <p class="ml-6 mb-4 text-sm text-gray-600 dark:text-neutral-400">
         All games sourced from <a
-          class="hover:underline underline-offset-2 text-blue-600"
+          class="hover:underline underline-offset-2 text-blue-600 dark:text-blue-400"
           href="https://archive.org">Internet Archive</a
-        > · <a class="hover:underline underline-offset-2 text-blue-600" href="/about">About</a>
+        > · <a class="hover:underline underline-offset-2 text-blue-600 dark:text-blue-400" href="/about">About</a>
       </p>
     </footer>
+    <script is:inline>
+      // ponytail: icons swap via dark: classes, JS only flips the class
+      document.addEventListener("click", function (e) {
+        var b = e.target && e.target.closest ? e.target.closest("#theme-toggle") : null;
+        if (!b) return;
+        var dark = document.documentElement.classList.toggle("dark");
+        try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch {}
+      });
+    </script>
     {
       seo && slug && (
         <script define:vars={{ slug, title: seo.title, image: seo.image }} is:inline>
