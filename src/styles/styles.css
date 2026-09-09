@@ -34,6 +34,7 @@
 /* pagefind component UI has no dark theme — override its vars ourselves */
 /* ponytail: html.dark beats pagefind's :root regardless of stylesheet order */
 html.dark {
+  color-scheme: dark;
   --pf-text: #f5f5f5;
   --pf-text-secondary: #d4d4d4;
   --pf-text-muted: #a3a3a3;
