@@ -67,8 +67,7 @@ const moreGames = (() => {
     <title>{gameTitle}</title>
     <meta name="description" content={gameDescription} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" id="theme-color" content="#ffffff" />
     <link rel="canonical" href={pageUrl} />
 
     {
@@ -231,9 +230,10 @@ const moreGames = (() => {
       // ponytail: class toggle beats media query — persists user choice
       try {
         var t = localStorage.getItem("theme");
-        if (t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches)) {
-          document.documentElement.classList.add("dark");
-        }
+        var dark = t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches);
+        if (dark) document.documentElement.classList.add("dark");
+        var m = document.getElementById("theme-color");
+        if (m) m.setAttribute("content", dark ? "#0a0a0a" : "#ffffff");
       } catch {}
     </script>
   </head>
@@ -259,7 +259,8 @@ const moreGames = (() => {
         <button
           type="button"
           id="theme-toggle"
-          aria-label="Toggle dark theme"
+          aria-label="Switch to dark theme"
+          aria-pressed="false"
           class="rounded-lg border border-gray-300 bg-white px-2 py-1 dark:border-neutral-700 dark:bg-neutral-900 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -314,12 +315,26 @@ const moreGames = (() => {
     </footer>
     <script is:inline>
       // ponytail: icons swap via dark: classes, JS only flips the class
-      document.addEventListener("click", function (e) {
-        var b = e.target && e.target.closest ? e.target.closest("#theme-toggle") : null;
-        if (!b) return;
-        var dark = document.documentElement.classList.toggle("dark");
-        try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch {}
-      });
+      (function () {
+        function sync() {
+          var dark = document.documentElement.classList.contains("dark");
+          var m = document.getElementById("theme-color");
+          if (m) m.setAttribute("content", dark ? "#0a0a0a" : "#ffffff");
+          var b = document.getElementById("theme-toggle");
+          if (b) {
+            b.setAttribute("aria-pressed", dark ? "true" : "false");
+            b.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+          }
+        }
+        document.addEventListener("click", function (e) {
+          var b = e.target && e.target.closest ? e.target.closest("#theme-toggle") : null;
+          if (!b) return;
+          var dark = document.documentElement.classList.toggle("dark");
+          try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch {}
+          sync();
+        });
+        sync();
+      })();
     </script>
     {
       seo && slug && (
