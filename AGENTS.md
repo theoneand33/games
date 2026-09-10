@@ -55,7 +55,7 @@ Follow these steps in order.
 2. Put the cover image in `public/images/`. Use ~300x200. Example: `bloonstd5cover.webp`.
 3. Add one entry to `gamesMap` in `src/data/game-seo.ts`. Key the entry by slug. Set `isFlash: true` and `gamePath: "/flash/<file>.swf"`.
 4. Add the slug to `defaultGames` in `src/data/game-seo.ts`. Place it by popularity tier, not at the end. See tiers below.
-5. Add the URL to `public/llms.txt`.
+5. Run `bun run llms` to regenerate `public/llms.txt` from `game-seo.ts`.
 6. Use absolute paths for all assets (`/flash/...`, `/images/...`). Never use relative paths.
 
 For a non-Flash HTML5 game, also create `src/pages/games/<slug>.astro`. Copy `run-3.astro` as a template. Set `<base href="...">` and load the bundle with `is:inline`. Do not use the `Flash` component.
