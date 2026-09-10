@@ -34,7 +34,7 @@ const { gamePath } = Astro.props;
   }
 </style>
 
-<script src="/ruffle/ruffle.js" defer is:inline></script>
+<script src="/ruffle/ruffle.js" defer is:inline onerror="window.__ruffleFailed=true"></script>
 <script is:inline>
   (function () {
     var wrap = document.getElementById("flash-player-wrap");
@@ -113,6 +113,11 @@ const { gamePath } = Astro.props;
 
     function ready() {
       if (destroyed) return;
+      // ponytail: fail fast on script 404/offline, keep polling for slow networks
+      if (window.__ruffleFailed) {
+        showError("Failed to load Flash player. Please refresh the page.");
+        return;
+      }
       try {
         var ruffle =
           typeof window.RufflePlayer !== "undefined" &&
