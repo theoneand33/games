@@ -227,10 +227,9 @@ const moreGames = (() => {
     <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
     <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
     <script is:inline>
-      // ponytail: class toggle beats media query — persists user choice
+      // ponytail: light is default, dark only on explicit choice
       try {
-        var t = localStorage.getItem("theme");
-        var dark = t === "dark" || (!t && matchMedia("(prefers-color-scheme: dark)").matches);
+        var dark = localStorage.getItem("theme") === "dark";
         if (dark) document.documentElement.classList.add("dark");
         var m = document.getElementById("theme-color");
         if (m) m.setAttribute("content", dark ? "#0a0a0a" : "#ffffff");
