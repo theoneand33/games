@@ -68,7 +68,8 @@ Good: `gamePath: "/flash/mygame.swf"` and `Path: "/games/mygame"`
 - `src/data/game-seo.ts` is the single source of truth. `gamesMap[slug].title` is the display name.
 - `src/layout/layout.astro` takes `slug` and reads `gamesMap[slug]` to build `<title>`, meta tags, Open Graph, and JSON-LD. For the home page, use `isHome={true}`.
 - `src/pages/games/[slug].astro` serves all Flash games. It filters `gamesMap` by `isFlash: true`. Do not create per-game pages for Flash games.
-- `src/pages/games/run-3.astro` and `webtris.astro` are exceptions. They use custom templates.
+- `src/pages/games/run-3.astro` is the exception. It uses a custom template.
+- `webtris` stays an iframe in `src/pages/games/[slug].astro`. Do not vendor it, vendoring breaks its CSS.
 - `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. Keep the "Popular" links in sync with the first 9 entries.
 
 ### 3.5 Popularity Tiers (Placement Guide)
