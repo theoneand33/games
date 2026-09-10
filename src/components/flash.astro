@@ -34,7 +34,7 @@ const { gamePath } = Astro.props;
   }
 </style>
 
-<script src="/ruffle/ruffle.js" is:inline></script>
+<script src="/ruffle/ruffle.js" defer is:inline onerror="window.__ruffleFailed=true"></script>
 <script is:inline>
   (function () {
     var wrap = document.getElementById("flash-player-wrap");
@@ -107,12 +107,17 @@ const { gamePath } = Astro.props;
       });
     }
 
-    // ── Ruffle readiness (polling fallback) ──
-    var maxAttempts = 50;
+    // ── Ruffle readiness (polling fallback, covers deferred ruffle.js) ──
+    var maxAttempts = 75;
     var attempts = 0;
 
     function ready() {
       if (destroyed) return;
+      // ponytail: fail fast on script 404/offline, keep polling for slow networks
+      if (window.__ruffleFailed) {
+        showError("Failed to load Flash player. Please refresh the page.");
+        return;
+      }
       try {
         var ruffle =
           typeof window.RufflePlayer !== "undefined" &&
