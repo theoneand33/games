@@ -34,7 +34,7 @@ const { gamePath } = Astro.props;
   }
 </style>
 
-<script src="/ruffle/ruffle.js" is:inline></script>
+<script src="/ruffle/ruffle.js" defer is:inline></script>
 <script is:inline>
   (function () {
     var wrap = document.getElementById("flash-player-wrap");
@@ -107,8 +107,8 @@ const { gamePath } = Astro.props;
       });
     }
 
-    // ── Ruffle readiness (polling fallback) ──
-    var maxAttempts = 50;
+    // ── Ruffle readiness (polling fallback, covers deferred ruffle.js) ──
+    var maxAttempts = 150;
     var attempts = 0;
 
     function ready() {
