@@ -108,7 +108,7 @@ const { gamePath } = Astro.props;
     }
 
     // ── Ruffle readiness (polling fallback, covers deferred ruffle.js) ──
-    var maxAttempts = 150;
+    var maxAttempts = 75;
     var attempts = 0;
 
     function ready() {
