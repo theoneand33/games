@@ -21,7 +21,6 @@
       "statusCode": 301
     }
   ],
-  // ponytail: SWF/WASM/images never change under the same name — cache for a year. HTML stays fresh.
   "headers": [
     {
       "source": "/flash/(.*)",
