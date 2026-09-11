@@ -31,6 +31,7 @@
 - Bloons TD 3: https://unblocked-games.vercel.app/games/bloons-td-3
 - Bloons TD 4: https://unblocked-games.vercel.app/games/bloons-td-4
 - Bloons TD 5: https://unblocked-games.vercel.app/games/bloons-td-5
+- Bowman 2: https://unblocked-games.vercel.app/games/bowman-2
 - Boxhead 2Play: https://unblocked-games.vercel.app/games/boxhead-2play
 - Boxhead: More Rooms: https://unblocked-games.vercel.app/games/boxhead-more-rooms
 - Bubble Trouble: https://unblocked-games.vercel.app/games/bubble-trouble
@@ -39,13 +40,16 @@
 - Crush the Castle: https://unblocked-games.vercel.app/games/crush-the-castle
 - Crush the Castle 2: https://unblocked-games.vercel.app/games/crush-the-castle-2
 - Crush the Castle: Players Pack: https://unblocked-games.vercel.app/games/crush-the-castle-players-pack
+- Dad 'n Me: https://unblocked-games.vercel.app/games/dad-n-me
 - Desktop Tower Defense: https://unblocked-games.vercel.app/games/desktop-tower-defense
+- Dolphin Olympics 2: https://unblocked-games.vercel.app/games/dolphin-olympics-2
 - Doom: https://unblocked-games.vercel.app/games/doom
 - Duck Life 1: https://unblocked-games.vercel.app/games/duck-life
 - Duck Life 2: https://unblocked-games.vercel.app/games/duck-life-2
 - Duck Life 3: https://unblocked-games.vercel.app/games/duck-life-3
 - Duck Life 4: https://unblocked-games.vercel.app/games/duck-life-4
 - Duck Life 5: https://unblocked-games.vercel.app/games/duck-life-5
+- Effing Worms: https://unblocked-games.vercel.app/games/effing-worms
 - Electricman 2: https://unblocked-games.vercel.app/games/electricman-2
 - Epic Battle Fantasy 1: https://unblocked-games.vercel.app/games/epic-battle-fantasy
 - Epic Battle Fantasy 2: https://unblocked-games.vercel.app/games/epic-battle-fantasy-2
@@ -96,8 +100,10 @@
 - Monster's Den: Book of Dread: https://unblocked-games.vercel.app/games/monsters-den
 - Motherload: https://unblocked-games.vercel.app/games/motherload
 - Mutilate a Doll 2: https://unblocked-games.vercel.app/games/mutilate-a-doll-2
+- N Game: https://unblocked-games.vercel.app/games/n-game
 - Onslaught: https://unblocked-games.vercel.app/games/onslaught
 - Pac-Man: https://unblocked-games.vercel.app/games/pac-man
+- Pandemic 2: https://unblocked-games.vercel.app/games/pandemic-2
 - Papa Louie 2: When Burgers Attack: https://unblocked-games.vercel.app/games/papa-louie-2
 - Papa Louie 3: When Sundaes Attack: https://unblocked-games.vercel.app/games/papa-louie-3
 - Papa Louie: When Pizzas Attack: https://unblocked-games.vercel.app/games/papa-louie
@@ -122,6 +128,7 @@
 - Shopping Cart Hero: https://unblocked-games.vercel.app/games/shopping-cart-hero
 - Shopping Cart Hero 2: https://unblocked-games.vercel.app/games/shopping-cart-hero-2
 - Shopping Cart Hero 3: https://unblocked-games.vercel.app/games/shopping-cart-hero-3
+- Sift Heads: https://unblocked-games.vercel.app/games/sift-heads
 - Sonny: https://unblocked-games.vercel.app/games/sonny
 - Sonny 2: https://unblocked-games.vercel.app/games/sonny-2
 - Stick RPG Complete: https://unblocked-games.vercel.app/games/stick-rpg
