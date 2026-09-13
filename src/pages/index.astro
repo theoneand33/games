@@ -13,33 +13,89 @@ const popularGames = defaultGames.slice(0, POPULAR_COUNT);
   <h1 data-pagefind-body class="text-2xl font-bold mb-2 m-5">
     Play Unblocked Games on Your School Chromebook - Working 2026
   </h1>
-  <p class="text-sm text-gray-600 mb-4 m-5">
+  <p class="text-sm text-gray-600 dark:text-neutral-400 mb-4 m-5">
     Play classic Flash games and browser games on your school Chromebook without
     needing any plugins or downloads. All games run directly in your Chrome
     browser via Ruffle emulation - no Flash Player required. Relive your
     favorite nostalgic games like <a
       href="/games/happy-wheels"
-      class="text-blue-600 hover:underline">Happy Wheels</a
-    >, <a href="/games/plants-vs-zombies" class="text-blue-600 hover:underline"
+      class="text-blue-600 dark:text-blue-400 hover:underline">Happy Wheels</a
+    >, <a href="/games/plants-vs-zombies" class="text-blue-600 dark:text-blue-400 hover:underline"
       >Plants vs Zombies</a
     >, <a
       href="/games/strike-force-heroes"
-      class="text-blue-600 hover:underline">Strike Force Heroes</a
+      class="text-blue-600 dark:text-blue-400 hover:underline">Strike Force Heroes</a
     >, and more. Updated and working in 2026.
   </p>
 
+  <p class="text-sm text-gray-600 dark:text-neutral-400 m-5 mb-4">
+    Mirrors: <a
+      href="https://unblocked-games.vercel.app/"
+      class="text-blue-600 dark:text-blue-400 hover:underline">unblocked-games.vercel.app</a
+    > · <a
+      href="https://gamehub-games.vercel.app/"
+      class="text-blue-600 dark:text-blue-400 hover:underline">gamehub-games.vercel.app</a
+    > · <a
+      href="https://superfun-games.vercel.app/"
+      class="text-blue-600 dark:text-blue-400 hover:underline">superfun-games.vercel.app</a
+    >
+  </p>
+
   <div class="flex flex-wrap gap-2 m-5 mb-4 text-sm">
-    <span class="font-semibold text-gray-700">Popular:</span>
+    <h2 class="font-semibold text-gray-700 dark:text-neutral-300">Popular:</h2>
     {
       popularGames.map((slug) => (
-        <a href={"/games/" + slug} class="text-blue-600 hover:underline"
+        <a href={"/games/" + slug} class="text-blue-600 dark:text-blue-400 hover:underline"
           >{gamesMap[slug].title}</a
         >
       ))
     }
   </div>
 
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-[10px]">
+  <section id="recent" hidden>
+    <h2 class="text-lg font-bold m-5 mb-2">Recently played</h2>
+    <div
+      id="recent-row"
+      class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px]"
+    >
+    </div>
+    <hr class="mx-5 my-4 border-gray-400 dark:border-neutral-700" />
+  </section>
+  <script is:inline define:vars={{ valid: defaultGames }}>
+    (function () {
+      try {
+        var r = JSON.parse(localStorage.getItem("recently-played") || "[]");
+        if (!Array.isArray(r) || !r.length) return;
+        var sec = document.getElementById("recent");
+        var row = document.getElementById("recent-row");
+        r.slice(0, 10).forEach(function (g) {
+          if (!g || !g.s || !g.t || !g.i || valid.indexOf(g.s) < 0) return;
+          var a = document.createElement("a");
+          a.href = "/games/" + g.s;
+          a.className = "m-5 inline-block max-w-full text-center no-underline";
+          var img = document.createElement("img");
+          img.src = g.i;
+          img.alt = g.t + " unblocked - play online free";
+          img.width = 300;
+          img.height = 200;
+          img.loading = "lazy";
+          img.decoding = "async";
+          img.className =
+            "aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 active:scale-95";
+          var p = document.createElement("p");
+          p.className = "text-gray-800 dark:text-neutral-200 transition-colors hover:text-black dark:hover:text-white";
+          p.textContent = g.t;
+          a.appendChild(img);
+          a.appendChild(p);
+          row.appendChild(a);
+        });
+        if (row.children.length) sec.hidden = false;
+      } catch {}
+    })();
+  </script>
+
+  <h2 class="sr-only">All unblocked games</h2>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px]">
     {
       defaultGames.map((slug) => {
         const seo = gamesMap[slug];

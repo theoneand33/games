@@ -4,16 +4,18 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "command -v git-lfs && git lfs pull; astro build && bunx pagefind --site dist",
+    "build": "command -v git-lfs && git lfs pull; bun scripts/generate-llms.ts && astro build && bunx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "command -v git-lfs && git lfs pull; astro check && astro build && bunx pagefind --site dist",
-    "lint": "prettier --check ."
+    "check": "command -v git-lfs && git lfs pull; astro check && bun run build",
+    "lint": "prettier --check .",
+    "llms": "bun scripts/generate-llms.ts",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "7.1.6",
+    "astro": "7.3.1",
     "tailwindcss": "^4.3.3"
   },
   "packageManager": "bun@1.3.2",
@@ -22,6 +24,6 @@
     "pagefind": "^1.5.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "~5.9.2"
+    "typescript": "~7.0.2"
   }
 }

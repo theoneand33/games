@@ -55,9 +55,9 @@ Follow these steps in order.
 1. Put the `.swf` in `public/flash/`. Use lowercase and no spaces. Example: `bloonstd5.swf`.
 2. Put the cover image in `public/images/`. Use about 300x200. Example: `bloonstd5cover.webp`.
 3. Add one entry to `gamesMap` in `src/data/game-seo.ts`. Key the entry by slug. Set `isFlash: true` and `gamePath: "/flash/<file>.swf"`.
-4. Add the slug to `defaultGames` in `src/data/game-seo.ts`. Put it in the correct popularity tier. Do not add it at the end. See tiers below.
-5. Add the URL to `public/llms.txt`.
-6. Use absolute paths for all assets (`/flash/...`, `/images/...`). Do not use relative paths.
+4. Add the slug to `defaultGames` in `src/data/game-seo.ts`. Place it by popularity tier, not at the end. See tiers below.
+5. Run `bun run llms` to regenerate `public/llms.txt` from `game-seo.ts`.
+6. Use absolute paths for all assets (`/flash/...`, `/images/...`). Never use relative paths.
 
 If the game is HTML5 and not Flash, also create `src/pages/games/<slug>.astro`. Copy `run-3.astro` as a template. Set `<base href="...">` and load the bundle with `is:inline`. Do not use the `Flash` component.
 
@@ -69,8 +69,9 @@ Good: `gamePath: "/flash/mygame.swf"` and `Path: "/games/mygame"`
 - `src/data/game-seo.ts` is the single source of truth. The `title` field holds the display name.
 - `src/layout/layout.astro` takes `slug` and reads `gamesMap[slug]` to build `<title>`, meta tags, Open Graph, and JSON-LD. For the home page, set `isHome={true}`.
 - `src/pages/games/[slug].astro` serves all Flash games. It filters `gamesMap` by `isFlash: true`. Do not create per-game pages for Flash games.
-- `src/pages/games/run-3.astro` and `webtris.astro` are exceptions. They use custom templates.
-- `src/pages/index.astro` renders `defaultGames` with `<Gametile>`. The array order controls the display order. Keep the "Popular" links in sync with the first 9 entries.
+- `src/pages/games/run-3.astro` is the exception. It uses a custom template.
+- `webtris` stays an iframe in `src/pages/games/[slug].astro`. Do not vendor it, vendoring breaks its CSS.
+- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. Keep the "Popular" links in sync with the first 9 entries.
 
 ### 3.5 Popularity Tiers
 
@@ -95,6 +96,7 @@ We saw these errors in past agent runs. Do not repeat them.
 - **Do not scope-creep a PR.** Use one PR per task. Do not mix a game addition with a layout refactor.
 - **Do not edit build output.** Do not edit `dist/`, `.astro/`, `public/ruffle/`, or `public/games/run3/`. Edit them only to update that vendored bundle.
 - **Do not use relative asset paths.** Always use `/flash/...` and `/images/...`.
+- **Do not use colored gradients.** The only exception is the site logo (`public/images/games_logo_light.svg` and logo concept files).
 
 ## 5. Skills: When to Load Them
 
