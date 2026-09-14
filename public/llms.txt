@@ -22,6 +22,8 @@
 
 ## All game pages
 - Achievement Unlocked: https://unblocked-games.vercel.app/games/achievement-unlocked
+- Achievement Unlocked 2: https://unblocked-games.vercel.app/games/achievement-unlocked-2
+- Achievement Unlocked 3: https://unblocked-games.vercel.app/games/achievement-unlocked-3
 - Age of War: https://unblocked-games.vercel.app/games/age-of-war
 - Age of War 2: https://unblocked-games.vercel.app/games/age-of-war-2
 - Alien Hominid: https://unblocked-games.vercel.app/games/alien-hominid
@@ -35,17 +37,26 @@
 - Bowman 2: https://unblocked-games.vercel.app/games/bowman-2
 - Boxhead 2Play: https://unblocked-games.vercel.app/games/boxhead-2play
 - Boxhead: More Rooms: https://unblocked-games.vercel.app/games/boxhead-more-rooms
+- Boxhead: Zombie Wars: https://unblocked-games.vercel.app/games/boxhead-zombie-wars
 - Bubble Trouble: https://unblocked-games.vercel.app/games/bubble-trouble
 - Burrito Bison: https://unblocked-games.vercel.app/games/burrito-bison
+- Burrito Bison Revenge: https://unblocked-games.vercel.app/games/burrito-bison-revenge
 - Cactus McCoy 1: https://unblocked-games.vercel.app/games/cactus-mccoy
+- Cactus McCoy 2: The Ruins of Calavera: https://unblocked-games.vercel.app/games/cactus-mccoy-2
+- Canabalt: https://unblocked-games.vercel.app/games/canabalt
 - Clicker Heroes: https://unblocked-games.vercel.app/games/clicker-heroes
 - Cover Orange: https://unblocked-games.vercel.app/games/cover-orange
+- Cover Orange 2: Journey: https://unblocked-games.vercel.app/games/cover-orange-2
 - Crush the Castle: https://unblocked-games.vercel.app/games/crush-the-castle
 - Crush the Castle 2: https://unblocked-games.vercel.app/games/crush-the-castle-2
 - Crush the Castle: Players Pack: https://unblocked-games.vercel.app/games/crush-the-castle-players-pack
 - Dad 'n Me: https://unblocked-games.vercel.app/games/dad-n-me
+- Decision: https://unblocked-games.vercel.app/games/decision-1
+- Decision 2: New City: https://unblocked-games.vercel.app/games/decision-2
+- Decision Medieval: https://unblocked-games.vercel.app/games/decision-medieval
 - Desktop Tower Defense: https://unblocked-games.vercel.app/games/desktop-tower-defense
 - Dolphin Olympics 2: https://unblocked-games.vercel.app/games/dolphin-olympics-2
+- Doodle God: https://unblocked-games.vercel.app/games/doodle-god
 - Doom: https://unblocked-games.vercel.app/games/doom
 - Duck Life 1: https://unblocked-games.vercel.app/games/duck-life
 - Duck Life 2: https://unblocked-games.vercel.app/games/duck-life-2
@@ -62,6 +73,9 @@
 - Epic Battle Fantasy 4: https://unblocked-games.vercel.app/games/epic-battle-fantasy-4
 - Epic Battle Fantasy 5: https://unblocked-games.vercel.app/games/epic-battle-fantasy-5
 - Factory Balls: https://unblocked-games.vercel.app/games/factory-balls
+- Factory Balls 2: https://unblocked-games.vercel.app/games/factory-balls-2
+- Factory Balls 3: https://unblocked-games.vercel.app/games/factory-balls-3
+- Factory Balls 4: https://unblocked-games.vercel.app/games/factory-balls-4
 - Fancy Pants Adventure: https://unblocked-games.vercel.app/games/fancy-pants-adventure
 - Fancy Pants Adventure 2: https://unblocked-games.vercel.app/games/fancy-pants-adventure-2
 - Fancy Pants Adventure: World 3: https://unblocked-games.vercel.app/games/fancy-pants-adventure-3
@@ -71,6 +85,8 @@
 - Fireboy and Watergirl 4: Crystal Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-4
 - GemCraft: https://unblocked-games.vercel.app/games/gemcraft
 - Geography Game USA: https://unblocked-games.vercel.app/games/geography-game-usa
+- Give Up Robot: https://unblocked-games.vercel.app/games/give-up-robot-1
+- Give Up Robot 2: https://unblocked-games.vercel.app/games/give-up-robot-2
 - Gun Mayhem 1: https://unblocked-games.vercel.app/games/gun-mayhem
 - Gun Mayhem 2: https://unblocked-games.vercel.app/games/gun-mayhem-2
 - Happy Wheels: https://unblocked-games.vercel.app/games/happy-wheels
@@ -93,6 +109,7 @@
 - Infectonator: Survivors: https://unblocked-games.vercel.app/games/infectonator-survivors
 - Infectonator: World Dominator: https://unblocked-games.vercel.app/games/infectonator-world-dominator
 - Interactive Buddy: https://unblocked-games.vercel.app/games/interactive-buddy
+- Jacksmith: https://unblocked-games.vercel.app/games/jacksmith
 - Kingdom Rush: https://unblocked-games.vercel.app/games/kingdom-rush
 - Knightmare Tower: https://unblocked-games.vercel.app/games/knightmare-tower
 - Learn to Fly 1: https://unblocked-games.vercel.app/games/learn-to-fly
@@ -115,15 +132,22 @@
 - Papa Louie: When Pizzas Attack: https://unblocked-games.vercel.app/games/papa-louie
 - Papa's Burgeria: https://unblocked-games.vercel.app/games/papas-burgeria
 - Papa's Freezeria: https://unblocked-games.vercel.app/games/papas-freezeria
+- Papa's Hot Doggeria: https://unblocked-games.vercel.app/games/papas-hot-doggeria
+- Papa's Pancakeria: https://unblocked-games.vercel.app/games/papas-pancakeria
 - Papa's Pizzeria: https://unblocked-games.vercel.app/games/papas-pizzeria
+- Papa's Taco Mia: https://unblocked-games.vercel.app/games/papas-taco-mia
+- Papa's Wingeria: https://unblocked-games.vercel.app/games/papas-wingeria
 - Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
 - Plazma Burst 2: https://unblocked-games.vercel.app/games/plazma-burst-2
+- Plazma Burst: Forward to the Past: https://unblocked-games.vercel.app/games/plazma-burst-1
 - Portal: The Flash Version: https://unblocked-games.vercel.app/games/portal-flash
 - QWOP: https://unblocked-games.vercel.app/games/qwop
 - Raft Wars: https://unblocked-games.vercel.app/games/raft-wars
 - Raft Wars 2: https://unblocked-games.vercel.app/games/raft-wars-2
 - Raze 1: https://unblocked-games.vercel.app/games/raze
 - Raze 2: https://unblocked-games.vercel.app/games/raze-2
+- Red Ball 2: https://unblocked-games.vercel.app/games/red-ball-2
+- Red Ball 3: https://unblocked-games.vercel.app/games/red-ball-3
 - Red Ball 4: https://unblocked-games.vercel.app/games/red-ball-4
 - Riddle School 1: https://unblocked-games.vercel.app/games/riddle-school
 - Riddle School 2: https://unblocked-games.vercel.app/games/riddle-school-2
@@ -132,6 +156,8 @@
 - Riddle School 5: https://unblocked-games.vercel.app/games/riddle-school-5
 - Riddle Transfer 1: https://unblocked-games.vercel.app/games/riddle-transfer
 - Riddle Transfer 2: https://unblocked-games.vercel.app/games/riddle-transfer-2
+- Road of the Dead 2: https://unblocked-games.vercel.app/games/road-of-the-dead-2
+- Robot Unicorn Attack: Heavy Metal: https://unblocked-games.vercel.app/games/robot-unicorn-attack-heavy-metal
 - Run 1: https://unblocked-games.vercel.app/games/run-1
 - Run 2: https://unblocked-games.vercel.app/games/run-2
 - Run 3: https://unblocked-games.vercel.app/games/run-3
@@ -139,7 +165,12 @@
 - Shopping Cart Hero 2: https://unblocked-games.vercel.app/games/shopping-cart-hero-2
 - Shopping Cart Hero 3: https://unblocked-games.vercel.app/games/shopping-cart-hero-3
 - Sift Heads: https://unblocked-games.vercel.app/games/sift-heads
+- Sift Heads 2: https://unblocked-games.vercel.app/games/sift-heads-2
+- Sift Heads 3: https://unblocked-games.vercel.app/games/sift-heads-3
 - Snail Bob 1: https://unblocked-games.vercel.app/games/snail-bob
+- Snail Bob 2: https://unblocked-games.vercel.app/games/snail-bob-2
+- Snail Bob 3: https://unblocked-games.vercel.app/games/snail-bob-3
+- Snail Bob 4 Space: https://unblocked-games.vercel.app/games/snail-bob-4
 - Sonny: https://unblocked-games.vercel.app/games/sonny
 - Sonny 2: https://unblocked-games.vercel.app/games/sonny-2
 - Stick RPG Complete: https://unblocked-games.vercel.app/games/stick-rpg
@@ -149,6 +180,7 @@
 - Strike Force Heroes 2: https://unblocked-games.vercel.app/games/strike-force-heroes-2
 - Strike Force Heroes 3: https://unblocked-games.vercel.app/games/strike-force-heroes-3
 - Sugar, Sugar: https://unblocked-games.vercel.app/games/sugar-sugar
+- Sugar, Sugar 2: https://unblocked-games.vercel.app/games/sugar-sugar-2
 - Super Mario 63: https://unblocked-games.vercel.app/games/super-mario-63
 - Super Mario Flash 1: https://unblocked-games.vercel.app/games/super-mario-flash
 - Super Mario Flash 2: https://unblocked-games.vercel.app/games/super-mario-flash-2
@@ -169,14 +201,20 @@
 - The Last Stand 2: https://unblocked-games.vercel.app/games/the-last-stand-2
 - The Last Stand: Union City: https://unblocked-games.vercel.app/games/the-last-stand-union-city
 - The World's Hardest Game: https://unblocked-games.vercel.app/games/the-worlds-hardest-game
+- The World's Hardest Game 2: https://unblocked-games.vercel.app/games/worlds-hardest-game-2
 - Thing Thing: https://unblocked-games.vercel.app/games/thing-thing
 - Thing Thing 2: https://unblocked-games.vercel.app/games/thing-thing-2
+- Thing-Thing 3: https://unblocked-games.vercel.app/games/thing-thing-3
+- Thing-Thing 4: https://unblocked-games.vercel.app/games/thing-thing-4
 - Toss the Turtle: https://unblocked-games.vercel.app/games/toss-the-turtle
 - Ultimate Flash Sonic: https://unblocked-games.vercel.app/games/ultimate-flash-sonic
+- Vex: https://unblocked-games.vercel.app/games/vex-1
 - Vex 2: https://unblocked-games.vercel.app/games/vex-2
 - Vex 3: https://unblocked-games.vercel.app/games/vex-3
 - Warfare 1917: https://unblocked-games.vercel.app/games/warfare-1917
 - Webtris: https://unblocked-games.vercel.app/games/webtris
+- Zombotron: https://unblocked-games.vercel.app/games/zombotron-1
+- Zombotron 2: Time Machine: https://unblocked-games.vercel.app/games/zombotron-2
 
 ## About
 Superfun Games provides free unblocked access to classic Flash games and browser games that are no longer playable through normal means since Adobe Flash was discontinued in 2020. All Flash games run through the Ruffle emulator, which is a WebAssembly-based Flash Player replacement that works in modern browsers without any plugins or downloads.
