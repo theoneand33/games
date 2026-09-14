@@ -37,6 +37,7 @@
 - Boxhead: More Rooms: https://unblocked-games.vercel.app/games/boxhead-more-rooms
 - Bubble Trouble: https://unblocked-games.vercel.app/games/bubble-trouble
 - Burrito Bison: https://unblocked-games.vercel.app/games/burrito-bison
+- Cactus McCoy 1: https://unblocked-games.vercel.app/games/cactus-mccoy
 - Clicker Heroes: https://unblocked-games.vercel.app/games/clicker-heroes
 - Cover Orange: https://unblocked-games.vercel.app/games/cover-orange
 - Crush the Castle: https://unblocked-games.vercel.app/games/crush-the-castle
@@ -51,6 +52,8 @@
 - Duck Life 3: https://unblocked-games.vercel.app/games/duck-life-3
 - Duck Life 4: https://unblocked-games.vercel.app/games/duck-life-4
 - Duck Life 5: https://unblocked-games.vercel.app/games/duck-life-5
+- Earn to Die: https://unblocked-games.vercel.app/games/earn-to-die
+- Earn to Die 2: Exodus: https://unblocked-games.vercel.app/games/earn-to-die-2
 - Effing Worms: https://unblocked-games.vercel.app/games/effing-worms
 - Electricman 2: https://unblocked-games.vercel.app/games/electricman-2
 - Epic Battle Fantasy 1: https://unblocked-games.vercel.app/games/epic-battle-fantasy
@@ -110,8 +113,11 @@
 - Papa Louie 2: When Burgers Attack: https://unblocked-games.vercel.app/games/papa-louie-2
 - Papa Louie 3: When Sundaes Attack: https://unblocked-games.vercel.app/games/papa-louie-3
 - Papa Louie: When Pizzas Attack: https://unblocked-games.vercel.app/games/papa-louie
+- Papa's Burgeria: https://unblocked-games.vercel.app/games/papas-burgeria
+- Papa's Freezeria: https://unblocked-games.vercel.app/games/papas-freezeria
 - Papa's Pizzeria: https://unblocked-games.vercel.app/games/papas-pizzeria
 - Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
+- Plazma Burst 2: https://unblocked-games.vercel.app/games/plazma-burst-2
 - Portal: The Flash Version: https://unblocked-games.vercel.app/games/portal-flash
 - QWOP: https://unblocked-games.vercel.app/games/qwop
 - Raft Wars: https://unblocked-games.vercel.app/games/raft-wars
@@ -133,6 +139,7 @@
 - Shopping Cart Hero 2: https://unblocked-games.vercel.app/games/shopping-cart-hero-2
 - Shopping Cart Hero 3: https://unblocked-games.vercel.app/games/shopping-cart-hero-3
 - Sift Heads: https://unblocked-games.vercel.app/games/sift-heads
+- Snail Bob 1: https://unblocked-games.vercel.app/games/snail-bob
 - Sonny: https://unblocked-games.vercel.app/games/sonny
 - Sonny 2: https://unblocked-games.vercel.app/games/sonny-2
 - Stick RPG Complete: https://unblocked-games.vercel.app/games/stick-rpg
