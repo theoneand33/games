@@ -1,0 +1,19 @@
+{
+  "id": "b2d5569dc",
+  "name": "Download Flash SWFs",
+  "command": "python3 /tmp/download.py 2>&1 | tail -n 50",
+  "status": "completed",
+  "outputPath": ".pi/tasks/session-83774-83774/b2d5569dc.output",
+  "cwd": "/home/noah/games",
+  "startTime": 1789424954823,
+  "endTime": 1789425192881,
+  "exitCode": 0,
+  "signal": null,
+  "pid": 84351,
+  "bytesWritten": 1691,
+  "isAgent": false,
+  "notified": true,
+  "notifyOnCompletion": true,
+  "triggerOnCompletion": true,
+  "timeoutSeconds": 1800
+}

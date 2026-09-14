@@ -1,0 +1,19 @@
+{
+  "id": "b67cf7c80",
+  "name": "Astro check and build",
+  "command": "bun run check 2>&1 | tail -n 20",
+  "status": "completed",
+  "outputPath": ".pi/tasks/session-83774-83774/b67cf7c80.output",
+  "cwd": "/home/noah/games",
+  "startTime": 1789425286684,
+  "endTime": 1789425300668,
+  "exitCode": 0,
+  "signal": null,
+  "pid": 95583,
+  "bytesWritten": 564,
+  "isAgent": false,
+  "notified": true,
+  "notifyOnCompletion": true,
+  "triggerOnCompletion": true,
+  "timeoutSeconds": 1800
+}
