@@ -17,11 +17,13 @@ const { targetId } = Astro.props;
 
 <script is:inline>
   (function () {
+    function isFullscreen(id) {
+      var el = document.fullscreenElement || document.webkitFullscreenElement;
+      return !!el && el.id === id;
+    }
     function updateLabels() {
       document.querySelectorAll("[data-fullscreen-for]").forEach(function (btn) {
-        var active =
-          !!document.fullscreenElement &&
-          document.fullscreenElement.id === btn.getAttribute("data-fullscreen-for");
+        var active = isFullscreen(btn.getAttribute("data-fullscreen-for"));
         btn.textContent = active ? "✕ Exit full screen" : "⛶ Full screen";
         btn.setAttribute("aria-pressed", active ? "true" : "false");
       });
@@ -31,23 +33,48 @@ const { targetId } = Astro.props;
       if (!btn) return;
       var target = document.getElementById(btn.getAttribute("data-fullscreen-for") || "");
       if (!target) return;
-      if (document.fullscreenElement) {
-        document.exitFullscreen().catch(function (err) { console.warn("Exit fullscreen failed:", err); });
-      } else if (target.requestFullscreen) {
-        target.requestFullscreen().catch(function (err) { console.warn("Enter fullscreen failed:", err); });
+      var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+      if (fsEl) {
+        var exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (exit) exit.call(document).catch(function (err) { console.warn("Exit fullscreen failed:", err); });
+      } else {
+        var req = target.requestFullscreen || target.webkitRequestFullscreen;
+        if (req) req.call(target).catch(function (err) { console.warn("Enter fullscreen failed:", err); });
       }
     });
-    // ponytail: re-dispatch resize so existing game resize handlers adapt
-    document.addEventListener("fullscreenchange", function () {
-      updateLabels();
+    // ponytail: re-dispatch resize so existing game resize handlers adapt (including inside iframes like webtris)
+    function forwardResize() {
       window.dispatchEvent(new Event("resize"));
-    });
+      var wf = document.getElementById("webtris-frame");
+      if (wf && wf.contentWindow) {
+        try { wf.contentWindow.dispatchEvent(new Event("resize")); } catch (_e) {}
+      }
+      var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+      if (fsEl) {
+        fsEl.querySelectorAll("iframe").forEach(function (f) {
+          try { if (f.contentWindow) f.contentWindow.dispatchEvent(new Event("resize")); } catch (_e) {}
+        });
+      }
+    }
+    function onFsChange() {
+      updateLabels();
+      forwardResize();
+      // layout may settle on next frame — retry once for iframe innerWidth
+      setTimeout(forwardResize, 100);
+    }
+    document.addEventListener("fullscreenchange", onFsChange);
+    document.addEventListener("webkitfullscreenchange", onFsChange);
     updateLabels();
   })();
 </script>
 
 <style>
-  :global(#flash-container:fullscreen, #run3-container:fullscreen, #webtris-container:fullscreen) {
+  :global(#flash-container:fullscreen),
+  :global(#flash-container:-webkit-full-screen),
+  :global(#run3-container:fullscreen),
+  :global(#run3-container:-webkit-full-screen),
+  :global(#webtris-container:fullscreen),
+  :global(#webtris-container:-webkit-full-screen) {
     background: #000;
     display: flex;
     flex-direction: column;

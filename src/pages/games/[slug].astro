@@ -55,11 +55,15 @@ const seo = gamesMap[slug];
       </>
     ) : slug === "webtris" ? (
       <div id="webtris-container">
-        <div id="webtris-wrapper" class="flex justify-center items-center min-h-[80vh] bg-[#010101]">
+        <div id="webtris-wrapper" class="flex justify-center items-center min-h-[80vh] w-full bg-[#010101]">
           <iframe
+            id="webtris-frame"
             src="https://theoneand33.github.io/webtris/"
             class="w-full max-w-[90vw] h-[80vh] border-0"
             title="Webtris"
+            allow="fullscreen"
+            allowfullscreen
+            loading="eager"
           />
         </div>
         <div class="flex justify-center pt-2">
@@ -80,29 +84,42 @@ const seo = gamesMap[slug];
 
 <style>
   /* ponytail: in fullscreen fill the screen, keep game aspect ratio */
-  :global(#run3-container:fullscreen) {
+  :global(#run3-container:fullscreen),
+  :global(#run3-container:-webkit-full-screen) {
     height: 100vh;
   }
-  :global(#run3-container:fullscreen #run3-wrapper) {
+  :global(#run3-container:fullscreen #run3-wrapper),
+  :global(#run3-container:-webkit-full-screen #run3-wrapper) {
     height: calc(100% - 48px);
   }
-  :global(#run3-container:fullscreen #openfl-content) {
+  :global(#run3-container:fullscreen #openfl-content),
+  :global(#run3-container:-webkit-full-screen #openfl-content) {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  :global(#run3-container:fullscreen canvas) {
+  :global(#run3-container:fullscreen canvas),
+  :global(#run3-container:-webkit-full-screen canvas) {
     width: min(100vw, 133.33vh);
     height: auto;
   }
-  :global(#webtris-container:fullscreen) {
+  :global(#webtris-container:fullscreen),
+  :global(#webtris-container:-webkit-full-screen) {
+    width: 100vw;
     min-height: 100vh;
+    height: 100vh;
   }
-  :global(#webtris-container:fullscreen #webtris-wrapper) {
+  :global(#webtris-container:fullscreen #webtris-wrapper),
+  :global(#webtris-container:-webkit-full-screen #webtris-wrapper) {
+    width: 100%;
     min-height: calc(100vh - 48px);
+    flex: 1;
   }
-  :global(#webtris-container:fullscreen iframe) {
-    max-width: 100vw;
+  :global(#webtris-container:fullscreen iframe),
+  :global(#webtris-container:-webkit-full-screen iframe) {
+    width: 100%;
+    max-width: none !important;
     height: calc(100vh - 48px);
+    flex: 1;
   }
 </style>
