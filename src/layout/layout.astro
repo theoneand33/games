@@ -267,6 +267,15 @@ const moreGames = (() => {
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 dark:hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-200 hidden dark:block"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
         </button>
+        <button
+          type="button"
+          id="random-game"
+          aria-label="Play a random game"
+          title="Play a random game"
+          class="rounded-lg border border-gray-300 bg-white px-2 py-1 dark:border-neutral-700 dark:bg-neutral-900 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 dark:text-neutral-200"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.8-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></svg>
+        </button>
         <pagefind-searchbox></pagefind-searchbox>
       </div>
     </nav>
@@ -336,6 +345,19 @@ const moreGames = (() => {
         });
         sync();
       })();
+    </script>
+    <script is:inline define:vars={{ slugs: defaultGames }}>
+      // ponytail: static build, so pick random client-side
+      document.addEventListener("click", function (e) {
+        var b = e.target && e.target.closest ? e.target.closest("#random-game") : null;
+        if (!b || !slugs.length) return;
+        var pick = slugs[Math.floor(Math.random() * slugs.length)];
+        var here = window.location.pathname;
+        for (var i = 0; i < 3 && here === "/games/" + pick; i++) {
+          pick = slugs[Math.floor(Math.random() * slugs.length)];
+        }
+        window.location.href = "/games/" + pick;
+      });
     </script>
     {
       seo && slug && (
