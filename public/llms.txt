@@ -31,12 +31,14 @@
 - Bloons TD 3: https://unblocked-games.vercel.app/games/bloons-td-3
 - Bloons TD 4: https://unblocked-games.vercel.app/games/bloons-td-4
 - Bloons TD 5: https://unblocked-games.vercel.app/games/bloons-td-5
+- Bloxorz: https://unblocked-games.vercel.app/games/bloxorz
 - Bowman 2: https://unblocked-games.vercel.app/games/bowman-2
 - Boxhead 2Play: https://unblocked-games.vercel.app/games/boxhead-2play
 - Boxhead: More Rooms: https://unblocked-games.vercel.app/games/boxhead-more-rooms
 - Bubble Trouble: https://unblocked-games.vercel.app/games/bubble-trouble
 - Burrito Bison: https://unblocked-games.vercel.app/games/burrito-bison
 - Clicker Heroes: https://unblocked-games.vercel.app/games/clicker-heroes
+- Cover Orange: https://unblocked-games.vercel.app/games/cover-orange
 - Crush the Castle: https://unblocked-games.vercel.app/games/crush-the-castle
 - Crush the Castle 2: https://unblocked-games.vercel.app/games/crush-the-castle-2
 - Crush the Castle: Players Pack: https://unblocked-games.vercel.app/games/crush-the-castle-players-pack
@@ -56,6 +58,7 @@
 - Epic Battle Fantasy 3: https://unblocked-games.vercel.app/games/epic-battle-fantasy-3
 - Epic Battle Fantasy 4: https://unblocked-games.vercel.app/games/epic-battle-fantasy-4
 - Epic Battle Fantasy 5: https://unblocked-games.vercel.app/games/epic-battle-fantasy-5
+- Factory Balls: https://unblocked-games.vercel.app/games/factory-balls
 - Fancy Pants Adventure: https://unblocked-games.vercel.app/games/fancy-pants-adventure
 - Fancy Pants Adventure 2: https://unblocked-games.vercel.app/games/fancy-pants-adventure-2
 - Fancy Pants Adventure: World 3: https://unblocked-games.vercel.app/games/fancy-pants-adventure-3
@@ -115,6 +118,7 @@
 - Raft Wars 2: https://unblocked-games.vercel.app/games/raft-wars-2
 - Raze 1: https://unblocked-games.vercel.app/games/raze
 - Raze 2: https://unblocked-games.vercel.app/games/raze-2
+- Red Ball 4: https://unblocked-games.vercel.app/games/red-ball-4
 - Riddle School 1: https://unblocked-games.vercel.app/games/riddle-school
 - Riddle School 2: https://unblocked-games.vercel.app/games/riddle-school-2
 - Riddle School 3: https://unblocked-games.vercel.app/games/riddle-school-3
@@ -137,6 +141,7 @@
 - Strike Force Heroes: https://unblocked-games.vercel.app/games/strike-force-heroes
 - Strike Force Heroes 2: https://unblocked-games.vercel.app/games/strike-force-heroes-2
 - Strike Force Heroes 3: https://unblocked-games.vercel.app/games/strike-force-heroes-3
+- Sugar, Sugar: https://unblocked-games.vercel.app/games/sugar-sugar
 - Super Mario 63: https://unblocked-games.vercel.app/games/super-mario-63
 - Super Mario Flash 1: https://unblocked-games.vercel.app/games/super-mario-flash
 - Super Mario Flash 2: https://unblocked-games.vercel.app/games/super-mario-flash-2
