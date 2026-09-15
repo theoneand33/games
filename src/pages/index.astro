@@ -46,7 +46,7 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
     <h2 class="font-semibold text-gray-700 dark:text-neutral-300">Popular:</h2>
     {
       popularGames.map((slug) => (
-        <a href={"/games/" + slug} class="text-blue-600 dark:text-blue-400 hover:underline"
+        <a href={"/games/" + slug} class="inline-flex h-5 items-center rounded-full border border-transparent bg-gray-100 px-2 py-0.5 text-xs font-medium whitespace-nowrap text-gray-800 transition-colors hover:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
           >{gamesMap[slug].title}</a
         >
       ))
