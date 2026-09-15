@@ -8,8 +8,11 @@ export async function getStaticPaths() {
   return Object.keys(gamesMap).map((slug) => ({ params: { slug } }));
 }
 
-const { slug } = Astro.params!;
-const seo = gamesMap[slug];
+const { slug } = Astro.params;
+const seo = slug ? gamesMap[slug] : undefined;
+if (!seo) {
+  return new Response(null, { status: 404, statusText: "Not Found" });
+}
 ---
 
 <Layout slug={slug}>
