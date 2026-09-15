@@ -12,14 +12,19 @@ if (!key) {
 }
 
 const host = "unblocked-games.vercel.app";
+const locs = (xml) =>
+  [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 let urls = [];
 try {
-  const xml = readFileSync("dist/sitemap.xml", "utf8");
-  urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
-    .map((m) => m[1])
-    .slice(0, 10000);
+  // ponytail: astro emits sitemap-index.xml + sitemap-N.xml, never sitemap.xml
+  const index = readFileSync("dist/sitemap-index.xml", "utf8");
+  const children = locs(index).map((u) => u.split("/").pop());
+  for (const file of children) {
+    urls.push(...locs(readFileSync(`dist/${file}`, "utf8")));
+  }
+  urls = urls.slice(0, 10000);
 } catch {
-  console.log("IndexNow: dist/sitemap.xml not found, run build first.");
+  console.log("IndexNow: dist/sitemap-index.xml not found, run build first.");
   process.exit(1);
 }
 

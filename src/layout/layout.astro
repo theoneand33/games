@@ -48,9 +48,10 @@ const pageUrl = slug ? `${siteUrl}/games/${slug}` : siteUrl;
 
 // More Games cross-linking — same genre first, then fill from popular
 // ponytail: two passes over defaultGames, no new data structures
+// ponytail: drop unknown slugs so one stale entry can't crash every page
 const moreGames = (() => {
-  if (!slug || !seo) return defaultGames.slice(0, MORE_GAMES_COUNT);
-  const rest = defaultGames.filter((s) => s !== slug);
+  if (!slug || !seo) return defaultGames.filter((s) => gamesMap[s]).slice(0, MORE_GAMES_COUNT);
+  const rest = defaultGames.filter((s) => s !== slug && gamesMap[s]);
   return [
     ...rest.filter((s) => gamesMap[s].genre === seo.genre),
     ...rest.filter((s) => gamesMap[s].genre !== seo.genre),

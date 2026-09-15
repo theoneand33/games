@@ -83,6 +83,9 @@ const { gamePath } = Astro.props;
         var headerOffset = isFs ? 56 : 120;
         var maxW = isFs ? vw : Math.min(vw - pad * 2, 1040);
         var maxH = vh - headerOffset - pad * 2;
+        // ponytail: clamp so short viewports never yield negative px sizes
+        maxW = Math.max(200, maxW);
+        maxH = Math.max(200, maxH);
         var w = maxW;
         var h = w / ASPECT_RATIO;
         if (h > maxH) {
@@ -114,6 +117,10 @@ const { gamePath } = Astro.props;
     function ready() {
       if (destroyed) return;
       // ponytail: fail fast on script 404/offline, keep polling for slow networks
+      if (!GAME_PATH) {
+        showError("Game not available.");
+        return;
+      }
       if (window.__ruffleFailed) {
         showError("Failed to load Flash player. Please refresh the page.");
         return;
