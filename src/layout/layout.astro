@@ -47,11 +47,12 @@ const gameYear = seo?.year || "";
 const pageUrl = slug ? `${siteUrl}/games/${slug}` : siteUrl;
 
 // More Games cross-linking — same genre first, then fill from popular
-// ponytail: two passes over defaultGames, no new data structures
+// ponytail: two passes over knownGames, no new data structures
 // ponytail: drop unknown slugs so one stale entry can't crash every page
+const knownGames = defaultGames.filter((s) => gamesMap[s]);
 const moreGames = (() => {
-  if (!slug || !seo) return defaultGames.filter((s) => gamesMap[s]).slice(0, MORE_GAMES_COUNT);
-  const rest = defaultGames.filter((s) => s !== slug && gamesMap[s]);
+  if (!slug || !seo) return knownGames.slice(0, MORE_GAMES_COUNT);
+  const rest = knownGames.filter((s) => s !== slug);
   return [
     ...rest.filter((s) => gamesMap[s].genre === seo.genre),
     ...rest.filter((s) => gamesMap[s].genre !== seo.genre),
@@ -347,7 +348,7 @@ const moreGames = (() => {
         sync();
       })();
     </script>
-    <script is:inline define:vars={{ slugs: defaultGames }}>
+    <script is:inline define:vars={{ slugs: knownGames }}>
       // ponytail: static build, so pick random client-side
       document.addEventListener("click", function (e) {
         var b = e.target && e.target.closest ? e.target.closest("#random-game") : null;
