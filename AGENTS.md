@@ -21,7 +21,7 @@ Use these names. Do not invent synonyms.
 - **No React.** The project removed `@astrojs/react`. Do not add React, Vue, or Svelte.
 - **SEO is a feature.** `src/data/game-seo.ts` drives `layout.astro` meta tags and JSON-LD. Do not bypass it.
 - **Performance matters.** Keep pages light. Do not add large client JS or heavy dependencies.
-- **Vercel deploy.** The build runs `astro build` and then `bunx pagefind --site dist`. Do not add Cloudflare or other hosts. `wrangler.jsonc` is dead.
+- **Vercel deploy.** The build runs `astro build` and then `bunx pagefind --site dist`. Do not add Cloudflare or other hosts.
 
 ## 3. How to Change the Codebase
 
@@ -40,7 +40,6 @@ Gotchas:
 - `bun run check` runs `git lfs pull`, then `astro check`, then `astro build`, then `pagefind`. The command is slow. Wait for it to complete.
 - `bun run lint` runs `prettier --check .`. To fix format, run `bunx prettier --write .`.
 - Tailwind is v4 via `@tailwindcss/vite`. Add theme tokens in `src/styles/styles.css` inside `@theme { }`. Do not create `tailwind.config.js`. That file has no effect.
-- `postcss.config.cjs` and `wrangler.jsonc` are dead. Do not edit them.
 
 ### 3.2 Verify After Every Change
 
@@ -59,7 +58,7 @@ Follow these steps in order.
 5. Run `bun run llms` to regenerate `public/llms.txt` from `game-seo.ts`.
 6. Use absolute paths for all assets (`/flash/...`, `/images/...`). Never use relative paths.
 
-If the game is HTML5 and not Flash, also create `src/pages/games/<slug>.astro`. Copy `run-3.astro` as a template. Set `<base href="...">` and load the bundle with `is:inline`. Do not use the `Flash` component.
+If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astro` instead of a new page. Copy the `run-3` branch for a vendored bundle (set `<base href="...">`, load the script with `is:inline`) or the `webtris` branch for an iframe. Set `isFlash: false`. Do not use the `Flash` component.
 
 Bad: `gamePath: "flash/mygame.swf"` or `Path: "games/mygame"`
 Good: `gamePath: "/flash/mygame.swf"` and `Path: "/games/mygame"`
@@ -68,16 +67,16 @@ Good: `gamePath: "/flash/mygame.swf"` and `Path: "/games/mygame"`
 
 - `src/data/game-seo.ts` is the single source of truth. The `title` field holds the display name.
 - `src/layout/layout.astro` takes `slug` and reads `gamesMap[slug]` to build `<title>`, meta tags, Open Graph, and JSON-LD. For the home page, set `isHome={true}`.
-- `src/pages/games/[slug].astro` serves all Flash games. It filters `gamesMap` by `isFlash: true`. Do not create per-game pages for Flash games.
-- `src/pages/games/run-3.astro` is the exception. It uses a custom template.
+- `src/pages/games/[slug].astro` serves every slug in `gamesMap` (`getStaticPaths` maps all keys; unknown slugs return 404). The template branches on `isFlash`, with special branches for `run-3` and `webtris`. Do not create per-game pages.
+- `run-3` is the vendored HTML5 exception (`public/games/run3/`, loaded with `<base href="/games/run3/">`).
 - `webtris` stays an iframe in `src/pages/games/[slug].astro`. Do not vendor it, vendoring breaks its CSS.
-- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. Keep the "Popular" links in sync with the first 9 entries.
+- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first `POPULAR_COUNT` entries (currently 11), keep them in sync.
 
 ### 3.5 Popularity Tiers
 
 Put a new slug in the correct tier. Keep series entries together as a block.
 
-- **Tier 1: Top:** Happy Wheels, Plants vs Zombies, Run 3, Fireboy and Watergirl, Bloons TD 5, Super Mario 63, Tetris, Pac-Man
+- **Tier 1: Top:** Happy Wheels, Plants vs Zombies, Run 3, Binding of Isaac, Meat Boy, Mutilate a Doll 2, Fireboy and Watergirl, Bloons TD 5, Duck Life series, Super Mario 63, Tetris, Pac-Man
 - **Tier 2: Classics A:** Fancy Pants, Stick War, Age of War, Madness, Strike Force Heroes, World's Hardest Game
 - **Tier 2: Classics B:** Vex 3, Gun Mayhem 2, Bubble Trouble, QWOP, Crush the Castle, Burrito Bison
 - **Tier 3: Franchises:** Boxhead, Impossible Quiz, Henry Stickmin series, Duck Life series, Learn to Fly series
@@ -120,8 +119,6 @@ Skip these to save context. They rarely need changes.
 | `public/ruffle/`     | Vendored WASM                 |
 | `public/games/run3/` | Vendored HTML5 bundle         |
 | `astro.config.mjs`   | Static config, rarely changes |
-| `postcss.config.cjs` | Dead                          |
-| `wrangler.jsonc`     | Dead                          |
 
 ## 7. Quick Reference
 
