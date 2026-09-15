@@ -42,8 +42,6 @@ const { gamePath } = Astro.props;
 
     // ── state ──
     var currentPlayer = null;
-    var resizeHandler = null;
-    var destroyed = false;
     var GAME_PATH = wrap.getAttribute("data-path") || "";
     var ASPECT_RATIO = 4 / 3;
 
@@ -55,21 +53,7 @@ const { gamePath } = Astro.props;
         "</div>";
     }
 
-    function cleanup() {
-      if (destroyed) return;
-      destroyed = true;
-      if (resizeHandler) {
-        window.removeEventListener("resize", resizeHandler);
-        resizeHandler = null;
-      }
-      if (currentPlayer) {
-        try { currentPlayer.remove(); } catch (_e) { /* ignore */ }
-        currentPlayer = null;
-      }
-    }
-
     function initPlayer(ruffle) {
-      if (destroyed) return;
       wrap.innerHTML = "";
       currentPlayer = ruffle.createPlayer();
       wrap.appendChild(currentPlayer);
@@ -99,14 +83,11 @@ const { gamePath } = Astro.props;
       }
 
       resize();
-      resizeHandler = resize;
       window.addEventListener("resize", resize);
 
       // load the SWF with error handling
       currentPlayer.load(GAME_PATH).catch(function (err) {
-        if (!destroyed) {
-          showError("Failed to load game: " + (err.message || "unknown error"));
-        }
+        showError("Failed to load game: " + (err.message || "unknown error"));
       });
     }
 
@@ -115,7 +96,6 @@ const { gamePath } = Astro.props;
     var attempts = 0;
 
     function ready() {
-      if (destroyed) return;
       // ponytail: fail fast on script 404/offline, keep polling for slow networks
       if (!GAME_PATH) {
         showError("Game not available.");
@@ -147,8 +127,5 @@ const { gamePath } = Astro.props;
     }
 
     ready();
-
-    // ── lifecycle: clean up on view-transition navigation ──
-    document.addEventListener("astro:before-swap", cleanup, { once: true });
   })();
 </script>

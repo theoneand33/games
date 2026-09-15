@@ -45,10 +45,6 @@ const { targetId } = Astro.props;
     // ponytail: re-dispatch resize so existing game resize handlers adapt (including inside iframes like webtris)
     function forwardResize() {
       window.dispatchEvent(new Event("resize"));
-      var wf = document.getElementById("webtris-frame");
-      if (wf && wf.contentWindow) {
-        try { wf.contentWindow.dispatchEvent(new Event("resize")); } catch (_e) {}
-      }
       var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
       if (fsEl) {
         fsEl.querySelectorAll("iframe").forEach(function (f) {
@@ -68,17 +64,3 @@ const { targetId } = Astro.props;
   })();
 </script>
 
-<style>
-  :global(#flash-container:fullscreen),
-  :global(#flash-container:-webkit-full-screen),
-  :global(#run3-container:fullscreen),
-  :global(#run3-container:-webkit-full-screen),
-  :global(#webtris-container:fullscreen),
-  :global(#webtris-container:-webkit-full-screen) {
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
