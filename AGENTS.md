@@ -90,7 +90,6 @@ We saw these errors in past agent runs. Do not repeat them.
 
 - **Do not kill the wrong process.** Check the process list before you kill a process. Kill only the PID you started.
 - **Do not file draft PRs.** Create PRs as ready for review. Create a draft only if the user asks for a draft.
-- **Do not overbuild.** If native CSS, Astro, or the standard library solves the task, use it. Do not add a new package, abstraction, or config. Ask before you add a dependency. Never use the `gradiants` package.
 - **Do not stop early.** Complete the full task. Then run `bun run check` and `bun run lint` before you report success.
 - **Do not make unasked edits.** Edit only the files that the task requires. Do not reformat unrelated files. Do not rename slugs.
 - **Do not scope-creep a PR.** Use one PR per task. Do not mix a game addition with a layout refactor.
