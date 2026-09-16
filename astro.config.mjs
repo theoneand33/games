@@ -6,7 +6,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  prefetch: true,
   site: "https://unblocked-games.vercel.app",
   trailingSlash: "never",
   // Slug variants that Google still serves impressions for — consolidate to canonical slugs.

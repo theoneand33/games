@@ -42,15 +42,9 @@ const { targetId } = Astro.props;
         if (req) req.call(target).catch(function (err) { console.warn("Enter fullscreen failed:", err); });
       }
     });
-    // ponytail: re-dispatch resize so existing game resize handlers adapt (including inside iframes like webtris)
+    // ponytail: re-dispatch resize so existing game resize handlers adapt
     function forwardResize() {
       window.dispatchEvent(new Event("resize"));
-      var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
-      if (fsEl) {
-        fsEl.querySelectorAll("iframe").forEach(function (f) {
-          try { if (f.contentWindow) f.contentWindow.dispatchEvent(new Event("resize")); } catch (_e) {}
-        });
-      }
     }
     function onFsChange() {
       updateLabels();
