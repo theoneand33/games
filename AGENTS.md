@@ -12,18 +12,9 @@ Use these names. Do not invent synonyms.
 - **Flash game** = `.swf` file that runs through Ruffle.
 - **HTML5 game** = standalone page with its own bundle.
 
-## 2. What Makes This Project Special: Do Not Break
+## 2. How to Change the Codebase
 
-- **Static first.** Astro builds to static HTML. Do not add a server, database, or runtime API.
-- **Ruffle for Flash.** All Flash games use `public/ruffle/` and `src/components/flash.astro`. Do not replace Ruffle. Do not add a second emulator.
-- **No React.** The project removed `@astrojs/react`. Do not add React, Vue, or Svelte.
-- **SEO is a feature.** `src/data/game-seo.ts` drives `layout.astro` meta tags and JSON-LD. Do not bypass it.
-- **Performance matters.** Keep pages light. Do not add large client JS or heavy dependencies.
-- **Vercel deploy.** The build runs `bun scripts/generate-llms.ts`, then `astro build`, then `bunx pagefind --site dist`. Do not add Cloudflare or other hosts.
-
-## 3. How to Change the Codebase
-
-### 3.1 Commands: Use `bun`, Not `npm`
+### 2.1 Commands: Use `bun`, Not `npm`
 
 | Do this         | Do not do this                 |
 | --------------- | ------------------------------ |
@@ -39,13 +30,13 @@ Gotchas:
 - `bun run lint` runs `prettier --check .`. To fix format, run `bunx prettier --write .`.
 - Tailwind is v4 via `@tailwindcss/vite`. Global styles live in `src/styles/styles.css` (imported by `layout.astro`). Do not create `tailwind.config.js`. That file has no effect.
 
-### 3.2 Verify After Every Change
+### 2.2 Verify After Every Change
 
 1. Run `bun run check`.
 2. Run `bun run lint`.
 3. If a check fails, fix the error before you commit.
 
-### 3.3 Add a New Game
+### 2.3 Add a New Game
 
 Follow these steps in order.
 
@@ -59,7 +50,7 @@ Use absolute asset paths. Bad: `gamePath: "flash/mygame.swf"`. Good: `gamePath: 
 
 If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astro` instead of a new page. Copy the `run-3` branch for a vendored bundle (set `<base href="...">`, load the script with `is:inline`) or the `webtris` branch for an iframe. Set `isFlash: false`. Do not use the `Flash` component.
 
-### 3.4 How Pages Work
+### 2.4 How Pages Work
 
 - `src/data/game-seo.ts` is the single source of truth. The `title` field holds the display name.
 - `src/layout/layout.astro` takes `slug` and reads `gamesMap[slug]` to build `<title>`, meta tags, Open Graph, and JSON-LD. For the home page, set `isHome={true}`.
@@ -68,19 +59,19 @@ If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astr
 - `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first `POPULAR_COUNT` entries (currently 11), keep them in sync. Game pages show a "More Games" row of `MORE_GAMES_COUNT` entries (currently 9, same-genre first) built in `layout.astro`.
 - `astro.config.mjs` holds slug-variant redirects (for example `/games/run3` → `/games/run-3`). When you rename or add an alias slug, add a redirect there.
 
-### 3.5 Popularity Tiers
+### 2.5 Popularity Tiers
 
 Insert the slug by popularity, most popular first. Keep series entries together as a block. The array order is the display order.
 
-## 4. Hard rules: Do Not Do These
+## 3. Rules
 
 - **Do not kill the wrong process.** Check the process list before you kill a process. Kill only the PID you started.
 - **Do not file draft PRs.** Create PRs as ready for review. Create a draft only if the user asks for a draft.
-- **Do not make unasked edits.** Edit only the files that the task requires. Do not reformat unrelated files. Do not rename slugs.
+- **Do not make unasked edits.** Edit only the files that the task requires. Do not reformat unrelated files.
 - **Do not scope-creep a PR.** Use one PR per task. Do not mix a game addition with a layout refactor.
 - **Do not edit build output.** Do not edit `dist/`, `.astro/`, `node_modules/`, `public/ruffle/`, or `public/games/run3/`. Edit them only to update that vendored bundle.
 - **Do not use colored gradients.** The only exception is the site logo (`public/images/games_logo_light.svg` and logo concept files).
 
-## 5. Where Not to Look
+## 4. Where Not to Look
 
 Skip these to save context. They rarely need changes. `node_modules/` is dependencies. `astro.config.mjs` is static config except its `redirects` map (slug variants, see 3.4).
