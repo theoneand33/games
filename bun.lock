@@ -13,7 +13,7 @@
       "devDependencies": {
         "@astrojs/check": "^0.9.10",
         "pagefind": "^1.5.2",
-        "prettier": "^3.9.6",
+        "prettier": "^3.9.8",
         "prettier-plugin-astro": "^1.0.0",
         "typescript": "~6.0.0",
       },
@@ -628,7 +628,7 @@
 
     "postcss": ["postcss@8.5.15", "", { "dependencies": { "nanoid": "^3.3.12", "picocolors": "^1.1.1", "source-map-js": "^1.2.1" } }, "sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A=="],
 
-    "prettier": ["prettier@3.9.6", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g=="],
+    "prettier": ["prettier@3.9.8", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A=="],
 
     "prettier-plugin-astro": ["prettier-plugin-astro@1.0.0", "", { "dependencies": { "@astrojs/compiler-rs": "^0.4.0", "@prettier/parse-srcset": "^3.1.0", "sass-formatter": "^0.8.0" }, "peerDependencies": { "prettier": "^3.5.3" } }, "sha512-xOlwKNSaPkPPiJeOhiFk8/MA2eH5A+in99dID+weTJhPcq+FBdIaB/3UNFdy9ckmc8/bT7QNyxSb78cnopgElQ=="],
 
