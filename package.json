@@ -7,7 +7,7 @@
     "build": "command -v git-lfs && git lfs pull; bun scripts/generate-llms.ts && astro build && bunx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "command -v git-lfs && git lfs pull; astro check && bun run build",
+    "check": "astro check && bun run build",
     "lint": "prettier --check .",
     "llms": "bun scripts/generate-llms.ts",
     "indexnow": "node scripts/indexnow.mjs"
