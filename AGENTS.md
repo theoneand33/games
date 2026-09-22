@@ -72,9 +72,7 @@ If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astr
 
 Insert the slug by popularity, most popular first. Keep series entries together as a block. The array order is the display order.
 
-## 4. Failure Modes: Do Not Do This
-
-We saw these errors in past agent runs. Do not repeat them.
+## 4. Hard rules: Do Not Do These
 
 - **Do not kill the wrong process.** Check the process list before you kill a process. Kill only the PID you started.
 - **Do not file draft PRs.** Create PRs as ready for review. Create a draft only if the user asks for a draft.
@@ -83,14 +81,6 @@ We saw these errors in past agent runs. Do not repeat them.
 - **Do not edit build output.** Do not edit `dist/`, `.astro/`, `node_modules/`, `public/ruffle/`, or `public/games/run3/`. Edit them only to update that vendored bundle.
 - **Do not use colored gradients.** The only exception is the site logo (`public/images/games_logo_light.svg` and logo concept files).
 
-## 5. Skills: When to Load Them
-
-| When the user says        | Load this skill                                                                       |
-| ------------------------- | ------------------------------------------------------------------------------------- |
-| "commit", "stage", "push" | `git-commit` - follow `~/.agents/skills/git-commit/SKILL.md` for conventional commits |
-
-Do not describe skills in prose. Load the skill file and follow it.
-
-## 6. Where Not to Look
+## 5. Where Not to Look
 
 Skip these to save context. They rarely need changes. `node_modules/` is dependencies. `astro.config.mjs` is static config except its `redirects` map (slug variants, see 3.4).
