@@ -37,8 +37,8 @@ const gameDescription = isHome
 
 // Image & other SEO fields — ponytail: webp covers beat SVG for og:image validators
 const gameImage = isHome
-  ? "/images/happywheelscover.webp"
-  : seo?.image || "/images/happywheelscover.webp";
+  ? "/images/happy-wheels-cover.webp"
+  : seo?.image || "/images/happy-wheels-cover.webp";
 
 const gameGenre = seo?.genre || "Game";
 const gameYear = seo?.year || "";
@@ -214,7 +214,7 @@ const moreGames = (() => {
               "@type": "Organization",
               name: "Superfun Games",
               url: siteUrl,
-              logo: `${siteUrl}/images/games_logo_light.svg`,
+              logo: `${siteUrl}/images/games-logo-light.svg`,
               description: homeDescription,
               foundingDate: "2024",
               sameAs: ["https://github.com/noahgsolomon/unblocked-games"],
@@ -244,13 +244,13 @@ const moreGames = (() => {
     <nav class="flex items-center justify-between">
       <a href="/">
         <img
-          src="/images/games_logo_light.svg"
+          src="/images/games-logo-light.svg"
           alt="Superfun Games - Unblocked Games Home"
           width="300"
           class="m-5 block dark:hidden"
         />
         <img
-          src="/images/games_logo_dark.svg"
+          src="/images/games-logo-dark.svg"
           alt="Superfun Games - Unblocked Games Home"
           width="300"
           class="m-5 hidden dark:block"
