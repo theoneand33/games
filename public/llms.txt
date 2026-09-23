@@ -84,6 +84,7 @@
 - Fireboy and Watergirl 3: Ice Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-3
 - Fireboy and Watergirl 4: Crystal Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-4
 - GemCraft: https://unblocked-games.vercel.app/games/gemcraft
+- GemCraft Labyrinth: https://unblocked-games.vercel.app/games/gemcraft-labyrinth
 - Geography Game USA: https://unblocked-games.vercel.app/games/geography-game-usa
 - Give Up Robot: https://unblocked-games.vercel.app/games/give-up-robot-1
 - Give Up Robot 2: https://unblocked-games.vercel.app/games/give-up-robot-2
@@ -131,9 +132,11 @@
 - Papa Louie 3: When Sundaes Attack: https://unblocked-games.vercel.app/games/papa-louie-3
 - Papa Louie: When Pizzas Attack: https://unblocked-games.vercel.app/games/papa-louie
 - Papa's Burgeria: https://unblocked-games.vercel.app/games/papas-burgeria
+- Papa's Cupcakeria: https://unblocked-games.vercel.app/games/papas-cupcakeria
 - Papa's Freezeria: https://unblocked-games.vercel.app/games/papas-freezeria
 - Papa's Hot Doggeria: https://unblocked-games.vercel.app/games/papas-hot-doggeria
 - Papa's Pancakeria: https://unblocked-games.vercel.app/games/papas-pancakeria
+- Papa's Pastaria: https://unblocked-games.vercel.app/games/papas-pastaria
 - Papa's Pizzeria: https://unblocked-games.vercel.app/games/papas-pizzeria
 - Papa's Taco Mia: https://unblocked-games.vercel.app/games/papas-taco-mia
 - Papa's Wingeria: https://unblocked-games.vercel.app/games/papas-wingeria
@@ -146,6 +149,7 @@
 - Raft Wars 2: https://unblocked-games.vercel.app/games/raft-wars-2
 - Raze 1: https://unblocked-games.vercel.app/games/raze
 - Raze 2: https://unblocked-games.vercel.app/games/raze-2
+- Red Ball 1: https://unblocked-games.vercel.app/games/red-ball-1
 - Red Ball 2: https://unblocked-games.vercel.app/games/red-ball-2
 - Red Ball 3: https://unblocked-games.vercel.app/games/red-ball-3
 - Red Ball 4: https://unblocked-games.vercel.app/games/red-ball-4
@@ -157,6 +161,7 @@
 - Riddle Transfer 1: https://unblocked-games.vercel.app/games/riddle-transfer
 - Riddle Transfer 2: https://unblocked-games.vercel.app/games/riddle-transfer-2
 - Road of the Dead 2: https://unblocked-games.vercel.app/games/road-of-the-dead-2
+- Robot Unicorn Attack: https://unblocked-games.vercel.app/games/robot-unicorn-attack
 - Robot Unicorn Attack: Heavy Metal: https://unblocked-games.vercel.app/games/robot-unicorn-attack-heavy-metal
 - Run 1: https://unblocked-games.vercel.app/games/run-1
 - Run 2: https://unblocked-games.vercel.app/games/run-2
@@ -167,6 +172,7 @@
 - Sift Heads: https://unblocked-games.vercel.app/games/sift-heads
 - Sift Heads 2: https://unblocked-games.vercel.app/games/sift-heads-2
 - Sift Heads 3: https://unblocked-games.vercel.app/games/sift-heads-3
+- Sift Heads 4: https://unblocked-games.vercel.app/games/sift-heads-4
 - Snail Bob 1: https://unblocked-games.vercel.app/games/snail-bob
 - Snail Bob 2: https://unblocked-games.vercel.app/games/snail-bob-2
 - Snail Bob 3: https://unblocked-games.vercel.app/games/snail-bob-3
@@ -212,7 +218,9 @@
 - Vex 2: https://unblocked-games.vercel.app/games/vex-2
 - Vex 3: https://unblocked-games.vercel.app/games/vex-3
 - Warfare 1917: https://unblocked-games.vercel.app/games/warfare-1917
+- Warfare 1944: https://unblocked-games.vercel.app/games/warfare-1944
 - Webtris: https://unblocked-games.vercel.app/games/webtris
+- Wheely 1: https://unblocked-games.vercel.app/games/wheely-1
 - Zombotron: https://unblocked-games.vercel.app/games/zombotron-1
 - Zombotron 2: Time Machine: https://unblocked-games.vercel.app/games/zombotron-2
 
