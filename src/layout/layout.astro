@@ -7,9 +7,10 @@ interface Props {
   slug?: string;
   pageTitle?: string;
   isHome?: boolean;
+  noIndex?: boolean;
 }
 
-const { slug, pageTitle, isHome } = Astro.props;
+const { slug, pageTitle, isHome, noIndex = false } = Astro.props;
 const siteUrl = "https://unblocked-games.vercel.app";
 
 // SEO data — `slug` is the page slug; display name comes from the registry
@@ -44,7 +45,8 @@ const gameGenre = seo?.genre || "Game";
 const gameYear = seo?.year || "";
 
 // URL
-const pageUrl = slug ? `${siteUrl}/games/${slug}` : siteUrl;
+const canonicalPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
 // More Games cross-linking — same genre first, then fill from popular
 // ponytail: two passes over knownGames, no new data structures
@@ -68,7 +70,7 @@ const moreGames = (() => {
     <meta name="generator" content={Astro.generator} />
     <title>{gameTitle}</title>
     <meta name="description" content={gameDescription} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={noIndex ? "noindex, follow" : "index, follow, max-image-preview:large"} />
     <meta name="theme-color" id="theme-color" content="#ffffff" />
     <link rel="canonical" href={pageUrl} />
 
