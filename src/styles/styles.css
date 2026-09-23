@@ -2,6 +2,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* accessibility: visible keyboard focus for links and buttons */
+:where(a:any-link, button, input, summary, [tabindex]):focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
 /* flash.astro — dynamic states injected by JS */
 .flash-loading {
   background: #f0f0f0;

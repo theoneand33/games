@@ -3,8 +3,9 @@ interface Props {
   Game: string;
   Path: string;
   Image: string;
+  eager?: boolean;
 }
-const { Game, Path, Image } = Astro.props;
+const { Game, Path, Image, eager = false } = Astro.props;
 const altText = `${Game} unblocked - play online free`;
 ---
 
@@ -14,7 +15,8 @@ const altText = `${Game} unblocked - play online free`;
     alt={altText}
     width="300"
     height="200"
-    loading="lazy"
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : undefined}
     decoding="async"
     class="aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 active:scale-95"
   />
