@@ -55,11 +55,11 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
 
   <section id="recent" hidden>
     <h2 class="text-lg font-bold m-5 mb-2">Recently played</h2>
-    <div
+    <ul
       id="recent-row"
-      class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px]"
+      class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px] p-0 m-0"
     >
-    </div>
+    </ul>
     <hr class="mx-5 my-4 border-gray-400 dark:border-neutral-700" />
   </section>
     <script is:inline define:vars={{ valid: knownGames }}>
@@ -71,6 +71,7 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
         var row = document.getElementById("recent-row");
         r.slice(0, 10).forEach(function (g) {
           if (!g || !g.s || !g.t || !g.i || valid.indexOf(g.s) < 0) return;
+          var li = document.createElement("li");
           var a = document.createElement("a");
           a.href = "/games/" + g.s;
           a.className = "m-5 inline-block max-w-full text-center no-underline";
@@ -88,7 +89,8 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
           p.textContent = g.t;
           a.appendChild(img);
           a.appendChild(p);
-          row.appendChild(a);
+          li.appendChild(a);
+          row.appendChild(li);
         });
         if (row.children.length) sec.hidden = false;
       } catch {}
@@ -96,18 +98,21 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
   </script>
 
   <h2 class="sr-only">All unblocked games</h2>
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px]">
+  <ul class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px] p-0 m-0">
     {
-      knownGames.map((slug) => {
+      knownGames.map((slug, i) => {
         const seo = gamesMap[slug];
         return (
-          <Gametile
-            Game={seo.title}
-            Path={"/games/" + slug}
-            Image={seo.image}
-          />
+          <li>
+            <Gametile
+              Game={seo.title}
+              Path={"/games/" + slug}
+              Image={seo.image}
+              eager={i === 0}
+            />
+          </li>
         );
       })
     }
-  </div>
+  </ul>
 </Layout>
