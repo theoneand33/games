@@ -8,7 +8,7 @@ Use these names. Do not invent synonyms.
 
 - **User** = the person who plays games on the site.
 - **Slug** = kebab-case URL segment under `/games/` (example: `breaking-the-bank`). The slug is the key in `gamesMap`.
-- **Game entry** = one record in `src/data/game-seo.ts` (`title`, `description`, `image`, `genre`, `year`, `isFlash`, `gamePath`, optional `guide`).
+- **Game entry** = one `seo(...)` call in `src/data/game-seo.ts` keyed by slug (`title`, `genre`, `year`, `image`, `isFlash`, `hook`, `gamePath`, optional `guide`). `description` is auto-generated, do not hand-write it.
 - **Flash game** = `.swf` file that runs through Ruffle.
 - **HTML5 game** = standalone page with its own bundle.
 
@@ -26,7 +26,7 @@ Use these names. Do not invent synonyms.
 
 Gotchas:
 
-- `bun run check` runs `git lfs pull`, then `astro check`, then `bun run build` (which regenerates `llms.txt`, builds, and runs pagefind). The command is slow. Wait for it to complete.
+- `bun run check` runs `astro check`, then `bun run build`. `bun run build` runs `git lfs pull`, regenerates `llms.txt` via `scripts/generate-llms.ts`, runs `astro build`, then `pagefind`. The command is slow. Wait for it to complete.
 - `bun run lint` runs `prettier --check .`. To fix format, run `bunx prettier --write .`.
 - Tailwind is v4 via `@tailwindcss/vite`. Global styles live in `src/styles/styles.css` (imported by `layout.astro`). Do not create `tailwind.config.js`. That file has no effect.
 
@@ -40,11 +40,11 @@ Gotchas:
 
 Follow these steps in order.
 
-1. Put the `.swf` in `public/flash/`. Use lowercase and no spaces. Example: `bloonstd5.swf`.
-2. Put the cover image in `public/images/`. Use about 300x200. Example: `bloonstd5cover.webp`.
-3. Add one entry to `gamesMap` in `src/data/game-seo.ts`. Key the entry by slug. Set `isFlash: true` and `gamePath: "/flash/<file>.swf"`.
-4. Add the slug to `defaultGames` in `src/data/game-seo.ts`. Place it by popularity tier, not at the end. See tiers below.
-5. Run `bun run llms` to regenerate `public/llms.txt` from `game-seo.ts`.
+1. Put the `.swf` in `public/flash/`. Use lowercase kebab-case matching the slug. Example: `bloons-td-5.swf`.
+2. Put the cover image in `public/images/`. Use 300x200 `.webp` (3/2). Example: `bloons-td-5-cover.webp`.
+3. Add one entry to `gamesMap` in `src/data/game-seo.ts` via the `seo()` helper: `seo(title, genre, year, image, isFlash, hook, gamePath, guide)`. Key the entry by slug. Set `isFlash: true` and `gamePath: "/flash/<file>.swf"`.
+4. Add the slug to `defaultGames` in `src/data/game-seo.ts`. Insert by popularity, most popular first, not at the end. Keep series entries together as a block. Use an existing `genre` string verbatim — `layout.astro` groups More Games by exact match. Unknown slugs are silently filtered, so verify the new slug renders on `/`.
+5. `bun run check` already regenerates `public/llms.txt` via `build`. Run `bun run llms` only to regenerate without a full build.
 
 Use absolute asset paths. Bad: `gamePath: "flash/mygame.swf"`. Good: `gamePath: "/flash/mygame.swf"`.
 
@@ -55,13 +55,9 @@ If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astr
 - `src/data/game-seo.ts` is the single source of truth. The `title` field holds the display name.
 - `src/layout/layout.astro` takes `slug` and reads `gamesMap[slug]` to build `<title>`, meta tags, Open Graph, and JSON-LD. For the home page, set `isHome={true}`.
 - `src/pages/games/[slug].astro` serves every slug in `gamesMap` (`getStaticPaths` maps all keys; unknown slugs return 404). The template branches on `isFlash`, with special branches for `run-3` and `webtris`. Do not create per-game pages.
-- `run-3` is the vendored HTML5 exception (`public/games/run3/`, loaded with `<base href="/games/run3/">`). `webtris` stays an external iframe (`https://theoneand33.github.io/webtris/`), do not vendor it.
-- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first `POPULAR_COUNT` entries (currently 11), keep them in sync. Game pages show a "More Games" row of `MORE_GAMES_COUNT` entries (currently 9, same-genre first) built in `layout.astro`.
+- `run-3` is the vendored HTML5 exception (`public/games/run3/`, loaded with `<base href="/games/run3/">`). `webtris` stays an external iframe (`https://theoneand33.github.io/tetr.io-clone/`), do not vendor it.
+- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first `POPULAR_COUNT` entries, keep them in sync. Game pages show a "More Games" row of `MORE_GAMES_COUNT` entries (same-genre first) built in `layout.astro`.
 - `astro.config.mjs` holds slug-variant redirects (for example `/games/run3` → `/games/run-3`). When you rename or add an alias slug, add a redirect there.
-
-### 2.5 Popularity Tiers
-
-Insert the slug by popularity, most popular first. Keep series entries together as a block. The array order is the display order.
 
 ## 3. Rules
 
@@ -74,4 +70,4 @@ Insert the slug by popularity, most popular first. Keep series entries together 
 
 ## 4. Where Not to Look
 
-Skip these to save context. They rarely need changes. `node_modules/` is dependencies. `astro.config.mjs` is static config except its `redirects` map (slug variants, see 3.4).
+Skip these to save context. They rarely need changes. `node_modules/` is dependencies. `astro.config.mjs` is static config except its `redirects` map (slug variants, see 2.4).
