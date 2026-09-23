@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* accessibility: visible keyboard focus for links and buttons */
-:where(a:any-link, button):focus-visible {
+:where(a:any-link, button, input, summary, [tabindex]):focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 3px;
 }
