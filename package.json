@@ -9,8 +9,7 @@
     "astro": "astro",
     "check": "astro check && bun run build",
     "lint": "prettier --check .",
-    "llms": "bun scripts/generate-llms.ts",
-    "indexnow": "node scripts/indexnow.mjs"
+    "llms": "bun scripts/generate-llms.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
