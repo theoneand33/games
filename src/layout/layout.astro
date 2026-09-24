@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { slug, pageTitle, isHome, noIndex = false } = Astro.props;
-const siteUrl = "https://unblocked-games.vercel.app";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://unblocked-games.vercel.app";
 
 // SEO data — `slug` is the page slug; display name comes from the registry
 const seo = slug ? gamesMap[slug] : undefined;
@@ -50,8 +50,7 @@ const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
 // More Games cross-linking — same genre first, then fill from popular
 // ponytail: two passes over knownGames, no new data structures
-// ponytail: drop unknown slugs so one stale entry can't crash every page
-const knownGames = defaultGames.filter((s) => gamesMap[s]);
+const knownGames = defaultGames;
 const moreGames = (() => {
   if (!slug || !seo) return knownGames.slice(0, MORE_GAMES_COUNT);
   const rest = knownGames.filter((s) => s !== slug);
