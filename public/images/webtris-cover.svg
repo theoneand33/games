@@ -1,26 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200">
-  <rect width="300" height="200" fill="#0f0f23"/>
-  <text x="150" y="52" text-anchor="middle" font-family="monospace" font-size="32" font-weight="bold" fill="#00f0f0" letter-spacing="4">WEBTRIS</text>
-  <rect x="70" y="140" width="20" height="20" fill="#00f0f0" rx="2"/>
-  <rect x="90" y="140" width="20" height="20" fill="#00f0f0" rx="2"/>
-  <rect x="110" y="140" width="20" height="20" fill="#00f0f0" rx="2"/>
-  <rect x="90" y="120" width="20" height="20" fill="#00f0f0" rx="2"/>
-  <rect x="140" y="120" width="20" height="20" fill="#f0a000" rx="2"/>
-  <rect x="160" y="120" width="20" height="20" fill="#f0a000" rx="2"/>
-  <rect x="180" y="120" width="20" height="20" fill="#f0a000" rx="2"/>
-  <rect x="200" y="120" width="20" height="20" fill="#f0a000" rx="2"/>
-  <rect x="160" y="100" width="20" height="20" fill="#f0a000" rx="2"/>
-  <rect x="70" y="80" width="20" height="20" fill="#f000f0" rx="2"/>
-  <rect x="90" y="80" width="20" height="20" fill="#f000f0" rx="2"/>
-  <rect x="110" y="80" width="20" height="20" fill="#f000f0" rx="2"/>
-  <rect x="110" y="60" width="20" height="20" fill="#f000f0" rx="2"/>
-  <rect x="140" y="80" width="20" height="20" fill="#00f000" rx="2"/>
-  <rect x="160" y="80" width="20" height="20" fill="#00f000" rx="2"/>
-  <rect x="180" y="80" width="20" height="20" fill="#00f000" rx="2"/>
-  <rect x="180" y="60" width="20" height="20" fill="#00f000" rx="2"/>
-  <rect x="110" y="160" width="20" height="20" fill="#f00000" rx="2"/>
-  <rect x="130" y="160" width="20" height="20" fill="#f00000" rx="2"/>
-  <rect x="150" y="160" width="20" height="20" fill="#f00000" rx="2"/>
-  <rect x="130" y="140" width="20" height="20" fill="#f00000" rx="2"/>
-  <text x="150" y="190" text-anchor="middle" font-family="monospace" font-size="10" fill="#4a4a6a">webtris</text>
+<rect width="300" height="200" fill="#07080d"/>
+<!-- ponytail: matches block() in game.js — dark edge, flat base, white top shine, dark bottom -->
+<defs>
+<g id="g">
+<rect x="2.16" y="2.16" width="19.68" height="8.27" fill="rgba(255,255,255,0.30)"/>
+<rect x="2.16" y="16.72" width="19.68" height="5.12" fill="rgba(0,0,0,0.22)"/>
+</g>
+</defs>
+<g>
+<rect x="28" y="52" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="29" y="53" width="22" height="22" fill="#2fd4e8"/><use href="#g" x="28" y="52"/>
+<rect x="52" y="52" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="53" y="53" width="22" height="22" fill="#2fd4e8"/><use href="#g" x="52" y="52"/>
+<rect x="76" y="52" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="77" y="53" width="22" height="22" fill="#2fd4e8"/><use href="#g" x="76" y="52"/>
+<rect x="100" y="52" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="101" y="53" width="22" height="22" fill="#2fd4e8"/><use href="#g" x="100" y="52"/>
+<rect x="196" y="30" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="197" y="31" width="22" height="22" fill="#f7d308"/><use href="#g" x="196" y="30"/>
+<rect x="220" y="30" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="221" y="31" width="22" height="22" fill="#f7d308"/><use href="#g" x="220" y="30"/>
+<rect x="196" y="54" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="197" y="55" width="22" height="22" fill="#f7d308"/><use href="#g" x="196" y="54"/>
+<rect x="220" y="54" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="221" y="55" width="22" height="22" fill="#f7d308"/><use href="#g" x="220" y="54"/>
+<rect x="40" y="120" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="41" y="121" width="22" height="22" fill="#b93fe0"/><use href="#g" x="40" y="120"/>
+<rect x="64" y="120" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="65" y="121" width="22" height="22" fill="#b93fe0"/><use href="#g" x="64" y="120"/>
+<rect x="88" y="120" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="89" y="121" width="22" height="22" fill="#b93fe0"/><use href="#g" x="88" y="120"/>
+<rect x="64" y="144" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="65" y="145" width="22" height="22" fill="#b93fe0"/><use href="#g" x="64" y="144"/>
+<rect x="212" y="120" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="213" y="121" width="22" height="22" fill="#3ecf4a"/><use href="#g" x="212" y="120"/>
+<rect x="236" y="120" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="237" y="121" width="22" height="22" fill="#3ecf4a"/><use href="#g" x="236" y="120"/>
+<rect x="188" y="144" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="189" y="145" width="22" height="22" fill="#3ecf4a"/><use href="#g" x="188" y="144"/>
+<rect x="212" y="144" width="24" height="24" fill="rgba(0,0,0,0.5)"/><rect x="213" y="145" width="22" height="22" fill="#3ecf4a"/><use href="#g" x="212" y="144"/>
+</g>
+<text x="150" y="112" text-anchor="middle" font-family="monospace" font-size="34" font-weight="bold" fill="#ffffff" letter-spacing="4">WEBTRIS</text>
 </svg>
