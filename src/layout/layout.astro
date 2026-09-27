@@ -1,7 +1,7 @@
 ---
 import "../styles/styles.css";
 import Gametile from "../components/gametile.astro";
-import { gamesMap, defaultGames, MORE_GAMES_COUNT } from "../data/game-seo";
+import { gamesMap, defaultGames } from "../data/game-seo";
 
 interface Props {
   slug?: string;
@@ -49,15 +49,13 @@ const canonicalPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
 // More Games cross-linking — same genre first, then fill from popular
-// ponytail: two passes over knownGames, no new data structures
-const knownGames = defaultGames;
 const moreGames = (() => {
-  if (!slug || !seo) return knownGames.slice(0, MORE_GAMES_COUNT);
-  const rest = knownGames.filter((s) => s !== slug);
+  if (!slug || !seo) return defaultGames.slice(0, 9);
+  const rest = defaultGames.filter((s) => s !== slug);
   return [
     ...rest.filter((s) => gamesMap[s].genre === seo.genre),
     ...rest.filter((s) => gamesMap[s].genre !== seo.genre),
-  ].slice(0, MORE_GAMES_COUNT);
+  ].slice(0, 9);
 })();
 ---
 
@@ -361,7 +359,7 @@ const moreGames = (() => {
         sync();
       })();
     </script>
-    <script is:inline define:vars={{ slugs: knownGames }}>
+    <script is:inline define:vars={{ slugs: defaultGames }}>
       // ponytail: static build, so pick random client-side
       document.addEventListener("click", function (e) {
         var b = e.target && e.target.closest ? e.target.closest("#random-game") : null;

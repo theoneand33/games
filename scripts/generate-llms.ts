@@ -1,7 +1,7 @@
 // ponytail: llms.txt is generated from game-seo.ts — never hand-edit it.
 // Usage: bun run llms (also runs automatically in build, before astro build)
 import { writeFileSync } from "node:fs";
-import { gamesMap, defaultGames, POPULAR_COUNT } from "../src/data/game-seo.ts";
+import { gamesMap, defaultGames } from "../src/data/game-seo.ts";
 
 const site = "https://unblocked-games.vercel.app";
 // ponytail: fixed date keeps builds stable; bump manually when the catalog changes
@@ -10,7 +10,7 @@ const lastUpdated = "2026-09-11";
 const line = (slug: string) =>
   `- ${gamesMap[slug].title}: ${site}/games/${slug}`;
 
-const popular = defaultGames.slice(0, POPULAR_COUNT).map(line).join("\n");
+const popular = defaultGames.slice(0, 11).map(line).join("\n");
 
 const all = Object.keys(gamesMap)
   .sort((a, b) => gamesMap[a].title.localeCompare(gamesMap[b].title))

@@ -56,7 +56,7 @@ If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astr
 - `src/layout/layout.astro` takes `slug` and reads `gamesMap[slug]` to build `<title>`, meta tags, Open Graph, and JSON-LD. For the home page, set `isHome={true}`.
 - `src/pages/games/[slug].astro` serves every slug in `gamesMap` (`getStaticPaths` maps all keys; unknown slugs return 404). The template branches on `isFlash`, with special branches for `run-3` and `webtris`. Do not create per-game pages.
 - `run-3` is the vendored HTML5 exception (`public/games/run3/`, loaded with `<base href="/games/run3/">`). `webtris` stays an external iframe (`https://theoneand33.github.io/tetr.io-clone/`), do not vendor it.
-- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first `POPULAR_COUNT` entries, keep them in sync. Game pages show a "More Games" row of `MORE_GAMES_COUNT` entries (same-genre first) built in `layout.astro`.
+- `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first 11 entries, keep them in sync. Game pages show a "More Games" row of 9 entries (same-genre first) built in `layout.astro`.
 - `astro.config.mjs` holds slug-variant redirects (for example `/games/run3` → `/games/run-3`). When you rename or add an alias slug, add a redirect there.
 
 ## 3. Rules
