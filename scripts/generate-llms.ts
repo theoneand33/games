@@ -10,6 +10,7 @@ const lastUpdated = "2026-09-11";
 const line = (slug: string) =>
   `- ${gamesMap[slug].title}: ${site}/games/${slug}`;
 
+// keep in sync: popular = 11 (mirrored in src/pages/index.astro)
 const popular = defaultGames.slice(0, 11).map(line).join("\n");
 
 const all = Object.keys(gamesMap)

@@ -49,6 +49,7 @@ const canonicalPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
 // More Games cross-linking — same genre first, then fill from popular
+// keep in sync: more-games = 9 (documented in AGENTS.md)
 const moreGames = (() => {
   if (!slug || !seo) return defaultGames.slice(0, 9);
   const rest = defaultGames.filter((s) => s !== slug);
