@@ -1,13 +1,13 @@
 ---
 import Layout from "../layout/layout.astro";
 import Gametile from "../components/gametile.astro";
-import { gamesMap, defaultGames, POPULAR_COUNT } from "../data/game-seo";
+import { gamesMap, defaultGames } from "../data/game-seo";
 
 const pageTitle =
   "Superfun Games - Unblocked Games for School Chromebook | No Flash Required (2026)";
 
-const knownGames = defaultGames;
-const popularGames = knownGames.slice(0, POPULAR_COUNT);
+// keep in sync: popular = 11 (mirrored in scripts/generate-llms.ts)
+const popularGames = defaultGames.slice(0, 11);
 ---
 
 <Layout pageTitle={pageTitle} isHome={true}>
@@ -62,7 +62,7 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
     </ul>
     <hr class="mx-5 my-4 border-gray-400 dark:border-neutral-700" />
   </section>
-    <script is:inline define:vars={{ valid: knownGames }}>
+    <script is:inline define:vars={{ valid: defaultGames }}>
     (function () {
       try {
         var r = JSON.parse(localStorage.getItem("recently-played") || "[]");
@@ -100,7 +100,7 @@ const popularGames = knownGames.slice(0, POPULAR_COUNT);
   <h2 class="sr-only">All unblocked games</h2>
   <ul class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px] p-0 m-0">
     {
-      knownGames.map((slug, i) => {
+      defaultGames.map((slug, i) => {
         const seo = gamesMap[slug];
         return (
           <li>
