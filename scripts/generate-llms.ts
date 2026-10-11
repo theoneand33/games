@@ -43,5 +43,5 @@ Students at school who want to play games on their school-issued Chromebooks. Al
 ${site}/dmca
 `;
 
-writeFileSync("public/llms.txt", out);
+writeFileSync(new URL("../public/llms.txt", import.meta.url), out);
 console.log(`llms.txt: wrote ${Object.keys(gamesMap).length} games.`);

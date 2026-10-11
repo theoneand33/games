@@ -1,5 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-content-mapper"
+      }
+    ]
+  },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": [
     "public/ruffle/",
