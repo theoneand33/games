@@ -50,9 +50,10 @@ const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
 // More Games cross-linking — same genre first, then fill from popular
 // keep in sync: more-games = 9 (documented in AGENTS.md)
+const validGames = defaultGames.filter((s) => gamesMap[s]);
 const moreGames = (() => {
-  if (!slug || !seo) return defaultGames.slice(0, 9);
-  const rest = defaultGames.filter((s) => s !== slug);
+  if (!slug || !seo) return validGames.slice(0, 9);
+  const rest = validGames.filter((s) => s !== slug);
   return [
     ...rest.filter((s) => gamesMap[s].genre === seo.genre),
     ...rest.filter((s) => gamesMap[s].genre !== seo.genre),

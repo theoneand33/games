@@ -16,6 +16,9 @@ const { targetId } = Astro.props;
 
 <script is:inline>
   (function () {
+    // ponytail: one global init — the component instance repeats per button
+    if (window.__fsInit) return;
+    window.__fsInit = true;
     function isFullscreen(id) {
       var el = document.fullscreenElement || document.webkitFullscreenElement;
       return !!el && el.id === id;

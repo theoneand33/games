@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "command -v git-lfs && git lfs pull; bun scripts/generate-llms.ts && astro build && bunx pagefind --site dist",
+    "build": "sh -c 'command -v git-lfs >/dev/null || exit 0; git lfs pull' && bun scripts/generate-llms.ts && astro build && bunx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check && bun run build",

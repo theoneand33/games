@@ -30,11 +30,13 @@ if (!seo) {
             <FullscreenButton targetId="run3-container" />
           </div>
         </div>
-        <script src="/games/run3/Run3.js" is:inline></script>
+        <script src="/games/run3/Run3.js" defer is:inline></script>
         <script data-astro-rerun is:inline>
           (function () {
+            // ponytail: only lock scrolling over the game canvas, not the whole page
             window.addEventListener("touchmove", function (event) {
-              event.preventDefault();
+              var el = document.getElementById("openfl-content");
+              if (el && el.contains(event.target)) event.preventDefault();
             }, { capture: false, passive: false });
             var ready = function () {
               var el = document.getElementById("openfl-content");
@@ -73,7 +75,11 @@ if (!seo) {
           <FullscreenButton targetId="webtris-container" />
         </div>
       </div>
-    ) : null
+    ) : (
+      <div class="mx-auto max-w-[600px] p-6 text-center">
+        <p class="text-gray-600 dark:text-neutral-400">This game is not available yet.</p>
+      </div>
+    )}
   }
   {seo.guide && (
     <section class="mx-auto max-w-[1200px] px-6 pb-6">
