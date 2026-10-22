@@ -10,7 +10,11 @@ const lastUpdated = "2026-09-11";
 const line = (slug: string) =>
   `- ${gamesMap[slug].title}: ${site}/games/${slug}`;
 
-const popular = defaultGames.slice(0, POPULAR_COUNT).map(line).join("\n");
+const popular = defaultGames
+  .filter((s) => gamesMap[s])
+  .slice(0, POPULAR_COUNT)
+  .map(line)
+  .join("\n");
 
 const all = Object.keys(gamesMap)
   .sort((a, b) => gamesMap[a].title.localeCompare(gamesMap[b].title))
@@ -42,5 +46,5 @@ Students at school who want to play games on their school-issued Chromebooks. Al
 ${site}/dmca
 `;
 
-writeFileSync("public/llms.txt", out);
+writeFileSync(new URL("../public/llms.txt", import.meta.url), out);
 console.log(`llms.txt: wrote ${Object.keys(gamesMap).length} games.`);
