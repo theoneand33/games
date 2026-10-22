@@ -3,9 +3,9 @@ export interface GameSEO {
   description: string;
   image: string;
   genre: string;
-  year?: string;
+  year: string;
   isFlash: boolean;
-  gamePath?: string;
+  gamePath: string;
   guide?: string;
 }
 
@@ -1917,6 +1917,10 @@ export const gamesMap: Record<string, GameSEO> = {
 };
 
 // homepage display order (most popular first)
+// shared list sizes: popular row (home + llms.txt), more-games row
+export const POPULAR_COUNT = 11;
+export const MORE_COUNT = 9;
+
 export const defaultGames: string[] = [
   "happy-wheels",
   "plants-vs-zombies",

@@ -1,7 +1,7 @@
 ---
 import "../styles/styles.css";
 import Gametile from "../components/gametile.astro";
-import { gamesMap, defaultGames } from "../data/game-seo";
+import { gamesMap, defaultGames, MORE_COUNT } from "../data/game-seo";
 
 interface Props {
   slug?: string;
@@ -29,17 +29,10 @@ const gameTitle = Game
 // Description
 const homeDescription = "Play free unblocked games on your school Chromebook - Happy Wheels, Plants vs Zombies, Run 3 and more. No downloads, works in your browser.";
 
-const gameDescription = isHome
-  ? homeDescription
-  : seo?.description ||
-    (Game
-      ? `Play ${Game} unblocked on your school Chromebook. No Flash plugin or download needed - runs directly in your browser. Fully working 2026 version of this classic game.`
-      : pageTitle || homeDescription);
+const gameDescription = isHome ? homeDescription : seo?.description || pageTitle || homeDescription;
 
 // Image & other SEO fields — ponytail: webp covers beat SVG for og:image validators
-const gameImage = isHome
-  ? "/images/happy-wheels-cover.webp"
-  : seo?.image || "/images/happy-wheels-cover.webp";
+const gameImage = seo?.image || "/images/happy-wheels-cover.webp";
 
 const gameGenre = seo?.genre || "Game";
 const gameYear = seo?.year || "";
@@ -49,14 +42,13 @@ const canonicalPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 
 // More Games cross-linking — same genre first, then fill from popular
-// keep in sync: more-games = 9 (documented in AGENTS.md)
 const moreGames = (() => {
-  if (!slug || !seo) return defaultGames.slice(0, 9);
+  if (!slug || !seo) return defaultGames.slice(0, MORE_COUNT);
   const rest = defaultGames.filter((s) => s !== slug);
   return [
     ...rest.filter((s) => gamesMap[s].genre === seo.genre),
     ...rest.filter((s) => gamesMap[s].genre !== seo.genre),
-  ].slice(0, 9);
+  ].slice(0, MORE_COUNT);
 })();
 ---
 
@@ -225,7 +217,7 @@ const moreGames = (() => {
     }
 
     <link rel="preconnect" href="https://rybbit.theoneand33.dev" />
-    <script is:inline defer fetchpriority="low" src="https://rybbit.theoneand33.dev/api/script.js" data-site-id="1ab7f49a0bc5"></script>
+    <script is:inline defer fetchpriority="low" src="https://rybbit.theoneand33.dev/api/script.js" data-site-id="62ae034debad"></script>
     <script is:inline defer fetchpriority="low" src="/_vercel/insights/script.js"></script>
     <script is:inline defer fetchpriority="low" src="/_vercel/speed-insights/script.js"></script>
     <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />

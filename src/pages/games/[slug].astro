@@ -18,7 +18,7 @@ if (!seo) {
 <Layout slug={slug}>
   {
     seo.isFlash ? (
-      <Flash gamePath={seo.gamePath || ""} />
+      <Flash gamePath={seo.gamePath} />
     ) : slug === "run-3" ? (
       <>
         <base href="/games/run3/" />

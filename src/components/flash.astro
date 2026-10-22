@@ -47,10 +47,11 @@ const { gamePath } = Astro.props;
 
     // ── helpers ──
     function showError(msg) {
-      wrap.innerHTML =
-        '<div class="flash-error">' +
-        msg.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") +
-        "</div>";
+      wrap.innerHTML = "";
+      var div = document.createElement("div");
+      div.className = "flash-error";
+      div.textContent = msg;
+      wrap.appendChild(div);
     }
 
     function initPlayer(ruffle) {
