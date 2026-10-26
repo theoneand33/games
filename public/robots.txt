@@ -7,4 +7,4 @@ Disallow: /pagefind/
 # https://llmstxt.org/
 # See https://unblocked-games.vercel.app/llms.txt for AI-friendly site summary
 
-Sitemap: https://unblocked-games.vercel.app/sitemap.xml
+Sitemap: https://unblocked-games.vercel.app/sitemap-index.xml

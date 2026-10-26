@@ -38,14 +38,28 @@ if (!seo) {
               var el = document.getElementById("openfl-content");
               if (el && el.contains(event.target)) event.preventDefault();
             }, { capture: false, passive: false });
+            // ponytail: Run3.js is ~7MB, so never give up — show a status line after 15s
+            // and keep polling slower, then drop it once the game embeds
+            var attempts = 0;
             var ready = function () {
               var el = document.getElementById("openfl-content");
-              if (el && typeof lime !== "undefined" && lime.embed) {
+              if (!el) return;
+              var status = el.querySelector(".flash-error");
+              if (typeof lime !== "undefined" && lime.embed) {
+                if (status) status.remove();
                 try {
                   lime.embed("Run3", "openfl-content", 800, 600, { parameters: {} });
                 } catch (e) {
                   console.error("Run3 embed failed:", e);
                 }
+              } else if (++attempts > 75) {
+                if (!status) {
+                  var div = document.createElement("div");
+                  div.className = "flash-error";
+                  div.textContent = "Still loading — this game is large. Give it a moment, or refresh if it stays stuck.";
+                  el.appendChild(div);
+                }
+                setTimeout(ready, 2000);
               } else {
                 setTimeout(ready, 200);
               }
@@ -58,7 +72,7 @@ if (!seo) {
           })();
         </script>
       </>
-    ) : slug === "webtris" ? (
+    ) : (
       <div id="webtris-container">
         <div id="webtris-wrapper" class="flex justify-center items-center min-h-[80vh] w-full bg-[#010101]">
           <iframe
@@ -75,15 +89,11 @@ if (!seo) {
           <FullscreenButton targetId="webtris-container" />
         </div>
       </div>
-    ) : (
-      <div class="mx-auto max-w-[600px] p-6 text-center">
-        <p class="text-gray-600 dark:text-neutral-400">This game is not available yet.</p>
-      </div>
     )}
   {seo.guide && (
     <section class="mx-auto max-w-[1200px] px-6 pb-6">
       <h2 class="text-sm font-semibold mb-1 text-gray-700 dark:text-neutral-300">How to play {seo.title}</h2>
-      <p data-pagefind-body class="text-sm text-gray-600 dark:text-neutral-400">{seo.guide}</p>
+      <p class="text-sm text-gray-600 dark:text-neutral-400">{seo.guide}</p>
     </section>
   )}
 </Layout>

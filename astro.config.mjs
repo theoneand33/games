@@ -3,23 +3,15 @@ import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
+import { SITE } from "./src/data/site.ts";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://unblocked-games.vercel.app",
+  site: SITE,
   trailingSlash: "never",
-  // Slug variants that Google still serves impressions for — consolidate to canonical slugs.
-  redirects: {
-    "/games/happywheels": "/games/happy-wheels",
-    "/games/run3": "/games/run-3",
-    "/games/gun-mayhem2": "/games/gun-mayhem-2",
-    "/games/geography-game": "/games/geography-game-usa",
-  },
-  integrations: [
-    sitemap({
-      namespaces: { news: false, xhtml: false, image: true, video: false },
-    }),
-  ],
+  // Slug variants live in vercel.json as real 301s; a redirect here would ship a
+  // meta-refresh page that the host never serves. check-pages guards both.
+  integrations: [sitemap()],
   build: {
     inlineStylesheets: "always",
   },

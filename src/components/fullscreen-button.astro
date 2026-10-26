@@ -37,11 +37,12 @@ const { targetId } = Astro.props;
       if (!target) return;
       var fsEl = document.fullscreenElement || document.webkitFullscreenElement;
       if (fsEl) {
+        // ponytail: webkit* variants return undefined, so wrap before .catch
         var exit = document.exitFullscreen || document.webkitExitFullscreen;
-        if (exit) exit.call(document).catch(function (err) { console.warn("Exit fullscreen failed:", err); });
+        if (exit) Promise.resolve(exit.call(document)).catch(function (err) { console.warn("Exit fullscreen failed:", err); });
       } else {
         var req = target.requestFullscreen || target.webkitRequestFullscreen;
-        if (req) req.call(target).catch(function (err) { console.warn("Enter fullscreen failed:", err); });
+        if (req) Promise.resolve(req.call(target)).catch(function (err) { console.warn("Enter fullscreen failed:", err); });
       }
     });
     // ponytail: re-dispatch resize so existing game resize handlers adapt
