@@ -2,6 +2,7 @@
 import "../styles/styles.css";
 import Gametile from "../components/gametile.astro";
 import { gamesMap, defaultGames, MORE_COUNT } from "../data/game-seo";
+import { SITE } from "../data/site";
 
 interface Props {
   slug?: string;
@@ -11,14 +12,14 @@ interface Props {
 }
 
 const { slug, pageTitle, isHome, noIndex = false } = Astro.props;
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://unblocked-games.vercel.app";
+const siteUrl = (Astro.site?.toString() ?? SITE).replace(/\/$/, "");
 
 // SEO data — `slug` is the page slug; display name comes from the registry
 const seo = slug ? gamesMap[slug] : undefined;
 const Game = seo?.title;
 const isFlash = seo?.isFlash ?? false;
-// ponytail: static date keeps dateModified stable across builds
-const dateModified = "2026-09-07";
+// ponytail: static date keeps dateModified stable across builds; bump with the catalog
+const dateModified = "2026-10-22";
 const jsonLD = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 // Title
@@ -40,6 +41,8 @@ const gameYear = seo?.year || "";
 // URL
 const canonicalPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
+// absolute, because games/[slug].astro sets <base> for vendored bundles
+const skipHref = `${canonicalPath}#main-content`;
 
 // More Games cross-linking — same genre first, then fill from popular
 const validGames = defaultGames.filter((s) => gamesMap[s]);
@@ -234,7 +237,7 @@ const moreGames = (() => {
     </script>
   </head>
   <body class="bg-white text-gray-900 dark:bg-neutral-950 dark:text-neutral-100">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-black dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
+    <a href={skipHref} class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-black dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
     <nav aria-label="Primary" class="flex items-center justify-between">
       <a href="/">
         <img
@@ -285,15 +288,23 @@ const moreGames = (() => {
       </div>
     </nav>
 
-    <main id="main-content" tabindex="-1">
+    <main
+      id="main-content"
+      tabindex="-1"
+      data-pagefind-body={noIndex ? undefined : ""}
+    >
       {Game && !isHome && (
         <div class="mx-auto max-w-[1200px] px-6 pt-2">
-          <h1 data-pagefind-body class="text-xl font-bold">
+          <h1 class="text-xl font-bold">
             Play {Game} Unblocked on Chromebook
           </h1>
           <div class="py-2">
             <p class="text-sm text-gray-500 dark:text-neutral-400 mb-1 line-clamp-3">
               {gameDescription}
+            </p>
+            <!-- genre is visible text so site search can find games by type -->
+            <p class="text-xs text-gray-500 dark:text-neutral-400 mb-1">
+              {gameGenre}{gameYear ? ` · ${gameYear}` : ""}
             </p>
             <p class="text-xs text-gray-400 dark:text-neutral-500 font-medium">
               ✓ {isFlash

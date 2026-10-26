@@ -2,10 +2,10 @@
 // Usage: bun run llms (also runs automatically in build, before astro build)
 import { writeFileSync } from "node:fs";
 import { gamesMap, defaultGames, POPULAR_COUNT } from "../src/data/game-seo.ts";
+import { SITE as site } from "../src/data/site.ts";
 
-const site = "https://unblocked-games.vercel.app";
 // ponytail: fixed date keeps builds stable; bump manually when the catalog changes
-const lastUpdated = "2026-09-11";
+const lastUpdated = "2026-10-22";
 
 const line = (slug: string) =>
   `- ${gamesMap[slug].title}: ${site}/games/${slug}`;
