@@ -8,111 +8,114 @@ const pageTitle =
 
 const validGames = defaultGames.filter((slug) => gamesMap[slug]);
 const popularGames = validGames.slice(0, POPULAR_COUNT);
+const link =
+  "text-blue-700 dark:text-blue-400 underline-offset-2 hover:underline";
 ---
 
 <Layout pageTitle={pageTitle} isHome={true}>
-  <h1 class="text-2xl font-bold mb-2 m-5">
-    Play Unblocked Games on Your School Chromebook - Working 2026
-  </h1>
-  <p class="text-sm text-gray-600 dark:text-neutral-400 mb-4 m-5">
-    Play classic Flash games and browser games on your school Chromebook without
-    needing any plugins or downloads. All games run directly in your Chrome
-    browser via Ruffle emulation - no Flash Player required. Relive your
-    favorite nostalgic games like <a
-      href="/games/happy-wheels"
-      class="text-blue-600 dark:text-blue-400 hover:underline">Happy Wheels</a
-    >, <a href="/games/plants-vs-zombies" class="text-blue-600 dark:text-blue-400 hover:underline"
-      >Plants vs Zombies</a
-    >, <a
-      href="/games/strike-force-heroes"
-      class="text-blue-600 dark:text-blue-400 hover:underline">Strike Force Heroes</a
-    >, and more. Updated and working in 2026.
-  </p>
-
-  <p class="text-sm text-gray-600 dark:text-neutral-400 m-5 mb-4">
-    Mirrors: <a
-      href="https://unblocked-games.vercel.app/"
-      class="text-blue-600 dark:text-blue-400 hover:underline">unblocked-games.vercel.app</a
-    > · <a
-      href="https://gamehub-games.vercel.app/"
-      class="text-blue-600 dark:text-blue-400 hover:underline">gamehub-games.vercel.app</a
-    > · <a
-      href="https://superfun-games.vercel.app/"
-      class="text-blue-600 dark:text-blue-400 hover:underline">superfun-games.vercel.app</a
-    >
-  </p>
-
-  <div class="flex flex-wrap gap-2 m-5 mb-4 text-sm">
-    <h2 class="font-semibold text-gray-700 dark:text-neutral-300">Popular:</h2>
-    {
-      popularGames.map((slug) => (
-        <a href={"/games/" + slug} class="inline-flex h-5 items-center rounded-full border border-transparent bg-gray-100 px-2 py-0.5 text-xs font-medium whitespace-nowrap text-gray-800 transition-colors hover:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
-          >{gamesMap[slug].title}</a
+  <div class="mx-auto max-w-[1440px] px-5 pb-16">
+    <header class="max-w-3xl pt-8 pb-6">
+      <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+        Play Unblocked Games on Your School Chromebook - Working 2026
+      </h1>
+      <p class="mt-4 text-base leading-relaxed text-gray-600 dark:text-neutral-400">
+        Play classic Flash games and browser games on your school Chromebook
+        without needing any plugins or downloads. All games run directly in your
+        Chrome browser via Ruffle emulation - no Flash Player required. Relive
+        your favorite nostalgic games like <a href="/games/happy-wheels" class={link}
+          >Happy Wheels</a
+        >, <a href="/games/plants-vs-zombies" class={link}>Plants vs Zombies</a
+        >, <a href="/games/strike-force-heroes" class={link}>Strike Force Heroes</a
+        >, and more. Updated and working in 2026.
+      </p>
+      <p class="mt-3 text-sm text-gray-500 dark:text-neutral-500">
+        Mirrors: <a href="https://unblocked-games.vercel.app/" class={link}
+          >unblocked-games.vercel.app</a
+        > · <a href="https://gamehub-games.vercel.app/" class={link}
+          >gamehub-games.vercel.app</a
+        > · <a href="https://superfun-games.vercel.app/" class={link}
+          >superfun-games.vercel.app</a
         >
-      ))
-    }
-  </div>
+      </p>
+    </header>
 
-  <section id="recent" hidden>
-    <h2 class="text-lg font-bold m-5 mb-2">Recently played</h2>
-    <ul
-      id="recent-row"
-      class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px] p-0 m-0"
-    >
-    </ul>
-    <hr class="mx-5 my-4 border-gray-400 dark:border-neutral-700" />
-  </section>
+    <nav aria-label="Popular games" class="mb-8 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+      <h2 class="text-sm font-semibold text-gray-900 dark:text-neutral-100">Popular</h2>
+      {
+        popularGames.map((slug) => (
+          <a
+            href={"/games/" + slug}
+            class="text-sm text-gray-600 underline-offset-2 transition-colors hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-white"
+          >
+            {gamesMap[slug].title}
+          </a>
+        ))
+      }
+    </nav>
+
+    <section id="recent" hidden class="mb-10">
+      <h2 class="mb-4 text-xl font-semibold tracking-tight">Recently played</h2>
+      <ul
+        id="recent-row"
+        class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-4 p-0"
+      >
+      </ul>
+    </section>
     <script is:inline define:vars={{ valid: defaultGames }}>
-    (function () {
-      try {
-        var r = JSON.parse(localStorage.getItem("recently-played") || "[]");
-        if (!Array.isArray(r) || !r.length) return;
-        var sec = document.getElementById("recent");
-        var row = document.getElementById("recent-row");
-        r.slice(0, 10).forEach(function (g) {
-          if (!g || !g.s || !g.t || !g.i || valid.indexOf(g.s) < 0) return;
-          var li = document.createElement("li");
-          var a = document.createElement("a");
-          a.href = "/games/" + g.s;
-          a.className = "m-5 inline-block max-w-full text-center no-underline";
-          var img = document.createElement("img");
-          img.src = g.i;
-          img.alt = g.t + " unblocked - play online free";
-          img.width = 300;
-          img.height = 200;
-          img.loading = "lazy";
-          img.decoding = "async";
-          img.className =
-            "aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 active:scale-95";
-          var p = document.createElement("p");
-          p.className = "text-gray-800 dark:text-neutral-200 transition-colors hover:text-black dark:hover:text-white";
-          p.textContent = g.t;
-          a.appendChild(img);
-          a.appendChild(p);
-          li.appendChild(a);
-          row.appendChild(li);
-        });
-        if (row.children.length) sec.hidden = false;
-      } catch {}
-    })();
-  </script>
+      (function () {
+        try {
+          var r = JSON.parse(localStorage.getItem("recently-played") || "[]");
+          if (!Array.isArray(r) || !r.length) return;
+          var sec = document.getElementById("recent");
+          var row = document.getElementById("recent-row");
+          r.slice(0, 10).forEach(function (g) {
+            if (!g || !g.s || !g.t || !g.i || valid.indexOf(g.s) < 0) return;
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = "/games/" + g.s;
+            a.className = "group flex h-full flex-col rounded-xl p-2 no-underline transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-900";
+            var img = document.createElement("img");
+            img.src = g.i;
+            img.alt = g.t + " unblocked - play online free";
+            img.width = 300;
+            img.height = 200;
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.className =
+              "aspect-[3/2] h-auto w-full rounded-lg bg-neutral-100 object-cover dark:bg-neutral-900";
+            var p = document.createElement("p");
+            p.className =
+              "mt-2 px-1 text-sm font-medium text-gray-800 dark:text-neutral-200";
+            p.textContent = g.t;
+            a.appendChild(img);
+            a.appendChild(p);
+            li.appendChild(a);
+            row.appendChild(li);
+          });
+          if (row.children.length) sec.hidden = false;
+        } catch {}
+      })();
+    </script>
 
-  <h2 class="sr-only">All unblocked games</h2>
-  <ul class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-[10px] p-0 m-0">
-    {
-      validGames.map((slug, i) => {
-        const seo = gamesMap[slug];
-        return (
-          <li>
-            <Gametile
-              Game={seo.title}
-              Path={"/games/" + slug}
-              Image={seo.image}
-              eager={i === 0}
-            />
-          </li>
-        );
-      })
-    }
-  </ul>
+    <h2 class="sr-only">All unblocked games</h2>
+    <ul
+      class="grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-4 p-0"
+    >
+      {
+        validGames.map((slug, i) => {
+          const seo = gamesMap[slug];
+          return (
+            <li>
+              <Gametile
+                Game={seo.title}
+                Path={"/games/" + slug}
+                Image={seo.image}
+                eager={i === 0}
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
 </Layout>

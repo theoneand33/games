@@ -9,7 +9,7 @@ const { gamePath } = Astro.props;
 ---
 
 <div id="flash-container" class="text-center">
-  <div id="flash-player-wrap" data-path={gamePath} class="flex items-center justify-center p-6 min-h-[calc(100vh-100px)] box-border">
+  <div id="flash-player-wrap" data-path={gamePath} class="box-border flex min-h-[60vh] items-center justify-center p-4">
     <div class="flash-loading">Loading game...</div>
   </div>
   <div class="flex justify-center pt-2">
