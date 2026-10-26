@@ -20,7 +20,9 @@ for (const [slug, game] of Object.entries(gamesMap)) {
   if (game.gamePath && !existsSync(`public${game.gamePath}`))
     problems.push(`${slug}: missing game file ${game.gamePath}`);
   if (!game.isFlash && !HTML5_BRANCHES.includes(slug))
-    problems.push(`${slug}: no HTML5 branch in games/[slug].astro`);
+    problems.push(
+      `${slug}: non-Flash game needs a branch in games/[slug].astro and an entry in HTML5_BRANCHES`,
+    );
 }
 
 // host redirects run before static files, so a source that is also a slug kills that game
@@ -30,8 +32,13 @@ for (const { source } of redirects) {
     problems.push(`${source}: redirect shadows a game page`);
 }
 
-if (!readFileSync("public/robots.txt", "utf8").includes(`${SITE}/sitemap.xml`))
-  problems.push("robots.txt: sitemap URL does not match the site origin");
+const sitemapUrl = `${SITE}/sitemap-index.xml`;
+if (
+  !readFileSync("public/robots.txt", "utf8").includes(`Sitemap: ${sitemapUrl}`)
+)
+  problems.push(`robots.txt: missing "Sitemap: ${sitemapUrl}"`);
+if (!existsSync("dist/sitemap-index.xml"))
+  problems.push("dist/sitemap-index.xml missing");
 
 if (problems.length) {
   console.error(

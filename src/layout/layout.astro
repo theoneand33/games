@@ -41,8 +41,9 @@ const gameYear = seo?.year || "";
 // URL
 const canonicalPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
-// absolute, because games/[slug].astro sets <base> for vendored bundles
-const skipHref = `${canonicalPath}#main-content`;
+// absolute, because games/[slug].astro sets <base> for vendored bundles;
+// the 404 is served for any path, so it must stay an in-page jump
+const skipHref = noIndex ? "#main-content" : `${canonicalPath}#main-content`;
 
 // More Games cross-linking — same genre first, then fill from popular
 const validGames = defaultGames.filter((s) => gamesMap[s]);

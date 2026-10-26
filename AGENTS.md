@@ -48,7 +48,7 @@ Follow these steps in order.
 
 Use absolute asset paths. Bad: `gamePath: "flash/mygame.swf"`. Good: `gamePath: "/flash/mygame.swf"`.
 
-If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astro` instead of a new page. Copy the `run-3` branch for a vendored bundle (set `<base href="...">`, load the script with `is:inline`) or the `webtris` branch for an iframe. Set `isFlash: false`. Do not use the `Flash` component.
+If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astro` instead of a new page, and add the slug to `HTML5_BRANCHES` in `scripts/check-pages.ts` (the build fails without it). Copy the `run-3` branch for a vendored bundle (set `<base href="...">`, load the script with `is:inline`) or the `webtris` branch for an iframe. Set `isFlash: false`. Do not use the `Flash` component.
 
 ### 2.4 How Pages Work
 
