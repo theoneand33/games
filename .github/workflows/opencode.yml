@@ -31,4 +31,4 @@ jobs:
         env:
           META_MODEL_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         with:
-          model: openrouter/deepseek/deepseek-v4.1-flash-1017
+          model: deepseek/deepseek-v4.1-flash-1017
