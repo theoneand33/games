@@ -9,16 +9,25 @@ const { Game, Path, Image, eager = false } = Astro.props;
 const altText = `${Game} unblocked - play online free`;
 ---
 
-<a href={Path} class="m-5 inline-block max-w-full text-center no-underline">
-  <img
-    src={Image}
-    alt={altText}
-    width="300"
-    height="200"
-    loading={eager ? "eager" : "lazy"}
-    fetchpriority={eager ? "high" : undefined}
-    decoding="async"
-    class="aspect-[3/2] h-auto w-full max-w-[300px] rounded-xl transition-transform duration-300 hover:scale-105 active:scale-95"
-  />
-  <p class="text-gray-800 dark:text-neutral-200 transition-colors hover:text-black dark:hover:text-white">{Game}</p>
+<a
+  href={Path}
+  class="group flex h-full flex-col rounded-xl p-2 no-underline transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100 dark:hover:bg-neutral-900 dark:focus-visible:bg-neutral-900"
+>
+  <span class="block overflow-hidden rounded-lg bg-neutral-100 dark:bg-neutral-900">
+    <img
+      src={Image}
+      alt={altText}
+      width="300"
+      height="200"
+      loading={eager ? "eager" : "lazy"}
+      fetchpriority={eager ? "high" : undefined}
+      decoding="async"
+      class="aspect-[3/2] h-auto w-full transition-transform duration-300 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+    />
+  </span>
+  <p
+    class="mt-2 px-1 text-sm font-medium text-gray-800 transition-colors group-hover:text-black dark:text-neutral-200 dark:group-hover:text-white"
+  >
+    {Game}
+  </p>
 </a>
