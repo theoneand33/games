@@ -22,6 +22,6 @@ jobs:
       - name: Run opencode
         uses: anomalyco/opencode/github@latest
         env:
-          META_MODEL_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         with:
-          model: deepseek/deepseek-v4.1-flash-1017
+          model: openrouter/deepseek/deepseek-v4.1-flash-1017
