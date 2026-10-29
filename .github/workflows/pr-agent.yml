@@ -2,14 +2,24 @@ name: PR Agent
 
 on:
   pull_request_target:
-    types: [opened, reopened, synchronize, ready_for_review, review_requested]
+    types: [opened, reopened, synchronize, ready_for_review]
+    paths-ignore:
+      - "**.md"
+      - "public/images/**"
+      - "public/flash/**"
   issue_comment:
     types: [created]
 
+concurrency:
+  group: pr-agent-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   pr_agent_job:
-    if: ${{ github.event.sender.type != 'Bot' && (github.event_name == 'pull_request_target' || github.event.issue.pull_request) }}
+    # Ignore non-command comments, bot senders, and draft PRs.
+    if: ${{ github.event.sender.type != 'Bot' && (github.event_name == 'pull_request_target' || github.event.issue.pull_request) && (github.event_name != 'issue_comment' || contains(github.event.comment.body, '/')) && (github.event.pull_request.draft != true) }}
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
       issues: write
@@ -22,12 +32,12 @@ jobs:
           OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY }}
           config.model: "openrouter/deepseek/deepseek-v4.1-flash-1017"
           config.fallback_models: "[]"
-          config.custom_model_max_tokens: "131072"
-          config.ai_timeout: "600"
+          config.custom_model_max_tokens: "16384"
+          config.ai_timeout: "180"
           # Prefer this OpenRouter endpoint (DeepInfra, fp8, flex tier); fall back if unavailable.
           OPENROUTER__PROVIDER_ORDER: '["deepinfra/fp8/flex"]'
           OPENROUTER__ALLOW_FALLBACKS: "true"
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
           github_action_config.auto_improve: "false"
-          github_action_config.pr_actions: '["opened", "reopened", "synchronize", "ready_for_review", "review_requested"]'
+          github_action_config.pr_actions: '["opened", "reopened", "synchronize", "ready_for_review"]'

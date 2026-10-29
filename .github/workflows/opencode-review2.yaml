@@ -3,10 +3,20 @@ name: opencode-review
 on:
   pull_request:
     types: [opened, synchronize]
+    paths-ignore:
+      - "**.md"
+      - "public/images/**"
+      - "public/flash/**"
+
+concurrency:
+  group: opencode-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   opencode-review:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       id-token: write
       contents: read
