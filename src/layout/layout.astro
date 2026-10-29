@@ -225,7 +225,8 @@ const moreGames = (() => {
     <script is:inline defer fetchpriority="low" src="https://rybbit.theoneand33.dev/api/script.js" data-site-id="62ae034debad"></script>
     <script is:inline defer fetchpriority="low" src="/_vercel/insights/script.js"></script>
     <script is:inline defer fetchpriority="low" src="/_vercel/speed-insights/script.js"></script>
-    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+    {/* non-blocking: 41KB blocking stylesheet costs ~600ms FCP on Slow 4G */}
+    <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" media="print" onload="this.media='all'" />
     <script src="/pagefind/pagefind-component-ui.js" type="module" fetchpriority="low" is:inline></script>
     <script is:inline>
       // ponytail: light is default, dark only on explicit choice
