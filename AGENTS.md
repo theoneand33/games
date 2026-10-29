@@ -21,20 +21,21 @@ Use these names. Do not invent synonyms.
 | `bun install`   | `npm install`                  |
 | `bun add <pkg>` | `npm install <pkg>`            |
 | `bun run dev`   | `npm run dev`                  |
-| `bun run check` | `astro check` alone            |
+| `bun run build` | `astro build` alone            |
 | `bun run lint`  | `npx prettier --check .` alone |
 
 Gotchas:
 
-- `bun run check` runs `astro check`, then `bun run build`. `bun run build` runs `git lfs pull`, regenerates `llms.txt` via `scripts/generate-llms.ts`, runs `astro build`, then `pagefind`. The command is slow. Wait for it to complete.
+- `bun run check` runs `astro check` only. `bun run build` runs `git lfs pull`, regenerates `llms.txt` via `scripts/generate-llms.ts`, runs `astro build`, runs `scripts/check-pages.ts`, then `pagefind`. The build is slow. Wait for it to complete.
 - `bun run lint` runs `prettier --check .`. To fix format, run `bunx prettier --write .`.
 - Tailwind is v4 via `@tailwindcss/vite`. Global styles live in `src/styles/styles.css` (imported by `layout.astro`). Do not create `tailwind.config.js`. That file has no effect.
 
 ### 2.2 Verify After Every Change
 
 1. Run `bun run check`.
-2. Run `bun run lint`.
-3. If a check fails, fix the error before you commit.
+2. Run `bun run build`.
+3. Run `bun run lint`.
+4. If a check fails, fix the error before you commit.
 
 ### 2.3 Add a New Game
 
@@ -44,7 +45,7 @@ Follow these steps in order.
 2. Put the cover image in `public/images/`. Use 300x200 `.webp` (3/2). Example: `bloons-td-5-cover.webp`.
 3. Add one entry to `gamesMap` in `src/data/game-seo.ts` via the `seo()` helper: `seo(title, genre, year, image, isFlash, hook, gamePath, guide)`. Key the entry by slug. Set `isFlash: true` and `gamePath: "/flash/<file>.swf"`.
 4. Add the slug to `defaultGames` in `src/data/game-seo.ts`. Insert by popularity, most popular first, not at the end. Keep series entries together as a block. Use an existing `genre` string verbatim — `layout.astro` groups More Games by exact match. Unknown slugs are silently filtered, so verify the new slug renders on `/`.
-5. `bun run check` already regenerates `public/llms.txt` via `build`. Run `bun run llms` only to regenerate without a full build.
+5. `bun run build` already regenerates `public/llms.txt`. Run `bun run llms` only to regenerate without a full build.
 
 Use absolute asset paths. Bad: `gamePath: "flash/mygame.swf"`. Good: `gamePath: "/flash/mygame.swf"`.
 

@@ -7,7 +7,7 @@
     "build": "sh -c 'command -v git-lfs >/dev/null && git lfs pull; ! find public/flash -name \"*.swf\" -size -1000c | grep -q . || { echo \"SWF files are LFS pointers; run git lfs pull\" >&2; exit 1; }' && bun scripts/generate-llms.ts && astro build && bun scripts/check-pages.ts && bunx pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check && bun run build",
+    "check": "astro check",
     "lint": "prettier --check .",
     "llms": "bun scripts/generate-llms.ts"
   },
