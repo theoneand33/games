@@ -15,9 +15,9 @@ jobs:
     # Job-level so a skipped run (non-command comment, draft) cannot cancel an in-flight review.
     concurrency:
       group: pr-agent-${{ github.event.pull_request.number || github.event.issue.number }}
-      cancel-in-progress: true
-    # Ignore non-command comments, bot senders, and draft PRs.
-    if: ${{ github.event.sender.type != 'Bot' && (github.event_name == 'pull_request_target' || github.event.issue.pull_request) && (github.event_name != 'issue_comment' || startsWith(github.event.comment.body, '/')) && (github.event.pull_request.draft != true) }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request_target' }}
+    # Ignore non-command and opencode comments, bot senders, and draft PRs.
+    if: ${{ github.event.sender.type != 'Bot' && (github.event_name == 'pull_request_target' || github.event.issue.pull_request) && (github.event_name != 'issue_comment' || (startsWith(github.event.comment.body, '/') && !startsWith(github.event.comment.body, '/oc') && !startsWith(github.event.comment.body, '/opencode'))) && (github.event.pull_request.draft != true) }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
