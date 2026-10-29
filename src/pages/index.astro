@@ -61,7 +61,7 @@ const link =
       >
       </ul>
     </section>
-    <script is:inline define:vars={{ valid: defaultGames }}>
+    <script is:inline define:vars={{ valid: validGames }}>
       (function () {
         try {
           var r = JSON.parse(localStorage.getItem("recently-played") || "[]");

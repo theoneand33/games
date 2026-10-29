@@ -2,7 +2,7 @@
 import "../styles/styles.css";
 import Gametile from "../components/gametile.astro";
 import { gamesMap, defaultGames, MORE_COUNT } from "../data/game-seo";
-import { SITE } from "../data/site";
+import { SITE, LAST_UPDATED } from "../data/site";
 
 interface Props {
   slug?: string;
@@ -18,8 +18,7 @@ const siteUrl = (Astro.site?.toString() ?? SITE).replace(/\/$/, "");
 const seo = slug ? gamesMap[slug] : undefined;
 const Game = seo?.title;
 const isFlash = seo?.isFlash ?? false;
-// ponytail: static date keeps dateModified stable across builds; bump with the catalog
-const dateModified = "2026-10-22";
+const dateModified = LAST_UPDATED;
 const jsonLD = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 // Title
@@ -140,7 +139,7 @@ const moreGames = (() => {
               },
               applicationCategory: "GameApplication",
               dateModified: dateModified,
-              ...(gameYear ? { datePublished: gameYear } : {}),
+              ...(gameYear ? { datePublished: `${gameYear}-01-01` } : {}),
               ...(isFlash ? { requirements: "No Flash plugin needed - runs via Ruffle emulator" } : {}),
             })}
           />
@@ -237,6 +236,7 @@ const moreGames = (() => {
         if (m) m.setAttribute("content", dark ? "#0a0a0a" : "#ffffff");
       } catch {}
     </script>
+    <slot name="head" />
   </head>
   <body class="bg-white text-gray-900 dark:bg-neutral-950 dark:text-neutral-100">
     <a href={skipHref} class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded-lg focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:text-black dark:focus:bg-neutral-900 dark:focus:text-white">Skip to content</a>
@@ -368,7 +368,7 @@ const moreGames = (() => {
         sync();
       })();
     </script>
-    <script is:inline define:vars={{ slugs: defaultGames }}>
+    <script is:inline define:vars={{ slugs: validGames }}>
       // ponytail: static build, so pick random client-side
       document.addEventListener("click", function (e) {
         var b = e.target && e.target.closest ? e.target.closest("#random-game") : null;

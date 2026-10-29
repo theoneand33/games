@@ -17,11 +17,17 @@ if (!seo) {
 
 <Layout slug={slug}>
   {
+    slug === "run-3" && (
+      <Fragment slot="head">
+        <base href="/games/run3/" />
+      </Fragment>
+    )
+  }
+  {
     seo.isFlash ? (
       <Flash gamePath={seo.gamePath} />
     ) : slug === "run-3" ? (
       <>
-        <base href="/games/run3/" />
         <div id="run3-container">
           <div id="run3-wrapper" class="text-center h-[96vh] w-full">
             <div id="openfl-content" class="bg-black w-full h-full" />
