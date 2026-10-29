@@ -2,11 +2,21 @@ name: opencode-review
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, ready_for_review, reopened]
+    paths-ignore:
+      - "**.md"
+      - "public/images/**"
+      - "public/flash/**"
 
 jobs:
   opencode-review:
+    # Job-level so a skipped draft run cannot cancel an in-flight review.
+    concurrency:
+      group: opencode-review-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       id-token: write
       contents: read
