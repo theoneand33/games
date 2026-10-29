@@ -6,7 +6,10 @@
       "models": {
         "deepseek/deepseek-v4.1-flash-1017": {
           "options": {
-            "provider": { "only": ["deepinfra/fp8/flex"] }
+            "provider": {
+              "order": ["deepinfra/fp8/flex"],
+              "allow_fallbacks": true
+            }
           }
         }
       }

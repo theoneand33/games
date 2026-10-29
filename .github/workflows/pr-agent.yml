@@ -24,8 +24,9 @@ jobs:
           config.fallback_models: "[]"
           config.custom_model_max_tokens: "131072"
           config.ai_timeout: "600"
-          # Hard-pin to this OpenRouter endpoint: DeepInfra, fp8, flex tier.
-          OPENROUTER__PROVIDER_ONLY: '["deepinfra/fp8/flex"]'
+          # Prefer this OpenRouter endpoint (DeepInfra, fp8, flex tier); fall back if unavailable.
+          OPENROUTER__PROVIDER_ORDER: '["deepinfra/fp8/flex"]'
+          OPENROUTER__ALLOW_FALLBACKS: "true"
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
           github_action_config.auto_improve: "false"
