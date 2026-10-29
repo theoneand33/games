@@ -8,12 +8,12 @@ on:
       - "public/images/**"
       - "public/flash/**"
 
-concurrency:
-  group: opencode-review-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 jobs:
   opencode-review:
+    # Job-level so a skipped draft run cannot cancel an in-flight review.
+    concurrency:
+      group: opencode-review-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 15
