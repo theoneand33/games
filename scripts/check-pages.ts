@@ -1,7 +1,7 @@
 // ponytail: fail the build if a game page is missing, redirected, lacks its assets,
 // or is shadowed by a vercel.json redirect
 import { existsSync, readFileSync } from "node:fs";
-import { gamesMap } from "../src/data/game-seo.ts";
+import { gamesMap, defaultGames } from "../src/data/game-seo.ts";
 import { SITE } from "../src/data/site.ts";
 
 // non-Flash slugs need a hand-written branch in games/[slug].astro
@@ -24,6 +24,18 @@ for (const [slug, game] of Object.entries(gamesMap)) {
       `${slug}: non-Flash game needs a branch in games/[slug].astro and an entry in HTML5_BRANCHES`,
     );
 }
+
+// the home-page order and the page registry must stay in sync, or games go missing
+for (const slug of defaultGames) {
+  if (!gamesMap[slug])
+    problems.push(`${slug}: in defaultGames but not gamesMap`);
+}
+for (const slug of Object.keys(gamesMap)) {
+  if (!defaultGames.includes(slug))
+    problems.push(`${slug}: in gamesMap but not defaultGames`);
+}
+if (new Set(defaultGames).size !== defaultGames.length)
+  problems.push("defaultGames: duplicate slug");
 
 // host redirects run before static files, so a source that is also a slug kills that game
 const { redirects = [] } = JSON.parse(readFileSync("vercel.json", "utf8"));
