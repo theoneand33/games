@@ -1,4 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["AGENTS.md"]
+  "instructions": ["AGENTS.md"],
+  "provider": {
+    "openrouter": {
+      "models": {
+        "deepseek/deepseek-v4.1-flash-1017": {
+          "options": {
+            "provider": { "only": ["deepinfra/fp8/flex"] }
+          }
+        }
+      }
+    }
+  }
 }
