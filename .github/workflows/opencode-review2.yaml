@@ -33,5 +33,7 @@ jobs:
         uses: anomalyco/opencode/github@latest
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Headless run: no one can answer permission prompts.
+          OPENCODE_PERMISSION: '{"*":"allow"}'
         with:
           model: openrouter/deepseek/deepseek-v4.1-flash-1017
