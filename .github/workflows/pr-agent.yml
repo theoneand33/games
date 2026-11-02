@@ -35,9 +35,6 @@ jobs:
           config.max_output_tokens: "16384"
           config.ai_timeout: "180"
           config.retry_same_model_on_timeout: "false"
-          # Prefer this OpenRouter endpoint (DeepInfra, fp8, flex tier); fall back if unavailable.
-          OPENROUTER__PROVIDER_ORDER: '["deepinfra/fp8/flex"]'
-          OPENROUTER__ALLOW_FALLBACKS: "true"
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
           github_action_config.auto_improve: "false"

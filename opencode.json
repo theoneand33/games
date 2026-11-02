@@ -5,19 +5,5 @@
     "external_directory": {
       "/tmp/**": "allow"
     }
-  },
-  "provider": {
-    "openrouter": {
-      "models": {
-        "deepseek/deepseek-v4.1-flash-1017": {
-          "options": {
-            "provider": {
-              "order": ["deepinfra/fp8/flex"],
-              "allow_fallbacks": true
-            }
-          }
-        }
-      }
-    }
   }
 }
