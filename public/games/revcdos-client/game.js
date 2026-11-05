@@ -593,7 +593,7 @@ if (localStorage.getItem('vcsky.key')) {
     updateToken(keyInput.value);
 } else {
     keyStatus.textContent = t('invalidKey');
-    keyStatus.style.color = 'shite';
+    keyStatus.style.color = 'white';
     keyStatus.style.fontWeight = 'normal';
 }
 
