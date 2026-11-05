@@ -20,16 +20,18 @@ function wrapIDBFS(logger) {
         return new Promise((resolve, reject) => {
             const tx = db.transaction([instance.DB_STORE_NAME], "readwrite");
             const store = tx.objectStore(instance.DB_STORE_NAME);
+            let writeError = null;
             // register handlers before any request so a failure cannot commit
             tx.oncomplete = () => resolve();
-            tx.onerror = () => reject(tx.error);
-            tx.onabort = () => reject(tx.error || new Error("IDBFS transaction aborted"));
+            tx.onerror = () => reject(writeError || tx.error);
+            tx.onabort = () => reject(writeError || tx.error || new Error("IDBFS transaction aborted"));
             // ponytail: clear in the same transaction so a failed write keeps old saves
             if (clearFirst) store.clear();
             for (const entry of entries) {
                 instance.storeRemoteEntry(store, entry.path, entry, (err) => {
                     // storeRemoteEntry preventDefaults request errors, so abort explicitly
                     if (err) {
+                        if (!writeError) writeError = err;
                         try {
                             tx.abort();
                         } catch (e) {
