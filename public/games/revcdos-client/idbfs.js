@@ -15,12 +15,14 @@ function wrapIDBFS(logger) {
         });
     }
 
-    async function saveToIDBFS(instance, mount, entries) {
+    async function saveToIDBFS(instance, mount, entries, clearFirst = false) {
         const db = await getDB(instance, mount);
         return new Promise((resolve, reject) => {
             (async function () {
                 const tx = db.transaction([instance.DB_STORE_NAME], "readwrite");
                 const store = tx.objectStore(instance.DB_STORE_NAME);
+                // ponytail: clear in the same transaction so a failed write keeps old saves
+                if (clearFirst) store.clear();
                 
                 for (const entry of entries) {
                     await new Promise((resolveStore, rejectStore) => {
@@ -191,18 +193,9 @@ function wrapIDBFS(logger) {
                             continue;
                         }
                         if (data) {
-                            // ponytail: validate and back up local saves before replacing them
+                            // ponytail: validate first; clear+write atomically so a failure keeps old saves
                             const entries = data.length > 0 ? decodeEntries(data) : [];
-                            const previous = await getLocalEntries(instance, mount);
-                            await clearIDBFS(instance, mount);
-                            try {
-                                if (entries.length > 0) {
-                                    await saveToIDBFS(instance, mount, entries);
-                                }
-                            } catch (e) {
-                                await saveToIDBFS(instance, mount, previous).catch(() => {});
-                                throw e;
-                            }
+                            await saveToIDBFS(instance, mount, entries, true);
                             break;
                         }
                     }
