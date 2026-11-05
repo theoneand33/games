@@ -4,7 +4,7 @@
 ## Site info
 - Homepage: https://unblocked-games.vercel.app
 - Language: English
-- Last updated: 2026-10-22
+- Last updated: 2026-11-05
 - Platforms: Works on all devices including Chrome OS / Chromebook
 
 ## Popular games

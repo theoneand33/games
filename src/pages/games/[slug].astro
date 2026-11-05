@@ -83,7 +83,7 @@ if (!seo) {
         <div id="revcdos-wrapper" class="flex justify-center items-center min-h-[80vh] w-full bg-black">
           <iframe
             id="revcdos-frame"
-            src="/games/revcdos-client/index.html"
+            data-src="/games/revcdos-client/index.html"
             class="w-full max-w-[95vw] h-[80vh] border-0"
             title="GTA: Vice City"
             allow="fullscreen; gamepad; autoplay"
@@ -94,6 +94,20 @@ if (!seo) {
         <div class="flex justify-center pt-2">
           <FullscreenButton targetId="revcdos-container" />
         </div>
+        <script is:inline>
+          (function () {
+            // ponytail: pass ?lang/?cheats/?configurable through to the client
+            var frame = document.getElementById("revcdos-frame");
+            if (frame) frame.src = frame.dataset.src + window.location.search;
+            // ponytail: the client asks its parent (us) to go fullscreen on start
+            window.addEventListener("message", function (event) {
+              if (event.data && event.data.event === "request-fullscreen") {
+                var el = document.getElementById("revcdos-container");
+                if (el && el.requestFullscreen) el.requestFullscreen().catch(function () {});
+              }
+            });
+          })();
+        </script>
       </div>
     ) : (
       <div id="webtris-container">

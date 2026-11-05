@@ -245,7 +245,7 @@ export const gamesMap: Record<string, GameSEO> = {
     false,
     "Explore a neon-soaked open world, run missions, and build a criminal empire in this browser port of the classic.",
     "/games/revcdos-client/index.html",
-    "How to play: drive with W/A/S/D or the arrow keys, aim and fire with the mouse, and follow the radar to each mission marker. Walk up to vehicles and press Enter to get in; use Space for the handbrake and F for the horn. Tip: save often at safehouses, enable ?cheats=1 and press F3 for the cheat menu, and enter a 5-character js-dos key on the start screen to keep cloud saves. Touch and gamepad controls appear automatically on mobile.",
+    "How to play: drive with W/A/S/D or the arrow keys, aim and fire with the mouse, and follow the radar to each mission marker. Walk up to vehicles and press F (or Enter) to get in; use Space for the handbrake and Shift for the horn. Tip: save often at safehouses, enable ?cheats=1 and press F3 for the cheat menu, and enter a 5-character js-dos key on the start screen to keep cloud saves. Touch and gamepad controls appear automatically on mobile.",
   ),
   "riddle-school-2": seo(
     "Riddle School 2",
