@@ -193,6 +193,9 @@ async function loadData() {
         console.error('Failed to open cache:', e);
     }
     const response = await fetch(data_content);
+    if (!response.ok) {
+        throw new Error(`Failed to download game data: ${response.status}`);
+    }
 
     const reader = response.body.getReader();
     let receivedLength = 0;

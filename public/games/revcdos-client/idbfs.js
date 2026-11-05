@@ -181,7 +181,14 @@ function wrapIDBFS(logger) {
         (async function () {
             if (populate) {
                 for (const listener of onLoadListeners) {
-                    const data = await listener(instance, mount);
+                    let data;
+                    try {
+                        data = await listener(instance, mount);
+                    } catch (e) {
+                        // ponytail: a failed cloud fetch must not block local saves
+                        console.error('Failed to load save data:', e);
+                        continue;
+                    }
                     if (data) {
                         await clearIDBFS(instance, mount);
                         if (data.length > 0) {
