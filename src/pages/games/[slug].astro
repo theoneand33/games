@@ -101,6 +101,7 @@ if (!seo) {
             if (frame) frame.src = frame.dataset.src + window.location.search;
             // ponytail: the client asks its parent (us) to go fullscreen on start
             window.addEventListener("message", function (event) {
+              if (event.origin !== window.location.origin) return;
               if (event.data && event.data.event === "request-fullscreen") {
                 var el = document.getElementById("revcdos-container");
                 if (el && el.requestFullscreen) el.requestFullscreen().catch(function () {});

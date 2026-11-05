@@ -186,7 +186,7 @@ async function loadData() {
     try {
         cache = await caches.open(location.hostname);
         const cached = await cache.match(data_content);
-        if (cached && data_content !== "index.data") {
+        if (cached && cached.ok && data_content !== "index.data") {
             return new Uint8Array(await cached.arrayBuffer());
         }
     } catch (e) {

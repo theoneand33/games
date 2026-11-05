@@ -180,23 +180,27 @@ function wrapIDBFS(logger) {
     window.syncfs = (instance, mount, populate, callback, originalSync) => {
         (async function () {
             if (populate) {
-                for (const listener of onLoadListeners) {
-                    let data;
-                    try {
-                        data = await listener(instance, mount);
-                    } catch (e) {
-                        // ponytail: a failed cloud fetch must not block local saves
-                        console.error('Failed to load save data:', e);
-                        continue;
-                    }
-                    if (data) {
-                        await clearIDBFS(instance, mount);
-                        if (data.length > 0) {
-                            const entries = decodeEntries(data);
-                            await saveToIDBFS(instance, mount, entries);
+                // ponytail: any cloud-load failure must not block local saves
+                try {
+                    for (const listener of onLoadListeners) {
+                        let data;
+                        try {
+                            data = await listener(instance, mount);
+                        } catch (e) {
+                            console.error('Failed to load save data:', e);
+                            continue;
                         }
-                        break;
+                        if (data) {
+                            await clearIDBFS(instance, mount);
+                            if (data.length > 0) {
+                                const entries = decodeEntries(data);
+                                await saveToIDBFS(instance, mount, entries);
+                            }
+                            break;
+                        }
                     }
+                } catch (e) {
+                    console.error('Failed to restore save data:', e);
                 }
             }
 
