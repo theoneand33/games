@@ -478,7 +478,10 @@ clickToPlay.addEventListener('click', (e) => {
         return;
     }
     if (e.target === clickToPlay || e.target === clickLink) {
-        startGame(e);
+        startGame(e).catch((err) => {
+            console.error(err);
+            setStatus(`Error: ${err.message}`);
+        });
         if (!isMobile && autoFullScreen) {
             if (window.top === window) {
                 document.body.requestFullscreen(document.documentElement);

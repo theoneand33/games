@@ -191,11 +191,17 @@ function wrapIDBFS(logger) {
                             continue;
                         }
                         if (data) {
-                            // ponytail: validate before clearing so a bad payload keeps local saves
+                            // ponytail: validate and back up local saves before replacing them
                             const entries = data.length > 0 ? decodeEntries(data) : [];
+                            const previous = await getLocalEntries(instance, mount);
                             await clearIDBFS(instance, mount);
-                            if (entries.length > 0) {
-                                await saveToIDBFS(instance, mount, entries);
+                            try {
+                                if (entries.length > 0) {
+                                    await saveToIDBFS(instance, mount, entries);
+                                }
+                            } catch (e) {
+                                await saveToIDBFS(instance, mount, previous).catch(() => {});
+                                throw e;
                             }
                             break;
                         }
