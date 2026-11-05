@@ -18,41 +18,26 @@ function wrapIDBFS(logger) {
     async function saveToIDBFS(instance, mount, entries, clearFirst = false) {
         const db = await getDB(instance, mount);
         return new Promise((resolve, reject) => {
-            (async function () {
-                const tx = db.transaction([instance.DB_STORE_NAME], "readwrite");
-                const store = tx.objectStore(instance.DB_STORE_NAME);
-                // ponytail: clear in the same transaction so a failed write keeps old saves
-                if (clearFirst) store.clear();
-                
-                for (const entry of entries) {
-                    await new Promise((resolveStore, rejectStore) => {
-                        instance.storeRemoteEntry(store, entry.path, entry, (err) => {
-                            if (err) return rejectStore(err);
-                            resolveStore();
-                        });
-                    });
-                }
-
-                tx.onerror = (e) => {
-                    reject(e);
-                    e.preventDefault();
-                };
-                tx.oncomplete = () => {
-                    resolve();
-                };
-            })().catch(reject);
-        });
-    }
-
-    async function clearIDBFS(instance, mount) {
-        const db = await getDB(instance, mount);
-        const tx = db.transaction([instance.DB_STORE_NAME], "readwrite");
-        const store = tx.objectStore(instance.DB_STORE_NAME);
-        
-        await new Promise((resolve, reject) => {
-            const req = store.clear();
-            req.onsuccess = () => resolve();
-            req.onerror = () => reject(req.error);
+            const tx = db.transaction([instance.DB_STORE_NAME], "readwrite");
+            const store = tx.objectStore(instance.DB_STORE_NAME);
+            // register handlers before any request so a failure cannot commit
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => reject(tx.error);
+            tx.onabort = () => reject(tx.error || new Error("IDBFS transaction aborted"));
+            // ponytail: clear in the same transaction so a failed write keeps old saves
+            if (clearFirst) store.clear();
+            for (const entry of entries) {
+                instance.storeRemoteEntry(store, entry.path, entry, (err) => {
+                    // storeRemoteEntry preventDefaults request errors, so abort explicitly
+                    if (err) {
+                        try {
+                            tx.abort();
+                        } catch (e) {
+                            // transaction already finished
+                        }
+                    }
+                });
+            }
         });
     }
 
