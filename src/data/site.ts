@@ -2,4 +2,4 @@
 export const SITE = "https://unblocked-games.vercel.app";
 
 // ponytail: bump with the catalog; page metadata and llms.txt must agree
-export const LAST_UPDATED = "2026-10-22";
+export const LAST_UPDATED = "2026-11-05";

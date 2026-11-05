@@ -4,13 +4,14 @@
 ## Site info
 - Homepage: https://unblocked-games.vercel.app
 - Language: English
-- Last updated: 2026-10-22
+- Last updated: 2026-11-05
 - Platforms: Works on all devices including Chrome OS / Chromebook
 
 ## Popular games
 - Happy Wheels: https://unblocked-games.vercel.app/games/happy-wheels
 - Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
 - Run 3: https://unblocked-games.vercel.app/games/run-3
+- GTA: Vice City: https://unblocked-games.vercel.app/games/revcdos
 - The Binding of Isaac (Flash): https://unblocked-games.vercel.app/games/binding-of-isaac
 - Meat Boy: https://unblocked-games.vercel.app/games/meat-boy
 - Mutilate a Doll 2: https://unblocked-games.vercel.app/games/mutilate-a-doll-2
@@ -18,7 +19,6 @@
 - Fireboy and Watergirl 2: Light Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-2
 - Fireboy and Watergirl 3: Ice Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-3
 - Fireboy and Watergirl 4: Crystal Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-4
-- Bloons TD 5: https://unblocked-games.vercel.app/games/bloons-td-5
 
 ## All game pages
 - A Koopa's Revenge 2: https://unblocked-games.vercel.app/games/a-koopas-revenge-2
@@ -92,6 +92,7 @@
 - Geography Game USA: https://unblocked-games.vercel.app/games/geography-game-usa
 - Give Up Robot: https://unblocked-games.vercel.app/games/give-up-robot-1
 - Give Up Robot 2: https://unblocked-games.vercel.app/games/give-up-robot-2
+- GTA: Vice City: https://unblocked-games.vercel.app/games/revcdos
 - Gun Mayhem 1: https://unblocked-games.vercel.app/games/gun-mayhem
 - Gun Mayhem 2: https://unblocked-games.vercel.app/games/gun-mayhem-2
 - Happy Wheels: https://unblocked-games.vercel.app/games/happy-wheels

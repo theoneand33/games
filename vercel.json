@@ -1,4 +1,14 @@
 {
+  "rewrites": [
+    {
+      "source": "/vcsky/:path*",
+      "destination": "https://revdos.theoneand33.dev/vcsky/:path*"
+    },
+    {
+      "source": "/vcbr/:path*",
+      "destination": "https://revdos.theoneand33.dev/vcbr/:path*"
+    }
+  ],
   "redirects": [
     {
       "source": "/games/happywheels",
@@ -42,6 +52,15 @@
     },
     {
       "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/games/revcdos-client/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

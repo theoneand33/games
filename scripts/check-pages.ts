@@ -5,7 +5,7 @@ import { gamesMap, defaultGames } from "../src/data/game-seo.ts";
 import { SITE } from "../src/data/site.ts";
 
 // non-Flash slugs need a hand-written branch in games/[slug].astro
-const HTML5_BRANCHES = ["run-3", "webtris"];
+const HTML5_BRANCHES = ["run-3", "webtris", "revcdos"];
 const problems: string[] = [];
 
 for (const [slug, game] of Object.entries(gamesMap)) {
