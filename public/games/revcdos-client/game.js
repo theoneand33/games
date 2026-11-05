@@ -338,7 +338,11 @@ async function loadGame(data) {
         info,
         receiveInstance,
     ) => {
-        const wasm = await (await fetch(wasm_content ? wasm_content : "index.wasm")).arrayBuffer();
+        const wasmResponse = await fetch(wasm_content ? wasm_content : "index.wasm");
+        if (!wasmResponse.ok) {
+            throw new Error(`Failed to download wasm: ${wasmResponse.status}`);
+        }
+        const wasm = await wasmResponse.arrayBuffer();
         const module = await WebAssembly.instantiate(wasm, info);
         return receiveInstance(module.instance, module);
     };
