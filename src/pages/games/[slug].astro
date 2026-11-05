@@ -78,6 +78,23 @@ if (!seo) {
           })();
         </script>
       </>
+    ) : slug === "revcdos" ? (
+      <div id="revcdos-container">
+        <div id="revcdos-wrapper" class="flex justify-center items-center min-h-[80vh] w-full bg-black">
+          <iframe
+            id="revcdos-frame"
+            src="/games/revcdos-client/index.html"
+            class="w-full max-w-[95vw] h-[80vh] border-0"
+            title="GTA: Vice City"
+            allow="fullscreen; gamepad; autoplay"
+            allowfullscreen
+            loading="eager"
+          />
+        </div>
+        <div class="flex justify-center pt-2">
+          <FullscreenButton targetId="revcdos-container" />
+        </div>
+      </div>
     ) : (
       <div id="webtris-container">
         <div id="webtris-wrapper" class="flex justify-center items-center min-h-[80vh] w-full bg-[#010101]">
@@ -129,6 +146,30 @@ if (!seo) {
   :global(#run3-container:-webkit-full-screen canvas) {
     width: min(100vw, 133.33vh);
     height: auto;
+  }
+  :global(#revcdos-container:fullscreen),
+  :global(#revcdos-container:-webkit-full-screen) {
+    width: 100vw;
+    min-height: 100vh;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  :global(#revcdos-container:fullscreen #revcdos-wrapper),
+  :global(#revcdos-container:-webkit-full-screen #revcdos-wrapper) {
+    width: 100%;
+    min-height: calc(100vh - 48px);
+    flex: 1;
+  }
+  :global(#revcdos-container:fullscreen iframe),
+  :global(#revcdos-container:-webkit-full-screen iframe) {
+    width: 100%;
+    max-width: none !important;
+    height: calc(100vh - 48px);
+    flex: 1;
   }
   :global(#webtris-container:fullscreen),
   :global(#webtris-container:-webkit-full-screen) {
