@@ -44,15 +44,23 @@ const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 // the 404 is served for any path, so it must stay an in-page jump
 const skipHref = noIndex ? "#main-content" : `${canonicalPath}#main-content`;
 
-// More Games cross-linking — same genre first, then fill from popular
+// More Games cross-linking — same series, then same genre, then same primary genre, then popular
+// ponytail: series = first slug word (duck-life-2 → duck); genres are too fragmented to match exactly
 const validGames = defaultGames.filter((s) => gamesMap[s]);
+const seriesOf = (s: string) => s.replace(/^the-/, "").split("-")[0];
+const primaryOf = (g: string) => g.split(" / ")[0];
 const moreGames = (() => {
   if (!slug || !seo) return validGames.slice(0, MORE_COUNT);
-  const rest = validGames.filter((s) => s !== slug);
-  return [
-    ...rest.filter((s) => gamesMap[s].genre === seo.genre),
-    ...rest.filter((s) => gamesMap[s].genre !== seo.genre),
-  ].slice(0, MORE_COUNT);
+  const rank = (s: string) =>
+    seriesOf(s) === seriesOf(slug) ? 0
+    : gamesMap[s].genre === seo.genre ? 1
+    : primaryOf(gamesMap[s].genre) === primaryOf(seo.genre) ? 2
+    : 3;
+  // Array.sort is stable, so popularity order holds inside each tier
+  return validGames
+    .filter((s) => s !== slug)
+    .sort((a, b) => rank(a) - rank(b))
+    .slice(0, MORE_COUNT);
 })();
 ---
 
