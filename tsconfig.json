@@ -6,6 +6,7 @@
     "public/ruffle/",
     "public/flash/",
     "public/games/run3/",
+    "public/games/revcdos-client/",
     "dist/",
     ".astro/",
     "node_modules/"
