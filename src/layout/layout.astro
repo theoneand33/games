@@ -45,9 +45,9 @@ const pageUrl = `${siteUrl}${canonicalPath === "/" ? "" : canonicalPath}`;
 const skipHref = noIndex ? "#main-content" : `${canonicalPath}#main-content`;
 
 // More Games cross-linking — same series, then same genre, then same primary genre, then popular
-// ponytail: series = first slug word (duck-life-2 → duck); genres are too fragmented to match exactly
+// ponytail: series = first slug word (duck-life-2 → duck), skipping filler prefixes that join unrelated games (super-mario vs super-smash); genres are too fragmented to match exactly
 const validGames = defaultGames.filter((s) => gamesMap[s]);
-const seriesOf = (s: string) => s.replace(/^the-/, "").split("-")[0];
+const seriesOf = (s: string) => s.replace(/^(the|super|stick)-/, "").split("-")[0];
 const primaryOf = (g: string) => g.split(" / ")[0];
 const moreGames = (() => {
   if (!slug || !seo) return validGames.slice(0, MORE_COUNT);
