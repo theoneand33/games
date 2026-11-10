@@ -1,0 +1,76 @@
+name: ai-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+    paths-ignore:
+      - "**.md"
+      - "public/images/**"
+      - "public/flash/**"
+      - "Cargo.lock"
+
+jobs:
+  ai-review:
+    # Job-level so a skipped draft run cannot cancel an in-flight review.
+    concurrency:
+      group: ai-review-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    # Fork PRs get no secrets, so the review would only fail.
+    if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Record review start time
+        id: start
+        run: echo "at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code (subscription, Haiku)
+        id: claude
+        continue-on-error: true
+        # Leaves the job time for the fallback when the action hangs.
+        timeout-minutes: 6
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+            Follow .github/review-guidelines.md. Post one review comment with `gh pr comment`.
+          claude_args: >-
+            --model claude-haiku-5-5
+            --allowedTools "Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr comment:*),Read,Grep,Glob"
+
+      # Gate on a comment actually posted since the Claude step started, not on exit status.
+      # A failed check leaves posted unset, so no fallback runs and no second comment is posted.
+      - name: Check whether Claude posted a review
+        id: check
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          SINCE: ${{ steps.start.outputs.at }}
+        run: |
+          count=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$PR/comments" --jq ".[] | select(.created_at >= \"$SINCE\") | .id" | wc -l)
+          echo "posted=$([ "$count" -gt 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: Fallback reviewer (Opencode)
+        if: steps.check.outputs.posted == 'false'
+        uses: anomalyco/opencode/github@latest
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # check.yml already builds/tests on 3 OSes; cold cargo runs here cost 1.5-3.5 min per review
+          OPENCODE_CONFIG_CONTENT: '{"instructions":[".github/review-guidelines.md"],"permission":{"*":"allow","edit":"deny","write":"deny","webfetch":"deny","websearch":"deny","task":"deny","bash":{"*":"allow","cargo *":"deny","*=* cargo *":"deny"}}}'
+        with:
+          model: openrouter/deepseek/deepseek-v4.1-flash-1017
