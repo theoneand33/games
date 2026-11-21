@@ -1,5 +1,6 @@
 ---
 import FullscreenButton from "./fullscreen-button.astro";
+import { FLASH_CDN } from "../data/site.ts";
 
 interface Props {
   gamePath: string;
@@ -9,7 +10,7 @@ const { gamePath } = Astro.props;
 ---
 
 <div id="flash-container" class="text-center">
-  <div id="flash-player-wrap" data-path={gamePath} class="box-border flex min-h-[60vh] items-center justify-center p-4">
+  <div id="flash-player-wrap" data-path={FLASH_CDN + gamePath} class="box-border flex min-h-[60vh] items-center justify-center p-4">
     <div class="flash-loading">Loading game...</div>
   </div>
   <div class="flex justify-center pt-2">

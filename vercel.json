@@ -11,6 +11,11 @@
   ],
   "redirects": [
     {
+      "source": "/flash/:path*",
+      "destination": "https://flash.theoneand33.dev/flash/:path*",
+      "statusCode": 301
+    },
+    {
       "source": "/games/happywheels",
       "destination": "/games/happy-wheels",
       "statusCode": 301
