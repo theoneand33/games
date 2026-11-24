@@ -2,232 +2,232 @@
 > A curated collection of classic Flash games and browser games that work without Flash Player, updated for 2026. All games run directly in your browser using modern emulation (Ruffle for Flash content). Optimized for school Chromebooks.
 
 ## Site info
-- Homepage: https://unblocked-games.vercel.app
+- Homepage: https://unblockedgames.pine8013.workers.dev
 - Language: English
 - Last updated: 2026-11-05
 - Platforms: Works on all devices including Chrome OS / Chromebook
 
 ## Popular games
-- Happy Wheels: https://unblocked-games.vercel.app/games/happy-wheels
-- Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
-- Run 3: https://unblocked-games.vercel.app/games/run-3
-- GTA: Vice City: https://unblocked-games.vercel.app/games/revcdos
-- The Binding of Isaac (Flash): https://unblocked-games.vercel.app/games/binding-of-isaac
-- Meat Boy: https://unblocked-games.vercel.app/games/meat-boy
-- Mutilate a Doll 2: https://unblocked-games.vercel.app/games/mutilate-a-doll-2
-- Fireboy and Watergirl: https://unblocked-games.vercel.app/games/fireboy-and-watergirl
-- Fireboy and Watergirl 2: Light Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-2
-- Fireboy and Watergirl 3: Ice Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-3
-- Fireboy and Watergirl 4: Crystal Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-4
+- Happy Wheels: https://unblockedgames.pine8013.workers.dev/games/happy-wheels
+- Plants vs Zombies: https://unblockedgames.pine8013.workers.dev/games/plants-vs-zombies
+- Run 3: https://unblockedgames.pine8013.workers.dev/games/run-3
+- GTA: Vice City: https://unblockedgames.pine8013.workers.dev/games/revcdos
+- The Binding of Isaac (Flash): https://unblockedgames.pine8013.workers.dev/games/binding-of-isaac
+- Meat Boy: https://unblockedgames.pine8013.workers.dev/games/meat-boy
+- Mutilate a Doll 2: https://unblockedgames.pine8013.workers.dev/games/mutilate-a-doll-2
+- Fireboy and Watergirl: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl
+- Fireboy and Watergirl 2: Light Temple: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl-2
+- Fireboy and Watergirl 3: Ice Temple: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl-3
+- Fireboy and Watergirl 4: Crystal Temple: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl-4
 
 ## All game pages
-- A Koopa's Revenge 2: https://unblocked-games.vercel.app/games/a-koopas-revenge-2
-- Achievement Unlocked: https://unblocked-games.vercel.app/games/achievement-unlocked
-- Achievement Unlocked 2: https://unblocked-games.vercel.app/games/achievement-unlocked-2
-- Achievement Unlocked 3: https://unblocked-games.vercel.app/games/achievement-unlocked-3
-- Age of War: https://unblocked-games.vercel.app/games/age-of-war
-- Age of War 2: https://unblocked-games.vercel.app/games/age-of-war-2
-- Alien Hominid: https://unblocked-games.vercel.app/games/alien-hominid
-- Bad Ice Cream: https://unblocked-games.vercel.app/games/bad-ice-cream
-- Bad Ice Cream 2: https://unblocked-games.vercel.app/games/bad-ice-cream-2
-- Bad Ice Cream 3: https://unblocked-games.vercel.app/games/bad-ice-cream-3
-- Bloons Super Monkey: https://unblocked-games.vercel.app/games/bloons-super-monkey
-- Bloons TD 1: https://unblocked-games.vercel.app/games/bloons-td-1
-- Bloons TD 2: https://unblocked-games.vercel.app/games/bloons-td-2
-- Bloons TD 3: https://unblocked-games.vercel.app/games/bloons-td-3
-- Bloons TD 4: https://unblocked-games.vercel.app/games/bloons-td-4
-- Bloons TD 5: https://unblocked-games.vercel.app/games/bloons-td-5
-- Bloxorz: https://unblocked-games.vercel.app/games/bloxorz
-- Bowman 2: https://unblocked-games.vercel.app/games/bowman-2
-- Boxhead 2Play: https://unblocked-games.vercel.app/games/boxhead-2play
-- Boxhead: More Rooms: https://unblocked-games.vercel.app/games/boxhead-more-rooms
-- Boxhead: Zombie Wars: https://unblocked-games.vercel.app/games/boxhead-zombie-wars
-- Bubble Trouble: https://unblocked-games.vercel.app/games/bubble-trouble
-- Burrito Bison: https://unblocked-games.vercel.app/games/burrito-bison
-- Burrito Bison Revenge: https://unblocked-games.vercel.app/games/burrito-bison-revenge
-- Cactus McCoy 1: https://unblocked-games.vercel.app/games/cactus-mccoy
-- Cactus McCoy 2: The Ruins of Calavera: https://unblocked-games.vercel.app/games/cactus-mccoy-2
-- Canabalt: https://unblocked-games.vercel.app/games/canabalt
-- Clicker Heroes: https://unblocked-games.vercel.app/games/clicker-heroes
-- Cover Orange: https://unblocked-games.vercel.app/games/cover-orange
-- Cover Orange 2: Journey: https://unblocked-games.vercel.app/games/cover-orange-2
-- Crush the Castle: https://unblocked-games.vercel.app/games/crush-the-castle
-- Crush the Castle 2: https://unblocked-games.vercel.app/games/crush-the-castle-2
-- Crush the Castle: Players Pack: https://unblocked-games.vercel.app/games/crush-the-castle-players-pack
-- Dad 'n Me: https://unblocked-games.vercel.app/games/dad-n-me
-- Decision: https://unblocked-games.vercel.app/games/decision-1
-- Decision 2: New City: https://unblocked-games.vercel.app/games/decision-2
-- Decision Medieval: https://unblocked-games.vercel.app/games/decision-medieval
-- Desktop Tower Defense: https://unblocked-games.vercel.app/games/desktop-tower-defense
-- Dolphin Olympics 2: https://unblocked-games.vercel.app/games/dolphin-olympics-2
-- Doodle God: https://unblocked-games.vercel.app/games/doodle-god
-- Doom: https://unblocked-games.vercel.app/games/doom
-- Duck Life 1: https://unblocked-games.vercel.app/games/duck-life
-- Duck Life 2: https://unblocked-games.vercel.app/games/duck-life-2
-- Duck Life 3: https://unblocked-games.vercel.app/games/duck-life-3
-- Duck Life 4: https://unblocked-games.vercel.app/games/duck-life-4
-- Duck Life 5: https://unblocked-games.vercel.app/games/duck-life-5
-- Earn to Die: https://unblocked-games.vercel.app/games/earn-to-die
-- Earn to Die 2: Exodus: https://unblocked-games.vercel.app/games/earn-to-die-2
-- Effing Worms: https://unblocked-games.vercel.app/games/effing-worms
-- Electricman 2: https://unblocked-games.vercel.app/games/electricman-2
-- Epic Battle Fantasy 1: https://unblocked-games.vercel.app/games/epic-battle-fantasy
-- Epic Battle Fantasy 2: https://unblocked-games.vercel.app/games/epic-battle-fantasy-2
-- Epic Battle Fantasy 3: https://unblocked-games.vercel.app/games/epic-battle-fantasy-3
-- Epic Battle Fantasy 4: https://unblocked-games.vercel.app/games/epic-battle-fantasy-4
-- Epic Battle Fantasy 5: https://unblocked-games.vercel.app/games/epic-battle-fantasy-5
-- Factory Balls: https://unblocked-games.vercel.app/games/factory-balls
-- Factory Balls 2: https://unblocked-games.vercel.app/games/factory-balls-2
-- Factory Balls 3: https://unblocked-games.vercel.app/games/factory-balls-3
-- Factory Balls 4: https://unblocked-games.vercel.app/games/factory-balls-4
-- Fancy Pants Adventure: https://unblocked-games.vercel.app/games/fancy-pants-adventure
-- Fancy Pants Adventure 2: https://unblocked-games.vercel.app/games/fancy-pants-adventure-2
-- Fancy Pants Adventure: World 3: https://unblocked-games.vercel.app/games/fancy-pants-adventure-3
-- Fireboy and Watergirl: https://unblocked-games.vercel.app/games/fireboy-and-watergirl
-- Fireboy and Watergirl 2: Light Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-2
-- Fireboy and Watergirl 3: Ice Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-3
-- Fireboy and Watergirl 4: Crystal Temple: https://unblocked-games.vercel.app/games/fireboy-and-watergirl-4
-- GemCraft: https://unblocked-games.vercel.app/games/gemcraft
-- GemCraft Labyrinth: https://unblocked-games.vercel.app/games/gemcraft-labyrinth
-- Geography Game USA: https://unblocked-games.vercel.app/games/geography-game-usa
-- Give Up Robot: https://unblocked-games.vercel.app/games/give-up-robot-1
-- Give Up Robot 2: https://unblocked-games.vercel.app/games/give-up-robot-2
-- GTA: Vice City: https://unblocked-games.vercel.app/games/revcdos
-- Gun Mayhem 1: https://unblocked-games.vercel.app/games/gun-mayhem
-- Gun Mayhem 2: https://unblocked-games.vercel.app/games/gun-mayhem-2
-- Happy Wheels: https://unblocked-games.vercel.app/games/happy-wheels
-- Henry Stickmin 1: Breaking the Bank: https://unblocked-games.vercel.app/games/breaking-the-bank
-- Henry Stickmin 2: Escaping the Prison: https://unblocked-games.vercel.app/games/escaping-the-prison
-- Henry Stickmin 3: Stealing the Diamond: https://unblocked-games.vercel.app/games/stealing-the-diamond
-- Henry Stickmin 4: Infiltrating the Airship: https://unblocked-games.vercel.app/games/infiltrating-the-airship
-- Henry Stickmin 5: Fleeing the Complex: https://unblocked-games.vercel.app/games/fleeing-the-complex
-- Hobo 1: Brawl: https://unblocked-games.vercel.app/games/hobo-1-brawl
-- Hobo 2: https://unblocked-games.vercel.app/games/hobo-2
-- Hobo 3: Wanted: https://unblocked-games.vercel.app/games/hobo-3-wanted
-- Hobo 4: Total War: https://unblocked-games.vercel.app/games/hobo-4-total-war
-- Hobo 5: Space Brawls: https://unblocked-games.vercel.app/games/hobo-5-space-brawls
-- Hobo 6: Hell: https://unblocked-games.vercel.app/games/hobo-6-hell
-- Hobo 7: https://unblocked-games.vercel.app/games/hobo-7
-- Hobo vs Zombies: https://unblocked-games.vercel.app/games/hobo-vs-zombies
-- Infectonator: https://unblocked-games.vercel.app/games/infectonator
-- Infectonator 2: https://unblocked-games.vercel.app/games/infectonator-2
-- Infectonator: Hot Chase: https://unblocked-games.vercel.app/games/infectonator-hot-chase
-- Infectonator: Survivors: https://unblocked-games.vercel.app/games/infectonator-survivors
-- Infectonator: World Dominator: https://unblocked-games.vercel.app/games/infectonator-world-dominator
-- Interactive Buddy: https://unblocked-games.vercel.app/games/interactive-buddy
-- Jacksmith: https://unblocked-games.vercel.app/games/jacksmith
-- Kingdom Rush: https://unblocked-games.vercel.app/games/kingdom-rush
-- Knightmare Tower: https://unblocked-games.vercel.app/games/knightmare-tower
-- Learn to Fly 1: https://unblocked-games.vercel.app/games/learn-to-fly
-- Learn to Fly 2: https://unblocked-games.vercel.app/games/learn-to-fly-2
-- Learn to Fly 3: https://unblocked-games.vercel.app/games/learn-to-fly-3
-- Learn to Fly Idle: https://unblocked-games.vercel.app/games/learn-to-fly-idle
-- Madness Interactive: https://unblocked-games.vercel.app/games/madness-interactive
-- Madness: Project Nexus: https://unblocked-games.vercel.app/games/madness-project-nexus
-- Meat Boy: https://unblocked-games.vercel.app/games/meat-boy
-- Minesweeper: https://unblocked-games.vercel.app/games/minesweeper
-- Monster's Den: Book of Dread: https://unblocked-games.vercel.app/games/monsters-den
-- Motherload: https://unblocked-games.vercel.app/games/motherload
-- Mutilate a Doll 2: https://unblocked-games.vercel.app/games/mutilate-a-doll-2
-- N Game: https://unblocked-games.vercel.app/games/n-game
-- Onslaught: https://unblocked-games.vercel.app/games/onslaught
-- Pac-Man: https://unblocked-games.vercel.app/games/pac-man
-- Pandemic 2: https://unblocked-games.vercel.app/games/pandemic-2
-- Papa Louie 2: When Burgers Attack: https://unblocked-games.vercel.app/games/papa-louie-2
-- Papa Louie 3: When Sundaes Attack: https://unblocked-games.vercel.app/games/papa-louie-3
-- Papa Louie: When Pizzas Attack: https://unblocked-games.vercel.app/games/papa-louie
-- Papa's Burgeria: https://unblocked-games.vercel.app/games/papas-burgeria
-- Papa's Cupcakeria: https://unblocked-games.vercel.app/games/papas-cupcakeria
-- Papa's Freezeria: https://unblocked-games.vercel.app/games/papas-freezeria
-- Papa's Hot Doggeria: https://unblocked-games.vercel.app/games/papas-hot-doggeria
-- Papa's Pancakeria: https://unblocked-games.vercel.app/games/papas-pancakeria
-- Papa's Pastaria: https://unblocked-games.vercel.app/games/papas-pastaria
-- Papa's Pizzeria: https://unblocked-games.vercel.app/games/papas-pizzeria
-- Papa's Taco Mia: https://unblocked-games.vercel.app/games/papas-taco-mia
-- Papa's Wingeria: https://unblocked-games.vercel.app/games/papas-wingeria
-- Plants vs Zombies: https://unblocked-games.vercel.app/games/plants-vs-zombies
-- Plazma Burst 2: https://unblocked-games.vercel.app/games/plazma-burst-2
-- Plazma Burst: Forward to the Past: https://unblocked-games.vercel.app/games/plazma-burst-1
-- Portal: The Flash Version: https://unblocked-games.vercel.app/games/portal-flash
-- QWOP: https://unblocked-games.vercel.app/games/qwop
-- Raft Wars: https://unblocked-games.vercel.app/games/raft-wars
-- Raft Wars 2: https://unblocked-games.vercel.app/games/raft-wars-2
-- Raze 1: https://unblocked-games.vercel.app/games/raze
-- Raze 2: https://unblocked-games.vercel.app/games/raze-2
-- Red Ball 1: https://unblocked-games.vercel.app/games/red-ball-1
-- Red Ball 2: https://unblocked-games.vercel.app/games/red-ball-2
-- Red Ball 3: https://unblocked-games.vercel.app/games/red-ball-3
-- Red Ball 4: https://unblocked-games.vercel.app/games/red-ball-4
-- Riddle School 1: https://unblocked-games.vercel.app/games/riddle-school
-- Riddle School 2: https://unblocked-games.vercel.app/games/riddle-school-2
-- Riddle School 3: https://unblocked-games.vercel.app/games/riddle-school-3
-- Riddle School 4: https://unblocked-games.vercel.app/games/riddle-school-4
-- Riddle School 5: https://unblocked-games.vercel.app/games/riddle-school-5
-- Riddle Transfer 1: https://unblocked-games.vercel.app/games/riddle-transfer
-- Riddle Transfer 2: https://unblocked-games.vercel.app/games/riddle-transfer-2
-- Road of the Dead 2: https://unblocked-games.vercel.app/games/road-of-the-dead-2
-- Robot Unicorn Attack: https://unblocked-games.vercel.app/games/robot-unicorn-attack
-- Robot Unicorn Attack: Heavy Metal: https://unblocked-games.vercel.app/games/robot-unicorn-attack-heavy-metal
-- Run 1: https://unblocked-games.vercel.app/games/run-1
-- Run 2: https://unblocked-games.vercel.app/games/run-2
-- Run 3: https://unblocked-games.vercel.app/games/run-3
-- Shopping Cart Hero: https://unblocked-games.vercel.app/games/shopping-cart-hero
-- Shopping Cart Hero 2: https://unblocked-games.vercel.app/games/shopping-cart-hero-2
-- Shopping Cart Hero 3: https://unblocked-games.vercel.app/games/shopping-cart-hero-3
-- Sift Heads: https://unblocked-games.vercel.app/games/sift-heads
-- Sift Heads 2: https://unblocked-games.vercel.app/games/sift-heads-2
-- Sift Heads 3: https://unblocked-games.vercel.app/games/sift-heads-3
-- Sift Heads 4: https://unblocked-games.vercel.app/games/sift-heads-4
-- Snail Bob 1: https://unblocked-games.vercel.app/games/snail-bob
-- Snail Bob 2: https://unblocked-games.vercel.app/games/snail-bob-2
-- Snail Bob 3: https://unblocked-games.vercel.app/games/snail-bob-3
-- Snail Bob 4 Space: https://unblocked-games.vercel.app/games/snail-bob-4
-- Sonny: https://unblocked-games.vercel.app/games/sonny
-- Sonny 2: https://unblocked-games.vercel.app/games/sonny-2
-- Stick RPG Complete: https://unblocked-games.vercel.app/games/stick-rpg
-- Stick War: https://unblocked-games.vercel.app/games/stick-war
-- Stick War 2: Warrior: https://unblocked-games.vercel.app/games/stick-war-2
-- Strike Force Heroes: https://unblocked-games.vercel.app/games/strike-force-heroes
-- Strike Force Heroes 2: https://unblocked-games.vercel.app/games/strike-force-heroes-2
-- Strike Force Heroes 3: https://unblocked-games.vercel.app/games/strike-force-heroes-3
-- Sugar, Sugar: https://unblocked-games.vercel.app/games/sugar-sugar
-- Sugar, Sugar 2: https://unblocked-games.vercel.app/games/sugar-sugar-2
-- Super Mario 63: https://unblocked-games.vercel.app/games/super-mario-63
-- Super Mario Flash 1: https://unblocked-games.vercel.app/games/super-mario-flash
-- Super Mario Flash 2: https://unblocked-games.vercel.app/games/super-mario-flash-2
-- Super Smash Flash: https://unblocked-games.vercel.app/games/super-smash-flash
-- Swords and Sandals 1: https://unblocked-games.vercel.app/games/swords-and-sandals
-- Swords and Sandals 2: https://unblocked-games.vercel.app/games/swords-and-sandals-2
-- Swords and Sandals 3: Crusader: https://unblocked-games.vercel.app/games/swords-and-sandals-3
-- Tactical Assassin: https://unblocked-games.vercel.app/games/tactical-assassin
-- Tactical Assassin 3: https://unblocked-games.vercel.app/games/tactical-assassin-3
-- Tetris: https://unblocked-games.vercel.app/games/tetris
-- The Binding of Isaac (Flash): https://unblocked-games.vercel.app/games/binding-of-isaac
-- The Impossible Quiz: https://unblocked-games.vercel.app/games/the-impossible-quiz
-- The Impossible Quiz 2: https://unblocked-games.vercel.app/games/the-impossible-quiz-2
-- The Impossible Quiz Book: Chapter 1: https://unblocked-games.vercel.app/games/impossible-quiz-book
-- The Impossible Quiz Book: Chapter 2: https://unblocked-games.vercel.app/games/impossible-quiz-book-2
-- The Impossible Quiz Book: Chapter 3: https://unblocked-games.vercel.app/games/impossible-quiz-book-3
-- The Last Stand: https://unblocked-games.vercel.app/games/the-last-stand
-- The Last Stand 2: https://unblocked-games.vercel.app/games/the-last-stand-2
-- The Last Stand: Union City: https://unblocked-games.vercel.app/games/the-last-stand-union-city
-- The World's Hardest Game: https://unblocked-games.vercel.app/games/the-worlds-hardest-game
-- The World's Hardest Game 2: https://unblocked-games.vercel.app/games/worlds-hardest-game-2
-- Thing Thing: https://unblocked-games.vercel.app/games/thing-thing
-- Thing Thing 2: https://unblocked-games.vercel.app/games/thing-thing-2
-- Thing-Thing 3: https://unblocked-games.vercel.app/games/thing-thing-3
-- Thing-Thing 4: https://unblocked-games.vercel.app/games/thing-thing-4
-- Toss the Turtle: https://unblocked-games.vercel.app/games/toss-the-turtle
-- Ultimate Flash Sonic: https://unblocked-games.vercel.app/games/ultimate-flash-sonic
-- Vex: https://unblocked-games.vercel.app/games/vex-1
-- Vex 2: https://unblocked-games.vercel.app/games/vex-2
-- Vex 3: https://unblocked-games.vercel.app/games/vex-3
-- Warfare 1917: https://unblocked-games.vercel.app/games/warfare-1917
-- Warfare 1944: https://unblocked-games.vercel.app/games/warfare-1944
-- Webtris: https://unblocked-games.vercel.app/games/webtris
-- Wheely 1: https://unblocked-games.vercel.app/games/wheely-1
-- Zombotron: https://unblocked-games.vercel.app/games/zombotron-1
-- Zombotron 2: Time Machine: https://unblocked-games.vercel.app/games/zombotron-2
+- A Koopa's Revenge 2: https://unblockedgames.pine8013.workers.dev/games/a-koopas-revenge-2
+- Achievement Unlocked: https://unblockedgames.pine8013.workers.dev/games/achievement-unlocked
+- Achievement Unlocked 2: https://unblockedgames.pine8013.workers.dev/games/achievement-unlocked-2
+- Achievement Unlocked 3: https://unblockedgames.pine8013.workers.dev/games/achievement-unlocked-3
+- Age of War: https://unblockedgames.pine8013.workers.dev/games/age-of-war
+- Age of War 2: https://unblockedgames.pine8013.workers.dev/games/age-of-war-2
+- Alien Hominid: https://unblockedgames.pine8013.workers.dev/games/alien-hominid
+- Bad Ice Cream: https://unblockedgames.pine8013.workers.dev/games/bad-ice-cream
+- Bad Ice Cream 2: https://unblockedgames.pine8013.workers.dev/games/bad-ice-cream-2
+- Bad Ice Cream 3: https://unblockedgames.pine8013.workers.dev/games/bad-ice-cream-3
+- Bloons Super Monkey: https://unblockedgames.pine8013.workers.dev/games/bloons-super-monkey
+- Bloons TD 1: https://unblockedgames.pine8013.workers.dev/games/bloons-td-1
+- Bloons TD 2: https://unblockedgames.pine8013.workers.dev/games/bloons-td-2
+- Bloons TD 3: https://unblockedgames.pine8013.workers.dev/games/bloons-td-3
+- Bloons TD 4: https://unblockedgames.pine8013.workers.dev/games/bloons-td-4
+- Bloons TD 5: https://unblockedgames.pine8013.workers.dev/games/bloons-td-5
+- Bloxorz: https://unblockedgames.pine8013.workers.dev/games/bloxorz
+- Bowman 2: https://unblockedgames.pine8013.workers.dev/games/bowman-2
+- Boxhead 2Play: https://unblockedgames.pine8013.workers.dev/games/boxhead-2play
+- Boxhead: More Rooms: https://unblockedgames.pine8013.workers.dev/games/boxhead-more-rooms
+- Boxhead: Zombie Wars: https://unblockedgames.pine8013.workers.dev/games/boxhead-zombie-wars
+- Bubble Trouble: https://unblockedgames.pine8013.workers.dev/games/bubble-trouble
+- Burrito Bison: https://unblockedgames.pine8013.workers.dev/games/burrito-bison
+- Burrito Bison Revenge: https://unblockedgames.pine8013.workers.dev/games/burrito-bison-revenge
+- Cactus McCoy 1: https://unblockedgames.pine8013.workers.dev/games/cactus-mccoy
+- Cactus McCoy 2: The Ruins of Calavera: https://unblockedgames.pine8013.workers.dev/games/cactus-mccoy-2
+- Canabalt: https://unblockedgames.pine8013.workers.dev/games/canabalt
+- Clicker Heroes: https://unblockedgames.pine8013.workers.dev/games/clicker-heroes
+- Cover Orange: https://unblockedgames.pine8013.workers.dev/games/cover-orange
+- Cover Orange 2: Journey: https://unblockedgames.pine8013.workers.dev/games/cover-orange-2
+- Crush the Castle: https://unblockedgames.pine8013.workers.dev/games/crush-the-castle
+- Crush the Castle 2: https://unblockedgames.pine8013.workers.dev/games/crush-the-castle-2
+- Crush the Castle: Players Pack: https://unblockedgames.pine8013.workers.dev/games/crush-the-castle-players-pack
+- Dad 'n Me: https://unblockedgames.pine8013.workers.dev/games/dad-n-me
+- Decision: https://unblockedgames.pine8013.workers.dev/games/decision-1
+- Decision 2: New City: https://unblockedgames.pine8013.workers.dev/games/decision-2
+- Decision Medieval: https://unblockedgames.pine8013.workers.dev/games/decision-medieval
+- Desktop Tower Defense: https://unblockedgames.pine8013.workers.dev/games/desktop-tower-defense
+- Dolphin Olympics 2: https://unblockedgames.pine8013.workers.dev/games/dolphin-olympics-2
+- Doodle God: https://unblockedgames.pine8013.workers.dev/games/doodle-god
+- Doom: https://unblockedgames.pine8013.workers.dev/games/doom
+- Duck Life 1: https://unblockedgames.pine8013.workers.dev/games/duck-life
+- Duck Life 2: https://unblockedgames.pine8013.workers.dev/games/duck-life-2
+- Duck Life 3: https://unblockedgames.pine8013.workers.dev/games/duck-life-3
+- Duck Life 4: https://unblockedgames.pine8013.workers.dev/games/duck-life-4
+- Duck Life 5: https://unblockedgames.pine8013.workers.dev/games/duck-life-5
+- Earn to Die: https://unblockedgames.pine8013.workers.dev/games/earn-to-die
+- Earn to Die 2: Exodus: https://unblockedgames.pine8013.workers.dev/games/earn-to-die-2
+- Effing Worms: https://unblockedgames.pine8013.workers.dev/games/effing-worms
+- Electricman 2: https://unblockedgames.pine8013.workers.dev/games/electricman-2
+- Epic Battle Fantasy 1: https://unblockedgames.pine8013.workers.dev/games/epic-battle-fantasy
+- Epic Battle Fantasy 2: https://unblockedgames.pine8013.workers.dev/games/epic-battle-fantasy-2
+- Epic Battle Fantasy 3: https://unblockedgames.pine8013.workers.dev/games/epic-battle-fantasy-3
+- Epic Battle Fantasy 4: https://unblockedgames.pine8013.workers.dev/games/epic-battle-fantasy-4
+- Epic Battle Fantasy 5: https://unblockedgames.pine8013.workers.dev/games/epic-battle-fantasy-5
+- Factory Balls: https://unblockedgames.pine8013.workers.dev/games/factory-balls
+- Factory Balls 2: https://unblockedgames.pine8013.workers.dev/games/factory-balls-2
+- Factory Balls 3: https://unblockedgames.pine8013.workers.dev/games/factory-balls-3
+- Factory Balls 4: https://unblockedgames.pine8013.workers.dev/games/factory-balls-4
+- Fancy Pants Adventure: https://unblockedgames.pine8013.workers.dev/games/fancy-pants-adventure
+- Fancy Pants Adventure 2: https://unblockedgames.pine8013.workers.dev/games/fancy-pants-adventure-2
+- Fancy Pants Adventure: World 3: https://unblockedgames.pine8013.workers.dev/games/fancy-pants-adventure-3
+- Fireboy and Watergirl: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl
+- Fireboy and Watergirl 2: Light Temple: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl-2
+- Fireboy and Watergirl 3: Ice Temple: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl-3
+- Fireboy and Watergirl 4: Crystal Temple: https://unblockedgames.pine8013.workers.dev/games/fireboy-and-watergirl-4
+- GemCraft: https://unblockedgames.pine8013.workers.dev/games/gemcraft
+- GemCraft Labyrinth: https://unblockedgames.pine8013.workers.dev/games/gemcraft-labyrinth
+- Geography Game USA: https://unblockedgames.pine8013.workers.dev/games/geography-game-usa
+- Give Up Robot: https://unblockedgames.pine8013.workers.dev/games/give-up-robot-1
+- Give Up Robot 2: https://unblockedgames.pine8013.workers.dev/games/give-up-robot-2
+- GTA: Vice City: https://unblockedgames.pine8013.workers.dev/games/revcdos
+- Gun Mayhem 1: https://unblockedgames.pine8013.workers.dev/games/gun-mayhem
+- Gun Mayhem 2: https://unblockedgames.pine8013.workers.dev/games/gun-mayhem-2
+- Happy Wheels: https://unblockedgames.pine8013.workers.dev/games/happy-wheels
+- Henry Stickmin 1: Breaking the Bank: https://unblockedgames.pine8013.workers.dev/games/breaking-the-bank
+- Henry Stickmin 2: Escaping the Prison: https://unblockedgames.pine8013.workers.dev/games/escaping-the-prison
+- Henry Stickmin 3: Stealing the Diamond: https://unblockedgames.pine8013.workers.dev/games/stealing-the-diamond
+- Henry Stickmin 4: Infiltrating the Airship: https://unblockedgames.pine8013.workers.dev/games/infiltrating-the-airship
+- Henry Stickmin 5: Fleeing the Complex: https://unblockedgames.pine8013.workers.dev/games/fleeing-the-complex
+- Hobo 1: Brawl: https://unblockedgames.pine8013.workers.dev/games/hobo-1-brawl
+- Hobo 2: https://unblockedgames.pine8013.workers.dev/games/hobo-2
+- Hobo 3: Wanted: https://unblockedgames.pine8013.workers.dev/games/hobo-3-wanted
+- Hobo 4: Total War: https://unblockedgames.pine8013.workers.dev/games/hobo-4-total-war
+- Hobo 5: Space Brawls: https://unblockedgames.pine8013.workers.dev/games/hobo-5-space-brawls
+- Hobo 6: Hell: https://unblockedgames.pine8013.workers.dev/games/hobo-6-hell
+- Hobo 7: https://unblockedgames.pine8013.workers.dev/games/hobo-7
+- Hobo vs Zombies: https://unblockedgames.pine8013.workers.dev/games/hobo-vs-zombies
+- Infectonator: https://unblockedgames.pine8013.workers.dev/games/infectonator
+- Infectonator 2: https://unblockedgames.pine8013.workers.dev/games/infectonator-2
+- Infectonator: Hot Chase: https://unblockedgames.pine8013.workers.dev/games/infectonator-hot-chase
+- Infectonator: Survivors: https://unblockedgames.pine8013.workers.dev/games/infectonator-survivors
+- Infectonator: World Dominator: https://unblockedgames.pine8013.workers.dev/games/infectonator-world-dominator
+- Interactive Buddy: https://unblockedgames.pine8013.workers.dev/games/interactive-buddy
+- Jacksmith: https://unblockedgames.pine8013.workers.dev/games/jacksmith
+- Kingdom Rush: https://unblockedgames.pine8013.workers.dev/games/kingdom-rush
+- Knightmare Tower: https://unblockedgames.pine8013.workers.dev/games/knightmare-tower
+- Learn to Fly 1: https://unblockedgames.pine8013.workers.dev/games/learn-to-fly
+- Learn to Fly 2: https://unblockedgames.pine8013.workers.dev/games/learn-to-fly-2
+- Learn to Fly 3: https://unblockedgames.pine8013.workers.dev/games/learn-to-fly-3
+- Learn to Fly Idle: https://unblockedgames.pine8013.workers.dev/games/learn-to-fly-idle
+- Madness Interactive: https://unblockedgames.pine8013.workers.dev/games/madness-interactive
+- Madness: Project Nexus: https://unblockedgames.pine8013.workers.dev/games/madness-project-nexus
+- Meat Boy: https://unblockedgames.pine8013.workers.dev/games/meat-boy
+- Minesweeper: https://unblockedgames.pine8013.workers.dev/games/minesweeper
+- Monster's Den: Book of Dread: https://unblockedgames.pine8013.workers.dev/games/monsters-den
+- Motherload: https://unblockedgames.pine8013.workers.dev/games/motherload
+- Mutilate a Doll 2: https://unblockedgames.pine8013.workers.dev/games/mutilate-a-doll-2
+- N Game: https://unblockedgames.pine8013.workers.dev/games/n-game
+- Onslaught: https://unblockedgames.pine8013.workers.dev/games/onslaught
+- Pac-Man: https://unblockedgames.pine8013.workers.dev/games/pac-man
+- Pandemic 2: https://unblockedgames.pine8013.workers.dev/games/pandemic-2
+- Papa Louie 2: When Burgers Attack: https://unblockedgames.pine8013.workers.dev/games/papa-louie-2
+- Papa Louie 3: When Sundaes Attack: https://unblockedgames.pine8013.workers.dev/games/papa-louie-3
+- Papa Louie: When Pizzas Attack: https://unblockedgames.pine8013.workers.dev/games/papa-louie
+- Papa's Burgeria: https://unblockedgames.pine8013.workers.dev/games/papas-burgeria
+- Papa's Cupcakeria: https://unblockedgames.pine8013.workers.dev/games/papas-cupcakeria
+- Papa's Freezeria: https://unblockedgames.pine8013.workers.dev/games/papas-freezeria
+- Papa's Hot Doggeria: https://unblockedgames.pine8013.workers.dev/games/papas-hot-doggeria
+- Papa's Pancakeria: https://unblockedgames.pine8013.workers.dev/games/papas-pancakeria
+- Papa's Pastaria: https://unblockedgames.pine8013.workers.dev/games/papas-pastaria
+- Papa's Pizzeria: https://unblockedgames.pine8013.workers.dev/games/papas-pizzeria
+- Papa's Taco Mia: https://unblockedgames.pine8013.workers.dev/games/papas-taco-mia
+- Papa's Wingeria: https://unblockedgames.pine8013.workers.dev/games/papas-wingeria
+- Plants vs Zombies: https://unblockedgames.pine8013.workers.dev/games/plants-vs-zombies
+- Plazma Burst 2: https://unblockedgames.pine8013.workers.dev/games/plazma-burst-2
+- Plazma Burst: Forward to the Past: https://unblockedgames.pine8013.workers.dev/games/plazma-burst-1
+- Portal: The Flash Version: https://unblockedgames.pine8013.workers.dev/games/portal-flash
+- QWOP: https://unblockedgames.pine8013.workers.dev/games/qwop
+- Raft Wars: https://unblockedgames.pine8013.workers.dev/games/raft-wars
+- Raft Wars 2: https://unblockedgames.pine8013.workers.dev/games/raft-wars-2
+- Raze 1: https://unblockedgames.pine8013.workers.dev/games/raze
+- Raze 2: https://unblockedgames.pine8013.workers.dev/games/raze-2
+- Red Ball 1: https://unblockedgames.pine8013.workers.dev/games/red-ball-1
+- Red Ball 2: https://unblockedgames.pine8013.workers.dev/games/red-ball-2
+- Red Ball 3: https://unblockedgames.pine8013.workers.dev/games/red-ball-3
+- Red Ball 4: https://unblockedgames.pine8013.workers.dev/games/red-ball-4
+- Riddle School 1: https://unblockedgames.pine8013.workers.dev/games/riddle-school
+- Riddle School 2: https://unblockedgames.pine8013.workers.dev/games/riddle-school-2
+- Riddle School 3: https://unblockedgames.pine8013.workers.dev/games/riddle-school-3
+- Riddle School 4: https://unblockedgames.pine8013.workers.dev/games/riddle-school-4
+- Riddle School 5: https://unblockedgames.pine8013.workers.dev/games/riddle-school-5
+- Riddle Transfer 1: https://unblockedgames.pine8013.workers.dev/games/riddle-transfer
+- Riddle Transfer 2: https://unblockedgames.pine8013.workers.dev/games/riddle-transfer-2
+- Road of the Dead 2: https://unblockedgames.pine8013.workers.dev/games/road-of-the-dead-2
+- Robot Unicorn Attack: https://unblockedgames.pine8013.workers.dev/games/robot-unicorn-attack
+- Robot Unicorn Attack: Heavy Metal: https://unblockedgames.pine8013.workers.dev/games/robot-unicorn-attack-heavy-metal
+- Run 1: https://unblockedgames.pine8013.workers.dev/games/run-1
+- Run 2: https://unblockedgames.pine8013.workers.dev/games/run-2
+- Run 3: https://unblockedgames.pine8013.workers.dev/games/run-3
+- Shopping Cart Hero: https://unblockedgames.pine8013.workers.dev/games/shopping-cart-hero
+- Shopping Cart Hero 2: https://unblockedgames.pine8013.workers.dev/games/shopping-cart-hero-2
+- Shopping Cart Hero 3: https://unblockedgames.pine8013.workers.dev/games/shopping-cart-hero-3
+- Sift Heads: https://unblockedgames.pine8013.workers.dev/games/sift-heads
+- Sift Heads 2: https://unblockedgames.pine8013.workers.dev/games/sift-heads-2
+- Sift Heads 3: https://unblockedgames.pine8013.workers.dev/games/sift-heads-3
+- Sift Heads 4: https://unblockedgames.pine8013.workers.dev/games/sift-heads-4
+- Snail Bob 1: https://unblockedgames.pine8013.workers.dev/games/snail-bob
+- Snail Bob 2: https://unblockedgames.pine8013.workers.dev/games/snail-bob-2
+- Snail Bob 3: https://unblockedgames.pine8013.workers.dev/games/snail-bob-3
+- Snail Bob 4 Space: https://unblockedgames.pine8013.workers.dev/games/snail-bob-4
+- Sonny: https://unblockedgames.pine8013.workers.dev/games/sonny
+- Sonny 2: https://unblockedgames.pine8013.workers.dev/games/sonny-2
+- Stick RPG Complete: https://unblockedgames.pine8013.workers.dev/games/stick-rpg
+- Stick War: https://unblockedgames.pine8013.workers.dev/games/stick-war
+- Stick War 2: Warrior: https://unblockedgames.pine8013.workers.dev/games/stick-war-2
+- Strike Force Heroes: https://unblockedgames.pine8013.workers.dev/games/strike-force-heroes
+- Strike Force Heroes 2: https://unblockedgames.pine8013.workers.dev/games/strike-force-heroes-2
+- Strike Force Heroes 3: https://unblockedgames.pine8013.workers.dev/games/strike-force-heroes-3
+- Sugar, Sugar: https://unblockedgames.pine8013.workers.dev/games/sugar-sugar
+- Sugar, Sugar 2: https://unblockedgames.pine8013.workers.dev/games/sugar-sugar-2
+- Super Mario 63: https://unblockedgames.pine8013.workers.dev/games/super-mario-63
+- Super Mario Flash 1: https://unblockedgames.pine8013.workers.dev/games/super-mario-flash
+- Super Mario Flash 2: https://unblockedgames.pine8013.workers.dev/games/super-mario-flash-2
+- Super Smash Flash: https://unblockedgames.pine8013.workers.dev/games/super-smash-flash
+- Swords and Sandals 1: https://unblockedgames.pine8013.workers.dev/games/swords-and-sandals
+- Swords and Sandals 2: https://unblockedgames.pine8013.workers.dev/games/swords-and-sandals-2
+- Swords and Sandals 3: Crusader: https://unblockedgames.pine8013.workers.dev/games/swords-and-sandals-3
+- Tactical Assassin: https://unblockedgames.pine8013.workers.dev/games/tactical-assassin
+- Tactical Assassin 3: https://unblockedgames.pine8013.workers.dev/games/tactical-assassin-3
+- Tetris: https://unblockedgames.pine8013.workers.dev/games/tetris
+- The Binding of Isaac (Flash): https://unblockedgames.pine8013.workers.dev/games/binding-of-isaac
+- The Impossible Quiz: https://unblockedgames.pine8013.workers.dev/games/the-impossible-quiz
+- The Impossible Quiz 2: https://unblockedgames.pine8013.workers.dev/games/the-impossible-quiz-2
+- The Impossible Quiz Book: Chapter 1: https://unblockedgames.pine8013.workers.dev/games/impossible-quiz-book
+- The Impossible Quiz Book: Chapter 2: https://unblockedgames.pine8013.workers.dev/games/impossible-quiz-book-2
+- The Impossible Quiz Book: Chapter 3: https://unblockedgames.pine8013.workers.dev/games/impossible-quiz-book-3
+- The Last Stand: https://unblockedgames.pine8013.workers.dev/games/the-last-stand
+- The Last Stand 2: https://unblockedgames.pine8013.workers.dev/games/the-last-stand-2
+- The Last Stand: Union City: https://unblockedgames.pine8013.workers.dev/games/the-last-stand-union-city
+- The World's Hardest Game: https://unblockedgames.pine8013.workers.dev/games/the-worlds-hardest-game
+- The World's Hardest Game 2: https://unblockedgames.pine8013.workers.dev/games/worlds-hardest-game-2
+- Thing Thing: https://unblockedgames.pine8013.workers.dev/games/thing-thing
+- Thing Thing 2: https://unblockedgames.pine8013.workers.dev/games/thing-thing-2
+- Thing-Thing 3: https://unblockedgames.pine8013.workers.dev/games/thing-thing-3
+- Thing-Thing 4: https://unblockedgames.pine8013.workers.dev/games/thing-thing-4
+- Toss the Turtle: https://unblockedgames.pine8013.workers.dev/games/toss-the-turtle
+- Ultimate Flash Sonic: https://unblockedgames.pine8013.workers.dev/games/ultimate-flash-sonic
+- Vex: https://unblockedgames.pine8013.workers.dev/games/vex-1
+- Vex 2: https://unblockedgames.pine8013.workers.dev/games/vex-2
+- Vex 3: https://unblockedgames.pine8013.workers.dev/games/vex-3
+- Warfare 1917: https://unblockedgames.pine8013.workers.dev/games/warfare-1917
+- Warfare 1944: https://unblockedgames.pine8013.workers.dev/games/warfare-1944
+- Webtris: https://unblockedgames.pine8013.workers.dev/games/webtris
+- Wheely 1: https://unblockedgames.pine8013.workers.dev/games/wheely-1
+- Zombotron: https://unblockedgames.pine8013.workers.dev/games/zombotron-1
+- Zombotron 2: Time Machine: https://unblockedgames.pine8013.workers.dev/games/zombotron-2
 
 ## About
 Superfun Games provides free unblocked access to classic Flash games and browser games that are no longer playable through normal means since Adobe Flash was discontinued in 2020. All Flash games run through the Ruffle emulator, which is a WebAssembly-based Flash Player replacement that works in modern browsers without any plugins or downloads.
@@ -236,4 +236,4 @@ Superfun Games provides free unblocked access to classic Flash games and browser
 Students at school who want to play games on their school-issued Chromebooks. All games are carefully selected to work within school network restrictions and require no installations or special permissions.
 
 ## DMCA
-https://unblocked-games.vercel.app/dmca
+https://unblockedgames.pine8013.workers.dev/dmca
