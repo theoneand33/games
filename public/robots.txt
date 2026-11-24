@@ -5,6 +5,6 @@ Disallow: /pagefind/
 
 # AI / LLM crawler hints
 # https://llmstxt.org/
-# See https://unblockedgames.pine8013.workers.dev/llms.txt for AI-friendly site summary
+# See https://unblocked-games.vercel.app/llms.txt for AI-friendly site summary
 
-Sitemap: https://unblockedgames.pine8013.workers.dev/sitemap-index.xml
+Sitemap: https://unblocked-games.vercel.app/sitemap-index.xml
