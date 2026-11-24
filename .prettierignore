@@ -6,3 +6,4 @@ public/pagefind/
 dist/
 .astro/
 .wrangler/
+.agents/
