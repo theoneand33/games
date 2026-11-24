@@ -5,3 +5,4 @@ public/flash/
 public/pagefind/
 dist/
 .astro/
+.wrangler/

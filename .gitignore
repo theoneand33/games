@@ -26,3 +26,6 @@ npm-debug.log*
 .vscode/
 *.swp
 *.swo
+
+# wrangler local state
+.wrangler/

@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "unblocked-games",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // Astro emits about/index.html with trailingSlash "never"; serve it at /about
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page",
+    // the vercel.json rewrite sources, proxied by worker/index.ts
+    "run_worker_first": ["/vcsky/*", "/vcbr/*"],
+  },
+}

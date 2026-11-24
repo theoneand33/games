@@ -59,6 +59,7 @@ If the game is HTML5 and not Flash, add a branch in `src/pages/games/[slug].astr
 - `run-3` is the vendored HTML5 exception (`public/games/run3/`, loaded with `<base href="/games/run3/">`). `webtris` stays an external iframe (`https://theoneand33.github.io/tetr.io-clone/`), do not vendor it.
 - `src/pages/index.astro` renders `defaultGames` via `<Gametile>`. The array order is the display order. The "Popular" links are the first 11 entries, keep them in sync. Game pages show a "More Games" row of 9 entries (same-genre first) built in `layout.astro`.
 - `vercel.json` holds slug-variant redirects as 301s (for example `/games/run3` → `/games/run-3`). When you rename or add an alias slug, add a redirect there. Do not add it to `astro.config.mjs`; that would ship a meta-refresh page the host never serves. `scripts/check-pages.ts` fails the build if a redirect source is also a game slug.
+- The site deploys to Vercel and to Cloudflare Workers (`wrangler.jsonc`, deploy with `bunx wrangler deploy` after `bun run build`). `vercel.json` stays the only place for redirects, headers and rewrites: `scripts/cloudflare-assets.ts` writes `dist/_redirects` and `dist/_headers` from it, and `worker/index.ts` proxies its `rewrites` (keep `run_worker_first` in `wrangler.jsonc` in sync with the rewrite sources).
 
 ## 3. Rules
 
