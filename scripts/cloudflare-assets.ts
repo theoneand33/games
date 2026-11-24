@@ -29,8 +29,6 @@ writeFileSync(
     )
     .join("\n") + "\n",
 );
-// .swf files exceed the 25 MiB asset limit and are served from R2 (FLASH_CDN)
-writeFileSync("dist/.assetsignore", "flash/\n");
 console.log(
   `cloudflare-assets: ${redirects.length} redirects, ${headers.length} header rules.`,
 );

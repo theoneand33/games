@@ -26,7 +26,7 @@ Use these names. Do not invent synonyms.
 
 Gotchas:
 
-- `bun run check` runs `astro check` only. `bun run build` runs `git lfs pull`, regenerates `llms.txt` via `scripts/generate-llms.ts`, runs `astro build`, runs `scripts/check-pages.ts`, then `pagefind`. The build is slow. Wait for it to complete.
+- `bun run check` runs `astro check` only. `bun run build` regenerates `llms.txt` via `scripts/generate-llms.ts`, runs `astro build`, deletes `dist/flash` (SWFs are served from R2 via `FLASH_CDN`, so no `git lfs pull` is needed to build), runs `scripts/check-pages.ts`, then `pagefind`. The build is slow. Wait for it to complete.
 - `bun run lint` runs `prettier --check .`. To fix format, run `bunx prettier --write .`.
 - Tailwind is v4 via `@tailwindcss/vite`. Global styles live in `src/styles/styles.css` (imported by `layout.astro`). Do not create `tailwind.config.js`. That file has no effect.
 
