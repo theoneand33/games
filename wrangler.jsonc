@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "unblockedgames",
+  "name": "games",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   "assets": {
