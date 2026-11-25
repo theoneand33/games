@@ -29,16 +29,93 @@ const link =
         >, and more. Updated and working in 2026.
       </p>
       <p class="mt-3 text-sm text-gray-500 dark:text-neutral-500">
-        Mirrors: <a href="https://unblocked-games.vercel.app/" class={link}
+        Mirrors (your saves come with you): <a href="https://unblocked-games.vercel.app/" class={link} data-carry-progress
           >unblocked-games.vercel.app</a
-        > · <a href="https://gamehub-games.vercel.app/" class={link}
+        > · <a href="https://gamehub-games.vercel.app/" class={link} data-carry-progress
           >gamehub-games.vercel.app</a
-        > · <a href="https://superfun-games.vercel.app/" class={link}
+        > · <a href="https://superfun-games.vercel.app/" class={link} data-carry-progress
           >superfun-games.vercel.app</a
-        > · <a href="https://games.pine8013.workers.dev/" class={link}
+        > · <a href="https://games.pine8013.workers.dev/" class={link} data-carry-progress
           >games.pine8013.workers.dev</a
         >
       </p>
+      <script is:inline>
+        // Saves (Ruffle SharedObjects, Run 3) live in per-origin localStorage, so mirror links carry them in the URL hash.
+        // shortcut: a URL holds ~2MB in Chrome, move to a sync backend if saves outgrow that
+        (function () {
+          function gz(stream, fmt) {
+            return new Response(stream.pipeThrough(fmt));
+          }
+          document.addEventListener("click", function (e) {
+            var a = e.target && e.target.closest ? e.target.closest("a[data-carry-progress]") : null;
+            if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            if (typeof CompressionStream === "undefined") return;
+            e.preventDefault();
+            var d = {};
+            try {
+              for (var i = 0; i < localStorage.length; i++) {
+                var k = localStorage.key(i);
+                d[k] = localStorage.getItem(k);
+              }
+            } catch {}
+            gz(new Blob([JSON.stringify(d)]).stream(), new CompressionStream("gzip"))
+              .arrayBuffer()
+              .then(function (buf) {
+                var b = new Uint8Array(buf);
+                var s = "";
+                for (var i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000));
+                location.href = a.href + "#progress=" + btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+              })
+              .catch(function () {
+                location.href = a.href;
+              });
+          });
+
+          var m = location.hash.match(/^#progress=([\w-]+)$/);
+          if (!m) return;
+          history.replaceState(null, "", location.pathname + location.search);
+          // only accept progress sent from a listed mirror, so other sites cannot craft save-overwriting links
+          var from = "";
+          try {
+            from = new URL(document.referrer).origin;
+          } catch {}
+          var mirrors = Array.prototype.map.call(document.querySelectorAll("a[data-carry-progress]"), function (a) {
+            return a.origin;
+          });
+          if (mirrors.indexOf(from) < 0 || typeof DecompressionStream === "undefined") return;
+          try {
+            var bin = atob(m[1].replace(/-/g, "+").replace(/_/g, "/"));
+            var bytes = Uint8Array.from(bin, function (c) {
+              return c.charCodeAt(0);
+            });
+          } catch {
+            return alert("Could not read the progress from " + from + ".");
+          }
+          gz(new Blob([bytes]).stream(), new DecompressionStream("gzip"))
+            .text()
+            .then(function (t) {
+              var d = JSON.parse(t);
+              if (!d || typeof d !== "object" || Array.isArray(d)) throw 0;
+              if (!confirm("Bring your game progress from " + from + "? Matching saves and settings here will be replaced.")) return;
+              var old = {};
+              try {
+                for (var k in d)
+                  if (typeof d[k] === "string") {
+                    old[k] = localStorage.getItem(k);
+                    localStorage.setItem(k, d[k]);
+                  }
+              } catch {
+                // roll back so no game is left with half-imported saves
+                for (var o in old) old[o] === null ? localStorage.removeItem(o) : localStorage.setItem(o, old[o]);
+                return alert("Not enough storage to import your saves. Nothing was changed.");
+              }
+              location.reload();
+            })
+            .catch(function () {
+              alert("Could not read the progress from " + from + ".");
+            });
+        })();
+      </script>
     </header>
 
     <nav aria-label="Popular games" class="mb-8 flex flex-wrap items-baseline gap-x-4 gap-y-2">
